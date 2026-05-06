@@ -381,6 +381,7 @@ body {
     <button class="tab-btn" onclick="showView('linkit')">🔗 Linkit</button>
     <button class="tab-btn" onclick="showView('logistiikka')">🚌 Logistiikka</button>
     <button class="tab-btn" onclick="showView('tarkista')">⚠️ Tärkeää</button>
+    <button class="tab-btn" onclick="showView('ryhma')">👥 Ryhmä</button>
     <button class="tab-btn" onclick="window.location.href='/kartta'">🗺️ Kartta 3D</button>
   </div>
 </div>
@@ -772,6 +773,113 @@ body {
   </div>
 </div>
 
+<!-- ===== RYHMÄ VIEW ===== -->
+<div class="view" id="view-ryhma">
+  <div class="section-title">👥 Ryhmä</div>
+
+  <!-- HÄTÄNUMEROT -->
+  <div class="card" style="background:rgba(192,57,43,0.15);border:1px solid rgba(192,57,43,0.4);margin-bottom:16px;">
+    <div class="card-label" style="color:#e07060;">🚨 Hätänumerot — Espanja</div>
+    
+    <a class="link-btn" onclick="openLink('tel:112')" style="background:rgba(192,57,43,0.2);border-color:rgba(192,57,43,0.5);margin-bottom:8px;">
+      <span class="link-icon">🆘</span>
+      <div class="link-text">
+        <div class="link-title" style="color:#ff8070;font-size:18px;">112 — Yleinen hätänumero</div>
+        <div class="link-sub">Puhutaan suomea, englanniksi myös</div>
+      </div>
+      <span class="link-arrow" style="color:#e07060;">📞</span>
+    </a>
+
+    <a class="link-btn" onclick="openLink('tel:091')" style="margin-bottom:8px;">
+      <span class="link-icon">👮</span>
+      <div class="link-text">
+        <div class="link-title">091 — Poliisi (Policía Nacional)</div>
+        <div class="link-sub">Kansallinen poliisi</div>
+      </div>
+      <span class="link-arrow">📞</span>
+    </a>
+
+    <a class="link-btn" onclick="openLink('tel:061')" style="margin-bottom:8px;">
+      <span class="link-icon">🚑</span>
+      <div class="link-text">
+        <div class="link-title">061 — Ambulanssi (SEM)</div>
+        <div class="link-sub">Katalonian lääkinnällinen hätäapu</div>
+      </div>
+      <span class="link-arrow">📞</span>
+    </a>
+
+    <a class="link-btn" onclick="openLink('tel:085')">
+      <span class="link-icon">🚒</span>
+      <div class="link-text">
+        <div class="link-title">085 — Palovartijat (Bombers)</div>
+        <div class="link-sub">Pelastuslaitos Katalonia</div>
+      </div>
+      <span class="link-arrow">📞</span>
+    </a>
+  </div>
+
+  <!-- LÄHIMMÄT SAIRAALAT -->
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-label">🏥 Lähimmät sairaalat reitillä</div>
+    <a class="link-btn" onclick="openLink('https://maps.app.goo.gl/search/?q=Hospital+de+Blanes')" style="margin-bottom:8px;">
+      <span class="link-icon">🏥</span>
+      <div class="link-text">
+        <div class="link-title">Hospital de Blanes</div>
+        <div class="link-sub">Lähellä etappeja 12–13 · Blanes</div>
+      </div>
+      <span class="link-arrow">↗</span>
+    </a>
+    <a class="link-btn" onclick="openLink('https://www.google.com/maps/search/hospital+Granollers')" style="margin-bottom:8px;">
+      <span class="link-icon">🏥</span>
+      <div class="link-text">
+        <div class="link-title">Hospital General de Granollers</div>
+        <div class="link-sub">Lähellä etappeja 15–17 · Granollers</div>
+      </div>
+      <span class="link-arrow">↗</span>
+    </a>
+    <a class="link-btn" onclick="openLink('https://www.google.com/maps/search/hospital+Barcelona')">
+      <span class="link-icon">🏥</span>
+      <div class="link-text">
+        <div class="link-title">Hospital de Barcelona</div>
+        <div class="link-sub">Lähellä etappeja 18–21 · Barcelona</div>
+      </div>
+      <span class="link-arrow">↗</span>
+    </a>
+  </div>
+
+  <!-- OSALLISTUJAT -->
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-label">👤 Osallistujien yhteystiedot</div>
+    <div style="font-size:12px;color:var(--mist);margin-bottom:12px;line-height:1.5;">
+      Jokainen täyttää omat tietonsa. Tiedot tallentuvat vain tähän puhelimeen.
+    </div>
+    <div id="osallistujaLista"></div>
+    <button onclick="lisaaOsallistuja()" style="width:100%;padding:12px;background:rgba(74,124,63,0.2);border:1px dashed rgba(74,124,63,0.5);border-radius:11px;color:var(--sage);font-size:13px;font-weight:600;cursor:pointer;margin-top:8px;">
+      + Lisää osallistuja
+    </button>
+  </div>
+
+  <!-- MAJOITUKSEN YHTEYSTIEDOT -->
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-label">🏠 Majoitus</div>
+    <table class="info-table">
+      <tr><td>Nimi</td><td>Apartamentos Les Barbes</td></tr>
+      <tr><td>Osoite</td><td>Passeig dels Anglesos 2, Caldes d'Estrac</td></tr>
+      <tr><td>Sijainti</td><td>41.568029, 2.526274</td></tr>
+    </table>
+    <a class="link-btn" onclick="openLink('https://maps.app.goo.gl/eALwNrYJYjNqEirr8')" style="margin-top:10px;">
+      <span class="link-icon">🗺️</span>
+      <div class="link-text"><div class="link-title">Näytä kartalla</div><div class="link-sub">Google Maps</div></div>
+      <span class="link-arrow">↗</span>
+    </a>
+  </div>
+
+  <!-- Copyright -->
+  <div style="text-align:center;padding:12px 16px 4px;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.04em;">
+    © 2026 Kalevalapaja · Jari Tossavainen · Kaikki oikeudet pidätetään
+  </div>
+</div>
+
 <!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal-sheet" id="modalSheet">
@@ -1033,6 +1141,68 @@ function showView(name) {
 // Init
 buildEtappiList();
 setTimeout(() => document.getElementById('progressFill').style.width = '0%', 100);
+
+// ── Osallistujat (localStorage) ──────────────────────────────────────────
+function lataaOsallistujat() {
+  try { return JSON.parse(localStorage.getItem('gr92_osallistujat') || '[]'); }
+  catch(e) { return []; }
+}
+
+function tallennaOsallistujat(lista) {
+  localStorage.setItem('gr92_osallistujat', JSON.stringify(lista));
+}
+
+function renderOsallistujat() {
+  const lista = lataaOsallistujat();
+  const el = document.getElementById('osallistujaLista');
+  if (!el) return;
+  el.innerHTML = '';
+  lista.forEach((o, i) => {
+    el.innerHTML += `
+      <div class="card" style="margin-bottom:8px;padding:12px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <span style="font-weight:600;font-size:14px;color:var(--cream)">👤 ${o.nimi || 'Osallistuja ' + (i+1)}</span>
+          <button onclick="poistaOsallistuja(${i})" style="background:rgba(192,57,43,0.2);border:1px solid rgba(192,57,43,0.3);color:#e07060;border-radius:6px;padding:3px 8px;font-size:11px;cursor:pointer;">Poista</button>
+        </div>
+        <table class="info-table">
+          ${o.puhelin ? `<tr><td>📞 Puhelin</td><td><a href="tel:${o.puhelin}" style="color:var(--sage)">${o.puhelin}</a></td></tr>` : ''}
+          ${o.hatayhteysHenkilo ? `<tr><td>🆘 Hätäyhteys</td><td>${o.hatayhteysHenkilo}</td></tr>` : ''}
+          ${o.hatayhteysNumero ? `<tr><td>📞 Hätänumero</td><td><a href="tel:${o.hatayhteysNumero}" style="color:var(--sage)">${o.hatayhteysNumero}</a></td></tr>` : ''}
+          ${o.allergiat ? `<tr><td>⚕️ Allergiat</td><td>${o.allergiat}</td></tr>` : ''}
+          ${o.laakkeet ? `<tr><td>💊 Lääkkeet</td><td>${o.laakkeet}</td></tr>` : ''}
+        </table>
+      </div>`;
+  });
+}
+
+function lisaaOsallistuja() {
+  const nimi = prompt('Nimi:');
+  if (!nimi) return;
+  const puhelin = prompt('Puhelinnumero:');
+  const hatayhteysHenkilo = prompt('Hätäyhteyshenkilön nimi (kotona):');
+  const hatayhteysNumero = prompt('Hätäyhteyshenkilön numero:');
+  const allergiat = prompt('Allergiat tai sairaudet (valinnainen):');
+  const laakkeet = prompt('Säännölliset lääkkeet (valinnainen):');
+  const lista = lataaOsallistujat();
+  lista.push({ nimi, puhelin, hatayhteysHenkilo, hatayhteysNumero, allergiat, laakkeet });
+  tallennaOsallistujat(lista);
+  renderOsallistujat();
+}
+
+function poistaOsallistuja(i) {
+  if (!confirm('Poistetaanko osallistuja?')) return;
+  const lista = lataaOsallistujat();
+  lista.splice(i, 1);
+  tallennaOsallistujat(lista);
+  renderOsallistujat();
+}
+
+// Render kun näkymä avautuu
+const origShowView = showView;
+function showView(name) {
+  origShowView(name);
+  if (name === 'ryhma') renderOsallistujat();
+}
 
 // PWA
 if ('serviceWorker' in navigator) {
