@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GR92">
+<meta name="theme-color" content="#1e3a1e">
+<title>GR92 Vaellusmatka 2026</title>
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest: #1e3a1e;
+  --moss: #2d5a27;
+  --fern: #4a7c3f;
+  --sage: #7aab6e;
+  --mist: #b8d4b0;
+  --stone: #8b7355;
+  --sand: #d4c5a9;
+  --sky: #4a8fa8;
+  --alert: #c0392b;
+  --warn: #e67e22;
+  --cream: #f5f0e8;
+  --dark: #0f1f0f;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--forest);
+  color: var(--cream);
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+.app-header {
+  background: linear-gradient(180deg, var(--dark) 0%, var(--forest) 100%);
+  padding: 52px 20px 20px;
+  padding-top: max(52px, env(safe-area-inset-top, 20px) + 32px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(74,124,63,0.3);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.header-icon { font-size: 28px; }
+
+.header-title {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--cream);
+}
+
+.header-sub {
+  font-size: 12px;
+  color: var(--sage);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* NAV TABS */
+.nav-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  flex-shrink: 0;
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(74,124,63,0.4);
+  background: transparent;
+  color: var(--mist);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.tab-btn.active {
+  background: var(--moss);
+  border-color: var(--moss);
+  color: var(--cream);
+  font-weight: 500;
+}
+
+/* MAIN CONTENT */
+.main { padding: 16px; padding-bottom: max(80px, env(safe-area-inset-bottom, 20px) + 60px); }
+
+/* VIEWS */
+.view { display: none; animation: fadeIn 0.25s ease; }
+.view.active { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* TODAY CARD / HERO */
+.hero-card {
+  background: linear-gradient(135deg, var(--moss) 0%, var(--fern) 100%);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-card::before {
+  content: '🏔️';
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  font-size: 48px;
+  opacity: 0.15;
+}
+.hero-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mist); margin-bottom: 4px; }
+.hero-title { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+.hero-date { font-size: 13px; color: var(--mist); }
+
+/* STAT CHIPS */
+.stats-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.stat-chip {
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--cream);
+}
+
+/* CARDS */
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.card-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* LINKS */
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 11px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: var(--cream);
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.link-btn:active { background: rgba(74,124,63,0.3); transform: scale(0.98); }
+.link-icon { font-size: 18px; flex-shrink: 0; width: 28px; text-align: center; }
+.link-text { flex: 1; }
+.link-title { font-size: 14px; font-weight: 500; }
+.link-sub { font-size: 11px; color: var(--mist); margin-top: 2px; }
+.link-arrow { color: var(--sage); font-size: 16px; }
+
+/* ETAPPI ROWS */
+.etappi-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 11px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+  color: var(--cream);
+}
+.etappi-item:active { background: rgba(74,124,63,0.2); }
+.etappi-num {
+  background: var(--moss);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+.etappi-num.hard { background: var(--alert); }
+.etappi-info { flex: 1; }
+.etappi-route { font-size: 13px; font-weight: 500; }
+.etappi-meta { font-size: 11px; color: var(--mist); margin-top: 2px; }
+.etappi-badge {
+  font-size: 10px;
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: rgba(74,124,63,0.3);
+  color: var(--sage);
+  flex-shrink: 0;
+}
+.etappi-badge.warn { background: rgba(230,126,34,0.25); color: #f0a060; }
+.etappi-badge.hard { background: rgba(192,57,43,0.25); color: #e07060; }
+
+/* DAY SEPARATOR */
+.day-sep {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 10px;
+}
+.day-sep-line { flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+.day-sep-text { font-size: 11px; color: var(--sage); letter-spacing: 0.08em; text-transform: uppercase; flex-shrink: 0; }
+
+/* REST DAY */
+.rest-day {
+  padding: 12px 16px;
+  background: rgba(74,124,63,0.1);
+  border: 1px dashed rgba(74,124,63,0.3);
+  border-radius: 11px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--sage);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ALERT BOX */
+.alert-box {
+  padding: 13px 14px;
+  border-radius: 11px;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.alert-box.red { background: rgba(192,57,43,0.2); border: 1px solid rgba(192,57,43,0.4); }
+.alert-box.orange { background: rgba(230,126,34,0.15); border: 1px solid rgba(230,126,34,0.35); }
+.alert-box.green { background: rgba(74,124,63,0.15); border: 1px solid rgba(74,124,63,0.35); }
+
+/* INFO TABLE */
+.info-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.info-table td { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.07); vertical-align: top; }
+.info-table td:first-child { color: var(--sage); width: 38%; font-weight: 500; padding-right: 12px; }
+.info-table tr:last-child td { border-bottom: none; }
+
+/* SECTION TITLE */
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--cream);
+}
+
+/* PROGRESS BAR */
+.progress-wrap { margin-bottom: 16px; }
+.progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--sage); margin-bottom: 6px; }
+.progress-bar { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--moss), var(--sage)); border-radius: 3px; transition: width 0.5s ease; }
+
+/* ETAPPI DETAIL MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 200;
+  align-items: flex-end;
+}
+.modal-overlay.open { display: flex; animation: slideUp 0.3s ease; }
+@keyframes slideUp { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-sheet {
+  background: #1a2f1a;
+  border-radius: 20px 20px 0 0;
+  padding: 20px 20px;
+  padding-bottom: max(20px, env(safe-area-inset-bottom, 20px) + 10px);
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  animation: sheetUp 0.3s ease;
+}
+@keyframes sheetUp { from { transform: translateY(40px); } to { transform: translateY(0); } }
+
+.modal-handle {
+  width: 40px;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  margin: 0 auto 20px;
+}
+.modal-close {
+  float: right;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: var(--cream);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -4px;
+}
+
+/* SUMMARY GRID */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.summary-tile {
+  background: rgba(255,255,255,0.05);
+  border-radius: 11px;
+  padding: 12px;
+  text-align: center;
+}
+.summary-tile .val { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: var(--sage); }
+.summary-tile .lbl { font-size: 10px; color: var(--mist); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <div class="header-top">
+    <span class="header-icon">🥾</span>
+    <div>
+      <div class="header-title">GR92 Vaellusmatka</div>
+      <div class="header-sub">4.–20. syyskuuta 2026 · Lloret → Garraf</div>
+    </div>
+  </div>
+  <div class="nav-tabs" id="navTabs">
+    <button class="tab-btn active" onclick="showView('ohjelma')">📅 Ohjelma</button>
+    <button class="tab-btn" onclick="showView('etapit')">🗺️ Etapit</button>
+    <button class="tab-btn" onclick="showView('linkit')">🔗 Linkit</button>
+    <button class="tab-btn" onclick="showView('logistiikka')">🚌 Logistiikka</button>
+    <button class="tab-btn" onclick="showView('tarkista')">⚠️ Tärkeää</button>
+    <button class="tab-btn" onclick="openLink('kartta.html')">🗺️ Kartta 3D</button>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ===== OHJELMA VIEW ===== -->
+<div class="view active" id="view-ohjelma">
+
+  <div class="hero-card">
+    <div class="hero-label">Matka yhteensä</div>
+    <div class="hero-title">171 km · 10 etappia</div>
+    <div class="hero-date">Lloret de Mar → Garraf · Majoitus: Vilassar de Mar</div>
+    <div class="stats-row">
+      <div class="stat-chip">📏 171 km</div>
+      <div class="stat-chip">⬆️ 4 518 m</div>
+      <div class="stat-chip">⬇️ 4 620 m</div>
+      <div class="stat-chip">🏠 1 majoitus</div>
+    </div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap card">
+    <div class="card-label">Etappiyhteenveto</div>
+    <div id="progressInfo" style="font-size:13px; color:var(--mist); margin-bottom:10px;">10 etappia · 4 lepopäivää · 17 päivää</div>
+    <div class="progress-label"><span>Etappi 12</span><span>Etappi 21</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:0%" id="progressFill"></div></div>
+  </div>
+
+  <!-- PÄIVÄT -->
+  <div class="section-title">Päiväohjelma</div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">4.9. Torstai</div><div class="day-sep-line"></div></div>
+  <div class="link-btn" onclick="openLink('https://www.skyscanner.fi/reitit/bcn/hel/barcelona-mihin-helsinki-vantaa.html')">
+    <span class="link-icon">✈️</span>
+    <div class="link-text">
+      <div class="link-title">Lento Helsinki → Barcelona</div>
+      <div class="link-sub">AY1653 · 17:05 → 20:05 · Skyscanner</div>
+    </div>
+    <span class="link-arrow">↗</span>
+  </div>
+  <div class="card" style="font-size:13px; color:var(--mist); line-height:1.6;">
+    20:30 matkatavarat · 21:30 kuljetus Vilassar de Mariin<br>
+    <strong style="color:var(--cream)">Majoitus:</strong> Vistamar Beach (koko matkan)
+  </div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">5.9. Perjantai</div><div class="day-sep-line"></div></div>
+  <div class="rest-day">◇ <span><strong>Vapaapäivä</strong> — ruokakauppa, varusteet, kevyt kävely tai uinti</span></div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">6.9. Lauantai</div><div class="day-sep-line"></div></div>
+  <div class="etappi-item" onclick="openEtappi(12)">
+    <div class="etappi-num">12</div>
+    <div class="etappi-info">
+      <div class="etappi-route">Lloret de Mar → Tordera</div>
+      <div class="etappi-meta">19 km · ⬆️ 232 m · ⬇️ 215 m</div>
+    </div>
+    <div class="etappi-badge">Helppo</div>
+  </div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">7.9. Sunnuntai</div><div class="day-sep-line"></div></div>
+  <div class="etappi-item" onclick="openEtappi(13)">
+    <div class="etappi-num">13</div>
+    <div class="etappi-info">
+      <div class="etappi-route">Tordera → Hortsavinyà</div>
+      <div class="etappi-meta">14 km · ⬆️ 527 m · ⬇️ 80 m</div>
+    </div>
+    <div class="etappi-badge warn">Keskivaativa</div>
+  </div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">8.9. Maanantai</div><div class="day-sep-line"></div></div>
+  <div class="etappi-item" onclick="openEtappi(14)">
+    <div class="etappi-num">14</div>
+    <div class="etappi-info">
+      <div class="etappi-route">Hortsavinyà → Vallgorguina</div>
+      <div class="etappi-meta">17 km · ⬆️ 307 m · ⬇️ 571 m</div>
+    </div>
+    <div class="etappi-badge warn">Metsä/nousut</div>
+  </div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">9.9. Tiistai</div><div class="day-sep-line"></div></div>
+  <div class="rest-day">◇ <span><strong>Vapaapäivä</strong> — palautuminen etapeista 13 &amp; 14</span></div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">10.9. Keskiviikko</div><div class="day-sep-line"></div></div>
+  <div class="etappi-item" onclick="openEtappi(15)">
+    <div class="etappi-num">15</div>
+    <div class="etappi-info">
+      <div class="etappi-route">Vallgorguina → Can Bordoi</div>
+      <div class="etappi-meta">15 km · ⬆️ 507 m · ⬇️ 403 m</div>
+    </div>
+    <div class="etappi-badge warn">Harjanne</div>
+  </div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">11.9. Torstai</div><div class="day-sep-line"></div></div>
+  <div class="etappi-item" onclick="openEtappi(16)">
+    <div class="etappi-num">16</div>
+    <div class="etappi-info">
+      <div class="etappi-route">Can Bordoi → Font de Cera</div>
+      <div class="etappi-meta">19 km · ⬆️ 481 m · ⬇️ 405 m</div>
+    </div>
+    <div class="etappi-badge warn">Navigointi</div>
+  </div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">12.9. Perjantai</div><div class="day-sep-line"></div></div>
+  <div class="etappi-item" onclick="openEtappi(17)">
+    <div class="etappi-num">17</div>
+    <div class="etappi-info">
+      <div class="etappi-route">Font de Cera → Montcada</div>
+      <div class="etappi-meta">17 km · ⬆️ 352 m · ⬇️ 658 m</div>
+    </div>
+    <div class="etappi-badge">Helpottava</div>
+  </div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">13.9. Lauantai</div><div class="day-sep-line"></div></div>
+  <div class="rest-day">◇ <span><strong>Vapaapäivä – Barcelona</strong> — varusteet, ravintola, mahdollinen hieronta 💆</span></div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">14.9. Sunnuntai</div><div class="day-sep-line"></div></div>
+  <div class="etappi-item" onclick="openEtappi(18)">
+    <div class="etappi-num">18</div>
+    <div class="etappi-info">
+      <div class="etappi-route">Montcada → Vallvidrera</div>
+      <div class="etappi-meta">17 km · ⬆️ 652 m · ⬇️ 442 m</div>
+    </div>
+    <div class="etappi-badge warn">Nousupäivä</div>
+  </div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">15.9. Maanantai</div><div class="day-sep-line"></div></div>
+  <div class="etappi-item" onclick="openEtappi(19)">
+    <div class="etappi-num">19</div>
+    <div class="etappi-info">
+      <div class="etappi-route">Vallvidrera → Sant Vicenç</div>
+      <div class="etappi-meta">14 km · ⬆️ 250 m · ⬇️ 470 m</div>
+    </div>
+    <div class="etappi-badge">Lyhyt</div>
+  </div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">16.9. Tiistai</div><div class="day-sep-line"></div></div>
+  <div class="rest-day">◇ <span><strong>Vapaapäivä</strong> — lepo ennen raskainta etappia 20</span></div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">17.9. Keskiviikko</div><div class="day-sep-line"></div></div>
+  <div class="etappi-item" onclick="openEtappi(20)">
+    <div class="etappi-num hard">20</div>
+    <div class="etappi-info">
+      <div class="etappi-route">Sant Vicenç → Bruguers ⚡</div>
+      <div class="etappi-meta">23 km · ⬆️ 655 m · ⬇️ 696 m · Lähtö 07:00!</div>
+    </div>
+    <div class="etappi-badge hard">Raskain!</div>
+  </div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">18.9. Torstai</div><div class="day-sep-line"></div></div>
+  <div class="etappi-item" onclick="openEtappi(21)">
+    <div class="etappi-num">21</div>
+    <div class="etappi-info">
+      <div class="etappi-route">Bruguers → Garraf 🌊</div>
+      <div class="etappi-meta">16 km · ⬆️ 455 m · ⬇️ 681 m</div>
+    </div>
+    <div class="etappi-badge">Palkinto</div>
+  </div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">19.9. Perjantai</div><div class="day-sep-line"></div></div>
+  <div class="rest-day">◇ <span><strong>Vapaapäivä</strong> — viimeinen ilta yhdessä, pakkaus</span></div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">20.9. Lauantai</div><div class="day-sep-line"></div></div>
+  <div class="link-btn" onclick="openLink('https://www.skyscanner.fi/reitit/bcn/hel/barcelona-mihin-helsinki-vantaa.html')">
+    <span class="link-icon">✈️</span>
+    <div class="link-text">
+      <div class="link-title">Lento Barcelona → Helsinki</div>
+      <div class="link-sub">AY1654 · 10:05 → 15:10 · Lähtö 06:30 · Herätys 05:30</div>
+    </div>
+    <span class="link-arrow">↗</span>
+  </div>
+
+</div>
+
+<!-- ===== ETAPIT VIEW ===== -->
+<div class="view" id="view-etapit">
+  <div class="section-title">Kaikki etapit</div>
+
+  <div class="summary-grid">
+    <div class="summary-tile"><div class="val">171 km</div><div class="lbl">Yhteensä</div></div>
+    <div class="summary-tile"><div class="val">4 518 m</div><div class="lbl">Nousua</div></div>
+    <div class="summary-tile"><div class="val">10</div><div class="lbl">Etappia</div></div>
+    <div class="summary-tile"><div class="val">4</div><div class="lbl">Lepopäivää</div></div>
+  </div>
+
+  <div id="etappiList"></div>
+</div>
+
+<!-- ===== LINKIT VIEW ===== -->
+<div class="view" id="view-linkit">
+  <div class="section-title">Kaikki linkit</div>
+
+  <div class="card-label">Lennot</div>
+  <div class="link-btn" onclick="openLink('https://www.skyscanner.fi/reitit/bcn/hel/barcelona-mihin-helsinki-vantaa.html')">
+    <span class="link-icon">✈️</span>
+    <div class="link-text"><div class="link-title">Lennot – Skyscanner</div><div class="link-sub">HEL↔BCN, Finnair AY1653/AY1654</div></div>
+    <span class="link-arrow">↗</span>
+  </div>
+
+  <div class="card-label" style="margin-top:14px">Majoitus</div>
+  <div class="link-btn" onclick="openLink('https://www.booking.com/hotel/es/aparthotel-50m-beach-station-and-30min-train-to-bcn.fi.html')">
+    <span class="link-icon">🏠</span>
+    <div class="link-text"><div class="link-title">Vistamar Beach 30 min Barcelona</div><div class="link-sub">Vilassar de Mar – koko matkan majoitus</div></div>
+    <span class="link-arrow">↗</span>
+  </div>
+
+  <div class="card-label" style="margin-top:14px">Kuljetus</div>
+  <div class="link-btn" onclick="openLink('https://www.google.com/maps/dir/?api=1&origin=Barcelona+El+Prat+Airport&destination=Vilassar+de+Mar&travelmode=transit')">
+    <span class="link-icon">🗺️</span>
+    <div class="link-text"><div class="link-title">Reitti kentältä majoitukseen</div><div class="link-sub">El Prat → Vilassar de Mar (Google Maps)</div></div>
+    <span class="link-arrow">↗</span>
+  </div>
+  <div class="link-btn" onclick="openLink('https://www.google.com/maps/dir/?api=1&destination=Vilassar+de+Mar&travelmode=transit')">
+    <span class="link-icon">🚆</span>
+    <div class="link-text"><div class="link-title">Reitti majoitukseen – Rodalies R1</div><div class="link-sub">Rannikon junaverkko, Vilassar de Mar asema</div></div>
+    <span class="link-arrow">↗</span>
+  </div>
+
+  <div class="card-label" style="margin-top:14px">GPX-reitit (Outdooractive)</div>
+  <div id="gpxLinks"></div>
+
+  <div class="card-label" style="margin-top:14px">Sovellukset</div>
+  <div class="link-btn" onclick="openLink('https://play.google.com/store/apps/details?id=com.google.android.apps.maps')">
+    <span class="link-icon">📍</span>
+    <div class="link-text"><div class="link-title">Google Maps</div><div class="link-sub">Navigointi ja julkisen liikenteen aikataulut</div></div>
+    <span class="link-arrow">↗</span>
+  </div>
+  <div class="link-btn" onclick="openLink('https://www.rodalies.gencat.cat/ca/index.html')">
+    <span class="link-icon">🚆</span>
+    <div class="link-text"><div class="link-title">Rodalies</div><div class="link-sub">Lähijunat – aikataulut verkossa</div></div>
+    <span class="link-arrow">↗</span>
+  </div>
+  <div class="link-btn" onclick="openLink('https://www.fgc.cat/ca/')">
+    <span class="link-icon">🚇</span>
+    <div class="link-text"><div class="link-title">FGC</div><div class="link-sub">Vallvidreran linja – aikataulut</div></div>
+    <span class="link-arrow">↗</span>
+  </div>
+  <div class="link-btn" onclick="openLink('https://www.outdooractive.com')">
+    <span class="link-icon">🧭</span>
+    <div class="link-text"><div class="link-title">Outdooractive</div><div class="link-sub">GPX-reitit offline-käyttöön</div></div>
+    <span class="link-arrow">↗</span>
+  </div>
+  <div class="link-btn" onclick="openLink('https://www.komoot.com')">
+    <span class="link-icon">🗺️</span>
+    <div class="link-text"><div class="link-title">Komoot</div><div class="link-sub">Vaihtoehto GPX-reiteille</div></div>
+    <span class="link-arrow">↗</span>
+  </div>
+  <div class="link-btn" onclick="openLink('https://www.sagales.com')">
+    <span class="link-icon">🚌</span>
+    <div class="link-text"><div class="link-title">Sagalés / LloretBus</div><div class="link-sub">Lloretin alueen bussit</div></div>
+    <span class="link-arrow">↗</span>
+  </div>
+</div>
+
+<!-- ===== LOGISTIIKKA VIEW ===== -->
+<div class="view" id="view-logistiikka">
+  <div class="section-title">Logistiikka</div>
+
+  <div class="card">
+    <div class="card-label">Kuljetus etapeittain</div>
+    <table class="info-table">
+      <tr><td>E12 · 6.9.</td><td>Täysin julkisilla (R1)</td></tr>
+      <tr><td>E13 · 7.9.</td><td>Meno junalla · paluu tila-autolla</td></tr>
+      <tr><td>E14 · 8.9.</td><td>Meno autolla · paluu julkisella/auto</td></tr>
+      <tr><td>E15 · 10.9.</td><td>Meno julkisilla · paluu autolla</td></tr>
+      <tr><td>E16 · 11.9.</td><td>Auto molemmissa päissä</td></tr>
+      <tr><td>E17 · 12.9.</td><td>Meno auto/bussi · paluu Rodalies</td></tr>
+      <tr><td>E18 · 14.9.</td><td>Täysin julkisilla (Rodalies + FGC)</td></tr>
+      <tr><td>E19 · 15.9.</td><td>Täysin julkisilla (FGC + Llobregat)</td></tr>
+      <tr><td>E20 · 17.9.</td><td>Meno junalla · paluu autolla</td></tr>
+      <tr><td>E21 · 18.9.</td><td>Meno autolla · paluu R2 Sud</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Vesihuolto</div>
+    <table class="info-table">
+      <tr><td>Peruspäivät</td><td>2,0–2,5 L / henkilö</td></tr>
+      <tr><td>Sisämaapäivät<br><span style="font-size:11px">(E13–17, 20–21)</span></td><td>3,0–4,0 L / henkilö</td></tr>
+      <tr><td>Elektrolyytit</td><td>E16, E18 ja E20 — pakollinen</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Päivärytmi etappipäivinä</div>
+    <table class="info-table">
+      <tr><td>Herätys</td><td>06:30–07:00</td></tr>
+      <tr><td>Lähtö</td><td>07:15–07:45</td></tr>
+      <tr><td>Kävelyn alku</td><td>08:45–09:30</td></tr>
+      <tr><td>Maali</td><td>14:00–16:30</td></tr>
+      <tr><td>Paluu</td><td>iltapäivällä/alkuillasta</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Liikennejärjestelmät</div>
+    <table class="info-table">
+      <tr><td>Rodalies R1</td><td>Rannikko: Vilassar de Mar, Tordera, Montcada, Garraf</td></tr>
+      <tr><td>FGC</td><td>Baixador de Vallvidrera (Zone 1)</td></tr>
+      <tr><td>R2 Sud</td><td>Garraf → Vilassar de Mar (tarkista ratatyöt!)</td></tr>
+      <tr><td>Sagalés/646</td><td>Alella, Font de Cera alueen bussit</td></tr>
+      <tr><td>902-linja</td><td>Bruguers alue (tarkista aikataulut)</td></tr>
+    </table>
+  </div>
+
+  <div class="link-btn" onclick="openLink('https://www.rodalies.gencat.cat/ca/index.html')">
+    <span class="link-icon">🚆</span>
+    <div class="link-text"><div class="link-title">Rodalies aikataulut</div><div class="link-sub">Virallinen sivusto</div></div>
+    <span class="link-arrow">↗</span>
+  </div>
+  <div class="link-btn" onclick="openLink('https://www.fgc.cat/ca/')">
+    <span class="link-icon">🚇</span>
+    <div class="link-text"><div class="link-title">FGC aikataulut</div><div class="link-sub">Vallvidreran linja</div></div>
+    <span class="link-arrow">↗</span>
+  </div>
+</div>
+
+<!-- ===== TÄRKEÄÄ VIEW ===== -->
+<div class="view" id="view-tarkista">
+  <div class="section-title">⚠️ Tärkeää</div>
+
+  <div class="alert-box red">
+    <span style="font-size:20px">🔴</span>
+    <div><strong>Etappi 20 — RASKAIN PÄIVÄ</strong><br>23 km, 655 m nousu. Lähtö 07:00 kriittinen! Elektrolyytit pakollinen. Varasuunnitelma: keskeytys puolivälissä tieyhteyden kohdalla.</div>
+  </div>
+
+  <div class="alert-box orange">
+    <span style="font-size:20px">🟠</span>
+    <div><strong>Etapit 13, 14, 16 — Auto pakollinen</strong><br>Harvaanasutut sisämaaetapit ilman hyviä poistumisreittejä. Auto vähintään toisessa päässä.</div>
+  </div>
+
+  <div class="alert-box orange">
+    <span style="font-size:20px">🧭</span>
+    <div><strong>Etapit 13–16 — GPX aktiivisena koko ajan</strong><br>Navigoinnin kannalta tarkimmat päivät. Ryhmä pysyy yhdessä, kukaan ei lähde yksin edelle.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Syyskuussa tarkistettava</div>
+    <div class="alert-box orange" style="margin-bottom:8px">
+      <span>🚧</span>
+      <div>R2 Sud / Garraf–Sitges rataremontti — tarkista tilanne ennen etappia 21</div>
+    </div>
+    <div class="alert-box orange" style="margin-bottom:8px">
+      <span>🚌</span>
+      <div>902-linjan aikataulut etapille 20 (Bruguers)</div>
+    </div>
+    <div class="alert-box orange" style="margin-bottom:0">
+      <span>🚌</span>
+      <div>Paikallisbussien aikataulut etapeille 14, 16, 17 ja 20</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Pakolliset varusteet</div>
+    <div style="font-size:13px; line-height:2; color:var(--mist)">
+      ☀️ Aurinkosuoja + hattu + kevyt tuulitakki<br>
+      📱 Offline-kartat ladattu ennen matkaa (GPX)<br>
+      🩹 Perusensiapu + rakonhoitovälineet<br>
+      💧 Elektrolyytit pitkille etapeille<br>
+      👥 Ryhmä pysyy yhdessä aina
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">3 tärkeintä vinkkiä</div>
+    <div class="alert-box red" style="margin-bottom:8px"><span>1️⃣</span><div>E13–16 = logistisesti vaikeimmat → auto pakollinen</div></div>
+    <div class="alert-box orange" style="margin-bottom:8px"><span>2️⃣</span><div>E20 = fyysisesti raskain → aikainen lähtö klo 07:00 kriittinen</div></div>
+    <div class="alert-box green" style="margin-bottom:0"><span>3️⃣</span><div>Juomavesi + elektrolyytit → ratkaiseva suorituskykyyn</div></div>
+  </div>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal-sheet" id="modalSheet">
+    <div class="modal-handle"></div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+// Open external links safely from PWA
+function openLink(url) {
+  window.open(url, '_blank', 'noopener,noreferrer');
+}
+
+// Download or open GPX file
+function downloadGpx(url, num) {
+  // Try to trigger download; on iOS this will open in browser which can then be shared to apps
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'GR92-etappi' + num + '.gpx';
+  a.target = '_blank';
+  a.rel = 'noopener';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+// ETAPPI DATA
+const etapit = {
+  12: {
+    date: '6.9.', route: 'Lloret de Mar → Tordera',
+    km: 19, up: 232, down: 215, type: 'Helppo aloitus — urbaani alku',
+    risk: 'Kuumuus · eksymisriski kaupungissa', water: '2 L',
+    service: 'Lloret de Mar + Tordera',
+    backup: 'Bussi tai juna rannikkoa pitkin',
+    transport: 'Täysin julkisilla (R1)',
+    gpx: './etappi12.gpx',
+    gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/girona-katalonien-/gr92-etappi-12-lloret-de-marista-torderaan/334206588/',
+    menoLabel: '🚆 Julkinen',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.50068039084734,2.3895158081112293&destination=41.70077,2.84171&travelmode=transit',
+    paluuLabel: '🚆 Julkinen',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.70731,2.71933&destination=41.50068039084734,2.3895158081112293&travelmode=transit',
+    badge: 'Helppo', hard: false
+  },
+  13: {
+    date: '7.9.', route: 'Tordera → Hortsavinyà',
+    km: 14, up: 527, down: 80, type: 'Ensimmäinen "oikea vaellus"',
+    risk: 'Ei poistumisreittejä — käännyttävä takaisin hätätilanteessa', water: '3 L minimum',
+    backup: 'Kääntyminen takaisin (ainoa turvallinen)',
+    transport: 'Meno junalla · paluu tila-autolla',
+    gpx: './etappi13.gpx',
+    gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-13-torderasta-hortsavinyaan/334206949/',
+    menoLabel: '🚆 Julkinen',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.50068039084734,2.3895158081112293&destination=41.70730,2.71934&travelmode=transit',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.66405,2.61465&destination=41.50068039084734,2.3895158081112293&travelmode=driving',
+    badge: 'Keskivaativa', hard: false
+  },
+  14: {
+    date: '8.9.', route: 'Hortsavinyà → Vallgorguina',
+    km: 17, up: 307, down: 571, type: 'Metsä + nousut',
+    risk: 'Reitin katoaminen — GPX pakollinen', water: '2,5 L',
+    backup: 'Vallgorguina — turvallinen poistuminen',
+    transport: 'Meno autolla · paluu julkisella/auto',
+    gpx: './etappi14.gpx',
+    gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-14-hortsavinya-to-vallgorguina/334207213/',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.50068039084734,2.3895158081112293&destination=41.66405,2.61465&travelmode=driving',
+    paluuLabel: '🚆 Julkinen',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.64834,2.50986&destination=41.50068039084734,2.3895158081112293&travelmode=transit',
+    badge: 'Metsä/nousut', hard: false
+  },
+  15: {
+    date: '10.9.', route: 'Vallgorguina → Can Bordoi',
+    km: 15, up: 507, down: 403, type: 'Harjanne — altistuminen auringolle',
+    risk: 'Kuumuus — aurinkosuoja pakollinen', water: '2,5–3 L',
+    backup: 'Llinars del Vallès — lasku reitiltä',
+    transport: 'Meno julkisilla · paluu autolla',
+    gpx: './etappi15.gpx',
+    gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-15-vallgorguinasta-can-bordoi-passiin/334207381/',
+    menoLabel: '🚆 Julkinen',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.50068039084734,2.3895158081112293&destination=41.64833,2.50987&travelmode=transit',
+    paluuLabel: '🚗 Auto',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.62429,2.40406&destination=41.50068039084734,2.3895158081112293&travelmode=driving',
+    badge: 'Harjanne', hard: false
+  },
+  16: {
+    date: '11.9.', route: 'Can Bordoi → Font de Cera',
+    km: 19, up: 481, down: 405, type: 'Teknisesti vaativin navigointi',
+    risk: 'Eksyminen — GPX pakollinen, ryhmä pysyy yhdessä', water: '3 L',
+    backup: 'Alella — lasku merelle',
+    transport: 'Auto molemmissa päissä',
+    gpx: './etappi16.gpx',
+    gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-16-can-bordoi-passista-font-de-cera-passiin/334209930/',
+    menoLabel: '🚗 Auto',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.50068039084734,2.3895158081112293&destination=41.62422,2.40412&travelmode=driving',
+    paluuLabel: '🚗 Auto',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.51802,2.33682&destination=41.50068039084734,2.3895158081112293&travelmode=driving',
+    badge: 'Navigointi', hard: false
+  },
+  17: {
+    date: '12.9.', route: 'Font de Cera → Montcada',
+    km: 17, up: 352, down: 658, type: 'Helpottava päivä — riski vähäinen',
+    risk: 'Matala', water: '2 L',
+    backup: 'Helppo poistuminen reitiltä',
+    transport: 'Meno auto/bussi · paluu Rodalies',
+    gpx: './etappi17.gpx',
+    gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-17-font-de-cera-passista-montcada-i-reixac-asemalle/334210344/',
+    menoLabel: '🚗 Auto',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.50068039084734,2.3895158081112293&destination=41.51431,2.29375&travelmode=driving',
+    paluuLabel: '🚆 Julkinen',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.48445,2.18795&destination=41.50068039084734,2.3895158081112293&travelmode=transit',
+    badge: 'Helpottava', hard: false
+  },
+  18: {
+    date: '14.9.', route: 'Montcada → Vallvidrera',
+    km: 17, up: 652, down: 442, type: 'Nousupäivä — rytmitys tärkeä',
+    risk: 'Nousukuormitus', water: '2,5 L',
+    backup: 'FGC-asemia matkan varrella',
+    transport: 'Täysin julkisilla (Rodalies + FGC)',
+    gpx: './etappi18.gpx',
+    gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-18-montcada-i-reixac-asemalta-baixador-de-vallvidrera-asemalle/334210518/',
+    menoLabel: '🚆 Julkinen',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.50068039084734,2.3895158081112293&destination=41.48443,2.18795&travelmode=transit',
+    paluuLabel: '🚆 Julkinen',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.42000,2.09680&destination=41.50068039084734,2.3895158081112293&travelmode=transit',
+    badge: 'Nousupäivä', hard: false
+  },
+  19: {
+    date: '15.9.', route: 'Vallvidrera → Sant Vicenç dels Horts',
+    km: 14, up: 250, down: 470, type: 'Lyhyt — hyvä palautumispäivä',
+    risk: 'Aliarviointi', water: '2 L',
+    backup: 'Llobregatin liikennekäytävä',
+    transport: 'Täysin julkisilla (FGC + Llobregat)',
+    gpx: './etappi19.gpx',
+    gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-19-baixador-de-vallvidrera-asemalta-sant-vicenc-dels-hortsiin/334210802/',
+    menoLabel: '🚆 Julkinen',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.50068039084734,2.3895158081112293&destination=41.42002,2.09679&travelmode=transit',
+    paluuLabel: '🚆 Julkinen',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.39875,2.00526&destination=41.50068039084734,2.3895158081112293&travelmode=transit',
+    badge: 'Lyhyt', hard: false
+  },
+  20: {
+    date: '17.9.', route: 'Sant Vicenç dels Horts → Bruguers ⚡',
+    km: 23, up: 655, down: 696, type: 'Kriittinen päivä — uupumisriski',
+    risk: '⚠️ RASKAIN ETAPPI — lähtö 07:00 kriittinen!', water: '3–4 L + elektrolyytit',
+    backup: 'Keskeytys puolivälissä tieyhteyden kohdalla · nouto autolla',
+    transport: 'Meno junalla · paluu autolla (suositeltu)',
+    gpx: './etappi20.gpx',
+    gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-20-sant-vicenc-dels-hortsista-bruguers-puistoon/334211034/',
+    menoLabel: '🚆 Julkinen',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.50068039084734,2.3895158081112293&destination=41.38805,2.01214&travelmode=transit',
+    paluuLabel: '🚗 Auto',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.31476,1.96183&destination=41.50068039084734,2.3895158081112293&travelmode=driving',
+    badge: 'Raskain!', hard: true
+  },
+  21: {
+    date: '18.9.', route: 'Bruguers → Garraf 🌊',
+    km: 16, up: 455, down: 681, type: 'Palkintopäivä — meri odottaa!',
+    risk: 'Loppuväsymys', water: '2 L',
+    backup: 'Garraf–Sitges R2 Sud (tarkista ratatyöt!)',
+    transport: 'Meno autolla · paluu R2 Sud',
+    gpx: './etappi21.gpx',
+    gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-21-bruguersista-garrafiin/334211327/',
+    menoLabel: '🚗 Auto',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.50068039084734,2.3895158081112293&destination=41.31476,1.96180&travelmode=driving',
+    paluuLabel: '🚆 Julkinen',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.25402,1.90245&destination=41.50068039084734,2.3895158081112293&travelmode=transit',
+    badge: 'Palkinto', hard: false
+  }
+};
+
+// Build etappi list
+function buildEtappiList() {
+  const el = document.getElementById('etappiList');
+  const gpxEl = document.getElementById('gpxLinks');
+  let html = '';
+  let gpxHtml = '';
+  for (const [num, e] of Object.entries(etapit)) {
+    const badgeClass = e.hard ? 'hard' : (e.badge === 'Helppo' || e.badge === 'Helpottava' || e.badge === 'Lyhyt' || e.badge === 'Palkinto') ? '' : 'warn';
+    html += `<div class="etappi-item" onclick="openEtappi(${num})">
+      <div class="etappi-num${e.hard ? ' hard' : ''}">${num}</div>
+      <div class="etappi-info">
+        <div class="etappi-route">${e.route}</div>
+        <div class="etappi-meta">${e.date} · ${e.km} km · ⬆️ ${e.up} m · ⬇️ ${e.down} m</div>
+      </div>
+      <div class="etappi-badge${badgeClass ? ' ' + badgeClass : ''}">${e.badge}</div>
+    </div>`;
+    gpxHtml += `<div class="link-btn" onclick="downloadGpx('${e.gpx}', ${num})">
+      <span class="link-icon">⬇️</span>
+      <div class="link-text"><div class="link-title">E${num} – Lataa GPX</div><div class="link-sub">${e.route}</div></div>
+      <span class="link-arrow">↓</span>
+    </div>
+    <div class="link-btn" onclick="openLink('${e.gpxOA}')">
+      <span class="link-icon">🧭</span>
+      <div class="link-text"><div class="link-title">E${num} – Outdooractive</div><div class="link-sub">${e.route}</div></div>
+      <span class="link-arrow">↗</span>
+    </div>`;
+  }
+  el.innerHTML = html;
+  gpxEl.innerHTML = gpxHtml;
+}
+
+function openEtappi(num) {
+  const e = etapit[num];
+  const riskColor = e.hard ? 'red' : 'orange';
+  document.getElementById('modalContent').innerHTML = `
+    <div class="card-label" style="margin-bottom:6px">Etappi ${num} · ${e.date}</div>
+    <div style="font-family:'Fraunces',serif; font-size:22px; font-weight:700; margin-bottom:14px; line-height:1.2">${e.route}</div>
+    <div class="stats-row" style="margin-bottom:16px">
+      <div class="stat-chip">📏 ${e.km} km</div>
+      <div class="stat-chip">⬆️ ${e.up} m</div>
+      <div class="stat-chip">⬇️ ${e.down} m</div>
+    </div>
+    <table class="info-table" style="margin-bottom:14px">
+      <tr><td>Tyyppi</td><td>${e.type}</td></tr>
+      <tr><td>Riski</td><td>${e.risk}</td></tr>
+      <tr><td>Vesi</td><td>💧 ${e.water}</td></tr>
+      ${e.service ? `<tr><td>Huolto</td><td>${e.service}</td></tr>` : ''}
+      <tr><td>Varasuunn.</td><td>${e.backup}</td></tr>
+      <tr><td>Kuljetus</td><td>${e.transport}</td></tr>
+    </table>
+    <div class="link-btn" onclick="downloadGpx('${e.gpx}', ${num})">
+      <span class="link-icon">⬇️</span>
+      <div class="link-text"><div class="link-title">Lataa GPX-tiedosto</div><div class="link-sub">Avaa Komoot / Outdooractive / Maps</div></div>
+      <span class="link-arrow">↓</span>
+    </div>
+    <div class="link-btn" onclick="openLink('${e.gpxOA}')">
+      <span class="link-icon">🧭</span>
+      <div class="link-text"><div class="link-title">Näytä Outdooractivessa</div><div class="link-sub">Reittikuvaus ja kartta</div></div>
+      <span class="link-arrow">↗</span>
+    </div>
+    <div class="link-btn" onclick="openLink('${e.meno}')">
+      <span class="link-icon">➡️</span>
+      <div class="link-text"><div class="link-title">Menoreitti ${e.menoLabel}</div><div class="link-sub">Vistamar Beach → etapin alku</div></div>
+      <span class="link-arrow">↗</span>
+    </div>
+    <div class="link-btn" onclick="openLink('${e.paluu}')">
+      <span class="link-icon">⬅️</span>
+      <div class="link-text"><div class="link-title">Paluureitti ${e.paluuLabel}</div><div class="link-sub">Etapin loppu → Vistamar Beach</div></div>
+      <span class="link-arrow">↗</span>
+    </div>
+  `;
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modal') || e.target.className === 'modal-close') {
+    document.getElementById('modal').classList.remove('open');
+  }
+}
+
+function showView(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('view-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Init
+buildEtappiList();
+setTimeout(() => document.getElementById('progressFill').style.width = '0%', 100);
+
+// PWA
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js').then(reg => {
+    console.log('SW registered');
+  }).catch(e => console.warn('SW error:', e));
+  // Listen for offline cache completion
+  navigator.serviceWorker.addEventListener('message', e => {
+    if (e.data && e.data.type === 'TILE_DONE') {
+      console.log('Offline karttaruudut valmiit:', e.data.cached);
+    }
+  });
+}
+</script>
+</body>
+</html>
