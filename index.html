@@ -381,7 +381,7 @@ body {
     <button class="tab-btn" onclick="showView('linkit')">🔗 Linkit</button>
     <button class="tab-btn" onclick="showView('logistiikka')">🚌 Logistiikka</button>
     <button class="tab-btn" onclick="showView('tarkista')">⚠️ Tärkeää</button>
-    <button class="tab-btn" onclick="window.location.href='kartta.html'">🗺️ Kartta 3D</button>
+    <button class="tab-btn" onclick="window.location.href='/kartta.html'">🗺️ Kartta 3D</button>
   </div>
 </div>
 
@@ -1036,7 +1036,7 @@ setTimeout(() => document.getElementById('progressFill').style.width = '0%', 100
 
 // PWA
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js').then(reg => {
+  navigator.serviceWorker.register('/sw.js').then(reg => {
     console.log('SW registered');
   }).catch(e => console.warn('SW error:', e));
   // Listen for offline cache completion
