@@ -1057,12 +1057,14 @@ function buildEtappiList() {
   const gpxEl = document.getElementById('gpxLinks');
   let html = '';
   let gpxHtml = '';
+  const kuitatut = lataaKuitatut();
   for (const [num, e] of Object.entries(etapit)) {
     const badgeClass = e.hard ? 'hard' : (e.badge === 'Helppo' || e.badge === 'Helpottava' || e.badge === 'Lyhyt' || e.badge === 'Palkinto') ? '' : 'warn';
-    html += `<div class="etappi-item" onclick="openEtappi(${num})">
-      <div class="etappi-num${e.hard ? ' hard' : ''}">${num}</div>
+    const kuitattu = kuitatut[num];
+    html += `<div class="etappi-item" onclick="openEtappi(${num})" style="${kuitattu ? 'opacity:0.7;' : ''}">
+      <div class="etappi-num${e.hard ? ' hard' : ''}" style="${kuitattu ? 'background:#166534' : ''}">${kuitattu ? '✓' : num}</div>
       <div class="etappi-info">
-        <div class="etappi-route">${e.route}</div>
+        <div class="etappi-route">${e.route} ${kuitattu ? '<span style="color:#4ade80;font-size:11px;">· Kuitattu ' + kuitattu.pvm + '</span>' : ''}</div>
         <div class="etappi-meta">${e.date} · ${e.km} km · ⬆️ ${e.up} m · ⬇️ ${e.down} m</div>
       </div>
       <div class="etappi-badge${badgeClass ? ' ' + badgeClass : ''}">${e.badge}</div>
@@ -1140,7 +1142,69 @@ function showView(name) {
 
 // Init
 buildEtappiList();
-setTimeout(() => document.getElementById('progressFill').style.width = '0%', 100);
+setTimeout(() => paivitaEtappiYhteenveto(), 100);
+
+// ── Etappikuittaukset & muistiinpanot ────────────────────────────────────
+function lataaKuitatut() {
+  try { return JSON.parse(localStorage.getItem('gr92_kuitatut') || '{}'); }
+  catch(e) { return {}; }
+}
+function laataaMuistiinpanot() {
+  try { return JSON.parse(localStorage.getItem('gr92_muistiinpanot') || '{}'); }
+  catch(e) { return {}; }
+}
+
+function toggleKuittaus(num) {
+  const kuitatut = lataaKuitatut();
+  if (kuitatut[num]) {
+    if (!confirm('Poistetaanko kuittaus etapilta ' + num + '?')) return;
+    delete kuitatut[num];
+  } else {
+    const nyt = new Date();
+    const pvm = nyt.getDate() + '.' + (nyt.getMonth()+1) + '.';
+    kuitatut[num] = { pvm };
+  }
+  localStorage.setItem('gr92_kuitatut', JSON.stringify(kuitatut));
+  paivitaKuittausUI(num);
+  buildEtappiList(); // päivitä lista
+}
+
+function paivitaKuittausUI(num) {
+  const kuitatut = lataaKuitatut();
+  const kuitattu = kuitatut[num];
+  const btn = document.getElementById('kuittausBtn_' + num);
+  const status = document.getElementById('kuittausStatus_' + num);
+  if (!btn) return;
+  if (kuitattu) {
+    btn.textContent = '✓ Kuitattu ' + kuitattu.pvm + ' — Poista kuittaus';
+    btn.style.background = 'rgba(22,101,52,0.4)';
+    btn.style.border = '1px solid #166534';
+    btn.style.color = '#4ade80';
+    if (status) status.innerHTML = '<div style="font-size:12px;color:#4ade80;">✅ Etappi suoritettu ' + kuitattu.pvm + '</div>';
+  } else {
+    btn.textContent = '☐ Merkitse suoritetuksi';
+    btn.style.background = 'rgba(74,124,63,0.2)';
+    btn.style.border = '1px solid rgba(74,124,63,0.4)';
+    btn.style.color = 'var(--sage)';
+    if (status) status.innerHTML = '';
+  }
+}
+
+function tallennaMuistiinpano(num, teksti) {
+  const muistiinpanot = laataaMuistiinpanot();
+  muistiinpanot[num] = teksti;
+  localStorage.setItem('gr92_muistiinpanot', JSON.stringify(muistiinpanot));
+}
+
+// Näytä kuitattujen yhteenveto Etapit-välilehdelle
+function paivitaEtappiYhteenveto() {
+  const kuitatut = lataaKuitatut();
+  const maara = Object.keys(kuitatut).length;
+  const fill = document.getElementById('progressFill');
+  if (fill) fill.style.width = (maara / 10 * 100) + '%';
+  const info = document.getElementById('progressInfo');
+  if (info) info.textContent = maara + '/10 etappia suoritettu · 4 lepopäivää · 17 päivää';
+}
 
 // ── Osallistujat (localStorage) ──────────────────────────────────────────
 function lataaOsallistujat() {
@@ -1202,6 +1266,7 @@ const origShowView = showView;
 function showView(name) {
   origShowView(name);
   if (name === 'ryhma') renderOsallistujat();
+  if (name === 'etapit') { buildEtappiList(); paivitaEtappiYhteenveto(); }
 }
 
 // PWA
