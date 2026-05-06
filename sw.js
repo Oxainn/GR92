@@ -109,4 +109,5 @@ async function precacheTiles() {
   self.clients.matchAll().then(clients =>
     clients.forEach(c => c.postMessage({ type:'TILE_DONE', cached, total: TILE_URLS.length }))
   );
+  
 }
