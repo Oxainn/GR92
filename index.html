@@ -382,6 +382,7 @@ body {
     <button class="tab-btn" onclick="showView('logistiikka')">🚌 Logistiikka</button>
     <button class="tab-btn" onclick="showView('tarkista')">⚠️ Tärkeää</button>
     <button class="tab-btn" onclick="showView('ryhma')">👥 Ryhmä</button>
+    <button class="tab-btn" onclick="showView('saa')">🌤️ Sää</button>
     <button class="tab-btn" onclick="window.location.href='/kartta'">🗺️ Kartta 3D</button>
   </div>
 </div>
@@ -880,6 +881,35 @@ body {
   </div>
 </div>
 
+<!-- ===== SÄÄ VIEW ===== -->
+<div class="view" id="view-saa">
+  <div class="section-title">🌤️ Säätiedot</div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <div class="card-label">Ennuste etappipäiville</div>
+    <div style="font-size:12px;color:var(--mist);margin-bottom:12px;line-height:1.5;">
+      Tiedot haetaan Open-Meteo palvelusta reaaliajassa. Ennuste tarkentuu lähestyttäessä matkaa.
+    </div>
+    <button onclick="haeSaatiedot()" id="saaNappi"
+      style="width:100%;padding:12px;background:rgba(74,124,63,0.2);border:1px solid rgba(74,124,63,0.4);border-radius:11px;color:var(--sage);font-size:13px;font-weight:600;cursor:pointer;">
+      🔄 Hae säätiedot
+    </button>
+  </div>
+
+  <div id="saaLista"></div>
+
+  <div class="card" style="margin-top:4px;background:rgba(255,255,255,0.03);">
+    <div class="card-label">Syyskuun sää Kataloniassa</div>
+    <table class="info-table">
+      <tr><td>🌡️ Lämpötila</td><td>20–28°C päivällä, 15–18°C yöllä</td></tr>
+      <tr><td>🌧️ Sade</td><td>Mahdollinen syyskuun puolivälissä</td></tr>
+      <tr><td>💨 Tuuli</td><td>Kohtalainen rannikolla</td></tr>
+      <tr><td>☀️ Aurinko</td><td>Kuuma harjanteilla, varjoa vähän</td></tr>
+      <tr><td>💧 Nesteytys</td><td>3–4L/päivä vaativilla etapeilla</td></tr>
+    </table>
+  </div>
+</div>
+
 <!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal-sheet" id="modalSheet">
@@ -1206,6 +1236,106 @@ function paivitaEtappiYhteenveto() {
   if (info) info.textContent = maara + '/10 etappia suoritettu · 4 lepopäivää · 17 päivää';
 }
 
+// ── Säätiedot ─────────────────────────────────────────────────────────────
+const ETAPPI_KOORDINAATIT = {
+  12: { nimi: "Lloret de Mar", lat: 41.700, lon: 2.844, pvm: "2026-09-06" },
+  13: { nimi: "Tordera", lat: 41.697, lon: 2.719, pvm: "2026-09-07" },
+  14: { nimi: "Hortsavinyà", lat: 41.668, lon: 2.615, pvm: "2026-09-08" },
+  15: { nimi: "Vallgorguina", lat: 41.648, lon: 2.510, pvm: "2026-09-10" },
+  16: { nimi: "Can Bordoi", lat: 41.624, lon: 2.404, pvm: "2026-09-11" },
+  17: { nimi: "Selva Negra", lat: 41.514, lon: 2.294, pvm: "2026-09-12" },
+  18: { nimi: "Montcada i Reixac", lat: 41.484, lon: 2.188, pvm: "2026-09-14" },
+  19: { nimi: "Vallvidrera", lat: 41.420, lon: 2.097, pvm: "2026-09-15" },
+  20: { nimi: "Sant Vicenç dels Horts", lat: 41.388, lon: 2.012, pvm: "2026-09-17" },
+  21: { nimi: "Garraf", lat: 41.254, lon: 1.902, pvm: "2026-09-18" },
+};
+
+function wmoEmoji(code) {
+  if (code === 0) return "☀️";
+  if (code <= 3) return "⛅";
+  if (code <= 48) return "🌫️";
+  if (code <= 55) return "🌦️";
+  if (code <= 65) return "🌧️";
+  if (code <= 77) return "❄️";
+  if (code <= 82) return "🌧️";
+  if (code <= 99) return "⛈️";
+  return "🌤️";
+}
+
+function wmoTeksti(code) {
+  if (code === 0) return "Selkeää";
+  if (code <= 3) return "Puolipilvistä";
+  if (code <= 48) return "Sumuista";
+  if (code <= 55) return "Tihkusadetta";
+  if (code <= 65) return "Sadetta";
+  if (code <= 77) return "Lumisadetta";
+  if (code <= 82) return "Sadekuuroja";
+  if (code <= 99) return "Ukkosmyrsky";
+  return "Vaihtelevaa";
+}
+
+async function haeSaatiedot() {
+  const nappi = document.getElementById('saaNappi');
+  const lista = document.getElementById('saaLista');
+  nappi.textContent = '⏳ Haetaan...';
+  nappi.disabled = true;
+  lista.innerHTML = '';
+
+  const tulokset = [];
+
+  for (const [num, e] of Object.entries(ETAPPI_KOORDINAATIT)) {
+    try {
+      const url = \`https://api.open-meteo.com/v1/forecast?latitude=\${e.lat}&longitude=\${e.lon}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode,windspeed_10m_max&timezone=Europe/Madrid&start_date=\${e.pvm}&end_date=\${e.pvm}\`;
+      const r = await fetch(url);
+      const data = await r.json();
+      const d = data.daily;
+      tulokset.push({
+        num,
+        nimi: e.nimi,
+        pvm: e.pvm,
+        max: Math.round(d.temperature_2m_max[0]),
+        min: Math.round(d.temperature_2m_min[0]),
+        sade: d.precipitation_sum[0].toFixed(1),
+        tuuli: Math.round(d.windspeed_10m_max[0]),
+        koodi: d.weathercode[0],
+      });
+    } catch(err) {
+      tulokset.push({ num, nimi: e.nimi, pvm: e.pvm, virhe: true });
+    }
+  }
+
+  // Renderöi tulokset
+  let html = '';
+  for (const t of tulokset) {
+    if (t.virhe) {
+      html += \`<div class="card" style="margin-bottom:8px;opacity:0.5;">
+        <div style="font-size:13px;color:var(--mist)">E\${t.num} \${t.nimi} — ei saatavilla</div>
+      </div>\`;
+      continue;
+    }
+    const sadeColor = t.sade > 5 ? '#f97316' : t.sade > 0 ? '#fbbf24' : 'var(--mist)';
+    const tuuliColor = t.tuuli > 40 ? '#f97316' : 'var(--mist)';
+    html += \`<div class="card" style="margin-bottom:8px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div>
+          <span style="font-weight:700;color:var(--cream);font-size:14px;">E\${t.num} · \${t.nimi}</span>
+          <span style="font-size:11px;color:var(--mist);margin-left:8px;">\${t.pvm.split('-').reverse().join('.')}</span>
+        </div>
+        <span style="font-size:28px;">\${wmoEmoji(t.koodi)}</span>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:12px;">
+        <span style="color:var(--cream)">🌡️ \${t.max}° / \${t.min}°</span>
+        <span style="color:\${sadeColor}">🌧️ \${t.sade}mm</span>
+        <span style="color:\${tuuliColor}">💨 \${t.tuuli}km/h</span>
+        <span style="color:var(--mist)">\${wmoTeksti(t.koodi)}</span>
+      </div>
+    </div>\`;
+  }
+  lista.innerHTML = html;
+  nappi.textContent = '🔄 Päivitä säätiedot';
+  nappi.disabled = false;
+}
+
 // ── Osallistujat (localStorage) ──────────────────────────────────────────
 function lataaOsallistujat() {
   try { return JSON.parse(localStorage.getItem('gr92_osallistujat') || '[]'); }
@@ -1267,6 +1397,7 @@ function showView(name) {
   origShowView(name);
   if (name === 'ryhma') renderOsallistujat();
   if (name === 'etapit') { buildEtappiList(); paivitaEtappiYhteenveto(); }
+  if (name === 'saa' && document.getElementById('saaLista').innerHTML === '') haeSaatiedot();
 }
 
 // PWA
