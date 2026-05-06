@@ -98,7 +98,7 @@ html,body { height:100%; background:#0f1f0f; font-family:-apple-system,sans-seri
 <div id="map"></div>
 
 <div class="top-bar">
-  <a class="back-btn" href="index.html">←</a>
+  <a class="back-btn" href="/">←</a>
   <div style="flex:1">
     <div class="map-title">🗺️ GR92 Reitti</div>
     <div class="map-sub" id="statusBar">Etapit 12–21 · Lloret → Garraf</div>
@@ -147,7 +147,7 @@ const map = L.map('map', { zoomControl:true, attributionControl:false });
 const tileLayer = L.tileLayer(layerDefs.topo.url, { maxZoom:layerDefs.topo.max, subdomains:'abc' }).addTo(map);
 
 // Load GPX data from separate file
-fetch('./gpx_data.json')
+fetch('/gpx_data.json')
   .then(r => r.json())
   .then(GPX => {
     // Fit bounds
