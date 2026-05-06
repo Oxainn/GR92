@@ -9,6 +9,7 @@
 <meta name="theme-color" content="#1e3a1e">
 <title>GR92 Vaellusmatka 2026</title>
 <link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' fill='%232d5a27'/%3E%3Ctext y='140' font-size='120' text-anchor='middle' x='96'%3E%F0%9F%A5%BE%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -383,7 +384,7 @@ body {
     <button class="tab-btn" onclick="showView('tarkista', this)">⚠️ Tärkeää</button>
     <button class="tab-btn" onclick="showView('ryhma', this)">👥 Ryhmä</button>
     <button class="tab-btn" onclick="showView('saa', this)">🌤️ Sää</button>
-    <button class="tab-btn" onclick="window.location.href='/kartta'">🗺️ Kartta 3D</button>
+    <button class="tab-btn" onclick="window.location.href='kartta.html'">🗺️ Kartta 3D</button>
   </div>
 </div>
 
@@ -772,7 +773,6 @@ body {
   <div style="text-align:center;padding:12px 16px 4px;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.04em;">
     © 2026 Kalevalapaja · Jari Tossavainen · Kaikki oikeudet pidätetään
   </div>
-</div>
 
 <!-- ===== RYHMÄ VIEW ===== -->
 <div class="view" id="view-ryhma">
@@ -910,6 +910,8 @@ body {
   </div>
 </div>
 
+</div><!-- /.main -->
+
 <!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal-sheet" id="modalSheet">
@@ -965,6 +967,7 @@ const etapit = {
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-13-torderasta-hortsavinyaan/334206949/',
     menoLabel: '🚆 Julkinen',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.568029,2.526274&destination=41.70730,2.71934&travelmode=transit',
+    paluuLabel: '🚗 Tila-auto',
     paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.66405,2.61465&destination=41.568029,2.526274&travelmode=driving',
     badge: 'Keskivaativa', hard: false
   },
@@ -976,6 +979,7 @@ const etapit = {
     transport: 'Meno autolla · paluu julkisella/auto',
     gpx: './etappi14.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-14-hortsavinya-to-vallgorguina/334207213/',
+    menoLabel: '🚗 Auto',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.568029,2.526274&destination=41.66405,2.61465&travelmode=driving',
     paluuLabel: '🚆 Julkinen',
     paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.64834,2.50986&destination=41.568029,2.526274&travelmode=transit',
@@ -1149,7 +1153,7 @@ function openEtappi(num) {
     </div>
     <div class="link-btn" onclick="openLink('${e.meno}')">
       <span class="link-icon">➡️</span>
-      <div class="link-text"><div class="link-title">Menoreitti ${e.menoLabel}</div><div class="link-sub">Vistamar Beach → etapin alku</div></div>
+      <div class="link-text"><div class="link-title">Menoreitti ${e.menoLabel}</div><div class="link-sub">Apartamentos Les Barbes → etapin alku</div></div>
       <span class="link-arrow">↗</span>
     </div>
     <div class="link-btn" onclick="openLink('${e.paluu}')">
@@ -1175,7 +1179,7 @@ ${renderNahtavyydet(num)}
     </div>
   `;
   // Lataa tallennettu data modaliin
-  const muistiinpanot = laataaMuistiinpanot();
+  const muistiinpanot = lataaMuistiinpanot();
   setTimeout(() => {
     const ta = document.getElementById('muistiinpano_' + num);
     if (ta) ta.value = muistiinpanot[num] || '';
@@ -1201,7 +1205,7 @@ function renderNahtavyydet(num) {
       '<span style="font-size:22px;flex-shrink:0;">' + kohde.tyyppi + '</span>' +
       '<div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--cream);margin-bottom:3px;">' + kohde.nimi + '</div>' +
       '<div style="font-size:12px;color:var(--mist);margin-bottom:4px;">' + kohde.kuvaus + '</div>' +
-      '<span onclick="openLink('' + mapsUrl + '')" style="font-size:11px;color:var(--sage);cursor:pointer;">📍 Näytä kartalla</span>' +
+      '<span onclick="openLink(' + JSON.stringify(mapsUrl) + ')" style="font-size:11px;color:var(--sage);cursor:pointer;">📍 Näytä kartalla</span>' +
       '</div></div>';
   });
   html += '</div>';
@@ -1256,7 +1260,7 @@ function lataaKuitatut() {
   try { return JSON.parse(localStorage.getItem('gr92_kuitatut') || '{}'); }
   catch(e) { return {}; }
 }
-function laataaMuistiinpanot() {
+function lataaMuistiinpanot() {
   try { return JSON.parse(localStorage.getItem('gr92_muistiinpanot') || '{}'); }
   catch(e) { return {}; }
 }
@@ -1298,7 +1302,7 @@ function paivitaKuittausUI(num) {
 }
 
 function tallennaMuistiinpano(num, teksti) {
-  const muistiinpanot = laataaMuistiinpanot();
+  const muistiinpanot = lataaMuistiinpanot();
   muistiinpanot[num] = teksti;
   localStorage.setItem('gr92_muistiinpanot', JSON.stringify(muistiinpanot));
 }
@@ -1362,7 +1366,7 @@ async function haeSaatiedot() {
 
   for (const [num, e] of Object.entries(ETAPPI_KOORDINAATIT)) {
     try {
-      const url = \`https://api.open-meteo.com/v1/forecast?latitude=\${e.lat}&longitude=\${e.lon}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode,windspeed_10m_max&timezone=Europe/Madrid&start_date=\${e.pvm}&end_date=\${e.pvm}\`;
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${e.lat}&longitude=${e.lon}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode,windspeed_10m_max&timezone=Europe/Madrid&start_date=${e.pvm}&end_date=${e.pvm}`;
       const r = await fetch(url);
       const data = await r.json();
       const d = data.daily;
@@ -1385,28 +1389,28 @@ async function haeSaatiedot() {
   let html = '';
   for (const t of tulokset) {
     if (t.virhe) {
-      html += \`<div class="card" style="margin-bottom:8px;opacity:0.5;">
-        <div style="font-size:13px;color:var(--mist)">E\${t.num} \${t.nimi} — ei saatavilla</div>
-      </div>\`;
+      html += `<div class="card" style="margin-bottom:8px;opacity:0.5;">
+        <div style="font-size:13px;color:var(--mist)">E${t.num} ${t.nimi} — ei saatavilla</div>
+      </div>`;
       continue;
     }
     const sadeColor = t.sade > 5 ? '#f97316' : t.sade > 0 ? '#fbbf24' : 'var(--mist)';
     const tuuliColor = t.tuuli > 40 ? '#f97316' : 'var(--mist)';
-    html += \`<div class="card" style="margin-bottom:8px;">
+    html += `<div class="card" style="margin-bottom:8px;">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
         <div>
-          <span style="font-weight:700;color:var(--cream);font-size:14px;">E\${t.num} · \${t.nimi}</span>
-          <span style="font-size:11px;color:var(--mist);margin-left:8px;">\${t.pvm.split('-').reverse().join('.')}</span>
+          <span style="font-weight:700;color:var(--cream);font-size:14px;">E${t.num} · ${t.nimi}</span>
+          <span style="font-size:11px;color:var(--mist);margin-left:8px;">${t.pvm.split('-').reverse().join('.')}</span>
         </div>
-        <span style="font-size:28px;">\${wmoEmoji(t.koodi)}</span>
+        <span style="font-size:28px;">${wmoEmoji(t.koodi)}</span>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:12px;">
-        <span style="color:var(--cream)">🌡️ \${t.max}° / \${t.min}°</span>
-        <span style="color:\${sadeColor}">🌧️ \${t.sade}mm</span>
-        <span style="color:\${tuuliColor}">💨 \${t.tuuli}km/h</span>
-        <span style="color:var(--mist)">\${wmoTeksti(t.koodi)}</span>
+        <span style="color:var(--cream)">🌡️ ${t.max}° / ${t.min}°</span>
+        <span style="color:${sadeColor}">🌧️ ${t.sade}mm</span>
+        <span style="color:${tuuliColor}">💨 ${t.tuuli}km/h</span>
+        <span style="color:var(--mist)">${wmoTeksti(t.koodi)}</span>
       </div>
-    </div>\`;
+    </div>`;
   }
   lista.innerHTML = html;
   nappi.textContent = '🔄 Päivitä säätiedot';
@@ -1472,9 +1476,11 @@ function poistaOsallistuja(i) {
 
 // PWA
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').then(reg => {
-    console.log('SW registered');
-  }).catch(e => console.warn('SW error:', e));
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').then(reg => {
+      console.log('SW registered');
+    }).catch(e => console.warn('SW error:', e));
+  });
   // Listen for offline cache completion
   navigator.serviceWorker.addEventListener('message', e => {
     if (e.data && e.data.type === 'TILE_DONE') {
