@@ -1081,6 +1081,8 @@ const etapit = {
   }
 };
 
+const PALVELUT = {"12": {"kaupat": ["Lloret de Mar — Mercadona, Lidl (alku)", "Tordera — Bon Preu (maali)"], "ravintolat": ["Lloret de Mar — runsaasti vaihtoehtoja"], "apteekit": ["Lloret de Mar keskusta"], "huom": "Helpoin etappi palveluiden suhteen 👍"}, "13": {"kaupat": ["Tordera — Bon Preu, Dia"], "ravintolat": ["Tordera — muutama baari ja ravintola"], "apteekit": ["Tordera"], "huom": "⚠️ Hortsavinyà — EI palveluita. Ota kaikki mukaan!"}, "14": {"kaupat": ["Vallgorguina — pieni kauppa"], "ravintolat": ["Vallgorguina — 1-2 baaria"], "apteekit": ["Ei reitillä — lähinnä Granollers (20km)"], "huom": "⚠️ Metsäetappi — minimaalisesti palveluita"}, "15": {"kaupat": ["Llinars del Vallès — Bon Preu (4km maalista)"], "ravintolat": ["Llinars del Vallès — useita"], "apteekit": ["Llinars del Vallès"], "huom": "Maali maantiellä — 4km kävelymatka kaupunkiin"}, "16": {"kaupat": ["Alella — pieni kauppa"], "ravintolat": ["Alella — muutama ravintola"], "apteekit": ["Alella"], "huom": "⚠️ Navigointietappi — fokus reitissä, ei shoppailuun"}, "17": {"kaupat": ["Montcada i Reixac — useita kauppoja"], "ravintolat": ["Montcada i Reixac — hyvä valikoima"], "apteekit": ["Montcada i Reixac"], "huom": "✅ Hyvä päivä täydentää varusteita ja elektrolyyttejä"}, "18": {"kaupat": ["Vallvidrera — pieni"], "ravintolat": ["Vallvidrera — turistiravintola näköalalla"], "apteekit": ["Barcelona saavutettavissa FGC:llä"], "huom": "✅ Barcelona lähellä — helppo käydä ostoksilla"}, "19": {"kaupat": ["Sant Vicenç dels Horts — Mercadona"], "ravintolat": ["Sant Vicenç dels Horts — useita"], "apteekit": ["Sant Vicenç dels Horts"], "huom": "✅ Lyhyt etappi — aikaa palveluille ja levätä"}, "20": {"kaupat": ["Gavà — Mercadona, Lidl (lähellä puoliväliä)"], "ravintolat": ["Gavà — useita"], "apteekit": ["Gavà"], "huom": "⚠️ Raskain etappi — tankkaa hyvin AAMULLA ennen lähtöä!"}, "21": {"kaupat": ["Garraf — pieni kiosk"], "ravintolat": ["Garraf — 2 merenrantaravintolaa 🎉🌊"], "apteekit": ["Sitges — 3km"], "huom": "🎉 Maaliviiva! Juhlistavat ravintolat rannalla odottavat!"}};
+
 // Build etappi list
 function buildEtappiList() {
   const el = document.getElementById('etappiList');
@@ -1150,10 +1152,42 @@ function openEtappi(num) {
     </div>
     <div class="link-btn" onclick="openLink('${e.paluu}')">
       <span class="link-icon">⬅️</span>
-      <div class="link-text"><div class="link-title">Paluureitti ${e.paluuLabel}</div><div class="link-sub">Etapin loppu → Vistamar Beach</div></div>
+      <div class="link-text"><div class="link-title">Paluureitti ${e.paluuLabel}</div><div class="link-sub">Etapin loppu → Apartamentos Les Barbes</div></div>
       <span class="link-arrow">↗</span>
     </div>
+
+    ${(function() {
+      const p = PALVELUT[String(num)];
+      if (!p) return '';
+      return '<div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">' +
+        '<div class="card-label" style="margin-bottom:8px;">🏪 Palvelut reitillä</div>' +
+        (p.huom ? '<div style="padding:8px 10px;background:rgba(255,255,255,0.05);border-radius:8px;font-size:12px;color:var(--mist);margin-bottom:10px;">' + p.huom + '</div>' : '') +
+        '<table class="info-table">' +
+        '<tr><td>🛒 Kaupat</td><td style="font-size:12px;">' + p.kaupat.join('<br>') + '</td></tr>' +
+        '<tr><td>🍽️ Ravintolat</td><td style="font-size:12px;">' + p.ravintolat.join('<br>') + '</td></tr>' +
+        '<tr><td>💊 Apteekki</td><td style="font-size:12px;">' + p.apteekit.join('<br>') + '</td></tr>' +
+        '</table></div>';
+    })()}
+
+    <div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">
+      <div class="card-label" style="margin-bottom:10px;">📝 Kuittaus & muistiinpanot</div>
+      <div id="kuittausStatus_${num}"></div>
+      <textarea id="muistiinpano_${num}"
+        placeholder="Fiilikset, huomiot, muistettavaa..."
+        style="width:100%;min-height:80px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:10px;color:var(--cream);font-size:13px;font-family:inherit;resize:vertical;"
+        onchange="tallennaMuistiinpano(${num}, this.value)"></textarea>
+      <button id="kuittausBtn_${num}" onclick="toggleKuittaus(${num})"
+        style="width:100%;padding:12px;border-radius:11px;border:none;font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;">
+      </button>
+    </div>
   `;
+  // Lataa tallennettu data modaliin
+  const muistiinpanot = laataaMuistiinpanot();
+  setTimeout(() => {
+    const ta = document.getElementById('muistiinpano_' + num);
+    if (ta) ta.value = muistiinpanot[num] || '';
+    paivitaKuittausUI(num);
+  }, 30);
   document.getElementById('modal').classList.add('open');
 }
 
