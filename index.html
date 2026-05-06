@@ -376,13 +376,13 @@ body {
     </div>
   </div>
   <div class="nav-tabs" id="navTabs">
-    <button class="tab-btn active" onclick="showView('ohjelma')">📅 Ohjelma</button>
-    <button class="tab-btn" onclick="showView('etapit')">🗺️ Etapit</button>
-    <button class="tab-btn" onclick="showView('linkit')">🔗 Linkit</button>
-    <button class="tab-btn" onclick="showView('logistiikka')">🚌 Logistiikka</button>
-    <button class="tab-btn" onclick="showView('tarkista')">⚠️ Tärkeää</button>
-    <button class="tab-btn" onclick="showView('ryhma')">👥 Ryhmä</button>
-    <button class="tab-btn" onclick="showView('saa')">🌤️ Sää</button>
+    <button class="tab-btn active" onclick="showView('ohjelma', this)">📅 Ohjelma</button>
+    <button class="tab-btn" onclick="showView('etapit', this)">🗺️ Etapit</button>
+    <button class="tab-btn" onclick="showView('linkit', this)">🔗 Linkit</button>
+    <button class="tab-btn" onclick="showView('logistiikka', this)">🚌 Logistiikka</button>
+    <button class="tab-btn" onclick="showView('tarkista', this)">⚠️ Tärkeää</button>
+    <button class="tab-btn" onclick="showView('ryhma', this)">👥 Ryhmä</button>
+    <button class="tab-btn" onclick="showView('saa', this)">🌤️ Sää</button>
     <button class="tab-btn" onclick="window.location.href='/kartta'">🗺️ Kartta 3D</button>
   </div>
 </div>
@@ -1158,35 +1158,9 @@ function openEtappi(num) {
       <span class="link-arrow">↗</span>
     </div>
 
-    ${(function() {
-      const p = PALVELUT[String(num)];
-      if (!p) return '';
-      return '<div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">' +
-        '<div class="card-label" style="margin-bottom:8px;">🏪 Palvelut reitillä</div>' +
-        (p.huom ? '<div style="padding:8px 10px;background:rgba(255,255,255,0.05);border-radius:8px;font-size:12px;color:var(--mist);margin-bottom:10px;">' + p.huom + '</div>' : '') +
-        '<table class="info-table">' +
-        '<tr><td>🛒 Kaupat</td><td style="font-size:12px;">' + p.kaupat.join('<br>') + '</td></tr>' +
-        '<tr><td>🍽️ Ravintolat</td><td style="font-size:12px;">' + p.ravintolat.join('<br>') + '</td></tr>' +
-        '<tr><td>💊 Apteekki</td><td style="font-size:12px;">' + p.apteekit.join('<br>') + '</td></tr>' +
-        '</table></div>';
-    })()}
+${renderPalvelut(num)}
 
-    ${(function() {
-      const n = NAHTAVYYDET[String(num)];
-      if (!n || n.length === 0) return '';
-      let html = '<div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">';
-      html += '<div class="card-label" style="margin-bottom:10px;">🏛️ Nähtävyydet & kohokohdat</div>';
-      n.forEach(kohde => {
-        html += '<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;padding:10px;background:rgba(255,255,255,0.04);border-radius:10px;">' +
-          '<span style="font-size:22px;flex-shrink:0;">' + kohde.tyyppi + '</span>' +
-          '<div><div style="font-size:13px;font-weight:600;color:var(--cream);margin-bottom:3px;">' + kohde.nimi + '</div>' +
-          '<div style="font-size:12px;color:var(--mist);">' + kohde.kuvaus + '</div>' +
-          '<a href="javascript:void(0)" onclick="openLink('https://www.google.com/maps/search/' + encodeURIComponent(kohde.nimi) + '/@' + kohde.koordinaatit + ',14z')" style="font-size:11px;color:var(--sage);text-decoration:none;">📍 Näytä kartalla</a>' +
-          '</div></div>';
-      });
-      html += '</div>';
-      return html;
-    })()}
+${renderNahtavyydet(num)}
 
     <div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">
       <div class="card-label" style="margin-bottom:10px;">📝 Kuittaus & muistiinpanot</div>
@@ -1216,11 +1190,61 @@ function closeModal(e) {
   }
 }
 
-function showView(name) {
+function renderNahtavyydet(num) {
+  const n = NAHTAVYYDET[String(num)];
+  if (!n || n.length === 0) return '';
+  let html = '<div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">';
+  html += '<div class="card-label" style="margin-bottom:10px;">🏛️ Nähtävyydet & kohokohdat</div>';
+  n.forEach(kohde => {
+    const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(kohde.nimi + ' ' + kohde.koordinaatit);
+    html += '<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;padding:10px;background:rgba(255,255,255,0.04);border-radius:10px;">' +
+      '<span style="font-size:22px;flex-shrink:0;">' + kohde.tyyppi + '</span>' +
+      '<div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--cream);margin-bottom:3px;">' + kohde.nimi + '</div>' +
+      '<div style="font-size:12px;color:var(--mist);margin-bottom:4px;">' + kohde.kuvaus + '</div>' +
+      '<span onclick="openLink('' + mapsUrl + '')" style="font-size:11px;color:var(--sage);cursor:pointer;">📍 Näytä kartalla</span>' +
+      '</div></div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+function renderPalvelut(num) {
+  const p = PALVELUT[String(num)];
+  if (!p) return '';
+  let html = '<div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">';
+  html += '<div class="card-label" style="margin-bottom:8px;">🏪 Palvelut reitillä</div>';
+  if (p.huom) html += '<div style="padding:8px 10px;background:rgba(255,255,255,0.05);border-radius:8px;font-size:12px;color:var(--mist);margin-bottom:10px;">' + p.huom + '</div>';
+  html += '<table class="info-table">' +
+    '<tr><td>🛒 Kaupat</td><td style="font-size:12px;">' + p.kaupat.join('<br>') + '</td></tr>' +
+    '<tr><td>🍽️ Ravintolat</td><td style="font-size:12px;">' + p.ravintolat.join('<br>') + '</td></tr>' +
+    '<tr><td>💊 Apteekki</td><td style="font-size:12px;">' + p.apteekit.join('<br>') + '</td></tr>' +
+    '</table></div>';
+  return html;
+}
+
+function showView(name, triggerEl) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('view-' + name).classList.add('active');
-  event.target.classList.add('active');
+  const view = document.getElementById('view-' + name);
+  if (view) view.classList.add('active');
+  // Merkitse aktiivinen tab
+  if (triggerEl) {
+    triggerEl.classList.add('active');
+  } else {
+    // Etsi oikea nappi nimen perusteella
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + name + "'")) {
+        b.classList.add('active');
+      }
+    });
+  }
+  // Näkymäkohtaiset toiminnot
+  if (name === 'ryhma') renderOsallistujat();
+  if (name === 'etapit') { buildEtappiList(); paivitaEtappiYhteenveto(); }
+  if (name === 'saa') {
+    const lista = document.getElementById('saaLista');
+    if (lista && lista.innerHTML === '') haeSaatiedot();
+  }
 }
 
 // Init
@@ -1444,14 +1468,7 @@ function poistaOsallistuja(i) {
   renderOsallistujat();
 }
 
-// Render kun näkymä avautuu
-const origShowView = showView;
-function showView(name) {
-  origShowView(name);
-  if (name === 'ryhma') renderOsallistujat();
-  if (name === 'etapit') { buildEtappiList(); paivitaEtappiYhteenveto(); }
-  if (name === 'saa' && document.getElementById('saaLista').innerHTML === '') haeSaatiedot();
-}
+// Näkymälogiikka yhdistetty showView-funktioon
 
 // PWA
 if ('serviceWorker' in navigator) {
