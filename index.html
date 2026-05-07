@@ -757,6 +757,19 @@ body {
   </div>
 </div>
 
+  <!-- Päivitys -->
+  <div class="card" style="margin-bottom:12px;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.25);">
+    <div class="card-label" style="color:#60a5fa;">🔄 Appin päivitys</div>
+    <div style="font-size:12px;color:var(--mist);margin-bottom:12px;line-height:1.5;">
+      Jos appi käyttäytyy oudosti tai uudet ominaisuudet eivät näy — paina tätä. Se tyhjentää välimuistin ja lataa uusimman version.
+    </div>
+    <div id="paivitysStatus" style="font-size:12px;color:var(--sage);margin-bottom:8px;display:none;"></div>
+    <button onclick="paivitaAppi()" id="paivitysNappi"
+      style="width:100%;padding:13px;background:rgba(59,130,246,0.2);border:1px solid rgba(59,130,246,0.4);border-radius:11px;color:#60a5fa;font-size:14px;font-weight:700;cursor:pointer;">
+      🔄 Hae uusi versio
+    </button>
+  </div>
+
   <!-- Palaute -->
   <div class="card" style="margin-top:8px;background:rgba(234,179,8,0.08);border:1px solid rgba(234,179,8,0.25);">
     <div class="card-label" style="color:#fbbf24;">🧪 Testivaihe</div>
@@ -1764,6 +1777,43 @@ function poistaOsallistuja(i) {
 }
 
 // Näkymälogiikka yhdistetty showView-funktioon
+
+// ── Appin päivitys ───────────────────────────────────────────────────────
+async function paivitaAppi() {
+  const btn = document.getElementById('paivitysNappi');
+  const status = document.getElementById('paivitysStatus');
+  btn.textContent = '⏳ Päivitetään...';
+  btn.disabled = true;
+  status.style.display = 'block';
+  status.textContent = '1/4 Tyhjennetään välimuisti...';
+
+  try {
+    // 1. Poista kaikki Service Worker -cachet
+    const cacheNames = await caches.keys();
+    await Promise.all(cacheNames.map(name => caches.delete(name)));
+    status.textContent = '2/4 Poistetaan Service Worker...';
+
+    // 2. Poista Service Worker rekisteröinti
+    if ('serviceWorker' in navigator) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map(reg => reg.unregister()));
+    }
+    status.textContent = '3/4 Tyhjennetään selain-cache...';
+
+    // 3. Pieni viive
+    await new Promise(r => setTimeout(r, 500));
+    status.textContent = '4/4 Ladataan uusin versio...';
+
+    // 4. Hard reload — ?v= parametri pakottaa uuden version
+    const url = window.location.href.split('?')[0];
+    window.location.href = url + '?v=' + Date.now();
+
+  } catch(e) {
+    status.textContent = 'Virhe: ' + e.message;
+    btn.textContent = '🔄 Yritä uudelleen';
+    btn.disabled = false;
+  }
+}
 
 // PWA
 if ('serviceWorker' in navigator) {
