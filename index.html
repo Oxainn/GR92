@@ -911,6 +911,30 @@ body {
     </button>
   </div>
 
+  <!-- YHTEISÖT -->
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-label">💬 Ryhmät &amp; yhteisöt</div>
+    <div class="link-btn" onclick="openLink('https://www.facebook.com/groups/gr92fi')" style="margin-bottom:8px;">
+      <span class="link-icon">👥</span>
+      <div class="link-text">
+        <div class="link-title">GR92 Facebook-ryhmä</div>
+        <div class="link-sub">Vinkit, kuvat ja kokemukset</div>
+      </div>
+      <span class="link-arrow">↗</span>
+    </div>
+    <div style="background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.25);border-radius:12px;padding:14px;margin-top:8px;">
+      <div class="card-label" style="color:#25d366;margin-bottom:8px;">📱 WhatsApp-ryhmä</div>
+      <div id="waLinkki" style="margin-bottom:8px;"></div>
+      <div style="font-size:12px;color:var(--mist);margin-bottom:8px;">Lisää kutsu-linkki: WhatsApp → Ryhmä → Ryhmän tiedot → Kutsu-linkki → Kopioi</div>
+      <div style="display:flex;gap:8px;">
+        <input id="waInput" placeholder="https://chat.whatsapp.com/..."
+          style="flex:1;padding:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);border-radius:10px;color:var(--cream);font-size:13px;font-family:inherit;"
+          onkeydown="if(event.key==='Enter') tallennaWA()">
+        <button onclick="tallennaWA()" style="padding:10px 14px;background:rgba(37,211,102,0.2);border:1px solid rgba(37,211,102,0.4);border-radius:10px;color:#25d366;font-weight:700;cursor:pointer;">Tallenna</button>
+      </div>
+    </div>
+  </div>
+
   <!-- MAJOITUKSEN YHTEYSTIEDOT -->
   <div class="card" style="margin-bottom:16px;">
     <div class="card-label">🏠 Majoitus</div>
@@ -1511,7 +1535,7 @@ function showView(name, triggerEl) {
     });
   }
   // Näkymäkohtaiset toiminnot
-  if (name === 'ryhma') renderOsallistujat();
+  if (name === 'ryhma') { renderOsallistujat(); naytaWALinkki(); }
   if (name === 'etapit') { buildEtappiList(); paivitaEtappiYhteenveto(); }
   if (name === 'varusteet') renderPacklista();
   if (name === 'varusteet') renderPacklista();
@@ -1750,6 +1774,33 @@ function lataaOsallistujat() {
 
 function tallennaOsallistujat(lista) {
   localStorage.setItem('gr92_osallistujat', JSON.stringify(lista));
+}
+
+function tallennaWA() {
+  const input = document.getElementById('waInput');
+  const url = input.value.trim();
+  if (!url.startsWith('https://chat.whatsapp.com/')) {
+    alert('Lisää oikea WhatsApp-kutsulinkkki (alkaa https://chat.whatsapp.com/)');
+    return;
+  }
+  localStorage.setItem('gr92_wa_linkki', url);
+  input.value = '';
+  naytaWALinkki();
+}
+
+function naytaWALinkki() {
+  const url = localStorage.getItem('gr92_wa_linkki');
+  const el = document.getElementById('waLinkki');
+  if (!el) return;
+  if (url) {
+    el.innerHTML = '<div class="link-btn" onclick="openLink(\'' + url + '\')" style="background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.3);">' +
+      '<span class="link-icon">💬</span>' +
+      '<div class="link-text"><div class="link-title" style="color:#25d366;">Avaa WhatsApp-ryhmä</div><div class="link-sub">' + url.substring(0,40) + '...</div></div>' +
+      '<span class="link-arrow">↗</span></div>' +
+      '<button onclick="localStorage.removeItem('gr92_wa_linkki');naytaWALinkki();" style="font-size:11px;color:var(--mist);background:none;border:none;cursor:pointer;margin-top:4px;">✕ Poista linkki</button>';
+  } else {
+    el.innerHTML = '';
+  }
 }
 
 function renderOsallistujat() {
