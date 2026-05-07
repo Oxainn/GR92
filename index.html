@@ -9,7 +9,6 @@
 <meta name="theme-color" content="#1e3a1e">
 <title>GR92 Vaellusmatka 2026</title>
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' fill='%232d5a27'/%3E%3Ctext y='140' font-size='120' text-anchor='middle' x='96'%3E%F0%9F%A5%BE%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -384,7 +383,11 @@ body {
     <button class="tab-btn" onclick="showView('tarkista', this)">⚠️ Tärkeää</button>
     <button class="tab-btn" onclick="showView('ryhma', this)">👥 Ryhmä</button>
     <button class="tab-btn" onclick="showView('saa', this)">🌤️ Sää</button>
-    <button class="tab-btn" onclick="window.location.href='kartta.html'">🗺️ Kartta 3D</button>
+    <button class="tab-btn" onclick="showView('varusteet', this)">🎒 Varusteet</button>
+    <button class="tab-btn" onclick="window.location.href='/kartta'">🗺️ Kartta 3D</button>
+    <button class="tab-btn" onclick="showView('varusteet', this)">🎒 Varusteet</button>
+    <button class="tab-btn" onclick="showView('espanja', this)">🇪🇸 Espanja</button>
+    <button class="tab-btn" onclick="showView('rannat', this)">🏖️ Rannat</button>
   </div>
 </div>
 
@@ -773,6 +776,7 @@ body {
   <div style="text-align:center;padding:12px 16px 4px;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.04em;">
     © 2026 Kalevalapaja · Jari Tossavainen · Kaikki oikeudet pidätetään
   </div>
+</div>
 
 <!-- ===== RYHMÄ VIEW ===== -->
 <div class="view" id="view-ryhma">
@@ -910,7 +914,74 @@ body {
   </div>
 </div>
 
-</div><!-- /.main -->
+<!-- ===== VARUSTEET VIEW ===== -->
+<div class="view" id="view-varusteet">
+  <div class="section-title">🎒 Varusteet & Packlista</div>
+
+  <!-- Edistyminen -->
+  <div class="card" style="margin-bottom:12px;">
+    <div class="card-label">Pakkaus valmis</div>
+    <div class="progress-bar" style="margin-top:6px;">
+      <div class="progress-fill" id="packProgress" style="width:0%"></div>
+    </div>
+    <div id="packStats" style="font-size:12px;color:var(--mist);margin-top:6px;">0/0 tavaraa pakattu</div>
+  </div>
+
+  <div id="packLista"></div>
+
+  <div class="card" style="margin-top:8px;background:rgba(255,255,255,0.03);">
+    <div class="card-label">💡 Muista</div>
+    <div style="font-size:12px;color:var(--mist);line-height:1.8;">
+      ✓ Elektrolyytit etapeille 16, 18, 20<br>
+      ✓ Offline-kartat ladattu ennen lähtöä<br>
+      ✓ Eurooppalainen sairaanhoitokortti (EHIC)<br>
+      ✓ Matkavakuutus voimassa<br>
+      ✓ Espanjan hätänumero 112 tallennettuna
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:12px 16px 4px;font-size:11px;color:rgba(255,255,255,0.25);">
+    © 2026 Kalevalapaja · Jari Tossavainen
+  </div>
+</div>
+
+<!-- ===== VARUSTEET VIEW ===== -->
+<div class="view" id="view-varusteet">
+  <div class="section-title">🎒 Pakkaslista</div>
+  <div class="card" style="margin-bottom:10px;">
+    <div class="card-label">Tallenna omat merkinnät</div>
+    <div style="font-size:12px;color:var(--mist);margin-bottom:10px;">Napauta tavaraa merkitäksesi sen pakatuksi ✓</div>
+  </div>
+  <div id="packlistaContainer"></div>
+</div>
+
+<!-- ===== ESPANJA VIEW ===== -->
+<div class="view" id="view-espanja">
+  <div class="section-title">🇪🇸 Hyödylliset lauseet</div>
+  <div class="card" style="margin-bottom:12px;background:rgba(234,179,8,0.08);border-color:rgba(234,179,8,0.25);">
+    <div class="card-label" style="color:#fbbf24;">💡 Vinkki</div>
+    <div style="font-size:12px;color:var(--mist);line-height:1.5;">Näytä puhelimen näyttö paikalliselle jos puhuminen ei auta. Espanjalaiset ovat yleensä avuliaita!</div>
+  </div>
+  <div id="kieliLista"></div>
+</div>
+
+<!-- ===== RANNAT VIEW ===== -->
+<div class="view" id="view-rannat">
+  <div class="section-title">🏖️ Rannat & uinti</div>
+  <div class="card" style="margin-bottom:12px;">
+    <div class="card-label">🏠 Majoituksen lähirannat</div>
+    <div id="lähirannatLista"></div>
+  </div>
+  <div class="card">
+    <div class="card-label">ℹ️ Uintivinkki syyskuussa</div>
+    <table class="info-table">
+      <tr><td>🌡️ Merivesi</td><td>24–26°C — täydellinen!</td></tr>
+      <tr><td>🌊 Aallot</td><td>Yleensä rauhallinen Välimeri</td></tr>
+      <tr><td>⏰ Paras aika</td><td>Iltapäivä 16–18 kun kuumuus hellittää</td></tr>
+      <tr><td>🦷 Meduusat</td><td>Mahdollisia syyskuussa — tarkista rannalla</td></tr>
+    </table>
+  </div>
+</div>
 
 <!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
@@ -967,7 +1038,6 @@ const etapit = {
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-13-torderasta-hortsavinyaan/334206949/',
     menoLabel: '🚆 Julkinen',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.568029,2.526274&destination=41.70730,2.71934&travelmode=transit',
-    paluuLabel: '🚗 Tila-auto',
     paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.66405,2.61465&destination=41.568029,2.526274&travelmode=driving',
     badge: 'Keskivaativa', hard: false
   },
@@ -979,7 +1049,6 @@ const etapit = {
     transport: 'Meno autolla · paluu julkisella/auto',
     gpx: './etappi14.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-14-hortsavinya-to-vallgorguina/334207213/',
-    menoLabel: '🚗 Auto',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.568029,2.526274&destination=41.66405,2.61465&travelmode=driving',
     paluuLabel: '🚆 Julkinen',
     paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.64834,2.50986&destination=41.568029,2.526274&travelmode=transit',
@@ -1089,6 +1158,13 @@ const PALVELUT = {"12": {"kaupat": ["Lloret de Mar — Mercadona, Lidl (alku)", 
 
 const NAHTAVYYDET = {"12": [{"nimi": "Lloret de Mar — Cala Banys", "tyyppi": "🏖️", "kuvaus": "Alkupiste — kaunis lahti ja vanha kaupunki", "koordinaatit": "41.700,2.844"}, {"nimi": "Parc de Santa Clotilde", "tyyppi": "🌿", "kuvaus": "Italialaistyylinen puisto merinäköalalla", "koordinaatit": "41.704,2.847"}, {"nimi": "Tordera-joen suu", "tyyppi": "📸", "kuvaus": "Kaunis delta-alue, lintuparatiisineen", "koordinaatit": "41.697,2.800"}], "13": [{"nimi": "Montnegre-Corredor luonnonpuisto", "tyyppi": "🏔️", "kuvaus": "Spektaakkelimaisema Välimerelle", "koordinaatit": "41.670,2.650"}, {"nimi": "Hortsavinyà kylä", "tyyppi": "🏘️", "kuvaus": "Pieni historiallinen kylä vuoristossa", "koordinaatit": "41.661,2.622"}], "14": [{"nimi": "Turó de Morou (709m)", "tyyppi": "⛰️", "kuvaus": "Korkein kohta — panoraamanäköala!", "koordinaatit": "41.665,2.580"}, {"nimi": "Sant Esteve de Vallgorguina", "tyyppi": "⛪", "kuvaus": "Romanttinen kirkko 1100-luvulta", "koordinaatit": "41.647,2.510"}], "15": [{"nimi": "Harjannenäköala", "tyyppi": "📸", "kuvaus": "Parhaat näkymät matkalla — Välimeri + Pyreneet!", "koordinaatit": "41.635,2.456"}, {"nimi": "Can Bordoi ermita", "tyyppi": "⛪", "kuvaus": "Vanha erakkovankila maaseudulla", "koordinaatit": "41.624,2.404"}], "16": [{"nimi": "Turó de Galzeran", "tyyppi": "⛰️", "kuvaus": "Näköalapaikka — Barcelona horisontissa!", "koordinaatit": "41.580,2.360"}, {"nimi": "DO Alella viinialue", "tyyppi": "🍷", "kuvaus": "Katalonian tunnetuin valkoviinialue", "koordinaatit": "41.514,2.293"}], "17": [{"nimi": "Collserola luonnonpuisto", "tyyppi": "🌲", "kuvaus": "Barcelonan vihreät keuhkot alkavat", "koordinaatit": "41.514,2.293"}, {"nimi": "Turó de la Magarola", "tyyppi": "📸", "kuvaus": "Näköala Barcelonaan ja mereen", "koordinaatit": "41.500,2.250"}, {"nimi": "Montcada i Reixac linnat", "tyyppi": "🏰", "kuvaus": "Keskiaikaiset linnanrauniot", "koordinaatit": "41.484,2.188"}], "18": [{"nimi": "Tibidabo-vuori (512m)", "tyyppi": "⛰️", "kuvaus": "Barcelona jalkojen alla — huikea näkymä", "koordinaatit": "41.422,2.118"}, {"nimi": "Vallvidreran historiallinen säiliö", "tyyppi": "📸", "kuvaus": "1800-luvun vesisäiliö ja puisto", "koordinaatit": "41.420,2.097"}], "19": [{"nimi": "Collserola-laakso", "tyyppi": "🌿", "kuvaus": "Rauhallisin metsäosuus lähellä Barcelonaa", "koordinaatit": "41.400,2.050"}, {"nimi": "Basses de Can Llobateres", "tyyppi": "🦅", "kuvaus": "Lintukosteikko — hyvä lintutorni", "koordinaatit": "41.390,2.010"}], "20": [{"nimi": "Bruguers-ermita XII-luku", "tyyppi": "⛪", "kuvaus": "Mystinen erakkokirkon raunio vuoristossa", "koordinaatit": "41.314,1.961"}, {"nimi": "Garraf-vuoristopuisto", "tyyppi": "🏔️", "kuvaus": "Dramaattinen kalkkikivimaisema — ainutlaatuinen", "koordinaatit": "41.350,1.980"}, {"nimi": "Näköala Välimereen", "tyyppi": "📸", "kuvaus": "⭐ Paras kuvauspiste koko matkalla!", "koordinaatit": "41.320,1.970"}], "21": [{"nimi": "Garraf luonnonpuiston karstimaasto", "tyyppi": "🌿", "kuvaus": "Ainutlaatuinen kalkkikiviluonto", "koordinaatit": "41.280,1.930"}, {"nimi": "Garraf kylä & satama", "tyyppi": "🏖️", "kuvaus": "🎉 MAALIVIIVA! Kalastajankylä ja upea ranta", "koordinaatit": "41.254,1.902"}, {"nimi": "Garraf-ranta", "tyyppi": "🏊", "kuvaus": "Ansaittu uinti maalin jälkeen! 🌊", "koordinaatit": "41.253,1.901"}]};
 
+const ELEVATION_PROFILES = {"12": [[0.0, 9.0], [0.14, 12.0], [0.38, 13.0], [0.51, 14.0], [0.69, 16.0], [0.82, 10.0], [0.99, 9.0], [1.16, 14.0], [1.33, 26.0], [1.49, 32.0], [1.69, 14.0], [1.89, 5.0], [2.1, 10.0], [2.35, 12.0], [2.55, 14.0], [2.75, 24.0], [2.94, 40.0], [3.14, 40.0], [3.34, 31.0], [3.58, 27.0], [3.8, 34.0], [4.0, 61.0], [4.2, 76.0], [4.42, 83.0], [4.66, 78.0], [4.88, 65.0], [5.08, 61.0], [5.32, 76.0], [5.55, 97.0], [5.85, 108.0], [6.11, 112.0], [6.26, 110.0], [6.44, 115.0], [6.68, 137.0], [6.85, 146.0], [7.02, 113.0], [7.25, 62.0], [7.47, 23.0], [7.65, 10.0], [7.87, 10.0], [8.13, 11.0], [8.31, 8.0], [8.51, 6.0], [8.68, 8.0], [8.93, 9.0], [9.16, 7.0], [9.32, 8.0], [9.62, 10.0], [9.82, 9.0], [10.02, 9.0], [10.23, 8.0], [10.41, 7.0], [10.7, 7.0], [10.97, 9.0], [11.26, 10.0], [11.51, 9.0], [11.83, 9.0], [12.11, 12.0], [12.35, 14.0], [12.63, 15.0], [12.89, 15.0], [13.04, 14.0], [13.22, 13.0], [13.48, 15.0], [13.71, 16.0], [13.89, 15.0], [14.13, 14.0], [14.42, 15.0], [14.69, 16.0], [15.01, 17.0], [15.26, 18.0], [15.57, 17.0], [15.86, 16.0], [16.15, 19.0], [16.43, 24.0], [16.57, 24.0], [16.77, 21.0], [16.99, 22.0], [17.21, 23.0], [17.44, 23.0], [17.68, 24.0], [17.94, 29.0]], "13": [[0.0, 27.0], [0.18, 29.0], [0.37, 27.0], [0.61, 27.0], [0.75, 26.0], [0.88, 25.0], [1.06, 24.0], [1.17, 24.0], [1.34, 27.0], [1.52, 35.0], [1.64, 42.0], [1.84, 43.0], [1.98, 42.0], [2.13, 46.0], [2.3, 53.0], [2.52, 63.0], [2.7, 68.0], [2.91, 68.0], [3.13, 64.0], [3.34, 58.0], [3.53, 56.0], [3.74, 64.0], [3.95, 76.0], [4.17, 90.0], [4.37, 100.0], [4.55, 101.0], [4.74, 98.0], [4.92, 97.0], [5.13, 102.0], [5.3, 114.0], [5.52, 124.0], [5.78, 130.0], [5.98, 131.0], [6.19, 127.0], [6.36, 120.0], [6.53, 121.0], [6.69, 130.0], [6.86, 143.0], [7.04, 157.0], [7.2, 164.0], [7.36, 161.0], [7.5, 149.0], [7.68, 138.0], [7.87, 132.0], [8.06, 134.0], [8.23, 140.0], [8.36, 148.0], [8.52, 163.0], [8.66, 183.0], [8.8, 201.0], [8.97, 214.0], [9.14, 217.0], [9.27, 223.0], [9.43, 235.0], [9.55, 246.0], [9.74, 257.0], [9.89, 264.0], [10.03, 273.0], [10.22, 291.0], [10.38, 309.0], [10.58, 321.0], [10.75, 324.0], [10.89, 322.0], [11.03, 322.0], [11.2, 330.0], [11.38, 344.0], [11.55, 357.0], [11.71, 373.0], [11.85, 386.0], [12.04, 401.0], [12.25, 424.0], [12.43, 456.0], [12.67, 489.0], [12.89, 513.0], [13.08, 522.0], [13.25, 517.0], [13.41, 510.0], [13.56, 505.0], [13.75, 497.0], [13.9, 488.0], [14.01, 476.0], [14.2, 463.0], [14.38, 462.0], [14.54, 472.0], [14.7, 486.0], [14.88, 503.0], [15.01, 518.0], [15.22, 526.0]], "14": [[0.0, 525.0], [0.14, 529.0], [0.27, 531.0], [0.42, 534.0], [0.56, 538.0], [0.71, 547.0], [0.92, 551.0], [1.09, 557.0], [1.27, 561.0], [1.46, 559.0], [1.56, 555.0], [1.75, 554.0], [1.91, 549.0], [2.06, 540.0], [2.25, 528.0], [2.43, 514.0], [2.57, 498.0], [2.75, 485.0], [2.89, 475.0], [3.07, 468.0], [3.23, 470.0], [3.41, 478.0], [3.6, 485.0], [3.79, 483.0], [3.95, 474.0], [4.1, 462.0], [4.31, 454.0], [4.49, 450.0], [4.62, 449.0], [4.8, 451.0], [4.95, 450.0], [5.08, 451.0], [5.32, 451.0], [5.45, 453.0], [5.6, 453.0], [5.78, 457.0], [6.0, 463.0], [6.19, 471.0], [6.37, 480.0], [6.56, 492.0], [6.76, 508.0], [6.95, 522.0], [7.15, 529.0], [7.31, 527.0], [7.47, 525.0], [7.66, 528.0], [7.82, 538.0], [8.03, 555.0], [8.17, 571.0], [8.31, 585.0], [8.5, 591.0], [8.67, 593.0], [8.88, 592.0], [9.07, 586.0], [9.22, 577.0], [9.36, 568.0], [9.56, 561.0], [9.72, 563.0], [9.91, 567.0], [10.07, 562.0], [10.22, 547.0], [10.36, 529.0], [10.52, 512.0], [10.7, 501.0], [10.89, 489.0], [11.03, 481.0], [11.23, 476.0], [11.44, 469.0], [11.66, 457.0], [11.83, 443.0], [11.99, 432.0], [12.16, 425.0], [12.34, 422.0], [12.54, 418.0], [12.72, 410.0], [12.87, 399.0], [13.07, 388.0], [13.26, 374.0], [13.45, 359.0], [13.64, 342.0], [13.85, 324.0], [14.02, 302.0], [14.23, 278.0], [14.43, 266.0], [14.58, 259.0], [14.8, 245.0], [14.97, 230.0]], "15": [[0.0, 223.0], [0.19, 224.0], [0.36, 224.0], [0.5, 222.0], [0.67, 215.0], [0.84, 212.0], [1.06, 208.0], [1.22, 206.0], [1.41, 208.0], [1.58, 217.0], [1.75, 240.0], [1.88, 264.0], [2.05, 288.0], [2.18, 313.0], [2.35, 329.0], [2.52, 334.0], [2.69, 335.0], [2.83, 343.0], [2.98, 368.0], [3.18, 404.0], [3.33, 438.0], [3.49, 460.0], [3.64, 474.0], [3.82, 485.0], [3.95, 491.0], [4.1, 494.0], [4.27, 501.0], [4.4, 512.0], [4.6, 527.0], [4.75, 545.0], [4.95, 564.0], [5.09, 575.0], [5.29, 582.0], [5.47, 586.0], [5.6, 595.0], [5.75, 609.0], [5.92, 627.0], [6.07, 636.0], [6.26, 632.0], [6.39, 620.0], [6.55, 605.0], [6.73, 583.0], [6.9, 567.0], [7.07, 554.0], [7.24, 539.0], [7.38, 520.0], [7.55, 500.0], [7.7, 486.0], [7.84, 480.0], [8.03, 484.0], [8.19, 488.0], [8.31, 489.0], [8.42, 494.0], [8.64, 505.0], [8.83, 518.0], [9.01, 527.0], [9.22, 531.0], [9.34, 530.0], [9.55, 520.0], [9.73, 504.0], [9.88, 485.0], [10.09, 468.0], [10.27, 454.0], [10.44, 445.0], [10.59, 441.0], [10.74, 438.0], [10.94, 433.0], [11.14, 430.0], [11.3, 432.0], [11.43, 432.0], [11.63, 430.0], [11.79, 426.0], [12.0, 420.0], [12.16, 411.0], [12.32, 402.0], [12.51, 395.0], [12.67, 388.0], [12.84, 384.0], [13.08, 384.0], [13.29, 386.0], [13.46, 386.0], [13.64, 379.0], [13.83, 371.0], [13.99, 357.0], [14.2, 337.0]], "16": [[0.0, 322.0], [0.19, 329.0], [0.41, 348.0], [0.55, 358.0], [0.76, 362.0], [1.0, 363.0], [1.16, 360.0], [1.35, 359.0], [1.56, 374.0], [1.81, 402.0], [2.02, 420.0], [2.23, 421.0], [2.33, 414.0], [2.56, 404.0], [2.76, 391.0], [2.97, 375.0], [3.1, 363.0], [3.25, 351.0], [3.42, 328.0], [3.55, 300.0], [3.73, 279.0], [3.91, 265.0], [4.08, 264.0], [4.29, 282.0], [4.45, 303.0], [4.66, 316.0], [4.9, 321.0], [5.11, 334.0], [5.34, 353.0], [5.52, 367.0], [5.82, 369.0], [5.96, 354.0], [6.24, 330.0], [6.45, 311.0], [6.68, 308.0], [6.89, 314.0], [7.06, 317.0], [7.35, 310.0], [7.61, 305.0], [7.82, 313.0], [7.99, 323.0], [8.16, 327.0], [8.32, 331.0], [8.57, 329.0], [8.79, 328.0], [8.92, 331.0], [9.11, 334.0], [9.25, 335.0], [9.43, 343.0], [9.6, 361.0], [9.79, 383.0], [10.0, 399.0], [10.21, 406.0], [10.31, 410.0], [10.48, 414.0], [10.71, 414.0], [10.93, 406.0], [11.14, 395.0], [11.29, 394.0], [11.5, 398.0], [11.61, 397.0], [11.8, 396.0], [12.0, 392.0], [12.23, 388.0], [12.41, 388.0], [12.6, 386.0], [12.79, 384.0], [13.0, 383.0], [13.21, 381.0], [13.4, 379.0], [13.6, 378.0], [13.82, 381.0], [14.01, 388.0], [14.27, 403.0], [14.47, 424.0], [14.7, 441.0], [14.92, 448.0], [15.21, 448.0], [15.47, 437.0], [15.7, 421.0], [15.92, 402.0], [16.18, 376.0], [16.39, 361.0], [16.56, 369.0], [16.79, 386.0], [17.01, 402.0], [17.23, 411.0]], "17": [[0.0, 277.0], [0.1, 287.0], [0.32, 306.0], [0.53, 316.0], [0.74, 339.0], [0.93, 359.0], [1.08, 360.0], [1.24, 362.0], [1.44, 360.0], [1.58, 353.0], [1.78, 357.0], [2.01, 369.0], [2.22, 386.0], [2.41, 391.0], [2.56, 387.0], [2.74, 384.0], [2.91, 385.0], [3.12, 393.0], [3.34, 405.0], [3.58, 413.0], [3.78, 405.0], [3.99, 387.0], [4.14, 369.0], [4.36, 352.0], [4.58, 343.0], [4.83, 339.0], [5.04, 337.0], [5.24, 329.0], [5.4, 318.0], [5.56, 315.0], [5.7, 323.0], [5.86, 339.0], [6.03, 352.0], [6.26, 355.0], [6.4, 346.0], [6.57, 330.0], [6.76, 309.0], [6.94, 283.0], [7.09, 255.0], [7.26, 229.0], [7.42, 217.0], [7.61, 223.0], [7.85, 222.0], [8.08, 210.0], [8.28, 193.0], [8.48, 178.0], [8.67, 166.0], [8.88, 158.0], [9.04, 154.0], [9.26, 152.0], [9.38, 154.0], [9.49, 153.0], [9.63, 152.0], [9.85, 156.0], [10.04, 163.0], [10.19, 162.0], [10.37, 155.0], [10.53, 143.0], [10.7, 134.0], [10.87, 136.0], [11.09, 148.0], [11.26, 172.0], [11.37, 206.0], [11.53, 238.0], [11.69, 249.0], [11.85, 246.0], [12.07, 249.0], [12.28, 255.0], [12.48, 252.0], [12.63, 228.0], [12.82, 187.0], [12.95, 146.0], [13.12, 114.0], [13.29, 88.0], [13.42, 73.0], [13.57, 60.0], [13.74, 49.0], [13.93, 40.0], [14.14, 34.0], [14.34, 31.0], [14.6, 32.0], [14.84, 34.0], [15.05, 35.0], [15.16, 36.0], [15.38, 37.0], [15.49, 40.0]], "18": [[0.0, 41.0], [0.18, 43.0], [0.35, 45.0], [0.44, 51.0], [0.56, 68.0], [0.72, 93.0], [0.87, 116.0], [1.12, 123.0], [1.29, 111.0], [1.48, 101.0], [1.64, 108.0], [1.84, 114.0], [1.99, 109.0], [2.17, 97.0], [2.34, 90.0], [2.51, 88.0], [2.71, 91.0], [2.9, 93.0], [3.1, 94.0], [3.23, 93.0], [3.44, 95.0], [3.65, 106.0], [3.83, 123.0], [4.03, 141.0], [4.22, 155.0], [4.42, 162.0], [4.63, 152.0], [4.87, 129.0], [5.03, 104.0], [5.24, 88.0], [5.42, 93.0], [5.66, 106.0], [5.92, 118.0], [6.08, 129.0], [6.26, 137.0], [6.49, 144.0], [6.71, 152.0], [6.94, 164.0], [7.13, 179.0], [7.36, 199.0], [7.52, 221.0], [7.71, 241.0], [7.91, 262.0], [8.15, 280.0], [8.39, 302.0], [8.63, 324.0], [8.83, 328.0], [9.0, 323.0], [9.13, 324.0], [9.33, 334.0], [9.49, 341.0], [9.65, 354.0], [9.85, 382.0], [10.02, 409.0], [10.24, 420.0], [10.41, 421.0], [10.6, 410.0], [10.8, 397.0], [11.01, 387.0], [11.18, 380.0], [11.36, 381.0], [11.5, 386.0], [11.67, 387.0], [11.84, 390.0], [12.05, 395.0], [12.25, 400.0], [12.53, 411.0], [12.68, 431.0], [12.88, 453.0], [13.04, 464.0], [13.22, 468.0], [13.41, 461.0], [13.6, 442.0], [13.75, 416.0], [13.89, 396.0], [14.04, 378.0], [14.21, 364.0], [14.39, 352.0], [14.56, 338.0], [14.76, 330.0], [14.9, 334.0], [15.09, 347.0], [15.27, 354.0], [15.49, 343.0], [15.7, 318.0], [15.91, 295.0], [16.08, 280.0], [16.25, 268.0], [16.39, 248.0]], "19": [[0.0, 241.0], [0.17, 253.0], [0.32, 265.0], [0.6, 280.0], [0.76, 297.0], [1.01, 317.0], [1.3, 333.0], [1.54, 342.0], [1.72, 349.0], [1.88, 356.0], [2.0, 364.0], [2.24, 376.0], [2.57, 395.0], [2.79, 414.0], [2.97, 434.0], [3.28, 451.0], [3.48, 459.0], [3.74, 460.0], [3.95, 453.0], [4.26, 440.0], [4.56, 424.0], [4.89, 407.0], [5.06, 391.0], [5.59, 378.0], [5.91, 366.0], [6.11, 353.0], [6.25, 344.0], [6.59, 336.0], [6.77, 329.0], [6.99, 322.0], [7.25, 313.0], [7.41, 301.0], [7.51, 285.0], [7.85, 262.0], [8.09, 234.0], [8.78, 200.0], [8.99, 170.0], [9.1, 143.0], [9.24, 118.0], [9.63, 92.0], [10.2, 67.0], [10.45, 49.0], [10.66, 35.0], [11.08, 25.0], [11.24, 20.0], [11.33, 18.0], [11.38, 19.0], [11.46, 20.0], [11.52, 22.0], [11.6, 25.0], [11.69, 26.0], [11.77, 28.0], [11.86, 30.0], [11.94, 30.0], [12.02, 31.0], [12.09, 31.0], [12.18, 30.0], [12.26, 30.0], [12.34, 29.0], [12.38, 28.0], [12.47, 27.0], [12.57, 26.0], [12.67, 25.0], [12.76, 25.0], [12.84, 25.0], [12.92, 25.0], [12.97, 25.0], [13.03, 25.0], [13.13, 25.0], [13.23, 25.0], [13.33, 25.0], [13.42, 25.0], [13.5, 24.0], [13.59, 24.0], [13.63, 23.0], [13.68, 23.0], [13.76, 23.0], [13.86, 24.0], [13.96, 25.0], [14.0, 26.0], [14.07, 27.0], [14.11, 28.0], [14.16, 29.0], [14.21, 30.0], [14.28, 31.0], [14.33, 32.0], [14.4, 33.0], [14.44, 34.0], [14.47, 35.0], [14.5, 35.0], [14.57, 34.0], [14.65, 34.0], [14.7, 35.0], [14.78, 36.0], [14.82, 37.0], [14.85, 37.0], [14.88, 38.0]], "20": [[0.0, 31.0], [0.57, 31.0], [0.67, 41.0], [0.73, 54.0], [0.96, 80.0], [1.12, 100.0], [1.43, 114.0], [1.66, 132.0], [1.88, 145.0], [2.1, 145.0], [2.24, 155.0], [2.44, 178.0], [2.57, 196.0], [2.62, 209.0], [2.74, 227.0], [2.89, 250.0], [3.08, 287.0], [3.34, 319.0], [3.51, 324.0], [3.83, 289.0], [3.99, 266.0], [4.18, 256.0], [4.35, 252.0], [4.48, 247.0], [4.65, 245.0], [4.88, 246.0], [4.94, 247.0], [5.12, 255.0], [5.22, 264.0], [5.51, 269.0], [5.73, 271.0], [5.85, 268.0], [5.92, 258.0], [6.07, 244.0], [6.23, 223.0], [6.36, 197.0], [6.68, 171.0], [6.93, 148.0], [7.05, 136.0], [7.26, 129.0], [7.42, 128.0], [7.58, 124.0], [7.78, 109.0], [7.95, 97.0], [8.1, 85.0], [8.22, 80.0], [8.34, 80.0], [8.52, 94.0], [8.65, 114.0], [8.84, 135.0], [9.0, 125.0], [9.32, 96.0], [9.55, 79.0], [9.66, 82.0], [9.96, 96.0], [10.19, 108.0], [10.35, 114.0], [10.49, 122.0], [10.7, 128.0], [10.77, 134.0], [10.87, 144.0], [11.08, 160.0], [11.18, 170.0], [11.32, 176.0], [11.44, 175.0], [11.71, 167.0], [11.87, 146.0], [12.01, 124.0], [12.21, 104.0], [12.37, 103.0], [12.62, 101.0], [12.69, 105.0], [12.74, 110.0], [12.97, 120.0], [13.29, 136.0], [13.4, 145.0], [13.54, 150.0], [13.61, 161.0], [13.87, 185.0], [14.18, 221.0], [14.25, 242.0], [14.35, 245.0]], "21": [[0.0, 244.0], [0.13, 264.0], [0.3, 297.0], [0.47, 326.0], [0.54, 347.0], [0.6, 362.0], [0.75, 371.0], [0.86, 373.0], [1.03, 366.0], [1.2, 360.0], [1.29, 358.0], [1.42, 355.0], [1.49, 356.0], [1.61, 360.0], [1.81, 370.0], [1.92, 373.0], [2.1, 375.0], [2.21, 379.0], [2.42, 381.0], [2.53, 389.0], [2.72, 400.0], [2.92, 414.0], [3.12, 430.0], [3.24, 440.0], [3.29, 447.0], [3.39, 456.0], [3.54, 472.0], [3.65, 492.0], [3.79, 512.0], [3.91, 531.0], [4.06, 542.0], [4.27, 539.0], [4.37, 526.0], [4.7, 500.0], [4.86, 484.0], [5.03, 486.0], [5.15, 499.0], [5.45, 515.0], [5.6, 529.0], [5.81, 542.0], [5.95, 557.0], [6.08, 571.0], [6.16, 580.0], [6.28, 578.0], [6.34, 566.0], [6.63, 546.0], [6.88, 529.0], [6.99, 520.0], [7.28, 519.0], [7.4, 517.0], [7.5, 513.0], [7.61, 509.0], [7.68, 505.0], [7.77, 500.0], [7.93, 492.0], [8.23, 480.0], [8.38, 468.0], [8.52, 450.0], [8.75, 421.0], [8.93, 393.0], [9.2, 364.0], [9.51, 348.0], [9.67, 340.0], [9.9, 334.0], [10.23, 325.0], [10.38, 318.0], [10.71, 299.0], [10.86, 286.0], [10.98, 267.0], [11.29, 240.0], [11.63, 226.0], [11.84, 217.0], [11.98, 210.0], [12.26, 197.0], [12.37, 180.0], [12.62, 159.0], [12.87, 140.0], [13.02, 124.0], [13.28, 107.0], [13.43, 97.0], [13.54, 86.0], [13.79, 74.0], [13.93, 62.0], [14.06, 46.0], [14.12, 39.0], [14.39, 28.0], [14.62, 22.0], [14.68, 19.0], [14.85, 15.0], [15.17, 14.0], [15.23, 16.0]]};
+
+const PROFIILIT = {"12": [[0, 9], [0.26, 12], [0.49, 14], [0.71, 11], [0.88, 10], [1.13, 26], [1.28, 21], [1.54, 5], [1.86, 12], [2.21, 17], [2.38, 40], [2.68, 34], [2.99, 26], [3.24, 56], [3.51, 80], [3.86, 78], [4.14, 61], [4.5, 80], [4.91, 107], [5.28, 112], [5.5, 115], [5.78, 147], [5.98, 102], [6.23, 28], [6.41, 9], [6.81, 11], [7.08, 6], [7.4, 8], [7.78, 7], [8.08, 9], [8.44, 9], [8.77, 9], [9.02, 7], [9.44, 9], [9.77, 9], [10.13, 9], [10.49, 13], [10.78, 15], [11.06, 14], [11.36, 13], [11.71, 16], [11.93, 14], [12.38, 15], [12.85, 17], [13.24, 18], [13.73, 16], [14.18, 22], [14.45, 24], [14.75, 21], [14.9, 23], [15.21, 24], [15.51, 28]], "13": [[0, 27], [0.17, 28], [0.51, 27], [0.73, 25], [0.99, 24], [1.28, 33], [1.54, 43], [1.79, 43], [2.0, 53], [2.35, 67], [2.72, 67], [3.06, 57], [3.39, 64], [3.75, 86], [4.09, 101], [4.41, 97], [4.74, 102], [5.08, 122], [5.47, 131], [5.83, 125], [6.1, 121], [6.35, 139], [6.63, 161], [6.87, 158], [7.1, 138], [7.41, 133], [7.57, 143], [7.73, 168], [7.96, 201], [8.16, 216], [8.33, 227], [8.45, 250], [8.67, 264], [8.8, 286], [9.05, 316], [9.27, 323], [9.45, 322], [9.75, 340], [9.96, 365], [10.14, 390], [10.4, 424], [10.66, 482], [11.04, 519], [11.29, 515], [11.56, 505], [11.81, 489], [11.94, 469], [12.23, 464], [12.46, 486], [12.72, 515], [13.0, 527]], "14": [[0, 525], [0.19, 528], [0.38, 535], [0.58, 547], [0.77, 554], [1.0, 561], [1.22, 556], [1.44, 553], [1.64, 540], [1.91, 520], [2.08, 495], [2.26, 476], [2.43, 468], [2.67, 479], [2.83, 484], [3.02, 470], [3.25, 454], [3.49, 449], [3.75, 451], [3.92, 451], [4.19, 451], [4.31, 454], [4.58, 462], [4.84, 475], [5.07, 492], [5.27, 518], [5.47, 528], [5.64, 525], [5.86, 532], [6.07, 557], [6.3, 582], [6.56, 593], [6.79, 592], [7.0, 581], [7.16, 566], [7.38, 562], [7.64, 566], [7.85, 545], [8.04, 515], [8.3, 496], [8.55, 481], [8.81, 472], [9.12, 454], [9.41, 433], [9.65, 423], [9.94, 418], [10.13, 402], [10.36, 383], [10.65, 359], [10.92, 331], [11.18, 296], [11.5, 266], [11.77, 253], [12.0, 229]], "15": [[0, 223], [0.17, 224], [0.42, 220], [0.63, 212], [0.97, 207], [1.21, 208], [1.38, 233], [1.61, 272], [1.82, 313], [1.97, 333], [2.22, 336], [2.33, 364], [2.58, 422], [2.81, 463], [3.0, 482], [3.19, 492], [3.37, 501], [3.49, 521], [3.64, 550], [3.82, 574], [4.08, 584], [4.25, 596], [4.48, 623], [4.72, 636], [4.95, 620], [5.18, 590], [5.42, 564], [5.67, 541], [5.89, 509], [6.0, 485], [6.24, 483], [6.47, 487], [6.65, 494], [6.98, 514], [7.23, 528], [7.48, 531], [7.73, 512], [8.01, 483], [8.31, 457], [8.55, 443], [8.8, 438], [9.12, 431], [9.37, 432], [9.62, 430], [9.92, 424], [10.18, 410], [10.46, 397], [10.64, 387], [10.96, 384], [11.28, 387], [11.58, 377], [11.8, 360], [12.11, 329]], "16": [[0, 322], [0.25, 342], [0.48, 360], [0.82, 363], [1.03, 358], [1.38, 382], [1.64, 420], [1.89, 417], [2.17, 401], [2.46, 375], [2.62, 356], [2.84, 318], [3.05, 279], [3.3, 262], [3.54, 289], [3.86, 316], [4.26, 329], [4.56, 359], [4.91, 369], [5.25, 338], [5.56, 309], [5.92, 314], [6.26, 313], [6.67, 307], [6.95, 323], [7.19, 330], [7.58, 327], [7.81, 331], [8.09, 335], [8.28, 348], [8.39, 383], [8.7, 405], [8.87, 411], [9.12, 414], [9.49, 398], [9.74, 395], [9.96, 397], [10.24, 394], [10.61, 388], [10.8, 386], [11.11, 384], [11.41, 380], [11.64, 378], [11.91, 385], [12.28, 409], [12.61, 441], [13.02, 449], [13.44, 432], [13.8, 402], [14.19, 363], [14.46, 374], [14.77, 402], [15.1, 417]], "17": [[0, 277], [0.2, 300], [0.56, 322], [0.84, 359], [1.03, 361], [1.28, 358], [1.49, 357], [1.73, 381], [1.98, 390], [2.19, 384], [2.44, 389], [2.72, 410], [3.04, 405], [3.31, 375], [3.62, 348], [4.01, 339], [4.35, 332], [4.57, 316], [4.78, 323], [5.01, 348], [5.34, 353], [5.5, 330], [5.75, 292], [5.93, 245], [6.12, 217], [6.33, 224], [6.65, 204], [6.89, 178], [7.19, 160], [7.47, 153], [7.73, 154], [7.9, 152], [8.14, 158], [8.24, 162], [8.43, 147], [8.66, 133], [8.97, 148], [9.18, 194], [9.41, 245], [9.67, 246], [9.99, 253], [10.29, 246], [10.57, 187], [10.79, 124], [11.02, 82], [11.12, 60], [11.4, 42], [11.62, 32], [11.93, 32], [12.25, 34], [12.46, 37], [12.66, 40]], "18": [[0, 41], [0.21, 44], [0.33, 55], [0.54, 93], [0.77, 122], [1.01, 105], [1.27, 108], [1.54, 112], [1.6, 94], [1.85, 88], [2.08, 92], [2.35, 94], [2.64, 95], [2.88, 117], [3.16, 146], [3.45, 162], [3.75, 138], [4.0, 97], [4.26, 93], [4.67, 114], [4.94, 132], [5.25, 144], [5.64, 160], [5.85, 184], [6.12, 221], [6.37, 255], [6.76, 286], [7.11, 324], [7.41, 325], [7.61, 327], [7.91, 341], [8.14, 371], [8.43, 414], [8.65, 421], [8.96, 400], [9.24, 384], [9.48, 381], [9.64, 388], [9.79, 392], [10.04, 400], [10.43, 424], [10.69, 459], [10.94, 468], [11.19, 450], [11.38, 408], [11.51, 378], [11.76, 356], [11.92, 333], [12.1, 334], [12.36, 353], [12.7, 335], [12.94, 295], [13.16, 271], [13.34, 242]], "19": [[0, 241], [0.07, 260], [0.23, 285], [0.5, 317], [0.76, 340], [0.97, 352], [1.16, 364], [1.28, 388], [1.57, 422], [1.89, 451], [2.23, 461], [2.46, 449], [2.94, 424], [3.38, 396], [3.96, 374], [4.37, 353], [4.67, 337], [4.91, 328], [5.27, 313], [5.46, 291], [5.9, 253], [6.72, 200], [6.99, 152], [7.11, 110], [7.96, 67], [8.11, 39], [8.52, 23], [8.61, 18], [8.71, 19], [8.83, 23], [8.97, 26], [9.12, 29], [9.23, 31], [9.35, 31], [9.46, 30], [9.57, 29], [9.69, 27], [9.85, 26], [10.01, 25], [10.12, 25], [10.15, 25], [10.32, 25], [10.49, 25], [10.51, 24], [10.64, 23], [10.7, 23], [10.84, 24], [10.98, 25], [11.08, 27], [11.14, 29], [11.2, 30], [11.28, 32], [11.38, 33], [11.42, 35], [11.52, 34], [11.64, 35], [11.74, 36], [11.76, 37], [11.84, 38]], "20": [[0, 31], [0.61, 35], [0.69, 54], [1.02, 92], [1.36, 114], [1.65, 138], [1.99, 145], [2.25, 168], [2.33, 196], [2.42, 218], [2.6, 250], [2.83, 303], [3.19, 324], [3.36, 275], [3.62, 256], [3.8, 250], [4.05, 245], [4.29, 246], [4.47, 255], [4.61, 267], [4.96, 271], [5.12, 265], [5.27, 244], [5.43, 213], [5.83, 171], [6.17, 139], [6.39, 129], [6.56, 125], [6.82, 109], [7.03, 91], [7.15, 80], [7.31, 86], [7.52, 114], [7.79, 133], [8.17, 96], [8.39, 79], [8.75, 96], [9.07, 110], [9.24, 122], [9.5, 131], [9.57, 144], [9.82, 166], [9.99, 176], [10.25, 172], [10.47, 146], [10.74, 111], [10.95, 103], [11.2, 103], [11.23, 110], [11.52, 127], [11.86, 145], [12.05, 154], [12.32, 185], [12.64, 231], [12.77, 245]], "21": [[0, 244], [0.16, 277], [0.32, 326], [0.42, 357], [0.58, 371], [0.7, 371], [0.95, 360], [1.07, 355], [1.2, 356], [1.47, 366], [1.62, 373], [1.8, 376], [2.02, 381], [2.14, 393], [2.46, 414], [2.7, 435], [2.78, 447], [2.83, 463], [3.0, 492], [3.23, 523], [3.41, 542], [3.64, 533], [4.03, 500], [4.27, 482], [4.47, 499], [4.8, 523], [5.07, 542], [5.19, 564], [5.31, 580], [5.45, 572], [5.73, 546], [6.03, 523], [6.35, 519], [6.49, 515], [6.64, 509], [6.71, 503], [6.89, 492], [7.14, 474], [7.35, 450], [7.63, 407], [7.98, 364], [8.27, 344], [8.51, 334], [8.83, 321], [9.29, 299], [9.36, 278], [9.71, 240], [10.17, 220], [10.33, 210], [10.64, 190], [10.78, 159], [11.03, 130], [11.35, 107], [11.56, 90], [11.81, 74], [11.96, 52], [12.03, 39], [12.36, 25], [12.45, 19], [12.75, 14], [12.98, 16]]};
+const RANNAT = {"lepo": [{"nimi": "Caldes d'Estrac ranta", "tyyppi": "🏖️", "kuvaus": "Majoituksen vieressä — täydellinen iltauinti", "maps": "https://maps.app.goo.gl/search/?q=Caldes+d+Estrac+platja"}, {"nimi": "Arenys de Mar", "tyyppi": "🏖️", "kuvaus": "5km pohjoiseen — pidemmät rannat, hiljaisempi", "maps": "https://www.google.com/maps/search/platja+Arenys+de+Mar"}, {"nimi": "Barceloneta (13.9.)", "tyyppi": "🏖️🎉", "kuvaus": "Vapapäivä Barcelonassa — uinti ja ravintolat", "maps": "https://www.google.com/maps/search/Barceloneta+beach"}], "etapit": {"12": {"nimi": "Lloret de Mar rannat", "kuvaus": "Cala Banys, Sa Caleta — alkupiste"}, "21": {"nimi": "Garraf ranta 🎉", "kuvaus": "MAALIVIIVA — ansaittu uinti!"}}};
+const KIELET = [{"fi": "Hätä! Apua!", "es": "¡Emergencia! ¡Ayuda!", "aani": "Emerhensya! Ayuda!"}, {"fi": "Soita ambulanssi", "es": "Llame a una ambulancia", "aani": "Lyame a una ambulansya"}, {"fi": "Olen hukassa", "es": "Estoy perdido/a", "aani": "Estoy perdido"}, {"fi": "Tarvitsen vettä", "es": "Necesito agua", "aani": "Nesessito agua"}, {"fi": "Missä on apteekki?", "es": "¿Dónde está la farmacia?", "aani": "Donde esta la farmassya"}, {"fi": "Missä on sairaala?", "es": "¿Dónde está el hospital?", "aani": "Donde esta el ospital"}, {"fi": "Sattuu tähän", "es": "Me duele aquí", "aani": "Me duele aki"}, {"fi": "Paljonko maksaa?", "es": "¿Cuánto cuesta?", "aani": "Kuanto kwesta"}, {"fi": "Lasku/kuitti", "es": "La cuenta / el recibo", "aani": "La kwenta"}, {"fi": "Vettä pullossa", "es": "Agua en botella", "aani": "Agua en botella"}, {"fi": "Bussiasema", "es": "Estación de autobús", "aani": "Estasyon de autobus"}, {"fi": "Juna-asema", "es": "Estación de tren", "aani": "Estasyon de tren"}, {"fi": "Kuinka kauas?", "es": "¿A qué distancia?", "aani": "A ke distansya"}, {"fi": "Vasen / Oikea", "es": "Izquierda / Derecha", "aani": "Iskyerda / Deretxa"}, {"fi": "Suoraan eteenpäin", "es": "Todo recto", "aani": "Todo rekto"}, {"fi": "Kiitos", "es": "Gracias", "aani": "Grassyas"}, {"fi": "Anteeksi", "es": "Perdón / Disculpe", "aani": "Perdon"}, {"fi": "Puhutko englantia?", "es": "¿Habla inglés?", "aani": "Abla ingles"}];
+const PACKLISTA = {"Vaatetus": ["Vaelluskengät (sisäänajettuna!)", "Sandaalit illaksi", "Nopea kuivuvat housut x2", "T-paidat x3", "Pitkähihainen tuulelta", "Kevyt tuulitakki", "Uimapuku/shortsit", "Alusvaatteet x4", "Sukat (vaellus) x4", "Hattu aurinkosuoja", "Lippalakki", "Pitkät alusvaatteet (viileisiin iltoihin)"], "Varusteet": ["Reppu 25-35L", "Juomapullo 1L x2 (tai 2L pakkaus)", "Elektrolyyttitabletit", "Sauva(t) — suositeltu!", "Otsalamppu + varaparistot", "Ensiapupakkaus", "Rakkolaastari (Compeed) x6", "Säärystimet (tikkilta suojaan)", "Kevyt makuupussin sisälakana", "Pakkaussäkki (vesitiivis)"], "Hygienia": ["Aurinkosuoja SPF 50+ (iso purkki)", "Huulibalsami aurinkosuojalla", "Hyönteissuoja", "Mikrokuitupyyhe", "Peseytymistarvikkeet (pienet)", "Käsidesinfiointiaine", "WC-paperi + muovipussit", "Ibuprofen / kipulääke", "Antihistamiini", "Mahatauti-lääke"], "Elektroniikka": ["Puhelin + laturi", "Varavirtalähde (powerbank 10000mAh+)", "USB-kaapelit", "Pistotulppa-adapteri (EU toimii)", "Kuulokkeet", "Aurinkolasit"], "Dokumentit": ["Passi", "EU-sairaanhoitokortti (EHIC)", "Matka- ja peruutusvakuutus", "Lentolipput (tulostettu + puhelimessa)", "Majoitusvahvistus", "Hätäyhteystiedot paperilla", "Käteistä euroja (n. 200€)"]};
+
 // Build etappi list
 function buildEtappiList() {
   const el = document.getElementById('etappiList');
@@ -1153,7 +1229,7 @@ function openEtappi(num) {
     </div>
     <div class="link-btn" onclick="openLink('${e.meno}')">
       <span class="link-icon">➡️</span>
-      <div class="link-text"><div class="link-title">Menoreitti ${e.menoLabel}</div><div class="link-sub">Apartamentos Les Barbes → etapin alku</div></div>
+      <div class="link-text"><div class="link-title">Menoreitti ${e.menoLabel}</div><div class="link-sub">Vistamar Beach → etapin alku</div></div>
       <span class="link-arrow">↗</span>
     </div>
     <div class="link-btn" onclick="openLink('${e.paluu}')">
@@ -1162,9 +1238,11 @@ function openEtappi(num) {
       <span class="link-arrow">↗</span>
     </div>
 
-${renderPalvelut(num)}
+${renderElevationProfile(num)}
+    ${renderPalvelut(num)}
 
-${renderNahtavyydet(num)}
+${renderKorkeus(num)}
+    ${renderNahtavyydet(num)}
 
     <div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">
       <div class="card-label" style="margin-bottom:10px;">📝 Kuittaus & muistiinpanot</div>
@@ -1179,7 +1257,7 @@ ${renderNahtavyydet(num)}
     </div>
   `;
   // Lataa tallennettu data modaliin
-  const muistiinpanot = lataaMuistiinpanot();
+  const muistiinpanot = laataaMuistiinpanot();
   setTimeout(() => {
     const ta = document.getElementById('muistiinpano_' + num);
     if (ta) ta.value = muistiinpanot[num] || '';
@@ -1194,6 +1272,104 @@ function closeModal(e) {
   }
 }
 
+// ── Korkeuprofiili ────────────────────────────────────────────────────────
+function renderKorkeus(num) {
+  const pts = PROFIILIT[String(num)];
+  if (!pts || pts.length === 0) return '';
+  const eles = pts.map(p => p[1]);
+  const dists = pts.map(p => p[0]);
+  const minE = Math.min(...eles), maxE = Math.max(...eles);
+  const maxD = Math.max(...dists);
+  const W = 280, H = 60, pad = 4;
+  
+  // SVG path
+  let path = '';
+  let fill = '';
+  pts.forEach((pt, i) => {
+    const x = pad + (pt[0]/maxD) * (W - pad*2);
+    const y = H - pad - ((pt[1]-minE)/(maxE-minE||1)) * (H - pad*2);
+    if (i === 0) { path += 'M'+x+','+y; fill += 'M'+x+','+(H-pad)+' L'+x+','+y; }
+    else { path += ' L'+x+','+y; fill += ' L'+x+','+y; }
+  });
+  fill += ' L'+(pad+(maxD/maxD)*(W-pad*2))+','+(H-pad)+' Z';
+  
+  return '<div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">' +
+    '<div class="card-label" style="margin-bottom:8px;">📈 Korkeuprofiili</div>' +
+    '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:60px;background:rgba(0,0,0,0.2);border-radius:8px;">' +
+    '<path d="'+fill+'" fill="rgba(74,124,63,0.3)"/>' +
+    '<path d="'+path+'" fill="none" stroke="#4a7c3f" stroke-width="1.5"/>' +
+    '</svg>' +
+    '<div style="display:flex;justify-content:space-between;font-size:10px;color:var(--mist);margin-top:4px;">' +
+    '<span>⬆️ max '+maxE+'m</span><span>⬇️ min '+minE+'m</span><span>📏 '+maxD.toFixed(1)+'km</span>' +
+    '</div></div>';
+}
+
+// ── Packlista ─────────────────────────────────────────────────────────────
+function renderPacklista() {
+  const el = document.getElementById('packlistaContainer');
+  if (!el) return;
+  const checked = JSON.parse(localStorage.getItem('gr92_packlista') || '{}');
+  let html = '';
+  for (const [kategoria, tavarat] of Object.entries(PACKLISTA)) {
+    const total = tavarat.length;
+    const done = tavarat.filter(t => checked[kategoria+'_'+t]).length;
+    html += '<div class="card" style="margin-bottom:10px;">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">' +
+      '<div class="card-label" style="margin:0;">' + kategoria + '</div>' +
+      '<span style="font-size:11px;color:' + (done===total?'#4ade80':'var(--mist)') + ';">' + done + '/' + total + '</span>' +
+      '</div>';
+    tavarat.forEach(tavara => {
+      const key = kategoria+'_'+tavara;
+      const on = checked[key];
+      html += '<div onclick="togglePack(''+key+'')" style="display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid rgba(255,255,255,0.05);cursor:pointer;">' +
+        '<span style="font-size:16px;color:' + (on?'#4ade80':'rgba(255,255,255,0.2)') + ';">' + (on?'✓':'○') + '</span>' +
+        '<span style="font-size:13px;color:' + (on?'var(--mist)':'var(--cream)') + ';' + (on?'text-decoration:line-through;':'') + '">' + tavara + '</span>' +
+        '</div>';
+    });
+    html += '</div>';
+  }
+  el.innerHTML = html;
+}
+
+function togglePack(key) {
+  const checked = JSON.parse(localStorage.getItem('gr92_packlista') || '{}');
+  if (checked[key]) delete checked[key];
+  else checked[key] = true;
+  localStorage.setItem('gr92_packlista', JSON.stringify(checked));
+  renderPacklista();
+}
+
+// ── Kieliopas ─────────────────────────────────────────────────────────────
+function renderKielet() {
+  const el = document.getElementById('kieliLista');
+  if (!el) return;
+  let html = '';
+  KIELET.forEach(k => {
+    html += '<div class="card" style="margin-bottom:8px;padding:12px;">' +
+      '<div style="font-size:11px;color:var(--mist);margin-bottom:4px;">🇫🇮 ' + k.fi + '</div>' +
+      '<div style="font-size:16px;font-weight:700;color:var(--cream);margin-bottom:3px;">🇪🇸 ' + k.es + '</div>' +
+      '<div style="font-size:11px;color:var(--sage);">🔊 ' + k.aani + '</div>' +
+      '</div>';
+  });
+  el.innerHTML = html;
+}
+
+// ── Rannat ────────────────────────────────────────────────────────────────
+function renderRannat() {
+  const el = document.getElementById('lähirannatLista');
+  if (!el) return;
+  let html = '';
+  RANNAT.lepo.forEach(r => {
+    html += '<div class="link-btn" onclick="openLink('' + r.maps + '')" style="margin-bottom:8px;">' +
+      '<span class="link-icon">' + r.tyyppi + '</span>' +
+      '<div class="link-text">' +
+      '<div class="link-title">' + r.nimi + '</div>' +
+      '<div class="link-sub">' + r.kuvaus + '</div>' +
+      '</div><span class="link-arrow">↗</span></div>';
+  });
+  el.innerHTML = html;
+}
+
 function renderNahtavyydet(num) {
   const n = NAHTAVYYDET[String(num)];
   if (!n || n.length === 0) return '';
@@ -1205,7 +1381,7 @@ function renderNahtavyydet(num) {
       '<span style="font-size:22px;flex-shrink:0;">' + kohde.tyyppi + '</span>' +
       '<div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--cream);margin-bottom:3px;">' + kohde.nimi + '</div>' +
       '<div style="font-size:12px;color:var(--mist);margin-bottom:4px;">' + kohde.kuvaus + '</div>' +
-      '<span onclick="openLink(' + JSON.stringify(mapsUrl) + ')" style="font-size:11px;color:var(--sage);cursor:pointer;">📍 Näytä kartalla</span>' +
+      '<span onclick="openLink('' + mapsUrl + '')" style="font-size:11px;color:var(--sage);cursor:pointer;">📍 Näytä kartalla</span>' +
       '</div></div>';
   });
   html += '</div>';
@@ -1224,6 +1400,64 @@ function renderPalvelut(num) {
     '<tr><td>💊 Apteekki</td><td style="font-size:12px;">' + p.apteekit.join('<br>') + '</td></tr>' +
     '</table></div>';
   return html;
+}
+
+function renderElevationProfile(num) {
+  const profile = ELEVATION_PROFILES[String(num)];
+  if (!profile || profile.length === 0) return '';
+  
+  const eles = profile.map(p => p[1]);
+  const dists = profile.map(p => p[0]);
+  const minEle = Math.min(...eles);
+  const maxEle = Math.max(...eles);
+  const maxDist = Math.max(...dists);
+  const eleRange = maxEle - minEle || 1;
+  
+  const W = 300, H = 80, pad = 4;
+  const xScale = (W - pad*2) / maxDist;
+  const yScale = (H - pad*2) / eleRange;
+  
+  // Build SVG path
+  let path = '';
+  let area = '';
+  profile.forEach((pt, i) => {
+    const x = pad + pt[0] * xScale;
+    const y = H - pad - (pt[1] - minEle) * yScale;
+    if (i === 0) {
+      path += 'M ' + x + ' ' + y;
+      area += 'M ' + x + ' ' + (H-pad) + ' L ' + x + ' ' + y;
+    } else {
+      path += ' L ' + x + ' ' + y;
+      area += ' L ' + x + ' ' + y;
+    }
+  });
+  area += ' L ' + (pad + maxDist * xScale) + ' ' + (H-pad) + ' Z';
+  
+  // Tick marks km
+  let ticks = '';
+  for (let km = 0; km <= maxDist; km += Math.ceil(maxDist/5)) {
+    const x = pad + km * xScale;
+    ticks += '<line x1="' + x + '" y1="' + (H-pad) + '" x2="' + x + '" y2="' + (H-pad+3) + '" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>';
+    ticks += '<text x="' + x + '" y="' + (H+2) + '" fill="rgba(255,255,255,0.4)" font-size="7" text-anchor="middle">' + km + 'km</text>';
+  }
+  
+  // Ele labels
+  const eleLabels = '<text x="' + (W-2) + '" y="' + (pad+6) + '" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="end">' + Math.round(maxEle) + 'm</text>' +
+    '<text x="' + (W-2) + '" y="' + (H-pad) + '" fill="rgba(255,255,255,0.5)" font-size="7" text-anchor="end">' + Math.round(minEle) + 'm</text>';
+  
+  return '<div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">' +
+    '<div class="card-label" style="margin-bottom:8px;">📈 Korkeuprofiili</div>' +
+    '<svg viewBox="0 0 ' + W + ' ' + (H+10) + '" style="width:100%;height:auto;display:block;">' +
+    '<rect width="' + W + '" height="' + (H+10) + '" fill="rgba(0,0,0,0.2)" rx="6"/>' +
+    '<path d="' + area + '" fill="rgba(74,124,63,0.3)"/>' +
+    '<path d="' + path + '" fill="none" stroke="#4a7c3f" stroke-width="1.5"/>' +
+    ticks + eleLabels +
+    '</svg>' +
+    '<div style="display:flex;justify-content:space-between;font-size:11px;color:var(--mist);margin-top:6px;">' +
+    '<span>⬆️ max ' + Math.round(maxEle) + 'm</span>' +
+    '<span>⬇️ min ' + Math.round(minEle) + 'm</span>' +
+    '<span>📏 ' + maxDist.toFixed(1) + 'km</span>' +
+    '</div></div>';
 }
 
 function showView(name, triggerEl) {
@@ -1245,6 +1479,10 @@ function showView(name, triggerEl) {
   // Näkymäkohtaiset toiminnot
   if (name === 'ryhma') renderOsallistujat();
   if (name === 'etapit') { buildEtappiList(); paivitaEtappiYhteenveto(); }
+  if (name === 'varusteet') renderPacklista();
+  if (name === 'varusteet') renderPacklista();
+  if (name === 'espanja') renderKielet();
+  if (name === 'rannat') renderRannat();
   if (name === 'saa') {
     const lista = document.getElementById('saaLista');
     if (lista && lista.innerHTML === '') haeSaatiedot();
@@ -1260,7 +1498,7 @@ function lataaKuitatut() {
   try { return JSON.parse(localStorage.getItem('gr92_kuitatut') || '{}'); }
   catch(e) { return {}; }
 }
-function lataaMuistiinpanot() {
+function laataaMuistiinpanot() {
   try { return JSON.parse(localStorage.getItem('gr92_muistiinpanot') || '{}'); }
   catch(e) { return {}; }
 }
@@ -1302,7 +1540,7 @@ function paivitaKuittausUI(num) {
 }
 
 function tallennaMuistiinpano(num, teksti) {
-  const muistiinpanot = lataaMuistiinpanot();
+  const muistiinpanot = laataaMuistiinpanot();
   muistiinpanot[num] = teksti;
   localStorage.setItem('gr92_muistiinpanot', JSON.stringify(muistiinpanot));
 }
@@ -1366,7 +1604,7 @@ async function haeSaatiedot() {
 
   for (const [num, e] of Object.entries(ETAPPI_KOORDINAATIT)) {
     try {
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${e.lat}&longitude=${e.lon}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode,windspeed_10m_max&timezone=Europe/Madrid&start_date=${e.pvm}&end_date=${e.pvm}`;
+      const url = \`https://api.open-meteo.com/v1/forecast?latitude=\${e.lat}&longitude=\${e.lon}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode,windspeed_10m_max&timezone=Europe/Madrid&start_date=\${e.pvm}&end_date=\${e.pvm}\`;
       const r = await fetch(url);
       const data = await r.json();
       const d = data.daily;
@@ -1389,32 +1627,85 @@ async function haeSaatiedot() {
   let html = '';
   for (const t of tulokset) {
     if (t.virhe) {
-      html += `<div class="card" style="margin-bottom:8px;opacity:0.5;">
-        <div style="font-size:13px;color:var(--mist)">E${t.num} ${t.nimi} — ei saatavilla</div>
-      </div>`;
+      html += \`<div class="card" style="margin-bottom:8px;opacity:0.5;">
+        <div style="font-size:13px;color:var(--mist)">E\${t.num} \${t.nimi} — ei saatavilla</div>
+      </div>\`;
       continue;
     }
     const sadeColor = t.sade > 5 ? '#f97316' : t.sade > 0 ? '#fbbf24' : 'var(--mist)';
     const tuuliColor = t.tuuli > 40 ? '#f97316' : 'var(--mist)';
-    html += `<div class="card" style="margin-bottom:8px;">
+    html += \`<div class="card" style="margin-bottom:8px;">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
         <div>
-          <span style="font-weight:700;color:var(--cream);font-size:14px;">E${t.num} · ${t.nimi}</span>
-          <span style="font-size:11px;color:var(--mist);margin-left:8px;">${t.pvm.split('-').reverse().join('.')}</span>
+          <span style="font-weight:700;color:var(--cream);font-size:14px;">E\${t.num} · \${t.nimi}</span>
+          <span style="font-size:11px;color:var(--mist);margin-left:8px;">\${t.pvm.split('-').reverse().join('.')}</span>
         </div>
-        <span style="font-size:28px;">${wmoEmoji(t.koodi)}</span>
+        <span style="font-size:28px;">\${wmoEmoji(t.koodi)}</span>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:12px;">
-        <span style="color:var(--cream)">🌡️ ${t.max}° / ${t.min}°</span>
-        <span style="color:${sadeColor}">🌧️ ${t.sade}mm</span>
-        <span style="color:${tuuliColor}">💨 ${t.tuuli}km/h</span>
-        <span style="color:var(--mist)">${wmoTeksti(t.koodi)}</span>
+        <span style="color:var(--cream)">🌡️ \${t.max}° / \${t.min}°</span>
+        <span style="color:\${sadeColor}">🌧️ \${t.sade}mm</span>
+        <span style="color:\${tuuliColor}">💨 \${t.tuuli}km/h</span>
+        <span style="color:var(--mist)">\${wmoTeksti(t.koodi)}</span>
       </div>
-    </div>`;
+    </div>\`;
   }
   lista.innerHTML = html;
   nappi.textContent = '🔄 Päivitä säätiedot';
   nappi.disabled = false;
+}
+
+// ── Packlista ─────────────────────────────────────────────────────────────
+const PACK_ITEMS = [{"kategoria": "👟 Jalkineet & vaatetus", "tavarat": ["Vaelluskengät (sisäänajettuna)", "Sandaalit/kevyet kengät illaksi", "Vaellussukat x5", "Nopeakuivuvat housut x2", "T-paidat x3", "Ohut fleece/villapaita", "Kevyt sadetakki / tuulitakki", "Aurinkohattu", "Pipo (yöt voivat olla viileät)"]}, {"kategoria": "🎒 Reppu & kantaminen", "tavarat": ["Päiväreppu 20-30L", "Vesipussi tai vesipullot (3-4L kapasiteetti)", "Sadesuoja repulle", "Trekking-sauvat (valinnainen)"]}, {"kategoria": "🧴 Hygienia & terveys", "tavarat": ["Aurinkosuoja SPF50+", "Huulibalsami aurinkosuojalla", "Ensiapupakkaus (laastarit, sideharsot)", "Rakkolaastari (Compeed)", "Särkylääke (ibuprofeeni)", "Elektrolyyttijauhe / -tabletit", "Hyönteiskarkote", "Käsidesi"]}, {"kategoria": "📱 Elektroniikka", "tavarat": ["Puhelin + laturi", "Varavirtalähde (powerbank)", "Latauskaapeli", "Kuulokkeet", "Kamera (valinnainen)"]}, {"kategoria": "📄 Dokumentit", "tavarat": ["Passi / henkilökortti", "Eurooppalainen sairaanhoitokortti (EHIC)", "Matkavakuutuskortti + numero", "Käteistä euroja"]}, {"kategoria": "🍎 Ruoka & juoma", "tavarat": ["Energiapatukat / geelit", "Pähkinät ja kuivatut hedelmät", "Suolarikkaita välipaloja (elektroyyttejä)", "Vesipullo täytettynä"]}];
+
+function lataaPacklista() {
+  try { return JSON.parse(localStorage.getItem('gr92_pack') || '{}'); }
+  catch(e) { return {}; }
+}
+
+function renderPacklista() {
+  const pakattu = lataaPacklista();
+  const el = document.getElementById('packLista');
+  if (!el) return;
+  
+  let html = '';
+  let total = 0, done = 0;
+  
+  PACK_ITEMS.forEach((kat, ki) => {
+    html += '<div class="card" style="margin-bottom:10px;">';
+    html += '<div class="card-label" style="margin-bottom:10px;">' + kat.kategoria + '</div>';
+    
+    kat.tavarat.forEach((tavara, ti) => {
+      const key = ki + '_' + ti;
+      const checked = pakattu[key];
+      total++;
+      if (checked) done++;
+      html += '<div onclick="togglePack(\'' + key + '\')" style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);cursor:pointer;">' +
+        '<div style="width:20px;height:20px;border-radius:5px;border:1px solid ' + (checked ? '#166534' : 'rgba(255,255,255,0.2)') + ';background:' + (checked ? 'rgba(22,101,52,0.4)' : 'transparent') + ';display:flex;align-items:center;justify-content:center;flex-shrink:0;">' +
+        (checked ? '<span style="color:#4ade80;font-size:13px;">✓</span>' : '') +
+        '</div>' +
+        '<span style="font-size:13px;color:' + (checked ? 'rgba(255,255,255,0.4)' : 'var(--cream)') + ';' + (checked ? 'text-decoration:line-through;' : '') + '">' + tavara + '</span>' +
+        '</div>';
+    });
+    html += '</div>';
+  });
+  
+  el.innerHTML = html;
+  
+  // Päivitä progressbar
+  const pct = total > 0 ? Math.round(done/total*100) : 0;
+  const prog = document.getElementById('packProgress');
+  if (prog) prog.style.width = pct + '%';
+  const stats = document.getElementById('packStats');
+  if (stats) stats.textContent = done + '/' + total + ' tavaraa pakattu (' + pct + '%)';
+}
+
+function togglePack(key) {
+  const pakattu = lataaPacklista();
+  if (pakattu[key]) delete pakattu[key];
+  else pakattu[key] = true;
+  localStorage.setItem('gr92_pack', JSON.stringify(pakattu));
+  renderPacklista();
 }
 
 // ── Osallistujat (localStorage) ──────────────────────────────────────────
@@ -1476,11 +1767,9 @@ function poistaOsallistuja(i) {
 
 // PWA
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').then(reg => {
-      console.log('SW registered');
-    }).catch(e => console.warn('SW error:', e));
-  });
+  navigator.serviceWorker.register('/sw.js').then(reg => {
+    console.log('SW registered');
+  }).catch(e => console.warn('SW error:', e));
   // Listen for offline cache completion
   navigator.serviceWorker.addEventListener('message', e => {
     if (e.data && e.data.type === 'TILE_DONE') {
