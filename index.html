@@ -384,11 +384,10 @@ body {
     <button class="tab-btn" onclick="showView('ryhma', this)">👥 Ryhmä</button>
     <button class="tab-btn" onclick="showView('saa', this)">🌤️ Sää</button>
     <button class="tab-btn" onclick="showView('varusteet', this)">🎒 Varusteet</button>
-    <button class="tab-btn" onclick="window.location.href='/kartta'">🗺️ Kartta 3D</button>
-    <button class="tab-btn" id="paivitysNappi" onclick="paivitaAppi()" style="background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);color:#60a5fa;flex-shrink:0;">🔄 Päivitä</button>
-    <button class="tab-btn" onclick="showView('varusteet', this)">🎒 Varusteet</button>
     <button class="tab-btn" onclick="showView('espanja', this)">🇪🇸 Espanja</button>
     <button class="tab-btn" onclick="showView('rannat', this)">🏖️ Rannat</button>
+    <button class="tab-btn" onclick="window.location.href='/kartta'">🗺️ Kartta 3D</button>
+    <button class="tab-btn" onclick="paivitaAppi()" style="background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);color:#60a5fa;flex-shrink:0;">🔄 Päivitä</button>
   </div>
 </div>
 
@@ -912,37 +911,6 @@ body {
       <tr><td>☀️ Aurinko</td><td>Kuuma harjanteilla, varjoa vähän</td></tr>
       <tr><td>💧 Nesteytys</td><td>3–4L/päivä vaativilla etapeilla</td></tr>
     </table>
-  </div>
-</div>
-
-<!-- ===== VARUSTEET VIEW ===== -->
-<div class="view" id="view-varusteet">
-  <div class="section-title">🎒 Varusteet & Packlista</div>
-
-  <!-- Edistyminen -->
-  <div class="card" style="margin-bottom:12px;">
-    <div class="card-label">Pakkaus valmis</div>
-    <div class="progress-bar" style="margin-top:6px;">
-      <div class="progress-fill" id="packProgress" style="width:0%"></div>
-    </div>
-    <div id="packStats" style="font-size:12px;color:var(--mist);margin-top:6px;">0/0 tavaraa pakattu</div>
-  </div>
-
-  <div id="packLista"></div>
-
-  <div class="card" style="margin-top:8px;background:rgba(255,255,255,0.03);">
-    <div class="card-label">💡 Muista</div>
-    <div style="font-size:12px;color:var(--mist);line-height:1.8;">
-      ✓ Elektrolyytit etapeille 16, 18, 20<br>
-      ✓ Offline-kartat ladattu ennen lähtöä<br>
-      ✓ Eurooppalainen sairaanhoitokortti (EHIC)<br>
-      ✓ Matkavakuutus voimassa<br>
-      ✓ Espanjan hätänumero 112 tallennettuna
-    </div>
-  </div>
-
-  <div style="text-align:center;padding:12px 16px 4px;font-size:11px;color:rgba(255,255,255,0.25);">
-    © 2026 Kalevalapaja · Jari Tossavainen
   </div>
 </div>
 
