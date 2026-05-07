@@ -361,6 +361,35 @@ body {
 }
 .summary-tile .val { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: var(--sage); }
 .summary-tile .lbl { font-size: 10px; color: var(--mist); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* Dropdown navigaatio */
+.nav-dropdown { position: relative; }
+.nav-dd-btn {
+  padding: 9px 16px; border-radius: 20px;
+  border: 1px solid rgba(74,124,63,0.4);
+  background: transparent; color: var(--mist);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  cursor: pointer; white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-dd-btn.active { background:var(--moss); color:var(--cream); border-color:var(--moss); }
+.nav-dd-menu {
+  display: none; position: absolute;
+  top: calc(100% + 8px); left: 0;
+  background: #1a2f1a; border: 1px solid rgba(74,124,63,0.4);
+  border-radius: 14px; padding: 8px;
+  min-width: 200px; z-index: 500;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.nav-dd-menu.open { display: block; }
+.nav-dd-menu button {
+  display: block; width: 100%; padding: 12px 16px;
+  text-align: left; background: transparent; border: none;
+  color: var(--mist); font-size: 15px; cursor: pointer;
+  border-radius: 10px; font-family: 'DM Sans', sans-serif;
+}
+.nav-dd-menu button:active { background: rgba(74,124,63,0.3); color: var(--cream); }
 </style>
 </head>
 <body>
@@ -373,21 +402,41 @@ body {
       <div class="header-sub">4.–20. syyskuuta 2026 · Lloret → Garraf</div>
     </div>
   </div>
-  <div class="nav-tabs" id="navTabs">
-    <button class="tab-btn active" onclick="showView('ohjelma', this)">📅 Ohjelma</button>
-    <button class="tab-btn" onclick="showView('etapit', this)">🗺️ Etapit</button>
-    <button class="tab-btn" onclick="showView('linkit', this)">🔗 Linkit</button>
-    <button class="tab-btn" onclick="showView('logistiikka', this)">🚌 Logistiikka</button>
-    <button class="tab-btn" onclick="showView('tarkista', this)">⚠️ Tärkeää</button>
-    <button class="tab-btn" onclick="showView('ryhma', this)">👥 Ryhmä</button>
-    <button class="tab-btn" onclick="showView('saa', this)">🌤️ Sää</button>
-    <button class="tab-btn" onclick="showView('varusteet', this)">🎒 Varusteet</button>
-    <button class="tab-btn" onclick="showView('espanja', this)">🇪🇸 Espanja</button>
-    <button class="tab-btn" onclick="showView('rannat', this)">🏖️ Rannat</button>
-    <button class="tab-btn" onclick="window.location.href='/kartta'">🗺️ Kartta 3D</button>
-    <button class="tab-btn" onclick="paivitaAppi()" style="background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);color:#60a5fa;flex-shrink:0;">🔄 Päivitä</button>
+  <div id="navTabs" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding-bottom:4px;">
+
+    <div class="nav-dropdown">
+      <button class="nav-dd-btn" onclick="toggleDD('dd1')">📅 Matka ▾</button>
+      <div class="nav-dd-menu" id="dd1">
+        <button onclick="selectView('ohjelma','dd1')">📅 Ohjelma</button>
+        <button onclick="selectView('etapit','dd1')">🗺️ Etapit</button>
+        <button onclick="selectView('logistiikka','dd1')">🚌 Logistiikka</button>
+        <button onclick="selectView('tarkista','dd1')">⚠️ Tärkeää</button>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <button class="nav-dd-btn" onclick="toggleDD('dd2')">🔗 Tieto ▾</button>
+      <div class="nav-dd-menu" id="dd2">
+        <button onclick="selectView('linkit','dd2')">🔗 Linkit</button>
+        <button onclick="selectView('saa','dd2')">🌤️ Sää</button>
+        <button onclick="selectView('rannat','dd2')">🏖️ Rannat</button>
+        <button onclick="selectView('espanja','dd2')">🇪🇸 Espanja</button>
+      </div>
+    </div>
+
+    <div class="nav-dropdown">
+      <button class="nav-dd-btn" onclick="toggleDD('dd3')">👥 Ryhmä ▾</button>
+      <div class="nav-dd-menu" id="dd3">
+        <button onclick="selectView('ryhma','dd3')">👥 Yhteystiedot</button>
+        <button onclick="selectView('varusteet','dd3')">🎒 Varusteet</button>
+      </div>
+    </div>
+
+    <button class="nav-dd-btn" onclick="window.location.href='/kartta'" style="background:rgba(74,124,63,0.25);color:var(--cream);">🗺️ Kartta</button>
+    <button class="nav-dd-btn" onclick="paivitaAppi()" style="background:rgba(59,130,246,0.2);color:#60a5fa;border-color:rgba(59,130,246,0.4);">🔄</button>
+
   </div>
-</div>
+  </div>
 
 <div class="main">
 
@@ -1427,6 +1476,24 @@ function renderElevationProfile(num) {
     '</div></div>';
 }
 
+function toggleDD(id) {
+  document.querySelectorAll('.nav-dd-menu').forEach(m => {
+    if (m.id !== id) m.classList.remove('open');
+  });
+  document.getElementById(id).classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dd-menu').forEach(m => m.classList.remove('open'));
+  }
+});
+function selectView(name, ddId) {
+  document.getElementById(ddId).classList.remove('open');
+  document.querySelectorAll('.nav-dd-btn').forEach(b => b.classList.remove('active'));
+  const menu = document.getElementById(ddId);
+  if (menu && menu.previousElementSibling) menu.previousElementSibling.classList.add('active');
+  showView(name);
+}
 function showView(name, triggerEl) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1571,7 +1638,7 @@ async function haeSaatiedot() {
 
   for (const [num, e] of Object.entries(ETAPPI_KOORDINAATIT)) {
     try {
-      const url = \`https://api.open-meteo.com/v1/forecast?latitude=\${e.lat}&longitude=\${e.lon}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode,windspeed_10m_max&timezone=Europe/Madrid&start_date=\${e.pvm}&end_date=\${e.pvm}\`;
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${e.lat}&longitude=${e.lon}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode,windspeed_10m_max&timezone=Europe/Madrid&start_date=${e.pvm}&end_date=${e.pvm}`;
       const r = await fetch(url);
       const data = await r.json();
       const d = data.daily;
@@ -1594,28 +1661,28 @@ async function haeSaatiedot() {
   let html = '';
   for (const t of tulokset) {
     if (t.virhe) {
-      html += \`<div class="card" style="margin-bottom:8px;opacity:0.5;">
-        <div style="font-size:13px;color:var(--mist)">E\${t.num} \${t.nimi} — ei saatavilla</div>
-      </div>\`;
+      html += `<div class="card" style="margin-bottom:8px;opacity:0.5;">
+        <div style="font-size:13px;color:var(--mist)">E${t.num} ${t.nimi} — ei saatavilla</div>
+      </div>`;
       continue;
     }
     const sadeColor = t.sade > 5 ? '#f97316' : t.sade > 0 ? '#fbbf24' : 'var(--mist)';
     const tuuliColor = t.tuuli > 40 ? '#f97316' : 'var(--mist)';
-    html += \`<div class="card" style="margin-bottom:8px;">
+    html += `<div class="card" style="margin-bottom:8px;">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
         <div>
-          <span style="font-weight:700;color:var(--cream);font-size:14px;">E\${t.num} · \${t.nimi}</span>
-          <span style="font-size:11px;color:var(--mist);margin-left:8px;">\${t.pvm.split('-').reverse().join('.')}</span>
+          <span style="font-weight:700;color:var(--cream);font-size:14px;">E${t.num} · ${t.nimi}</span>
+          <span style="font-size:11px;color:var(--mist);margin-left:8px;">${t.pvm.split('-').reverse().join('.')}</span>
         </div>
-        <span style="font-size:28px;">\${wmoEmoji(t.koodi)}</span>
+        <span style="font-size:28px;">${wmoEmoji(t.koodi)}</span>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:12px;">
-        <span style="color:var(--cream)">🌡️ \${t.max}° / \${t.min}°</span>
-        <span style="color:\${sadeColor}">🌧️ \${t.sade}mm</span>
-        <span style="color:\${tuuliColor}">💨 \${t.tuuli}km/h</span>
-        <span style="color:var(--mist)">\${wmoTeksti(t.koodi)}</span>
+        <span style="color:var(--cream)">🌡️ ${t.max}° / ${t.min}°</span>
+        <span style="color:${sadeColor}">🌧️ ${t.sade}mm</span>
+        <span style="color:${tuuliColor}">💨 ${t.tuuli}km/h</span>
+        <span style="color:var(--mist)">${wmoTeksti(t.koodi)}</span>
       </div>
-    </div>\`;
+    </div>`;
   }
   lista.innerHTML = html;
   nappi.textContent = '🔄 Päivitä säätiedot';
