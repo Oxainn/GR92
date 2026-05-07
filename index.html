@@ -1793,11 +1793,22 @@ function naytaWALinkki() {
   const el = document.getElementById('waLinkki');
   if (!el) return;
   if (url) {
-    el.innerHTML = '<div class="link-btn" onclick="openLink(\'' + url + '\')" style="background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.3);">' +
-      '<span class="link-icon">💬</span>' +
-      '<div class="link-text"><div class="link-title" style="color:#25d366;">Avaa WhatsApp-ryhmä</div><div class="link-sub">' + url.substring(0,40) + '...</div></div>' +
-      '<span class="link-arrow">↗</span></div>' +
-      '<button onclick="localStorage.removeItem('gr92_wa_linkki');naytaWALinkki();" style="font-size:11px;color:var(--mist);background:none;border:none;cursor:pointer;margin-top:4px;">✕ Poista linkki</button>';
+    const d = document.createElement('div');
+    // Linkki-nappi
+    const a = document.createElement('div');
+    a.className = 'link-btn';
+    a.style.cssText = 'background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.3);margin-bottom:6px;';
+    a.onclick = () => openLink(url);
+    a.innerHTML = '<span class="link-icon">💬</span><div class="link-text"><div class="link-title" style="color:#25d366;">Avaa WhatsApp-ryhmä</div><div class="link-sub">' + url.substring(0,40) + '...</div></div><span class="link-arrow">↗</span>';
+    // Poista-nappi
+    const b = document.createElement('button');
+    b.textContent = '✕ Poista linkki';
+    b.style.cssText = 'font-size:11px;color:var(--mist);background:none;border:none;cursor:pointer;';
+    b.onclick = () => { localStorage.removeItem('gr92_wa_linkki'); naytaWALinkki(); };
+    d.appendChild(a);
+    d.appendChild(b);
+    el.innerHTML = '';
+    el.appendChild(d);
   } else {
     el.innerHTML = '';
   }
