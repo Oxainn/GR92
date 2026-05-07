@@ -1334,7 +1334,7 @@ function renderPacklista() {
     tavarat.forEach(tavara => {
       const key = kategoria+'_'+tavara;
       const on = checked[key];
-      html += '<div onclick="togglePack(''+key+'')" style="display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid rgba(255,255,255,0.05);cursor:pointer;">' +
+      html += '<div onclick="togglePack(\'' + key + '\')" style="display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid rgba(255,255,255,0.05);cursor:pointer;">' +
         '<span style="font-size:16px;color:' + (on?'#4ade80':'rgba(255,255,255,0.2)') + ';">' + (on?'✓':'○') + '</span>' +
         '<span style="font-size:13px;color:' + (on?'var(--mist)':'var(--cream)') + ';' + (on?'text-decoration:line-through;':'') + '">' + tavara + '</span>' +
         '</div>';
@@ -1373,7 +1373,7 @@ function renderRannat() {
   if (!el) return;
   let html = '';
   RANNAT.lepo.forEach(r => {
-    html += '<div class="link-btn" onclick="openLink('' + r.maps + '')" style="margin-bottom:8px;">' +
+    html += '<div class="link-btn" onclick="openLink(\'' + r.maps + '\')" style="margin-bottom:8px;">' +
       '<span class="link-icon">' + r.tyyppi + '</span>' +
       '<div class="link-text">' +
       '<div class="link-title">' + r.nimi + '</div>' +
