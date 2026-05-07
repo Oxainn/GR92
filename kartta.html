@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#0f1f0f">
 <title>GR92 Kartta</title>
-<link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
@@ -100,7 +98,7 @@ html,body { height:100%; background:#0f1f0f; font-family:-apple-system,sans-seri
 <div id="map"></div>
 
 <div class="top-bar">
-  <a class="back-btn" href="./index.html">←</a>
+  <a class="back-btn" href="/">←</a>
   <div style="flex:1">
     <div class="map-title">🗺️ GR92 Reitti</div>
     <div class="map-sub" id="statusBar">Etapit 12–21 · Lloret → Garraf</div>
@@ -149,7 +147,7 @@ const map = L.map('map', { zoomControl:true, attributionControl:false });
 const tileLayer = L.tileLayer(layerDefs.topo.url, { maxZoom:layerDefs.topo.max, subdomains:'abc' }).addTo(map);
 
 // Load GPX data from separate file
-fetch('./gpx_data.json')
+fetch('/gpx_data.json')
   .then(r => r.json())
   .then(GPX => {
     // Fit bounds
@@ -170,6 +168,16 @@ fetch('./gpx_data.json')
       }).addTo(map);
       dot.on('click', () => { showInfo(num); flyTo(num); setActive(num); });
     }
+
+    // Majoitus - Apartamentos Les Barbes
+    const hotelIcon = L.divIcon({
+      html: '<div style="font-size:24px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.7))">🏠</div>',
+      className: '', iconSize:[28,28], iconAnchor:[14,28]
+    });
+    L.marker([41.568029, 2.526274], { icon: hotelIcon })
+      .bindTooltip('🏠 Apartamentos Les Barbes<br><small>Caldes d\'Estrac — koko matkan majoitus</small>', {direction:'top', permanent:false})
+      .on('click', () => window.open('https://maps.app.goo.gl/eALwNrYJYjNqEirr8', '_blank'))
+      .addTo(map);
 
     // End flag
     const end = GPX['21'][GPX['21'].length-1];
@@ -270,7 +278,7 @@ function toggleGps() {
     }, () => alert('Sijainnin haku epäonnistui.'), { enableHighAccuracy:true });
     gpsWatch = navigator.geolocation.watchPosition(pos => {
       if (gpsMarker) gpsMarker.setLatLng([pos.coords.latitude, pos.coords.longitude]);
-    }, () => {}, { enableHighAccuracy:true, maximumAge:5000 });
+    }, null, { enableHighAccuracy:true });
     gpsOn=true; btn.classList.add('active'); btn.textContent='🔵';
   } else {
     if (gpsWatch) navigator.geolocation.clearWatch(gpsWatch);
