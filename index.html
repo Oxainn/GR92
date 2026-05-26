@@ -927,14 +927,11 @@ body {
     </div>
     <div style="background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.25);border-radius:12px;padding:14px;margin-top:8px;">
       <div class="card-label" style="color:#25d366;margin-bottom:8px;">📱 WhatsApp-ryhmä</div>
-      <div id="waLinkki" style="margin-bottom:8px;"></div>
-      <div style="font-size:12px;color:var(--mist);margin-bottom:8px;">Lisää kutsu-linkki: WhatsApp → Ryhmä → Ryhmän tiedot → Kutsu-linkki → Kopioi</div>
-      <div style="display:flex;gap:8px;">
-        <input id="waInput" placeholder="https://chat.whatsapp.com/..."
-          style="flex:1;padding:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);border-radius:10px;color:var(--cream);font-size:13px;font-family:inherit;"
-          onkeydown="if(event.key==='Enter') tallennaWA()">
-        <button onclick="tallennaWA()" style="padding:10px 14px;background:rgba(37,211,102,0.2);border:1px solid rgba(37,211,102,0.4);border-radius:10px;color:#25d366;font-weight:700;cursor:pointer;">Tallenna</button>
-      </div>
+      <a class="link-btn" onclick="openLink('https://chat.whatsapp.com/L5WRethqN1V6hdnLvLEOQp')" style="background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.3);">
+        <span class="link-icon">💬</span>
+        <div class="link-text"><div class="link-title" style="color:#25d366;">Liity WhatsApp-ryhmään</div><div class="link-sub">Ryhmächat · jaa myös live-sijainti täällä</div></div>
+        <span class="link-arrow">↗</span>
+      </a>
     </div>
   </div>
 
