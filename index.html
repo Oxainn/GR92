@@ -433,6 +433,7 @@ body {
       </div>
     </div>
 
+    <button class="nav-dd-btn" onclick="showView('ai')" style="background:rgba(168,85,247,0.25);color:#c4b5fd;border-color:rgba(168,85,247,0.4);">🤖 AI</button>
     <button class="nav-dd-btn" onclick="window.location.href='kartta.html'" style="background:rgba(74,124,63,0.25);color:var(--cream);">🗺️ Kartta</button>
     <button class="nav-dd-btn" onclick="window.location.href='kartta3d.html'" style="background:rgba(74,124,63,0.25);color:var(--cream);">🏔️ 3D</button>
     <button id="paivitysNappi" class="nav-dd-btn" onclick="paivitaAppi()" title="Pakota appi päivittymään uusimpaan versioon" style="background:rgba(59,130,246,0.2);color:#60a5fa;border-color:rgba(59,130,246,0.4);">🔄</button>
@@ -1208,6 +1209,37 @@ body {
   </div>
 </div>
 
+<!-- ===== AI-KAVERI VIEW ===== -->
+<div class="view" id="view-ai">
+  <div class="section-title">🤖 AI-kaveri <span style="font-size:11px;background:rgba(168,85,247,0.25);color:#c4b5fd;border:1px solid rgba(168,85,247,0.4);border-radius:4px;padding:2px 6px;margin-left:6px;font-weight:600;vertical-align:middle;">BETA</span></div>
+
+  <div class="card" style="margin-bottom:12px;background:rgba(168,85,247,0.08);border-color:rgba(168,85,247,0.3);">
+    <div style="font-size:12px;color:var(--mist);line-height:1.6;">
+      Kysy mitä tahansa matkasta — reiteistä, kuljetuksesta, majoituksesta, hätätilanteista. AI tuntee koko GR92-reitin, ryhmän aikataulun ja Camping Roca Grossan tiedot. Vastaa suomeksi.
+      <br><br>
+      <span style="color:#c4b5fd;">💡 Vinkkejä:</span> "Miten pääsen etappi 15 alkuun?" · "Kuinka paljon vettä etappi 18 vaatii?" · "Mitä teen jos nyrjäytän nilkan?"
+    </div>
+  </div>
+
+  <div id="chatViestit" style="margin-bottom:12px;min-height:100px;"></div>
+
+  <div id="chatSyottokentta" style="position:sticky;bottom:0;background:var(--dark);padding:12px 0;border-top:1px solid rgba(255,255,255,0.08);margin-top:12px;">
+    <div style="display:flex;gap:8px;">
+      <input id="chatSyote" type="text" placeholder="Kysy jotain..."
+        style="flex:1;padding:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);border-radius:11px;color:var(--cream);font-size:14px;font-family:inherit;"
+        onkeydown="if(event.key==='Enter') laheteChatViesti()">
+      <button onclick="laheteChatViesti()" id="chatLahetaBtn"
+        style="padding:12px 16px;background:rgba(168,85,247,0.25);border:1px solid rgba(168,85,247,0.5);border-radius:11px;color:#c4b5fd;font-weight:700;cursor:pointer;">
+        Lähetä
+      </button>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-size:10px;color:var(--mist);">
+      <span>Max 30 kysymystä/tunti</span>
+      <button onclick="tyhjennaChat()" style="background:none;border:none;color:var(--mist);font-size:10px;cursor:pointer;text-decoration:underline;">🗑️ Tyhjennä keskustelu</button>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal-sheet" id="modalSheet">
@@ -1708,6 +1740,130 @@ function renderKielet() {
   el.innerHTML = html;
 }
 
+// ── AI-kaveri ────────────────────────────────────────────────────────────
+const AI_WORKER_URL = 'https://cold-brook-c441gr92-ai.oxainn.workers.dev';
+const AI_STORAGE_KEY = 'gr92_chat_history';
+const AI_MAX_HISTORY = 20; // Max viestit historiassa (sekä käyttäjä että AI)
+
+function lataaChatHistoria() {
+  try { return JSON.parse(localStorage.getItem(AI_STORAGE_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+function tallennaChatHistoria(hist) {
+  try {
+    // Katkaise historia jos liian pitkä
+    if (hist.length > AI_MAX_HISTORY) hist = hist.slice(-AI_MAX_HISTORY);
+    localStorage.setItem(AI_STORAGE_KEY, JSON.stringify(hist));
+  } catch(e) {}
+}
+
+function renderChatViestit() {
+  const el = document.getElementById('chatViestit');
+  if (!el) return;
+  const hist = lataaChatHistoria();
+  if (hist.length === 0) {
+    el.innerHTML = '<div style="text-align:center;color:var(--mist);padding:30px 20px;font-size:13px;">Ei vielä viestejä. Kirjoita alle kysymyksesi.</div>';
+    return;
+  }
+  let html = '';
+  for (const msg of hist) {
+    if (msg.role === 'user') {
+      html += '<div style="margin-bottom:10px;display:flex;justify-content:flex-end;">' +
+        '<div style="max-width:85%;background:rgba(74,124,63,0.25);border:1px solid rgba(74,124,63,0.4);border-radius:14px 14px 4px 14px;padding:10px 13px;color:var(--cream);font-size:14px;line-height:1.5;word-wrap:break-word;">' +
+        escapeHtml(msg.content) +
+        '</div></div>';
+    } else {
+      html += '<div style="margin-bottom:10px;display:flex;justify-content:flex-start;">' +
+        '<div style="max-width:85%;background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.35);border-radius:14px 14px 14px 4px;padding:10px 13px;color:var(--cream);font-size:14px;line-height:1.55;word-wrap:break-word;">' +
+        '<div style="font-size:10px;color:#c4b5fd;margin-bottom:4px;font-weight:600;">🤖 AI-kaveri</div>' +
+        formatoiAiVastaus(msg.content) +
+        '</div></div>';
+    }
+  }
+  el.innerHTML = html;
+  // Skrollaa alas
+  window.scrollTo(0, document.body.scrollHeight);
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function formatoiAiVastaus(s) {
+  // Yksinkertainen markdown: **bold**, rivit, listat
+  let h = escapeHtml(s);
+  h = h.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  h = h.replace(/\n/g, '<br>');
+  return h;
+}
+
+async function laheteChatViesti() {
+  const input = document.getElementById('chatSyote');
+  const btn = document.getElementById('chatLahetaBtn');
+  const viesti = input.value.trim();
+  if (!viesti) return;
+
+  // Tarkista Worker-URL
+  if (AI_WORKER_URL.includes('WORKER-NIMESI')) {
+    alert('AI-kaveri ei ole vielä käytössä — Worker-URL puuttuu. Ota yhteyttä ylläpitäjään.');
+    return;
+  }
+
+  // Lisää käyttäjän viesti historiaan
+  const hist = lataaChatHistoria();
+  hist.push({ role: 'user', content: viesti });
+  tallennaChatHistoria(hist);
+  input.value = '';
+  renderChatViestit();
+
+  // Näytä "kirjoittaa..." -indikaattori
+  const el = document.getElementById('chatViestit');
+  el.insertAdjacentHTML('beforeend',
+    '<div id="chatOdottaa" style="margin-bottom:10px;display:flex;justify-content:flex-start;">' +
+    '<div style="background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.3);border-radius:14px;padding:10px 13px;color:var(--mist);font-size:13px;font-style:italic;">🤖 miettii...</div>' +
+    '</div>');
+  window.scrollTo(0, document.body.scrollHeight);
+  btn.disabled = true;
+  btn.style.opacity = '0.5';
+
+  try {
+    const resp = await fetch(AI_WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        // Lähetetään viimeisimmät viestit kontekstiksi (mutta rajattu)
+        messages: hist.slice(-10).map(m => ({ role: m.role, content: m.content })),
+      }),
+    });
+    const data = await resp.json();
+
+    document.getElementById('chatOdottaa')?.remove();
+
+    if (!resp.ok) {
+      const err = data.error || `Virhe (${resp.status})`;
+      hist.push({ role: 'assistant', content: '⚠️ ' + err });
+    } else {
+      hist.push({ role: 'assistant', content: data.text || '(tyhjä vastaus)' });
+    }
+    tallennaChatHistoria(hist);
+    renderChatViestit();
+  } catch (err) {
+    document.getElementById('chatOdottaa')?.remove();
+    hist.push({ role: 'assistant', content: '⚠️ Yhteysvirhe. Tarkista verkkoyhteys ja yritä uudelleen.' });
+    tallennaChatHistoria(hist);
+    renderChatViestit();
+  }
+
+  btn.disabled = false;
+  btn.style.opacity = '1';
+}
+
+function tyhjennaChat() {
+  if (!confirm('Poistetaanko koko keskustelu?')) return;
+  localStorage.removeItem(AI_STORAGE_KEY);
+  renderChatViestit();
+}
+
 // ── Rannat ────────────────────────────────────────────────────────────────
 function renderRannat() {
   const el = document.getElementById('lähirannatLista');
@@ -1854,6 +2010,7 @@ function showView(name, triggerEl) {
   if (name === 'varusteet') renderPacklista();
   if (name === 'espanja') renderKielet();
   if (name === 'rannat') renderRannat();
+  if (name === 'ai') { renderChatViestit(); setTimeout(() => document.getElementById('chatSyote')?.focus(), 100); }
   if (name === 'saa') {
     const lista = document.getElementById('saaLista');
     if (lista && lista.innerHTML === '') haeSaatiedot();
