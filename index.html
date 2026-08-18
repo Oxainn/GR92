@@ -457,6 +457,9 @@ body {
     </div>
   </div>
 
+  <!-- TÄNÄÄN -->
+  <div id="tanaanCard" style="display:none;"></div>
+
   <!-- PROGRESS -->
   <div class="progress-wrap card">
     <div class="card-label">Etappiyhteenveto</div>
@@ -1108,9 +1111,16 @@ body {
 <!-- ===== ESPANJA VIEW ===== -->
 <div class="view" id="view-espanja">
   <div class="section-title">🇪🇸 Hyödylliset lauseet</div>
-  <div class="card" style="margin-bottom:12px;background:rgba(234,179,8,0.08);border-color:rgba(234,179,8,0.25);">
-    <div class="card-label" style="color:#fbbf24;">💡 Vinkki</div>
-    <div style="font-size:12px;color:var(--mist);line-height:1.5;">Näytä puhelimen näyttö paikalliselle jos puhuminen ei auta. Espanjalaiset ovat yleensä avuliaita!</div>
+
+  <div class="card" style="margin-bottom:12px;background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.4);">
+    <div class="card-label" style="color:#ef4444;">🚨 Hätä ja vaellus — nämä valmiiksi</div>
+    <div style="font-size:12px;color:var(--mist);line-height:1.5;">Näytä ruudulla jos et osaa lausua. Ambulanssi ja poliisi: <strong style="color:var(--cream);">112</strong> (englanniksi).</div>
+  </div>
+  <div id="hataLista"></div>
+
+  <div class="card" style="margin-top:16px;margin-bottom:12px;background:rgba(234,179,8,0.08);border-color:rgba(234,179,8,0.25);">
+    <div class="card-label" style="color:#fbbf24;">💡 Yleiset fraasit</div>
+    <div style="font-size:12px;color:var(--mist);line-height:1.5;">Ravintola, kauppa, suunnat. Näytä puhelimen näyttö paikalliselle jos puhuminen ei auta — espanjalaiset ovat yleensä avuliaita!</div>
   </div>
   <div id="kieliLista"></div>
 </div>
@@ -1312,10 +1322,125 @@ const ELEVATION_PROFILES = {"12": [[0.0, 9.0], [0.14, 12.0], [0.38, 13.0], [0.51
 
 const PROFIILIT = {"12": [[0, 9], [0.26, 12], [0.49, 14], [0.71, 11], [0.88, 10], [1.13, 26], [1.28, 21], [1.54, 5], [1.86, 12], [2.21, 17], [2.38, 40], [2.68, 34], [2.99, 26], [3.24, 56], [3.51, 80], [3.86, 78], [4.14, 61], [4.5, 80], [4.91, 107], [5.28, 112], [5.5, 115], [5.78, 147], [5.98, 102], [6.23, 28], [6.41, 9], [6.81, 11], [7.08, 6], [7.4, 8], [7.78, 7], [8.08, 9], [8.44, 9], [8.77, 9], [9.02, 7], [9.44, 9], [9.77, 9], [10.13, 9], [10.49, 13], [10.78, 15], [11.06, 14], [11.36, 13], [11.71, 16], [11.93, 14], [12.38, 15], [12.85, 17], [13.24, 18], [13.73, 16], [14.18, 22], [14.45, 24], [14.75, 21], [14.9, 23], [15.21, 24], [15.51, 28]], "13": [[0, 27], [0.17, 28], [0.51, 27], [0.73, 25], [0.99, 24], [1.28, 33], [1.54, 43], [1.79, 43], [2.0, 53], [2.35, 67], [2.72, 67], [3.06, 57], [3.39, 64], [3.75, 86], [4.09, 101], [4.41, 97], [4.74, 102], [5.08, 122], [5.47, 131], [5.83, 125], [6.1, 121], [6.35, 139], [6.63, 161], [6.87, 158], [7.1, 138], [7.41, 133], [7.57, 143], [7.73, 168], [7.96, 201], [8.16, 216], [8.33, 227], [8.45, 250], [8.67, 264], [8.8, 286], [9.05, 316], [9.27, 323], [9.45, 322], [9.75, 340], [9.96, 365], [10.14, 390], [10.4, 424], [10.66, 482], [11.04, 519], [11.29, 515], [11.56, 505], [11.81, 489], [11.94, 469], [12.23, 464], [12.46, 486], [12.72, 515], [13.0, 527]], "14": [[0, 525], [0.19, 528], [0.38, 535], [0.58, 547], [0.77, 554], [1.0, 561], [1.22, 556], [1.44, 553], [1.64, 540], [1.91, 520], [2.08, 495], [2.26, 476], [2.43, 468], [2.67, 479], [2.83, 484], [3.02, 470], [3.25, 454], [3.49, 449], [3.75, 451], [3.92, 451], [4.19, 451], [4.31, 454], [4.58, 462], [4.84, 475], [5.07, 492], [5.27, 518], [5.47, 528], [5.64, 525], [5.86, 532], [6.07, 557], [6.3, 582], [6.56, 593], [6.79, 592], [7.0, 581], [7.16, 566], [7.38, 562], [7.64, 566], [7.85, 545], [8.04, 515], [8.3, 496], [8.55, 481], [8.81, 472], [9.12, 454], [9.41, 433], [9.65, 423], [9.94, 418], [10.13, 402], [10.36, 383], [10.65, 359], [10.92, 331], [11.18, 296], [11.5, 266], [11.77, 253], [12.0, 229]], "15": [[0, 223], [0.17, 224], [0.42, 220], [0.63, 212], [0.97, 207], [1.21, 208], [1.38, 233], [1.61, 272], [1.82, 313], [1.97, 333], [2.22, 336], [2.33, 364], [2.58, 422], [2.81, 463], [3.0, 482], [3.19, 492], [3.37, 501], [3.49, 521], [3.64, 550], [3.82, 574], [4.08, 584], [4.25, 596], [4.48, 623], [4.72, 636], [4.95, 620], [5.18, 590], [5.42, 564], [5.67, 541], [5.89, 509], [6.0, 485], [6.24, 483], [6.47, 487], [6.65, 494], [6.98, 514], [7.23, 528], [7.48, 531], [7.73, 512], [8.01, 483], [8.31, 457], [8.55, 443], [8.8, 438], [9.12, 431], [9.37, 432], [9.62, 430], [9.92, 424], [10.18, 410], [10.46, 397], [10.64, 387], [10.96, 384], [11.28, 387], [11.58, 377], [11.8, 360], [12.11, 329]], "16": [[0, 322], [0.25, 342], [0.48, 360], [0.82, 363], [1.03, 358], [1.38, 382], [1.64, 420], [1.89, 417], [2.17, 401], [2.46, 375], [2.62, 356], [2.84, 318], [3.05, 279], [3.3, 262], [3.54, 289], [3.86, 316], [4.26, 329], [4.56, 359], [4.91, 369], [5.25, 338], [5.56, 309], [5.92, 314], [6.26, 313], [6.67, 307], [6.95, 323], [7.19, 330], [7.58, 327], [7.81, 331], [8.09, 335], [8.28, 348], [8.39, 383], [8.7, 405], [8.87, 411], [9.12, 414], [9.49, 398], [9.74, 395], [9.96, 397], [10.24, 394], [10.61, 388], [10.8, 386], [11.11, 384], [11.41, 380], [11.64, 378], [11.91, 385], [12.28, 409], [12.61, 441], [13.02, 449], [13.44, 432], [13.8, 402], [14.19, 363], [14.46, 374], [14.77, 402], [15.1, 417]], "17": [[0, 277], [0.2, 300], [0.56, 322], [0.84, 359], [1.03, 361], [1.28, 358], [1.49, 357], [1.73, 381], [1.98, 390], [2.19, 384], [2.44, 389], [2.72, 410], [3.04, 405], [3.31, 375], [3.62, 348], [4.01, 339], [4.35, 332], [4.57, 316], [4.78, 323], [5.01, 348], [5.34, 353], [5.5, 330], [5.75, 292], [5.93, 245], [6.12, 217], [6.33, 224], [6.65, 204], [6.89, 178], [7.19, 160], [7.47, 153], [7.73, 154], [7.9, 152], [8.14, 158], [8.24, 162], [8.43, 147], [8.66, 133], [8.97, 148], [9.18, 194], [9.41, 245], [9.67, 246], [9.99, 253], [10.29, 246], [10.57, 187], [10.79, 124], [11.02, 82], [11.12, 60], [11.4, 42], [11.62, 32], [11.93, 32], [12.25, 34], [12.46, 37], [12.66, 40]], "18": [[0, 41], [0.21, 44], [0.33, 55], [0.54, 93], [0.77, 122], [1.01, 105], [1.27, 108], [1.54, 112], [1.6, 94], [1.85, 88], [2.08, 92], [2.35, 94], [2.64, 95], [2.88, 117], [3.16, 146], [3.45, 162], [3.75, 138], [4.0, 97], [4.26, 93], [4.67, 114], [4.94, 132], [5.25, 144], [5.64, 160], [5.85, 184], [6.12, 221], [6.37, 255], [6.76, 286], [7.11, 324], [7.41, 325], [7.61, 327], [7.91, 341], [8.14, 371], [8.43, 414], [8.65, 421], [8.96, 400], [9.24, 384], [9.48, 381], [9.64, 388], [9.79, 392], [10.04, 400], [10.43, 424], [10.69, 459], [10.94, 468], [11.19, 450], [11.38, 408], [11.51, 378], [11.76, 356], [11.92, 333], [12.1, 334], [12.36, 353], [12.7, 335], [12.94, 295], [13.16, 271], [13.34, 242]], "19": [[0, 241], [0.07, 260], [0.23, 285], [0.5, 317], [0.76, 340], [0.97, 352], [1.16, 364], [1.28, 388], [1.57, 422], [1.89, 451], [2.23, 461], [2.46, 449], [2.94, 424], [3.38, 396], [3.96, 374], [4.37, 353], [4.67, 337], [4.91, 328], [5.27, 313], [5.46, 291], [5.9, 253], [6.72, 200], [6.99, 152], [7.11, 110], [7.96, 67], [8.11, 39], [8.52, 23], [8.61, 18], [8.71, 19], [8.83, 23], [8.97, 26], [9.12, 29], [9.23, 31], [9.35, 31], [9.46, 30], [9.57, 29], [9.69, 27], [9.85, 26], [10.01, 25], [10.12, 25], [10.15, 25], [10.32, 25], [10.49, 25], [10.51, 24], [10.64, 23], [10.7, 23], [10.84, 24], [10.98, 25], [11.08, 27], [11.14, 29], [11.2, 30], [11.28, 32], [11.38, 33], [11.42, 35], [11.52, 34], [11.64, 35], [11.74, 36], [11.76, 37], [11.84, 38]], "20": [[0, 31], [0.61, 35], [0.69, 54], [1.02, 92], [1.36, 114], [1.65, 138], [1.99, 145], [2.25, 168], [2.33, 196], [2.42, 218], [2.6, 250], [2.83, 303], [3.19, 324], [3.36, 275], [3.62, 256], [3.8, 250], [4.05, 245], [4.29, 246], [4.47, 255], [4.61, 267], [4.96, 271], [5.12, 265], [5.27, 244], [5.43, 213], [5.83, 171], [6.17, 139], [6.39, 129], [6.56, 125], [6.82, 109], [7.03, 91], [7.15, 80], [7.31, 86], [7.52, 114], [7.79, 133], [8.17, 96], [8.39, 79], [8.75, 96], [9.07, 110], [9.24, 122], [9.5, 131], [9.57, 144], [9.82, 166], [9.99, 176], [10.25, 172], [10.47, 146], [10.74, 111], [10.95, 103], [11.2, 103], [11.23, 110], [11.52, 127], [11.86, 145], [12.05, 154], [12.32, 185], [12.64, 231], [12.77, 245]], "21": [[0, 244], [0.16, 277], [0.32, 326], [0.42, 357], [0.58, 371], [0.7, 371], [0.95, 360], [1.07, 355], [1.2, 356], [1.47, 366], [1.62, 373], [1.8, 376], [2.02, 381], [2.14, 393], [2.46, 414], [2.7, 435], [2.78, 447], [2.83, 463], [3.0, 492], [3.23, 523], [3.41, 542], [3.64, 533], [4.03, 500], [4.27, 482], [4.47, 499], [4.8, 523], [5.07, 542], [5.19, 564], [5.31, 580], [5.45, 572], [5.73, 546], [6.03, 523], [6.35, 519], [6.49, 515], [6.64, 509], [6.71, 503], [6.89, 492], [7.14, 474], [7.35, 450], [7.63, 407], [7.98, 364], [8.27, 344], [8.51, 334], [8.83, 321], [9.29, 299], [9.36, 278], [9.71, 240], [10.17, 220], [10.33, 210], [10.64, 190], [10.78, 159], [11.03, 130], [11.35, 107], [11.56, 90], [11.81, 74], [11.96, 52], [12.03, 39], [12.36, 25], [12.45, 19], [12.75, 14], [12.98, 16]]};
 const RANNAT = {"lepo": [{"nimi": "Calellan ranta", "tyyppi": "🏖️", "kuvaus": "Roca Grossa -lahti majoituksen alla (100 m) — täydellinen iltauinti", "maps": "https://www.google.com/maps/search/platja+Calella"}, {"nimi": "Arenys de Mar", "tyyppi": "🏖️", "kuvaus": "n. 8 km etelään — pidemmät rannat, hiljaisempi", "maps": "https://www.google.com/maps/search/platja+Arenys+de+Mar"}, {"nimi": "Barceloneta (13.9.)", "tyyppi": "🏖️🎉", "kuvaus": "Vapapäivä Barcelonassa — uinti ja ravintolat", "maps": "https://www.google.com/maps/search/Barceloneta+beach"}], "etapit": {"12": {"nimi": "Lloret de Mar rannat", "kuvaus": "Cala Banys, Sa Caleta — alkupiste"}, "21": {"nimi": "Garraf ranta 🎉", "kuvaus": "MAALIVIIVA — ansaittu uinti!"}}};
+const HATA_FRAASIT = [
+  { fi: "Hätä! Tarvitsen apua!",            es: "¡Ayuda! ¡Necesito ayuda!",              aani: "Ayuda! Nesessito ayuda!" },
+  { fi: "Soittakaa 112",                    es: "Llame al 112",                          aani: "Lyame al ciento doce" },
+  { fi: "Soita ambulanssi",                 es: "Llame a una ambulancia",                aani: "Lyame a una ambulansya" },
+  { fi: "Olen loukkaantunut",               es: "Estoy herido/herida",                   aani: "Estoy erido / erida" },
+  { fi: "Kaverini on loukkaantunut",        es: "Mi compañero está herido",              aani: "Mi kompanyero esta erido" },
+  { fi: "Emme pääse eteenpäin",             es: "No podemos continuar",                  aani: "No podemos kontinuar" },
+  { fi: "Olemme eksyneet",                  es: "Nos hemos perdido",                     aani: "Nos emos perdido" },
+  { fi: "Sijaintimme on...",                es: "Nuestra ubicación es...",               aani: "Nwestra ubikasyon es..." },
+  { fi: "Kävelemme GR92-reittiä",           es: "Estamos haciendo el sendero GR92",      aani: "Estamos asyendo el sendero GR92" },
+  { fi: "En voi kävellä",                   es: "No puedo caminar",                      aani: "No pwedo kaminar" },
+  { fi: "Selkäni / jalkani sattuu",         es: "Me duele la espalda / la pierna",       aani: "Me dwele la espalda / la pyerna" },
+  { fi: "Nilkkani on nyrjähtänyt",          es: "Me he torcido el tobillo",              aani: "Me e torsido el tobiljo" },
+  { fi: "Tarvitsen lääkärin",               es: "Necesito un médico",                    aani: "Nesessito un mediko" },
+  { fi: "Puhutteko englantia?",             es: "¿Habla inglés?",                        aani: "Abla ingles?" },
+  { fi: "En puhu espanjaa hyvin",           es: "No hablo bien español",                 aani: "No ablo byen espanyol" },
+  { fi: "Olen allerginen (penisilliinille)", es: "Soy alérgico/a a (la penicilina)",     aani: "Soy alerhiko a la penisilina" },
+  { fi: "Kärsin auringonpistoksesta",       es: "Tengo un golpe de calor",               aani: "Tengo un golpe de kalor" },
+  { fi: "Tarvitsen vettä",                  es: "Necesito agua",                         aani: "Nesessito agua" },
+];
+
 const KIELET = [{"fi": "Hätä! Apua!", "es": "¡Emergencia! ¡Ayuda!", "aani": "Emerhensya! Ayuda!"}, {"fi": "Soita ambulanssi", "es": "Llame a una ambulancia", "aani": "Lyame a una ambulansya"}, {"fi": "Olen hukassa", "es": "Estoy perdido/a", "aani": "Estoy perdido"}, {"fi": "Tarvitsen vettä", "es": "Necesito agua", "aani": "Nesessito agua"}, {"fi": "Missä on apteekki?", "es": "¿Dónde está la farmacia?", "aani": "Donde esta la farmassya"}, {"fi": "Missä on sairaala?", "es": "¿Dónde está el hospital?", "aani": "Donde esta el ospital"}, {"fi": "Sattuu tähän", "es": "Me duele aquí", "aani": "Me duele aki"}, {"fi": "Paljonko maksaa?", "es": "¿Cuánto cuesta?", "aani": "Kuanto kwesta"}, {"fi": "Lasku/kuitti", "es": "La cuenta / el recibo", "aani": "La kwenta"}, {"fi": "Vettä pullossa", "es": "Agua en botella", "aani": "Agua en botella"}, {"fi": "Bussiasema", "es": "Estación de autobús", "aani": "Estasyon de autobus"}, {"fi": "Juna-asema", "es": "Estación de tren", "aani": "Estasyon de tren"}, {"fi": "Kuinka kauas?", "es": "¿A qué distancia?", "aani": "A ke distansya"}, {"fi": "Vasen / Oikea", "es": "Izquierda / Derecha", "aani": "Iskyerda / Deretxa"}, {"fi": "Suoraan eteenpäin", "es": "Todo recto", "aani": "Todo rekto"}, {"fi": "Kiitos", "es": "Gracias", "aani": "Grassyas"}, {"fi": "Anteeksi", "es": "Perdón / Disculpe", "aani": "Perdon"}, {"fi": "Puhutko englantia?", "es": "¿Habla inglés?", "aani": "Abla ingles"}];
 const PACKLISTA = {"Vaatetus": ["Vaelluskengät (sisäänajettuna!)", "Sandaalit illaksi", "Nopea kuivuvat housut x2", "T-paidat x3", "Pitkähihainen tuulelta", "Kevyt tuulitakki", "Uimapuku/shortsit", "Alusvaatteet x4", "Sukat (vaellus) x4", "Hattu aurinkosuoja", "Lippalakki", "Pitkät alusvaatteet (viileisiin iltoihin)"], "Varusteet": ["Reppu 25-35L", "Juomapullo 1L x2 (tai 2L pakkaus)", "Elektrolyyttitabletit", "Sauva(t) — suositeltu!", "Otsalamppu + varaparistot", "Ensiapupakkaus", "Rakkolaastari (Compeed) x6", "Säärystimet (tikkilta suojaan)", "Kevyt makuupussin sisälakana", "Pakkaussäkki (vesitiivis)"], "Hygienia": ["Aurinkosuoja SPF 50+ (iso purkki)", "Huulibalsami aurinkosuojalla", "Hyönteissuoja", "Mikrokuitupyyhe", "Peseytymistarvikkeet (pienet)", "Käsidesinfiointiaine", "WC-paperi + muovipussit", "Ibuprofen / kipulääke", "Antihistamiini", "Mahatauti-lääke"], "Elektroniikka": ["Puhelin + laturi", "Varavirtalähde (powerbank 10000mAh+)", "USB-kaapelit", "Pistotulppa-adapteri (EU toimii)", "Kuulokkeet", "Aurinkolasit"], "Dokumentit": ["Passi", "EU-sairaanhoitokortti (EHIC)", "Matka- ja peruutusvakuutus", "Lentolipput (tulostettu + puhelimessa)", "Majoitusvahvistus", "Hätäyhteystiedot paperilla", "Käteistä euroja (n. 200€)"]};
 
 // Build etappi list
+// ── Tänään-kortti: näyttää tämän päivän etappi/lepopäivä ──────────────────────
+// Ohjelma-päivät päivämäärittäin. Jokainen päivä on joko etappi (num) tai lepopäivä.
+const OHJELMA = [
+  { pvm: '2026-09-04', tyyppi: 'saapuminen', teksti: 'Saapuminen · lento AY1653 · ajo Roca Grossaan' },
+  { pvm: '2026-09-05', tyyppi: 'lepo', teksti: 'Vapaapäivä — ruokakauppa, varusteet, kevyt kävely tai uinti' },
+  { pvm: '2026-09-06', tyyppi: 'etappi', num: 12 },
+  { pvm: '2026-09-07', tyyppi: 'etappi', num: 13 },
+  { pvm: '2026-09-08', tyyppi: 'etappi', num: 14 },
+  { pvm: '2026-09-09', tyyppi: 'lepo', teksti: 'Vapaapäivä — palautuminen etapeista 13 & 14' },
+  { pvm: '2026-09-10', tyyppi: 'etappi', num: 15 },
+  { pvm: '2026-09-11', tyyppi: 'etappi', num: 16 },
+  { pvm: '2026-09-12', tyyppi: 'etappi', num: 17 },
+  { pvm: '2026-09-13', tyyppi: 'lepo', teksti: 'Vapaapäivä — Barcelona · varusteet, ravintola, hieronta' },
+  { pvm: '2026-09-14', tyyppi: 'etappi', num: 18 },
+  { pvm: '2026-09-15', tyyppi: 'etappi', num: 19 },
+  { pvm: '2026-09-16', tyyppi: 'lepo', teksti: 'Vapaapäivä — lepo ennen raskainta etappia 20' },
+  { pvm: '2026-09-17', tyyppi: 'etappi', num: 20 },
+  { pvm: '2026-09-18', tyyppi: 'etappi', num: 21 },
+  { pvm: '2026-09-19', tyyppi: 'lepo', teksti: 'Vapaapäivä — juhlat & maalinvieton palautuminen 🎉' },
+  { pvm: '2026-09-20', tyyppi: 'lahto', teksti: 'Lähtöpäivä · lento AY1654 · herätys 05:30' },
+];
+
+function renderTanaanKortti() {
+  const el = document.getElementById('tanaanCard');
+  if (!el) return;
+  const nyt = new Date();
+  const tanaanStr = nyt.getFullYear() + '-' +
+    String(nyt.getMonth() + 1).padStart(2, '0') + '-' +
+    String(nyt.getDate()).padStart(2, '0');
+
+  const ekaPvm = OHJELMA[0].pvm;
+  const vikaPvm = OHJELMA[OHJELMA.length - 1].pvm;
+
+  // Ennen matkaa: näytä countdown ja seuraava tapahtuma
+  if (tanaanStr < ekaPvm) {
+    const paivia = Math.ceil((new Date(ekaPvm) - nyt) / 86400000);
+    el.style.display = 'block';
+    el.innerHTML = `<div class="card" style="background:linear-gradient(135deg,rgba(74,124,63,0.15),rgba(74,124,63,0.05));border-color:rgba(74,124,63,0.4);margin-bottom:16px;">
+      <div class="card-label" style="color:var(--sage);">⏳ Ennen matkaa</div>
+      <div style="font-size:22px;font-weight:700;color:var(--cream);margin:6px 0;">${paivia} päivää lähtöön</div>
+      <div style="font-size:12px;color:var(--mist);">Saapuminen ${muotoilePvm(ekaPvm)} · lento AY1653</div>
+    </div>`;
+    return;
+  }
+
+  // Matkan jälkeen: piilota
+  if (tanaanStr > vikaPvm) {
+    el.style.display = 'none';
+    return;
+  }
+
+  // Etsi tämä päivä
+  const paiva = OHJELMA.find(p => p.pvm === tanaanStr);
+  if (!paiva) { el.style.display = 'none'; return; }
+
+  el.style.display = 'block';
+
+  if (paiva.tyyppi === 'etappi') {
+    const e = etapit[paiva.num];
+    if (!e) { el.style.display = 'none'; return; }
+    el.innerHTML = `<div class="card" onclick="openEtappi(${paiva.num})" style="cursor:pointer;background:linear-gradient(135deg,rgba(234,179,8,0.15),rgba(74,124,63,0.08));border-color:rgba(234,179,8,0.4);margin-bottom:16px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+        <div style="flex:1;">
+          <div class="card-label" style="color:#fbbf24;">🥾 TÄNÄÄN · Etappi ${paiva.num}</div>
+          <div style="font-size:17px;font-weight:700;color:var(--cream);margin:4px 0;">${e.route}</div>
+          <div style="font-size:12px;color:var(--mist);">${e.km} km · ⬆️ ${e.up} m · ⬇️ ${e.down} m · ${e.transport}</div>
+        </div>
+        <div style="font-size:24px;">→</div>
+      </div>
+    </div>`;
+  } else if (paiva.tyyppi === 'lepo') {
+    el.innerHTML = `<div class="card" style="background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.35);margin-bottom:16px;">
+      <div class="card-label" style="color:#60a5fa;">☕ TÄNÄÄN · Lepopäivä</div>
+      <div style="font-size:14px;color:var(--cream);margin-top:6px;line-height:1.5;">${paiva.teksti}</div>
+    </div>`;
+  } else if (paiva.tyyppi === 'saapuminen') {
+    el.innerHTML = `<div class="card" style="background:rgba(74,124,63,0.12);border-color:rgba(74,124,63,0.4);margin-bottom:16px;">
+      <div class="card-label" style="color:var(--sage);">✈️ TÄNÄÄN · Saapuminen</div>
+      <div style="font-size:14px;color:var(--cream);margin-top:6px;line-height:1.5;">${paiva.teksti}</div>
+    </div>`;
+  } else if (paiva.tyyppi === 'lahto') {
+    el.innerHTML = `<div class="card" style="background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.35);margin-bottom:16px;">
+      <div class="card-label" style="color:#ef4444;">✈️ TÄNÄÄN · Lähtöpäivä</div>
+      <div style="font-size:14px;color:var(--cream);margin-top:6px;line-height:1.5;">${paiva.teksti}</div>
+    </div>`;
+  }
+}
+
+function muotoilePvm(iso) {
+  const d = new Date(iso);
+  const pv = ['sunnuntai','maanantai','tiistai','keskiviikko','torstai','perjantai','lauantai'];
+  return `${d.getDate()}.${d.getMonth()+1}. ${pv[d.getDay()]}`;
+}
+
 function buildEtappiList() {
   const el = document.getElementById('etappiList');
   const gpxEl = document.getElementById('gpxLinks');
@@ -1491,6 +1616,20 @@ function togglePack(key) {
 
 // ── Kieliopas ─────────────────────────────────────────────────────────────
 function renderKielet() {
+  // Hätä-fraasit (punaisella tehostuksella)
+  const hataEl = document.getElementById('hataLista');
+  if (hataEl) {
+    let hataHtml = '';
+    HATA_FRAASIT.forEach(k => {
+      hataHtml += '<div class="card" style="margin-bottom:8px;padding:12px;border-left:3px solid #ef4444;">' +
+        '<div style="font-size:11px;color:var(--mist);margin-bottom:4px;">🇫🇮 ' + k.fi + '</div>' +
+        '<div style="font-size:16px;font-weight:700;color:var(--cream);margin-bottom:3px;">🇪🇸 ' + k.es + '</div>' +
+        '<div style="font-size:11px;color:#f87171;">🔊 ' + k.aani + '</div>' +
+        '</div>';
+    });
+    hataEl.innerHTML = hataHtml;
+  }
+  // Yleiset fraasit
   const el = document.getElementById('kieliLista');
   if (!el) return;
   let html = '';
@@ -1658,6 +1797,7 @@ function showView(name, triggerEl) {
 
 // Init
 buildEtappiList();
+renderTanaanKortti();
 setTimeout(() => paivitaEtappiYhteenveto(), 100);
 
 // ── Etappikuittaukset & muistiinpanot ────────────────────────────────────
