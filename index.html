@@ -804,13 +804,13 @@ body {
       <tr><td>E12 · 6.9.</td><td>Täysin julkisilla (R1)</td></tr>
       <tr><td>E13 · 7.9.</td><td>Meno junalla · paluu tila-autolla</td></tr>
       <tr><td>E14 · 8.9.</td><td>Meno autolla · paluu julkisella/auto</td></tr>
-      <tr><td>E15 · 10.9.</td><td>Meno julkisilla · paluu autolla</td></tr>
-      <tr><td>E16 · 11.9.</td><td>Auto molemmissa päissä</td></tr>
+      <tr><td>E15 · 10.9.</td><td>Täysin julkisilla (R2 Nord molemmissa päissä)</td></tr>
+      <tr><td>E16 · 11.9.</td><td>Täysin julkisilla (R2 Nord → R1 rannikko)</td></tr>
       <tr><td>E17 · 12.9.</td><td>Meno auto/bussi · paluu Rodalies</td></tr>
       <tr><td>E18 · 14.9.</td><td>Täysin julkisilla (Rodalies + FGC)</td></tr>
       <tr><td>E19 · 15.9.</td><td>Täysin julkisilla (FGC + Llobregat)</td></tr>
-      <tr><td>E20 · 17.9.</td><td>Meno junalla · paluu autolla</td></tr>
-      <tr><td>E21 · 18.9.</td><td>Meno autolla · paluu R2 Sud</td></tr>
+      <tr><td>E20 · 17.9.</td><td>Täysin julkisilla (R6 FGC → R2 Sud)</td></tr>
+      <tr><td>E21 · 18.9.</td><td>Täysin julkisilla (R2 Sud molemmissa päissä)</td></tr>
     </table>
   </div>
 
@@ -1205,31 +1205,31 @@ const etapit = {
     badge: 'Metsä/nousut', hard: false
   },
   15: {
-    date: '10.9.', route: 'Vallgorguina → Can Bordoi',
-    km: 15, up: 507, down: 403, type: 'Harjanne — altistuminen auringolle',
+    date: '10.9.', route: 'Vallgorguina → Llinars del Vallès',
+    km: 16, up: 484, down: 524, type: 'Harjanne — altistuminen auringolle',
     risk: 'Kuumuus — aurinkosuoja pakollinen', water: '2,5–3 L',
-    backup: 'Llinars del Vallès — lasku reitiltä',
-    transport: 'Meno julkisilla · paluu autolla',
+    backup: 'Tuoreelta reittipiirustukselta — päättyy R2-asemalle',
+    transport: 'Täysin julkisilla (R2 Nord molemmissa päissä)',
     gpx: './etappi15.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-15-vallgorguinasta-can-bordoi-passiin/334207381/',
     menoLabel: '🚆 Julkinen',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.64833,2.50987&travelmode=transit',
-    paluuLabel: '🚗 Auto',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.62429,2.40406&destination=41.6064135,2.6391268&travelmode=driving',
+    paluuLabel: '🚆 Julkinen',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.63818,2.40455&destination=41.6064135,2.6391268&travelmode=transit',
     badge: 'Harjanne', hard: false
   },
   16: {
-    date: '11.9.', route: 'Can Bordoi → Font de Cera',
-    km: 19, up: 481, down: 405, type: 'Teknisesti vaativin navigointi',
+    date: '11.9.', route: 'Llinars del Vallès → Vilassar de Mar',
+    km: 23, up: 403, down: 581, type: 'Teknisesti vaativin navigointi',
     risk: 'Eksyminen — GPX pakollinen, ryhmä pysyy yhdessä', water: '3 L',
-    backup: 'Alella — lasku merelle',
-    transport: 'Auto molemmissa päissä',
+    backup: 'Rannikolle päättyvä pitkä päivä — R1-asema',
+    transport: 'Täysin julkisilla (R2 Nord → R1 rannikko)',
     gpx: './etappi16.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-16-can-bordoi-passista-font-de-cera-passiin/334209930/',
-    menoLabel: '🚗 Auto',
-    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.62422,2.40412&travelmode=driving',
-    paluuLabel: '🚗 Auto',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.51802,2.33682&destination=41.6064135,2.6391268&travelmode=driving',
+    menoLabel: '🚆 Julkinen',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.63819,2.40457&travelmode=transit',
+    paluuLabel: '🚆 Julkinen',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.50040,2.38990&destination=41.6064135,2.6391268&travelmode=transit',
     badge: 'Navigointi', hard: false
   },
   17: {
@@ -1275,31 +1275,31 @@ const etapit = {
     badge: 'Lyhyt', hard: false
   },
   20: {
-    date: '17.9.', route: 'Sant Vicenç dels Horts → Bruguers ⚡',
-    km: 23, up: 655, down: 696, type: 'Kriittinen päivä — uupumisriski',
+    date: '17.9.', route: 'Sant Vicenç dels Horts → Gavà',
+    km: 15, up: 293, down: 314, type: 'Kriittinen päivä — uupumisriski',
     risk: '⚠️ RASKAIN ETAPPI — lähtö 07:00 kriittinen!', water: '3–4 L + elektrolyytit',
-    backup: 'Keskeytys puolivälissä tieyhteyden kohdalla · nouto autolla',
-    transport: 'Meno junalla · paluu autolla (suositeltu)',
+    backup: 'Päättyy R2 Sud -asemalle',
+    transport: 'Täysin julkisilla (R6 FGC → R2 Sud)',
     gpx: './etappi20.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-20-sant-vicenc-dels-hortsista-bruguers-puistoon/334211034/',
     menoLabel: '🚆 Julkinen',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.38805,2.01214&travelmode=transit',
-    paluuLabel: '🚗 Auto',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.31476,1.96183&destination=41.6064135,2.6391268&travelmode=driving',
+    paluuLabel: '🚆 Julkinen',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.30350,2.01049&destination=41.6064135,2.6391268&travelmode=transit',
     badge: 'Raskain!', hard: true
   },
   21: {
-    date: '18.9.', route: 'Bruguers → Garraf 🌊',
-    km: 16, up: 455, down: 681, type: 'Palkintopäivä — meri odottaa!',
+    date: '18.9.', route: 'Gavà → Garraf',
+    km: 18, up: 559, down: 566, type: 'Palkintopäivä — meri odottaa!',
     risk: 'Loppuväsymys', water: '2 L',
-    backup: 'Garraf–Sitges R2 Sud (tarkista ratatyöt!)',
-    transport: 'Meno autolla · paluu R2 Sud',
+    backup: 'Molemmat päät R2 Sud -asemilla',
+    transport: 'Täysin julkisilla (R2 Sud molemmissa päissä)',
     gpx: './etappi21.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-21-bruguersista-garrafiin/334211327/',
-    menoLabel: '🚗 Auto',
-    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.31476,1.96180&travelmode=driving',
+    menoLabel: '🚆 Julkinen',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.30320,2.01000&travelmode=transit',
     paluuLabel: '🚆 Julkinen',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.25402,1.90245&destination=41.6064135,2.6391268&travelmode=transit',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.25402,1.90246&destination=41.6064135,2.6391268&travelmode=transit',
     badge: 'Palkinto', hard: false
   }
 };
