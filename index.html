@@ -1165,6 +1165,45 @@ body {
 <!-- ===== VARUSTEET VIEW ===== -->
 <div class="view" id="view-varusteet">
   <div class="section-title">🎒 Pakkaslista</div>
+
+  <!-- EVÄSVINKIT -->
+  <div class="card" style="margin-bottom:16px;background:rgba(234,179,8,0.06);border-color:rgba(234,179,8,0.3);">
+    <div class="card-label" style="color:#fbbf24;">🍞 Eväät ja ruokailu reitillä</div>
+    <div style="font-size:12px;color:var(--mist);margin:4px 0 12px;line-height:1.6;">
+      Reitin varrella ei juuri ole ruokailupaikkoja — <strong style="color:var(--cream);">valmistele eväät joka aamu</strong>. Sisämaaetapit (E13–E17) käytännössä ilman palveluja; rannikkoetapit (E12, E19–E21) parempia.
+    </div>
+
+    <div style="font-weight:700;color:var(--cream);font-size:13px;margin:10px 0 4px;">🛒 Ostokset Calellassa</div>
+    <div style="font-size:12px;color:var(--cream);line-height:1.55;margin-bottom:12px;">
+      Mercadona (iso), Bon Preu (katalonialainen ketju), Condis, DIA — kaikki keskustassa.
+      Camping Roca Grossassa on oma kioski (tarkista aukioloajat).
+      <br><span style="color:var(--mist);">💡 Vinkki: Sunnuntaisin (E12 = 6.9.) monet pikkukauppa kiinni — osta lauantaina.</span>
+    </div>
+
+    <div style="font-weight:700;color:var(--cream);font-size:13px;margin:10px 0 4px;">🥪 Hyviä eväitä (säilyvät lämmössä)</div>
+    <div style="font-size:12px;color:var(--cream);line-height:1.55;margin-bottom:12px;">
+      • <strong>Barritas / patongit</strong> + täytteet<br>
+      • <strong>Manchego-juusto</strong> (kova, kestää auringossa)<br>
+      • <strong>Jamón serrano, chorizo</strong> — säilyvät erinomaisesti<br>
+      • <strong>Tortilla española</strong> (perunamunakas) — kylmänä loistava, valmiina joka kaupasta<br>
+      • <strong>Pa amb tomàquet</strong> — leipä + tomaatti + oliiviöljy + suola (katalonialainen klassikko)<br>
+      • <strong>Kuivahedelmiä ja pähkinöitä</strong> — energia
+    </div>
+
+    <div style="font-weight:700;color:var(--cream);font-size:13px;margin:10px 0 4px;">💧 Vesi on tärkeämpää kuin ruoka</div>
+    <div style="font-size:12px;color:var(--cream);line-height:1.55;margin-bottom:12px;">
+      Syyskuun aurinko on vielä polttava. <strong>Vähintään 2 L/hlö</strong>, kuumina päivinä 3 L.
+      Vaellus-hätä on melkein aina nestehukka, ei nälkä. Osta 5 L kanistereita etukäteen — halvempaa kuin pullot.
+    </div>
+
+    <div style="background:rgba(74,124,63,0.1);border:1px solid rgba(74,124,63,0.3);border-radius:10px;padding:10px;margin-top:6px;">
+      <div style="font-size:11px;color:var(--sage);font-weight:600;margin-bottom:4px;">💡 Iltarutiini</div>
+      <div style="font-size:12px;color:var(--cream);line-height:1.5;">
+        Valmistele eväät edellisenä iltana majoituksessa. Aamulla ei jaksa/ehdi rakennella eväitä lähtökiireessä.
+      </div>
+    </div>
+  </div>
+
   <div class="card" style="margin-bottom:10px;">
     <div class="card-label">Tallenna omat merkinnät</div>
     <div style="font-size:12px;color:var(--mist);margin-bottom:10px;">Napauta tavaraa merkitäksesi sen pakatuksi ✓</div>
@@ -1214,11 +1253,11 @@ body {
   <div class="section-title">🤖 AI-kaveri <span style="font-size:11px;background:rgba(168,85,247,0.25);color:#c4b5fd;border:1px solid rgba(168,85,247,0.4);border-radius:4px;padding:2px 6px;margin-left:6px;font-weight:600;vertical-align:middle;">BETA</span></div>
 
   <div class="card" style="margin-bottom:12px;background:rgba(168,85,247,0.08);border-color:rgba(168,85,247,0.3);">
-    <div style="font-size:12px;color:var(--mist);line-height:1.6;">
-      Kysy mitä tahansa matkasta — reiteistä, kuljetuksesta, majoituksesta, hätätilanteista. AI tuntee koko GR92-reitin, ryhmän aikataulun ja Camping Roca Grossan tiedot. Vastaa suomeksi.
-      <br><br>
-      <span style="color:#c4b5fd;">💡 Vinkkejä:</span> "Miten pääsen etappi 15 alkuun?" · "Kuinka paljon vettä etappi 18 vaatii?" · "Mitä teen jos nyrjäytän nilkan?"
+    <div style="font-size:12px;color:var(--mist);line-height:1.6;margin-bottom:10px;">
+      Kysy mitä tahansa matkasta. AI tuntee koko GR92-reitin, ryhmän aikataulun ja Camping Roca Grossan tiedot. Vastaa suomeksi.
     </div>
+    <div style="font-size:11px;color:#c4b5fd;font-weight:600;margin-bottom:6px;">💡 Kokeile klikkaamalla:</div>
+    <div id="valmiitKysymykset" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
   </div>
 
   <div id="chatViestit" style="margin-bottom:12px;min-height:100px;"></div>
@@ -1757,6 +1796,40 @@ function tallennaChatHistoria(hist) {
   } catch(e) {}
 }
 
+// Valmiit kysymysaiheet AI-kaverille — kategorioittain
+const VALMIIT_KYSYMYKSET = [
+  { emoji: '🗺️', teksti: 'Miten pääsen etappi 15 alkuun?' },
+  { emoji: '🎫', teksti: 'Kannattaako meidän ostaa Bonotren vai kuukausilippu?' },
+  { emoji: '💧', teksti: 'Kuinka paljon vettä pitää olla mukana etappi 18:lla?' },
+  { emoji: '🍞', teksti: 'Millaiset eväät kannattaa ottaa E13:lle?' },
+  { emoji: '🚌', teksti: 'Miten pääsen Barcelonaan lepopäivänä 13.9.?' },
+  { emoji: '🏥', teksti: 'Mitä teen jos nyrjäytän nilkan reitillä?' },
+  { emoji: '🌡️', teksti: 'Millainen sää on tyypillinen syyskuun Kataloniassa?' },
+  { emoji: '🚗', teksti: 'Voiko koko ryhmä kävellä etappi 17 vai tarvitaanko kuljettaja?' },
+  { emoji: '🏖️', teksti: 'Mikä on lähin ranta majoituksesta ja lämmin lepopäiväksi?' },
+  { emoji: '📅', teksti: 'Mikä on huomisen etappi ja mitä pitää valmistella?' },
+  { emoji: '🍽️', teksti: 'Onko reitillä ravintoloita tai vain kylmiä eväitä?' },
+  { emoji: '⛰️', teksti: 'Kumpi on rankempi: E20 vai E21?' },
+];
+
+function renderValmiitKysymykset() {
+  const el = document.getElementById('valmiitKysymykset');
+  if (!el) return;
+  let html = '';
+  for (const k of VALMIIT_KYSYMYKSET) {
+    // Escape kysymys jotta se voi sisältää lainausmerkkejä
+    const escaped = k.teksti.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+    html += `<button onclick="valmisKysymys('${escaped}')" style="background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.3);border-radius:16px;padding:6px 12px;color:#c4b5fd;font-size:11px;font-family:inherit;cursor:pointer;white-space:nowrap;">${k.emoji} ${k.teksti}</button>`;
+  }
+  el.innerHTML = html;
+}
+
+function valmisKysymys(teksti) {
+  const input = document.getElementById('chatSyote');
+  input.value = teksti;
+  laheteChatViesti();
+}
+
 function renderChatViestit() {
   const el = document.getElementById('chatViestit');
   if (!el) return;
@@ -2010,7 +2083,7 @@ function showView(name, triggerEl) {
   if (name === 'varusteet') renderPacklista();
   if (name === 'espanja') renderKielet();
   if (name === 'rannat') renderRannat();
-  if (name === 'ai') { renderChatViestit(); setTimeout(() => document.getElementById('chatSyote')?.focus(), 100); }
+  if (name === 'ai') { renderValmiitKysymykset(); renderChatViestit(); setTimeout(() => document.getElementById('chatSyote')?.focus(), 100); }
   if (name === 'saa') {
     const lista = document.getElementById('saaLista');
     if (lista && lista.innerHTML === '') haeSaatiedot();
