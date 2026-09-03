@@ -199,15 +199,15 @@ Jos et tiedä jotain varmasti, sano rehellisesti "en tiedä" — älä keksi. Jo
 ## Etapit
 
 - **E12** (6.9.): Lloret de Mar → Tordera, 19 km, +232 m — täysin julkisilla (R1)
-- **E13** (7.9.): Tordera → Hortsavinyà, 14 km, +527 m — meno junalla, paluu tila-autolla
-- **E14** (8.9.): Hortsavinyà → Vallgorguina, 17 km, +307 m — auto & julkinen
+- **E13** (7.9.): Tordera → Hortsavinyà, 14 km, +527 m — kaksi ryhmää + auto (Hortsavinyà 525m metsätiellä, ei julkista)
+- **E14** (8.9.): Hortsavinyà → Vallgorguina, 17 km, +307 m — kaksi ryhmää + auto (roolinvaihto edellisestä, Vallgorguinasta Sagalés-bussi harva)
 - Lepopäivä 9.9.
 - **E15** (10.9.): Vallgorguina → Llinars del Vallès, 16 km, +484 m — täysin julkisilla (R2 Nord)
 - **E16** (11.9.): Llinars del Vallès → Premià de Dalt (Camí de la Costa 420m), 20 km, +483 m — kaksi ryhmää + auto (julkinen alkuun, metsäpolku loppuun)
 - **E17** (12.9.): Premià de Dalt → Montcada i Reixac, 20 km, +372 m, -762 m — E17 alkaa mistä E16 päättyy, kaksi ryhmää + auto. HUOM: iso lasku -762m polvet kovilla!
 - Lepopäivä 13.9. Barcelonassa
-- **E18** (14.9.): Montcada → Vallvidrera, 17 km, +652 m — täysin julkisilla (R2 + FGC)
-- **E19** (15.9.): Vallvidrera → Sant Vicenç dels Horts, 14 km, +250 m — täysin julkisilla (FGC)
+- **E18** (14.9.): Montcada → Vallvidrera, 17 km, +652 m — kaksi ryhmää + auto (Vallvidrera 241m, FGC-asema ~1 km)
+- **E19** (15.9.): Vallvidrera → Sant Vicenç dels Horts, 14 km, +250 m — kaksi ryhmää + auto (roolinvaihto edellisestä, loppu FGC-asemalla)
 - Lepopäivä 16.9.
 - **E20** (17.9.): Sant Vicenç dels Horts → Gavà, 15 km, +293 m — täysin julkisilla (R6 FGC → R2 Sud)
 - **E21** (18.9.): Gavà → Garraf, 18 km, +559 m — täysin julkisilla (R2 Sud). MAALIVIIVA!
@@ -216,11 +216,17 @@ Jos et tiedä jotain varmasti, sano rehellisesti "en tiedä" — älä keksi. Jo
 
 **Julkiset ensisijaisesti** — koko ryhmä pääsee kävelemään yhdessä (kukaan ei jää kuskiksi). Tila-auto (vuokrattu 4.9.–20.9.) toimii vain varana kun julkinen ei toimi. Julkisia: Rodalies R1/R2/R2 Sud, FGC, Sagalés-bussit.
 
-**Kaksi ryhmää + auto -malli** kun etapin alku- tai loppupää on julkisen liikenteen ulottumattomissa (esim. metsäpolku vuoristossa):
+**Kaksi ryhmää + auto -malli** kun etapin alku- tai loppupää on julkisen liikenteen ulottumattomissa:
 - Ryhmä A menee etappi X alkuun julkisilla
 - Ryhmä B vie auton etappi X loppuun ja kävelee etappi X+1 eteenpäin
 - A kävelee etappi X perille, ottaa auton, hakee tarvittaessa B:n etappi X+1 lopusta
-- Käytetään ainakin E16↔E17 -parissa (Premià de Daltin metsäpolku 420m korkeudessa)
+- **Ryhmien roolit vaihtuvat päittäin** — kukaan ei jää useaksi päiväksi kuljettajaksi
+
+Nämä parit vaativat kaksi-ryhmää-mallia:
+- **E13↔E14**: Hortsavinyà 525m metsätiellä (Katalonian sisämaa)
+- **E14↔E15**: Vallgorguina 223m, Sagalés-bussi harva
+- **E16↔E17**: Camí de la Costa 420m metsäpolku (Premià de Daltin yläpuolella)
+- **E18↔E19**: Vallvidrera 241m, FGC-asemasta ~1 km
 
 ## Junaliput (Rodalies)
 

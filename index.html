@@ -708,22 +708,28 @@ body {
   <div class="card" style="margin-bottom:16px;background:rgba(74,124,63,0.06);border-color:rgba(74,124,63,0.3);">
     <div class="card-label" style="color:var(--sage);">🚶🚶 Kaksi ryhmää + auto — kun julkinen ei toimi</div>
     <div style="font-size:12px;color:var(--mist);margin:4px 0 12px;line-height:1.6;">
-      Jos etapin alku- tai loppupää on <strong style="color:var(--cream);">julkisen liikenteen ulottumattomissa</strong> (esim. metsäpolku vuoristossa), koko ryhmä pääsee silti kävelemään järjestämällä ajoja porrastetusti kahdella ryhmällä.
+      Osalla etapeista alku- tai loppupää on <strong style="color:var(--cream);">julkisen liikenteen ulottumattomissa</strong> (metsäpolku vuoristossa). Koko ryhmä pääsee silti kävelemään järjestämällä ajoja porrastetusti kahdella ryhmällä. <strong style="color:var(--cream);">Ryhmien roolit vaihtuvat päittäin</strong> — kukaan ei jää useaksi päiväksi kuljettajaksi.
     </div>
 
     <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
-      <div style="font-weight:700;color:var(--sage);margin-bottom:6px;">🔁 Perusmalli (E16 ↔ E17 -pari)</div>
-      <div>• <strong>Ryhmä A</strong> menee etappi 16 alkuun <strong>julkisilla</strong> (juna/bussi)</div>
-      <div>• <strong>Ryhmä B</strong> vie <strong>auton</strong> etappi 16 loppuun ja kävelee etappia 17 eteenpäin</div>
-      <div>• A kävelee etappi 16 perille, <strong>ottaa auton</strong>, ajaa majoitukseen</div>
-      <div>• Tarvittaessa A hakee B:n etappi 17 lopusta autolla</div>
-      <div style="margin-top:6px;color:var(--mist);font-style:italic;">→ Kaikki kävelevät, kuski vaihtuu ryhmien välillä</div>
+      <div style="font-weight:700;color:var(--sage);margin-bottom:6px;">🔁 Perusmalli — päivä 1</div>
+      <div>• <strong>Ryhmä A</strong> menee etappi X alkuun <strong>julkisilla</strong> (juna/bussi)</div>
+      <div>• <strong>Ryhmä B</strong> vie <strong>auton</strong> etappi X loppuun ja kävelee etappia X+1 eteenpäin</div>
+      <div>• A kävelee etappi X perille, <strong>ottaa auton</strong>, ajaa majoitukseen</div>
+      <div>• Tarvittaessa A hakee B:n etappi X+1 lopusta autolla</div>
+
+      <div style="font-weight:700;color:var(--sage);margin:10px 0 6px;">🔀 Roolinvaihto — päivä 2 (seuraava kävelypäivä)</div>
+      <div>• Nyt <strong>ryhmä B</strong> menee alkuun julkisilla, <strong>A</strong> vie auton loppuun</div>
+      <div>• Sama logiikka päinvastaisessa suunnassa</div>
+      <div style="margin-top:6px;color:var(--mist);font-style:italic;">→ Kaikki kävelevät joka päivä, kuski-rooli kiertää</div>
     </div>
 
     <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.25);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
-      <div style="font-weight:700;color:#fbbf24;margin-bottom:4px;">⚠️ Milloin tätä tarvitaan?</div>
-      <div>Etapit joilla alku tai loppupää on ilman lähiaseman/bussipysäkin — nykyisillä reiteillä ainakin:</div>
-      <div style="margin-top:4px;"><strong>E16 loppu / E17 alku</strong>: Camí de la Costa 420m korkeudessa, Premià de Daltin yläpuolella metsässä</div>
+      <div style="font-weight:700;color:#fbbf24;margin-bottom:6px;">⚠️ Mitkä etappiparit vaativat tämän?</div>
+      <div style="margin-bottom:4px;">• <strong>E13↔E14</strong>: Carretera d'Hortsavinya 525m — metsätie Katalonian sisämaassa</div>
+      <div style="margin-bottom:4px;">• <strong>E14↔E15</strong>: Vallgorguina 223m — Sagalés-bussi Sant Celoniin harva (2/pv)</div>
+      <div style="margin-bottom:4px;">• <strong>E16↔E17</strong>: Camí de la Costa 420m — metsäpolku Premià de Daltin yläpuolella</div>
+      <div>• <strong>E18↔E19</strong>: Vallvidrera 241m — FGC-asema ~1 km, auton käyttö nopeampaa</div>
     </div>
 
     <div style="font-size:11px;color:var(--mist);line-height:1.5;">
@@ -833,13 +839,13 @@ body {
     <div class="card-label">Kuljetus etapeittain</div>
     <table class="info-table">
       <tr><td>E12 · 6.9.</td><td>Täysin julkisilla (R1)</td></tr>
-      <tr><td>E13 · 7.9.</td><td>Meno junalla · paluu tila-autolla</td></tr>
-      <tr><td>E14 · 8.9.</td><td>Meno autolla · paluu julkisella/auto</td></tr>
+      <tr><td>E13 · 7.9.</td><td>Kaksi ryhmää + auto (metsätie 525m, ei julkista Hortsavinyà)</td></tr>
+      <tr><td>E14 · 8.9.</td><td>Kaksi ryhmää + auto (roolinvaihto edellisestä päivästä)</td></tr>
       <tr><td>E15 · 10.9.</td><td>Täysin julkisilla (R2 Nord molemmissa päissä)</td></tr>
       <tr><td>E16 · 11.9.</td><td>Kaksi ryhmää: A julkisilla alkuun, B autolla loppuun; auto vaihtaa</td></tr>
       <tr><td>E17 · 12.9.</td><td>Ryhmät vaihtavat: B kävelee alkuun autolla, A auton palautus/nouto</td></tr>
-      <tr><td>E18 · 14.9.</td><td>Täysin julkisilla (Rodalies + FGC)</td></tr>
-      <tr><td>E19 · 15.9.</td><td>Täysin julkisilla (FGC + Llobregat)</td></tr>
+      <tr><td>E18 · 14.9.</td><td>Kaksi ryhmää + auto (Vallvidrera 241m FGC-asemasta ~1 km)</td></tr>
+      <tr><td>E19 · 15.9.</td><td>Kaksi ryhmää + auto (roolinvaihto edellisestä päivästä)</td></tr>
       <tr><td>E20 · 17.9.</td><td>Täysin julkisilla (R6 FGC → R2 Sud)</td></tr>
       <tr><td>E21 · 18.9.</td><td>Täysin julkisilla (R2 Sud molemmissa päissä)</td></tr>
     </table>
@@ -1355,11 +1361,11 @@ const etapit = {
     date: '7.9.', route: 'Tordera → Hortsavinyà',
     km: 14, up: 527, down: 80, type: 'Ensimmäinen "oikea vaellus"',
     risk: 'Ei poistumisreittejä — käännyttävä takaisin hätätilanteessa', water: '3 L minimum',
-    backup: 'Kääntyminen takaisin (ainoa turvallinen)',
-    transport: 'Meno junalla · paluu tila-autolla',
+    backup: 'Hortsavinyà 525m korkeudessa metsätiellä — ei bussia. Kaksi ryhmää: A julkisilla Tordera-alkuun, B autolla Hortsavinyà-loppuun ja jatkaa E14 kävelyä. A ottaa auton lopusta. Julkinen vaihtoehto: kääntyminen takaisin Torderaan (ainoa turvallinen).',
+    transport: 'Kaksi ryhmää + auto (metsätie 525m, ei julkista Hortsavinyà)',
     gpx: './etappi13.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-13-torderasta-hortsavinyaan/334206949/',
-    menoLabel: '🚆 Julkinen',
+    menoLabel: '🚆 Julkinen A / 🚗 Auto B',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.70730,2.71934&travelmode=transit',
     paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.66405,2.61465&destination=41.6064135,2.6391268&travelmode=driving',
     badge: 'Keskivaativa', hard: false
@@ -1368,12 +1374,12 @@ const etapit = {
     date: '8.9.', route: 'Hortsavinyà → Vallgorguina',
     km: 17, up: 307, down: 571, type: 'Metsä + nousut',
     risk: 'Reitin katoaminen — GPX pakollinen', water: '2,5 L',
-    backup: 'Vallgorguina — turvallinen poistuminen',
-    transport: 'Meno autolla · paluu julkisella/auto',
+    backup: 'Vallgorguina 223m — Sagalés-bussi Sant Celoniin harva (~2/pv). Kaksi ryhmää + auto: B (edellisen päivän autoryhmä) tulee Hortsavinyà-alkuun, A tuo auton Vallgorguinaan. Turvallinen poistuminen Vallgorguinasta.',
+    transport: 'Kaksi ryhmää + auto (roolinvaihto edellisestä päivästä)',
     gpx: './etappi14.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-14-hortsavinya-to-vallgorguina/334207213/',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.66405,2.61465&travelmode=driving',
-    paluuLabel: '🚆 Julkinen',
+    paluuLabel: '🚆 Julkinen B / 🚗 Auto A',
     paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.64834,2.50986&destination=41.6064135,2.6391268&travelmode=transit',
     badge: 'Metsä/nousut', hard: false
   },
@@ -1423,13 +1429,13 @@ const etapit = {
     date: '14.9.', route: 'Montcada → Vallvidrera',
     km: 17, up: 652, down: 442, type: 'Nousupäivä — rytmitys tärkeä',
     risk: 'Nousukuormitus', water: '2,5 L',
-    backup: 'FGC-asemia matkan varrella',
-    transport: 'Täysin julkisilla (Rodalies + FGC)',
+    backup: 'Vallvidrera 241m korkeudessa metsässä — FGC-asema (Baixador de Vallvidrera) noin 1 km lasku. Kaksi ryhmää + auto: A julkisilla Montcada-alkuun (R2 Nord), B autolla Vallvidreraan ja jatkaa E19. Julkinen vaihtoehto: FGC-aseman kävelymatka lopussa.',
+    transport: 'Kaksi ryhmää + auto (Vallvidrera 241m FGC-asemasta ~1 km)',
     gpx: './etappi18.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-18-montcada-i-reixac-asemalta-baixador-de-vallvidrera-asemalle/334210518/',
-    menoLabel: '🚆 Julkinen',
+    menoLabel: '🚆 Julkinen A / 🚗 Auto B',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.48443,2.18795&travelmode=transit',
-    paluuLabel: '🚆 Julkinen',
+    paluuLabel: '🚗 Auto A / 🚆 Julkinen B',
     paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.42000,2.09680&destination=41.6064135,2.6391268&travelmode=transit',
     badge: 'Nousupäivä', hard: false
   },
@@ -1437,13 +1443,13 @@ const etapit = {
     date: '15.9.', route: 'Vallvidrera → Sant Vicenç dels Horts',
     km: 14, up: 250, down: 470, type: 'Lyhyt — hyvä palautumispäivä',
     risk: 'Aliarviointi', water: '2 L',
-    backup: 'Llobregatin liikennekäytävä',
-    transport: 'Täysin julkisilla (FGC + Llobregat)',
+    backup: 'Alkuun Vallvidrerassa auton käyttö nopeampaa kuin FGC-aseman kävely. Kaksi ryhmää + auto: B autolla Vallvidreraan, A julkisilla FGC-asemalle Sant Vicenç dels Hortsiin. Llobregatin liikennekäytävä koko matkalla.',
+    transport: 'Kaksi ryhmää + auto (roolinvaihto edellisestä päivästä)',
     gpx: './etappi19.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-19-baixador-de-vallvidrera-asemalta-sant-vicenc-dels-hortsiin/334210802/',
-    menoLabel: '🚆 Julkinen',
+    menoLabel: '🚗 Auto B / 🚆 Julkinen A',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.42002,2.09679&travelmode=transit',
-    paluuLabel: '🚆 Julkinen',
+    paluuLabel: '🚆 Julkinen B / 🚗 Auto A',
     paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.39875,2.00526&destination=41.6064135,2.6391268&travelmode=transit',
     badge: 'Lyhyt', hard: false
   },
