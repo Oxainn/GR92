@@ -698,6 +698,47 @@ body {
     <div class="link-text"><div class="link-title">Sagalés / LloretBus</div><div class="link-sub">Lloretin alueen bussit</div></div>
     <span class="link-arrow">↗</span>
   </div>
+
+  <!-- NAVIGOINTI JA EKSYMISEN VÄLTTÄMINEN -->
+  <div class="card" style="margin-top:14px;background:rgba(59,130,246,0.06);border-color:rgba(59,130,246,0.3);">
+    <div class="card-label" style="color:#60a5fa;">🧭 Navigointi metsäpoluilla</div>
+    <div style="font-size:12px;color:var(--mist);margin:4px 0 12px;line-height:1.6;">
+      GR92-merkinnät (valko-punainen) voivat kadota risteyksissä ja tiheissä metsissä. Etenkin <strong style="color:var(--cream);">E13, E14, E16, E17</strong> ovat metsäisiä sisämaan etappeja. Tämä appi on tietolähde — <strong style="color:var(--cream);">navigointiin käytetään erillistä appia</strong>.
+    </div>
+
+    <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#60a5fa;margin-bottom:6px;">📱 Suositellut navigointi-appit</div>
+      <div style="margin-bottom:6px;"><strong>Wikiloc</strong> — käyttäjien jakamat reitit, offline-kartat, seuraa reittiä reaaliajassa. Ilmainen (peruskäyttö).</div>
+      <div style="margin-bottom:6px;"><strong>Komoot</strong> — kaupallinen mutta luotettava, Wikilocia parempi UI. Offline-kartat maksullisia.</div>
+      <div><strong>maps.me</strong> — offline-kartta ja GPX-tuki, ilmainen. Yksinkertaisempi mutta toimii ilman verkkoa aina.</div>
+    </div>
+
+    <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.25);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#fbbf24;margin-bottom:6px;">💡 Kaksi appia turvana</div>
+      <div>• <strong>Tämä appi</strong>: reitin tiedot, etappien logistiikka, hätänumerot, AI-kaveri</div>
+      <div>• <strong>Navigointi-appi</strong> (Wikiloc/Komoot/maps.me): GPX-seuranta, offline-kartat</div>
+      <div style="margin-top:6px;color:var(--mist);font-style:italic;">→ Reitin lataus offline-tilassa PAKOLLINEN ennen matkaa!</div>
+    </div>
+
+    <div style="background:rgba(74,124,63,0.06);border:1px solid rgba(74,124,63,0.3);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:var(--sage);margin-bottom:6px;">🧭 Perussäännöt jos merkit katoavat</div>
+      <div style="margin-bottom:3px;">1. <strong>15 min sääntö</strong> — jos et näe merkkiä 15 min kuluessa, palaa viimeksi nähdylle merkille</div>
+      <div style="margin-bottom:3px;">2. <strong>GPS-tarkistus</strong> — avaa navigointi-appi ja katso ovatko sinistä pistettä GPX-viivalla</div>
+      <div style="margin-bottom:3px;">3. <strong>Ryhmä pysyy koossa</strong> — kaksi silmäparia näkee merkit paremmin kuin yksi</div>
+      <div>4. <strong>Ei epävarmoja polkuja</strong> — jos risteyksessä on epäselvyys, valitse leveämpi/käytetympi polku (GR92 on hyvin kuljettu)</div>
+    </div>
+
+    <div class="link-btn" onclick="openLink('https://www.wikiloc.com/')" style="background:rgba(59,130,246,0.1);border-color:rgba(59,130,246,0.3);margin-top:8px;">
+      <span class="link-icon">🌐</span>
+      <div class="link-text"><div class="link-title" style="color:#60a5fa;">Wikiloc</div><div class="link-sub">GPX-reitit ja offline-navigointi</div></div>
+      <span class="link-arrow">↗</span>
+    </div>
+    <div class="link-btn" onclick="openLink('https://maps.me/')" style="background:rgba(59,130,246,0.1);border-color:rgba(59,130,246,0.3);">
+      <span class="link-icon">🗺️</span>
+      <div class="link-text"><div class="link-title" style="color:#60a5fa;">maps.me</div><div class="link-sub">Ilmainen offline-kartta + GPX-tuki</div></div>
+      <span class="link-arrow">↗</span>
+    </div>
+  </div>
 </div>
 
 <!-- ===== LOGISTIIKKA VIEW ===== -->
@@ -925,6 +966,30 @@ body {
     <div class="alert-box orange" style="margin-bottom:0">
       <span>🚌</span>
       <div>Paikallisbussien aikataulut etapeille 14, 16, 17 ja 20</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label" style="color:#60a5fa;">🧪 Offline-testi ennen lähtöä</div>
+    <div style="font-size:12px;color:var(--mist);margin:4px 0 10px;line-height:1.6;">
+      Verkko voi pätkiä metsäpoluilla — <strong style="color:var(--cream);">testaa kotona että kaikki toimii ilman verkkoa</strong> ennen matkaa. Jos jokin ei toimi, huomaat sen turvassa etkä kentällä.
+    </div>
+
+    <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
+      <div style="font-weight:700;color:#60a5fa;margin-bottom:6px;">Testivaiheet Suomessa ennen matkaa</div>
+      <div>1. Avaa <strong>gr92.pages.dev</strong> selaimessa — anna latautua kokonaan (kaikki välilehdet, kartta)</div>
+      <div>2. Aseta puhelin <strong>lentokonetilaan</strong> (verkko pois)</div>
+      <div>3. Sulje selain, avaa uudelleen — kokeile että:</div>
+      <div style="margin-left:12px;">• Etappilistat, tänään-kortti, kaikki välilehdet toimivat</div>
+      <div style="margin-left:12px;">• Kartta.html aukeaa ja näyttää reittiviivat</div>
+      <div style="margin-left:12px;">• GPX-tiedostot löytyvät navigointi-appista (Wikiloc/maps.me)</div>
+      <div>4. Poista lentokonetila kun testi ohi</div>
+      <div style="margin-top:6px;color:var(--mist);font-style:italic;">→ AI-kaveri EI toimi offline-tilassa (vaatii verkon)</div>
+    </div>
+
+    <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.25);border-radius:10px;padding:11px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#fbbf24;margin-bottom:4px;">📱 Lataa myös navigointi-appiin</div>
+      <div>Wikiloc / Komoot / maps.me: lataa GR92-reitit puhelimeen <strong>WiFi-tilassa Suomessa</strong>. Katso <strong>Kuljetus → 🧭 Navigointi metsäpoluilla</strong> -osiosta suositukset.</div>
     </div>
   </div>
 

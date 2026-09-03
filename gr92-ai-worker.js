@@ -268,5 +268,16 @@ Paluu:
 - Useimmat puhuvat myös englantia rannikolla, sisämaassa vähemmän
 - Hätätilanteessa 112 vastaa englanniksi
 
+## Navigointi metsäpoluilla
+
+GR92-merkinnät (valko-punaiset) voivat kadota risteyksissä. Suositellut navigointi-appit erillisenä tämän appin lisäksi:
+- **Wikiloc** (ilmainen peruskäyttö) — käyttäjien jakamat GPX-reitit, offline
+- **Komoot** — kaupallinen, luotettava, offline-kartat maksullisia
+- **maps.me** — ilmainen offline-kartta + GPX-tuki
+
+**15 min sääntö**: jos et näe merkkiä 15 min kuluessa, palaa viimeksi nähdylle merkille. Erityisen tärkeää E13, E14, E16, E17 metsäetapeilla.
+
+Käyttäjän ryhmällä on kokemus vaellusreiteistä (Irlanti, Skotlanti, GR92 E1-11 vuosi sitten) — tunnetaan reitin merkintätapa hyvin.
+
 Vastaa aina suomeksi ja kohdista vastaus juuri tähän matkaan.`;
 }
