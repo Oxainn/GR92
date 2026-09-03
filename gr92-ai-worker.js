@@ -207,9 +207,9 @@ Jos et tiedä jotain varmasti, sano rehellisesti "en tiedä" — älä keksi. Jo
 - **E17** (12.9.): Premià de Dalt → Montcada i Reixac, 20 km, +372 m, -762 m — E17 alkaa mistä E16 päättyy, kaksi ryhmää + auto. HUOM: iso lasku -762m polvet kovilla!
 - Lepopäivä 13.9. Barcelonassa
 - **E18** (14.9.): Montcada → Vallvidrera, 17 km, +652 m — kaksi ryhmää + auto (Vallvidrera 241m, FGC-asema ~1 km)
-- **E19** (15.9.): Vallvidrera → Sant Vicenç dels Horts, 14 km, +250 m — kaksi ryhmää + auto (roolinvaihto edellisestä, loppu FGC-asemalla)
+- **E19** (15.9.): Vallvidrera → Sant Vicenç dels Horts, 14 km, +250 m — kaksi ryhmää + auto (roolinvaihto edellisestä, loppu FGC-asemalla). E19 loppuu 672 m päähän Sant Vicenç dels Horts -pääasemasta (FGC-linjat S3/S4/S8/S9/R5/R50/R6/R60 Plaça d'Espanyaan)
 - Lepopäivä 16.9.
-- **E20** (17.9.): Sant Vicenç dels Horts → Gavà, 15 km, +293 m — täysin julkisilla (R6 FGC → R2 Sud)
+- **E20** (17.9.): Sant Vicenç dels Horts → Gavà, 15 km, +293 m — täysin julkisilla (R6 FGC → R2 Sud). E20 alkaa 649 m päässä Sant Vicenç dels Horts -pääasemasta (sama kuin E19 loppu). Loppu Gavà R2 Sud -aseman vieressä.
 - **E21** (18.9.): Gavà → Garraf, 18 km, +559 m — täysin julkisilla (R2 Sud). MAALIVIIVA!
 
 ## Kuljetusperiaate
