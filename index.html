@@ -970,26 +970,35 @@ body {
   </div>
 
   <div class="card">
-    <div class="card-label" style="color:#60a5fa;">🧪 Offline-testi ennen lähtöä</div>
+    <div class="card-label" style="color:#60a5fa;">📱 Asenna appi puhelimeen ennen matkaa</div>
     <div style="font-size:12px;color:var(--mist);margin:4px 0 10px;line-height:1.6;">
-      Verkko voi pätkiä metsäpoluilla — <strong style="color:var(--cream);">testaa kotona että kaikki toimii ilman verkkoa</strong> ennen matkaa. Jos jokin ei toimi, huomaat sen turvassa etkä kentällä.
+      Appi on <strong style="color:var(--cream);">asennettava PWA</strong> — sen jälkeen se toimii offline kuten mikä tahansa normaali appi. Verkkoyhteys tarvitaan vain päivityksiin ja AI-kaverille.
     </div>
 
     <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
-      <div style="font-weight:700;color:#60a5fa;margin-bottom:6px;">Testivaiheet Suomessa ennen matkaa</div>
-      <div>1. Avaa <strong>gr92.pages.dev</strong> selaimessa — anna latautua kokonaan (kaikki välilehdet, kartta)</div>
-      <div>2. Aseta puhelin <strong>lentokonetilaan</strong> (verkko pois)</div>
-      <div>3. Sulje selain, avaa uudelleen — kokeile että:</div>
-      <div style="margin-left:12px;">• Etappilistat, tänään-kortti, kaikki välilehdet toimivat</div>
-      <div style="margin-left:12px;">• Kartta.html aukeaa ja näyttää reittiviivat</div>
-      <div style="margin-left:12px;">• GPX-tiedostot löytyvät navigointi-appista (Wikiloc/maps.me)</div>
-      <div>4. Poista lentokonetila kun testi ohi</div>
-      <div style="margin-top:6px;color:var(--mist);font-style:italic;">→ AI-kaveri EI toimi offline-tilassa (vaatii verkon)</div>
+      <div style="font-weight:700;color:#60a5fa;margin-bottom:6px;">Asennus koti-näytölle</div>
+      <div><strong>iPhone (Safari):</strong> Avaa gr92.pages.dev &rarr; Jaa-painike &rarr; "Lisää Koti-valikkoon"</div>
+      <div><strong>Android (Chrome):</strong> Avaa gr92.pages.dev &rarr; valikko (3 pistettä) &rarr; "Asenna sovellus" tai "Lisää aloitusnäytölle"</div>
+      <div style="margin-top:6px;color:var(--mist);font-style:italic;">&rarr; Ikoni ilmestyy koti-näytölle. Avaa se &mdash; appi käynnistyy kuten oma sovellus.</div>
+    </div>
+
+    <div style="background:rgba(74,124,63,0.06);border:1px solid rgba(74,124,63,0.3);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
+      <div style="font-weight:700;color:var(--sage);margin-bottom:6px;">Offline-testi ennen lähtöä</div>
+      <div>1. Avaa asennettu appi WiFi-tilassa Suomessa &mdash; anna kaikkien välilehtien latautua</div>
+      <div>2. Avaa <strong>Kartta</strong>-välilehti &mdash; pyöritä ja zoomaa, jotta karttaruudut cachettuvat</div>
+      <div>3. Aseta puhelin <strong>lentokonetilaan</strong> &mdash; sulje appi kokonaan (myös taustalta)</div>
+      <div>4. Avaa appi uudelleen &mdash; kaikkien osioiden ja karttojen pitää toimia</div>
+      <div style="margin-top:6px;color:var(--mist);font-style:italic;">&rarr; AI-kaveri EI toimi offline (vaatii verkon).</div>
+    </div>
+
+    <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.3);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#60a5fa;margin-bottom:4px;">Päivitysnappi yläpalkissa</div>
+      <div>Kun appiin tulee uusi versio (esim. reittipäivitys), paina yläpalkin sinistä päivitysnappia. Appi hakee uusimman version. <strong>Tarvitaan verkkoyhteys</strong> &mdash; tee tämä WiFi-tilassa tai vahvassa mobiilikentässä.</div>
     </div>
 
     <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.25);border-radius:10px;padding:11px;font-size:12px;color:var(--cream);line-height:1.6;">
-      <div style="font-weight:700;color:#fbbf24;margin-bottom:4px;">📱 Lataa myös navigointi-appiin</div>
-      <div>Wikiloc / Komoot / maps.me: lataa GR92-reitit puhelimeen <strong>WiFi-tilassa Suomessa</strong>. Katso <strong>Kuljetus → 🧭 Navigointi metsäpoluilla</strong> -osiosta suositukset.</div>
+      <div style="font-weight:700;color:#fbbf24;margin-bottom:4px;">Lataa myös navigointi-appiin</div>
+      <div>Wikiloc / Komoot / maps.me: lataa GR92-reitit puhelimeen <strong>WiFi-tilassa Suomessa</strong>. Katso <strong>Kuljetus &rarr; Navigointi metsäpoluilla</strong> -osiosta suositukset.</div>
     </div>
   </div>
 
@@ -2376,7 +2385,7 @@ async function haeSaatiedot() {
 }
 
 // ── Packlista ─────────────────────────────────────────────────────────────
-const PACK_ITEMS = [{"kategoria": "👟 Jalkineet & vaatetus", "tavarat": ["Vaelluskengät (sisäänajettuna)", "Sandaalit/kevyet kengät illaksi", "Vaellussukat x5", "Nopeakuivuvat housut x2", "T-paidat x3", "Ohut fleece/villapaita", "Kevyt sadetakki / tuulitakki", "Aurinkohattu", "Pipo (yöt voivat olla viileät)"]}, {"kategoria": "🎒 Reppu & kantaminen", "tavarat": ["Päiväreppu 20-30L", "Vesipussi tai vesipullot (3-4L kapasiteetti)", "Sadesuoja repulle", "Trekking-sauvat (valinnainen)"]}, {"kategoria": "🧴 Hygienia & terveys", "tavarat": ["Aurinkosuoja SPF50+", "Huulibalsami aurinkosuojalla", "Ensiapupakkaus (laastarit, sideharsot)", "Rakkolaastari (Compeed)", "Särkylääke (ibuprofeeni)", "Elektrolyyttijauhe / -tabletit", "Hyönteiskarkote", "Käsidesi"]}, {"kategoria": "📱 Elektroniikka", "tavarat": ["Puhelin + laturi", "Varavirtalähde (powerbank)", "Latauskaapeli", "Kuulokkeet", "Kamera (valinnainen)"]}, {"kategoria": "📄 Dokumentit", "tavarat": ["Passi / henkilökortti", "Eurooppalainen sairaanhoitokortti (EHIC)", "Matkavakuutuskortti + numero", "Käteistä euroja"]}, {"kategoria": "🍎 Ruoka & juoma", "tavarat": ["Energiapatukat / geelit", "Pähkinät ja kuivatut hedelmät", "Suolarikkaita välipaloja (elektroyyttejä)", "Vesipullo täytettynä"]}];
+const PACK_ITEMS = [{"kategoria": "👟 Jalkineet & vaatetus", "tavarat": ["Vaelluskengät (sisäänajettuna)", "Sandaalit/kevyet kengät illaksi", "Vaellussukat x5", "Nopeakuivuvat housut x2", "T-paidat x3", "Ohut fleece/villapaita", "Kevyt sadetakki / tuulitakki", "Aurinkohattu", "Pipo (yöt voivat olla viileät)"]}, {"kategoria": "🎒 Reppu & kantaminen", "tavarat": ["Päiväreppu 20-30L", "Vesipussi tai vesipullot (3-4L kapasiteetti)", "Sadesuoja repulle", "Trekking-sauvat (valinnainen)", "Retkituoli / kevyt istuinalusta (taukoihin)"]}, {"kategoria": "🧴 Hygienia & terveys", "tavarat": ["Aurinkosuoja SPF50+", "Huulibalsami aurinkosuojalla", "Ensiapupakkaus (laastarit, sideharsot)", "Rakkolaastari (Compeed)", "Särkylääke (ibuprofeeni)", "Elektrolyyttijauhe / -tabletit", "Hyönteiskarkote", "Käsidesi"]}, {"kategoria": "📱 Elektroniikka", "tavarat": ["Puhelin + laturi", "Varavirtalähde (powerbank)", "Latauskaapeli", "Kuulokkeet", "Kamera (valinnainen)", "Otsalamppu + varaparistot"]}, {"kategoria": "📄 Dokumentit", "tavarat": ["Passi / henkilökortti", "Eurooppalainen sairaanhoitokortti (EHIC)", "Matkavakuutuskortti + numero", "Käteistä euroja"]}, {"kategoria": "🍎 Ruoka & juoma", "tavarat": ["Energiapatukat / geelit", "Pähkinät ja kuivatut hedelmät", "Suolarikkaita välipaloja (elektroyyttejä)", "Vesipullo täytettynä"]}];
 
 function lataaPacklista() {
   try { return JSON.parse(localStorage.getItem('gr92_pack') || '{}'); }
