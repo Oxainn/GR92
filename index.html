@@ -729,7 +729,6 @@ body {
       <div style="margin-bottom:4px;">• <strong>E13↔E14</strong>: Carretera d'Hortsavinya 525m — metsätie Katalonian sisämaassa</div>
       <div style="margin-bottom:4px;">• <strong>E14↔E15</strong>: Vallgorguina 223m — Sagalés-bussi Sant Celoniin harva (2/pv)</div>
       <div style="margin-bottom:4px;">• <strong>E16↔E17</strong>: Camí de la Costa 420m — metsäpolku Premià de Daltin yläpuolella</div>
-      <div>• <strong>E18↔E19</strong>: Vallvidrera 241m — FGC-asema ~1 km, auton käyttö nopeampaa</div>
     </div>
 
     <div style="font-size:11px;color:var(--mist);line-height:1.5;">
@@ -844,8 +843,8 @@ body {
       <tr><td>E15 · 10.9.</td><td>Täysin julkisilla (R2 Nord molemmissa päissä)</td></tr>
       <tr><td>E16 · 11.9.</td><td>Kaksi ryhmää: A julkisilla alkuun, B autolla loppuun; auto vaihtaa</td></tr>
       <tr><td>E17 · 12.9.</td><td>Ryhmät vaihtavat: B kävelee alkuun autolla, A auton palautus/nouto</td></tr>
-      <tr><td>E18 · 14.9.</td><td>Kaksi ryhmää + auto (Vallvidrera 241m FGC-asemasta ~1 km)</td></tr>
-      <tr><td>E19 · 15.9.</td><td>Kaksi ryhmää + auto (alkupää Vallvidrera 241m, loppupää suoraan asemalla)</td></tr>
+      <tr><td>E18 · 14.9.</td><td>Täysin julkisilla (Montcada R2 Nord → Vallvidrera FGC)</td></tr>
+      <tr><td>E19 · 15.9.</td><td>Täysin julkisilla (Baixador de Vallvidrera FGC → Sant Vicenç FGC)</td></tr>
       <tr><td>E20 · 17.9.</td><td>Täysin julkisilla (alku FGC-asemalla, loppu R2 Sud -asemalla)</td></tr>
       <tr><td>E21 · 18.9.</td><td>Täysin julkisilla (R2 Sud molemmissa päissä)</td></tr>
     </table>
@@ -1429,13 +1428,13 @@ const etapit = {
     date: '14.9.', route: 'Montcada → Vallvidrera',
     km: 17, up: 652, down: 442, type: 'Nousupäivä — rytmitys tärkeä',
     risk: 'Nousukuormitus', water: '2,5 L',
-    backup: 'Vallvidrera 241m korkeudessa metsässä — FGC-asema (Baixador de Vallvidrera) noin 1 km lasku. Kaksi ryhmää + auto: A julkisilla Montcada-alkuun (R2 Nord), B autolla Vallvidreraan ja jatkaa E19. Julkinen vaihtoehto: FGC-aseman kävelymatka lopussa.',
-    transport: 'Kaksi ryhmää + auto (Vallvidrera 241m FGC-asemasta ~1 km)',
+    backup: 'Molemmat päät suoraan asemilla — koko ryhmä junaan. Alku: Montcada i Reixac R2 Nord -asema (37 m alusta). Loppu: Baixador de Vallvidrera FGC-asema (14 m lopusta) — FGC S1/S2 Metro del Vallès Barcelona-Plaça de Catalunya.',
+    transport: 'Täysin julkisilla (Montcada R2 Nord → Vallvidrera FGC)',
     gpx: './etappi18.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-18-montcada-i-reixac-asemalta-baixador-de-vallvidrera-asemalle/334210518/',
-    menoLabel: '🚆 Julkinen A / 🚗 Auto B',
+    menoLabel: '🚆 Julkinen',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.48443,2.18795&travelmode=transit',
-    paluuLabel: '🚗 Auto A / 🚆 Julkinen B',
+    paluuLabel: '🚆 Julkinen',
     paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.42000,2.09680&destination=41.6064135,2.6391268&travelmode=transit',
     badge: 'Nousupäivä', hard: false
   },
@@ -1443,11 +1442,11 @@ const etapit = {
     date: '15.9.', route: 'Vallvidrera → Sant Vicenç dels Horts (FGC-asema)',
     km: 14, up: 230, down: 444, type: 'Lyhyt — hyvä palautumispäivä',
     risk: 'Aliarviointi', water: '2 L',
-    backup: 'Alku: Vallvidrera 241m — FGC-asema (Baixador de Vallvidrera) ~1 km lasku, tai auto (B tuo). Loppu: Sant Vicenç dels Horts -pääasema aivan reitin päässä (27 m) — FGC-linjat S3/S4/S8/S9/R5/R50/R6/R60 → Barcelona (Plaza Espanya).',
-    transport: 'Kaksi ryhmää + auto (alkupää Vallvidrera 241m, loppupää suoraan asemalla)',
+    backup: 'Molemmat päät suoraan asemilla — koko ryhmä junaan. Alku: Baixador de Vallvidrera FGC-asema (14 m alusta). Loppu: Sant Vicenç dels Horts -pääasema (27 m lopusta) — FGC S3/S4/S8/S9/R5/R50/R6/R60 → Barcelona Plaza Espanya.',
+    transport: 'Täysin julkisilla (Baixador de Vallvidrera FGC → Sant Vicenç FGC)',
     gpx: './etappi19.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-19-baixador-de-vallvidrera-asemalta-sant-vicenc-dels-hortsiin/334210802/',
-    menoLabel: '🚗 Auto B / 🚆 Julkinen A',
+    menoLabel: '🚆 Julkinen',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.42002,2.09679&travelmode=transit',
     paluuLabel: '🚆 Julkinen',
     paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.39342,2.00925&destination=41.6064135,2.6391268&travelmode=transit',

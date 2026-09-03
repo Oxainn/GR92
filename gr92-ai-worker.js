@@ -206,8 +206,8 @@ Jos et tiedä jotain varmasti, sano rehellisesti "en tiedä" — älä keksi. Jo
 - **E16** (11.9.): Llinars del Vallès → Premià de Dalt (Camí de la Costa 420m), 20 km, +483 m — kaksi ryhmää + auto (julkinen alkuun, metsäpolku loppuun)
 - **E17** (12.9.): Premià de Dalt → Montcada i Reixac, 20 km, +372 m, -762 m — E17 alkaa mistä E16 päättyy, kaksi ryhmää + auto. HUOM: iso lasku -762m polvet kovilla!
 - Lepopäivä 13.9. Barcelonassa
-- **E18** (14.9.): Montcada → Vallvidrera, 17 km, +652 m — kaksi ryhmää + auto (Vallvidrera 241m, FGC-asema ~1 km)
-- **E19** (15.9.): Vallvidrera → Sant Vicenç dels Horts (FGC-asema), 14 km, +230 m, -444 m — kaksi ryhmää + auto (alkupää Vallvidrera 241m yhä metsässä, LOPPU nyt suoraan asemalla 27 m — FGC S3/S4/S8/S9/R5/R50/R6/R60)
+- **E18** (14.9.): Montcada → Vallvidrera, 17 km, +652 m — TÄYSIN JULKISILLA (molemmat päät suoraan asemilla: Montcada R2 Nord 37 m, Vallvidrera FGC S1/S2 14 m).
+- **E19** (15.9.): Baixador de Vallvidrera → Sant Vicenç dels Horts (FGC-asema), 14 km, +230 m, -444 m — TÄYSIN JULKISILLA (molemmat päät asemilla: Vallvidrera FGC 14 m, Sant Vicenç FGC 27 m).
 - Lepopäivä 16.9.
 - **E20** (17.9.): Sant Vicenç dels Horts (FGC-asema) → Gavà, 17 km, +331 m — TÄYSIN JULKISILLA (molemmat päät asemilla). Alku 27 m FGC-asemasta. Loppu Gavà R2 Sud -aseman vieressä.
 - **E21** (18.9.): Gavà → Garraf, 18 km, +559 m — täysin julkisilla (R2 Sud). MAALIVIIVA!
@@ -226,7 +226,6 @@ Nämä parit vaativat kaksi-ryhmää-mallia:
 - **E13↔E14**: Hortsavinyà 525m metsätiellä (Katalonian sisämaa)
 - **E14↔E15**: Vallgorguina 223m, Sagalés-bussi harva
 - **E16↔E17**: Camí de la Costa 420m metsäpolku (Premià de Daltin yläpuolella)
-- **E18↔E19**: Vallvidrera 241m, FGC-asemasta ~1 km
 
 ## Junaliput (Rodalies)
 
