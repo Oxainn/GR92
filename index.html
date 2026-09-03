@@ -399,7 +399,7 @@ body {
   <div class="header-top" onclick="showView('ohjelma')" style="cursor:pointer;" title="Palaa etusivulle">
     <span class="header-icon">🥾</span>
     <div>
-      <div class="header-title">GR92 Patikkamatka <span style="font-size:10px;background:rgba(234,179,8,0.25);color:#fbbf24;border:1px solid rgba(234,179,8,0.4);border-radius:4px;padding:2px 5px;vertical-align:middle;font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:0.05em;">BETA</span></div>
+      <div class="header-title">GR92 Patikkamatka</div>
       <div class="header-sub">4.–20. syyskuuta 2026 · Lloret → Garraf</div>
     </div>
   </div>
@@ -448,11 +448,11 @@ body {
 
   <div class="hero-card">
     <div class="hero-label">Matka yhteensä</div>
-    <div class="hero-title">171 km · 10 etappia</div>
+    <div class="hero-title">170 km · 10 etappia</div>
     <div class="hero-date">Lloret de Mar → Garraf · Majoitus: Camping Roca Grossa</div>
     <div class="stats-row">
-      <div class="stat-chip">📏 171 km</div>
-      <div class="stat-chip">⬆️ 4 518 m</div>
+      <div class="stat-chip">📏 170 km</div>
+      <div class="stat-chip">⬆️ 4 137 m</div>
       <div class="stat-chip">⬇️ 4 620 m</div>
       <div class="stat-chip">🏠 1 majoitus</div>
     </div>
@@ -464,7 +464,7 @@ body {
   <!-- PROGRESS -->
   <div class="progress-wrap card">
     <div class="card-label">Etappiyhteenveto</div>
-    <div id="progressInfo" style="font-size:13px; color:var(--mist); margin-bottom:10px;">10 etappia · 4 lepopäivää · 17 päivää</div>
+    <div id="progressInfo" style="font-size:13px; color:var(--mist); margin-bottom:10px;">10 etappia · 3 lepopäivää · 17 päivää</div>
     <div class="progress-label"><span>Etappi 12</span><span>Etappi 21</span></div>
     <div class="progress-bar"><div class="progress-fill" style="width:0%" id="progressFill"></div></div>
   </div>
@@ -618,8 +618,8 @@ body {
   <div class="section-title">Kaikki etapit</div>
 
   <div class="summary-grid">
-    <div class="summary-tile"><div class="val">171 km</div><div class="lbl">Yhteensä</div></div>
-    <div class="summary-tile"><div class="val">4 518 m</div><div class="lbl">Nousua</div></div>
+    <div class="summary-tile"><div class="val">170 km</div><div class="lbl">Yhteensä</div></div>
+    <div class="summary-tile"><div class="val">4 137 m</div><div class="lbl">Nousua</div></div>
     <div class="summary-tile"><div class="val">10</div><div class="lbl">Etappia</div></div>
     <div class="summary-tile"><div class="val">4</div><div class="lbl">Lepopäivää</div></div>
   </div>
@@ -970,30 +970,21 @@ body {
   </div>
 
   <div class="card">
-    <div class="card-label" style="color:#60a5fa;">📱 Asenna appi puhelimeen ennen matkaa</div>
+    <div class="card-label" style="color:#60a5fa;">🧪 Offline-testi ennen lähtöä</div>
     <div style="font-size:12px;color:var(--mist);margin:4px 0 10px;line-height:1.6;">
-      Appi on <strong style="color:var(--cream);">asennettava PWA</strong> — sen jälkeen se toimii offline kuten mikä tahansa normaali appi. Verkkoyhteys tarvitaan vain päivityksiin ja AI-kaverille.
+      Verkko voi pätkiä metsäpoluilla — <strong style="color:var(--cream);">testaa kotona että kaikki toimii ilman verkkoa</strong> ennen matkaa. Jos jokin ei toimi, huomaat sen turvassa etkä kentällä.
     </div>
 
     <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
-      <div style="font-weight:700;color:#60a5fa;margin-bottom:6px;">Asennus koti-näytölle</div>
-      <div><strong>iPhone (Safari):</strong> Avaa gr92.pages.dev → 📤 Jaa-painike → "Lisää Koti-valikkoon"</div>
-      <div><strong>Android (Chrome):</strong> Avaa gr92.pages.dev → ⋮ valikko → "Asenna sovellus" tai "Lisää aloitusnäytölle"</div>
-      <div style="margin-top:6px;color:var(--mist);font-style:italic;">→ Ikoni ilmestyy koti-näytölle. Avaa se — appi käynnistyy kuten oma sovellus.</div>
-    </div>
-
-    <div style="background:rgba(74,124,63,0.06);border:1px solid rgba(74,124,63,0.3);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
-      <div style="font-weight:700;color:var(--sage);margin-bottom:6px;">Offline-testi ennen lähtöä</div>
-      <div>1. Avaa asennettu appi WiFi-tilassa Suomessa — anna kaikkien välilehtien latautua</div>
-      <div>2. Avaa <strong>Kartta</strong>-välilehti — pyöritä ja zoomaa, jotta karttaruudut cachettuvat</div>
-      <div>3. Aseta puhelin <strong>lentokonetilaan</strong> — sulje appi kokonaan (myös taustalta)</div>
-      <div>4. Avaa appi uudelleen — kaikkien osioiden ja karttojen pitää toimia</div>
-      <div style="margin-top:6px;color:var(--mist);font-style:italic;">→ AI-kaveri EI toimi offline (vaatii verkon).</div>
-    </div>
-
-    <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.3);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
-      <div style="font-weight:700;color:#60a5fa;margin-bottom:4px;">🔄 Päivitysnappi yläpalkissa</div>
-      <div>Kun appiin tulee uusi versio (esim. reittipäivitys), näet ilmoituksen. Painamalla <strong>🔄</strong> yläpalkissa appi hakee uusimman version. <strong>Tarvitaan verkkoyhteys</strong> — tee tämä WiFi-tilassa tai vahvassa mobiilikentässä.</div>
+      <div style="font-weight:700;color:#60a5fa;margin-bottom:6px;">Testivaiheet Suomessa ennen matkaa</div>
+      <div>1. Avaa <strong>gr92.pages.dev</strong> selaimessa — anna latautua kokonaan (kaikki välilehdet, kartta)</div>
+      <div>2. Aseta puhelin <strong>lentokonetilaan</strong> (verkko pois)</div>
+      <div>3. Sulje selain, avaa uudelleen — kokeile että:</div>
+      <div style="margin-left:12px;">• Etappilistat, tänään-kortti, kaikki välilehdet toimivat</div>
+      <div style="margin-left:12px;">• Kartta.html aukeaa ja näyttää reittiviivat</div>
+      <div style="margin-left:12px;">• GPX-tiedostot löytyvät navigointi-appista (Wikiloc/maps.me)</div>
+      <div>4. Poista lentokonetila kun testi ohi</div>
+      <div style="margin-top:6px;color:var(--mist);font-style:italic;">→ AI-kaveri EI toimi offline-tilassa (vaatii verkon)</div>
     </div>
 
     <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.25);border-radius:10px;padding:11px;font-size:12px;color:var(--cream);line-height:1.6;">
@@ -2260,7 +2251,7 @@ function paivitaEtappiYhteenveto() {
   const fill = document.getElementById('progressFill');
   if (fill) fill.style.width = (maara / 10 * 100) + '%';
   const info = document.getElementById('progressInfo');
-  if (info) info.textContent = maara + '/10 etappia suoritettu · 4 lepopäivää · 17 päivää';
+  if (info) info.textContent = maara + '/10 etappia suoritettu · 3 lepopäivää · 17 päivää';
 }
 
 // ── Säätiedot ─────────────────────────────────────────────────────────────
