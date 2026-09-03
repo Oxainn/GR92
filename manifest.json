@@ -1,7 +1,7 @@
 {
-  "name": "GR92 Vaellusmatka 2026",
+  "name": "GR92 Patikkamatka 2026",
   "short_name": "GR92",
-  "description": "GR92 vaellusmatka syyskuu 2026",
+  "description": "GR92 patikkamatka syyskuu 2026",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -12,6 +12,12 @@
     {
       "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' fill='%232d5a27'/%3E%3Ctext y='140' font-size='120' text-anchor='middle' x='96'%3E%F0%9F%A5%BE%3C/text%3E%3C/svg%3E",
       "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%232d5a27'/%3E%3Ctext y='372' font-size='320' text-anchor='middle' x='256'%3E%F0%9F%A5%BE%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     }

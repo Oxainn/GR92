@@ -184,7 +184,8 @@ Jos et tiedä jotain varmasti, sano rehellisesti "en tiedä" — älä keksi. Jo
 - **Aika:** 4.9.–20.9.2026 (17 päivää)
 - **Ryhmä:** 6 henkilöä (40–60 v)
 - **Reitti:** GR92 Katalonia, etapit 12–21, Lloret de Mar → Garraf
-- **Yhteensä:** ~171 km, +4 518 m nousua
+- **Yhteensä:** ~169 km, +4 137 m nousua
+- **Rakenne:** 10 kävelypäivää, 3 lepopäivää (9.9., 13.9., 16.9.), loput matkapäiviä (4.9. saapuminen, 5.9. Panu saapuu, 19.9.–20.9. paluut)
 
 ## Majoitus (koko matka)
 
@@ -198,15 +199,15 @@ Jos et tiedä jotain varmasti, sano rehellisesti "en tiedä" — älä keksi. Jo
 
 ## Etapit
 
-- **E12** (6.9.): Lloret de Mar → Tordera, 19 km, +232 m — täysin julkisilla (R1)
-- **E13** (7.9.): Tordera → Hortsavinyà, 14 km, +527 m — kaksi ryhmää + auto (Hortsavinyà 525m metsätiellä, ei julkista)
-- **E14** (8.9.): Hortsavinyà → Vallgorguina, 17 km, +307 m — kaksi ryhmää + auto (roolinvaihto edellisestä, Vallgorguinasta Sagalés-bussi harva)
+- **E12** (6.9.): Lloret de Mar → Tordera, 18 km, +244 m — täysin julkisilla (R1)
+- **E13** (7.9.): Tordera → Hortsavinyà, 15 km, +621 m — kaksi ryhmää + auto (Hortsavinyà 525m metsätiellä, ei julkista)
+- **E14** (8.9.): Hortsavinyà → Vallgorguina, 15 km, +202 m, -502 m — kaksi ryhmää + auto (roolinvaihto edellisestä, Vallgorguinasta Sagalés-bussi harva)
 - Lepopäivä 9.9.
 - **E15** (10.9.): Vallgorguina → Llinars del Vallès, 16 km, +484 m — täysin julkisilla (R2 Nord)
 - **E16** (11.9.): Llinars del Vallès → Premià de Dalt (Camí de la Costa 420m), 20 km, +483 m — kaksi ryhmää + auto (julkinen alkuun, metsäpolku loppuun)
 - **E17** (12.9.): Premià de Dalt → Montcada i Reixac, 20 km, +372 m, -762 m — E17 alkaa mistä E16 päättyy, kaksi ryhmää + auto. HUOM: iso lasku -762m polvet kovilla!
 - Lepopäivä 13.9. Barcelonassa
-- **E18** (14.9.): Montcada → Vallvidrera, 17 km, +652 m — TÄYSIN JULKISILLA (molemmat päät suoraan asemilla: Montcada R2 Nord 37 m, Vallvidrera FGC S1/S2 14 m).
+- **E18** (14.9.): Montcada → Vallvidrera, 16 km, +611 m — TÄYSIN JULKISILLA (molemmat päät suoraan asemilla: Montcada R2 Nord 37 m, Vallvidrera FGC S1/S2 14 m).
 - **E19** (15.9.): Baixador de Vallvidrera → Sant Vicenç dels Horts (FGC-asema), 14 km, +230 m, -444 m — TÄYSIN JULKISILLA (molemmat päät asemilla: Vallvidrera FGC 14 m, Sant Vicenç FGC 27 m).
 - Lepopäivä 16.9.
 - **E20** (17.9.): Sant Vicenç dels Horts (FGC-asema) → Gavà, 17 km, +331 m — TÄYSIN JULKISILLA (molemmat päät asemilla). Alku 27 m FGC-asemasta. Loppu Gavà R2 Sud -aseman vieressä.
