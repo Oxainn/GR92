@@ -197,6 +197,22 @@ Jos et tiedä jotain varmasti, sano rehellisesti "en tiedä" — älä keksi. Jo
 - Web: rocagrossa.com
 - Lähin ranta: Roca Grossa -lahti 100 m majoituksen alla
 
+## Majoituksen käytännöt (Camping Roca Grossa)
+
+**Puhelimet:** vastaanotto +34 937 691 297 (klo 9–20), hätä yöllä +34 606 766 840, **taksi +34 682 553 388**, mobiili +34 628 598 873.
+
+**Alikulku:** campingilta on jalankulkualikulku rannalle ja Sant Poliin. Sant Polin R1-asema on vain **1 km / n. 15 min kävellen** (autotie kiertää 5 km). Ryhmä ei siis ole auton varassa.
+
+**Puomi kiinni 00:00–07:30** — autolla ei pääse ulos ennen 7:30. Kävellen pääsee milloin vain.
+
+**Mökin rajoitteet:** suihkussa 30 l säiliö ja 10 min odotus suihkujen välillä (kuudelle hengelle: sopikaa vuorot). Sähkö 6 A — vedenkeitin ja lämmitin eivät toimi yhtä aikaa. Vesi on juomakelpoista. Lakanat ja pyyhkeet eivät sisälly (6 €/yö), peittoja ei saatavilla 15.6.–15.9.
+
+**Palvelut:** ravintola-kahvila joka päivä, supermarket baarin vieressä, pesukone ja kuivausrumpu (poletit vastaanotosta), uima-allas auki 25.9. asti, ilmainen WiFi baarin alueella, ilmainen tallelokero (20 € pantti).
+
+**Check-out 20.9. klo 10:00.** Myöhäinen lähtö klo 18 maksaa 45 € pyynnöstä.
+
+**Muuta:** hiljaisuus 00:00–08:00, nopeusrajoitus 10 km/h, pyöräily kielletty alueella, grillaus hiilillä 9–22 (ei kuistilla), sähköautoa ei saa ladata. Autolla poistuttaessa käänny aina oikealle, 200 m jälkeen tutkalta oikealle Calellaan.
+
 ## Etapit
 
 - **E12** (6.9.): Lloret de Mar → Tordera, 18 km, +244 m — täysin julkisilla (R1)
