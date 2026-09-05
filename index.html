@@ -2117,39 +2117,15 @@ function openEtappi(num) {
       }).join('')}
     </table>
     <div style="font-size:11px;color:var(--mist);margin-bottom:14px;line-height:1.4;">Arvio OSM-kartta-datasta, suuntaa-antava — ei mitattu jokaisesta metristä.</div>` : ''}
-    <div class="link-btn" onclick="downloadGpx('${e.gpx}', ${num})">
-      <span class="link-icon">⬇️</span>
-      <div class="link-text"><div class="link-title">Lataa GPX-tiedosto</div><div class="link-sub">Avaa Komoot / Outdooractive / Maps</div></div>
-      <span class="link-arrow">↓</span>
+
+    <div style="background:rgba(74,124,63,0.08);border:1px solid rgba(74,124,63,0.3);border-radius:11px;padding:11px;margin-bottom:14px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:var(--sage);margin-bottom:4px;">⏱️ Aika-arvio omalla vauhdilla</div>
+      <div>Kävely: <strong>${e.kavelyAika}</strong></div>
+      <div>Koko päivä kuljetuksineen: <strong>${e.paivaAika}</strong></div>
     </div>
-    <div class="link-btn" onclick="openLink('${e.gpxOA}')">
-      <span class="link-icon">🧭</span>
-      <div class="link-text"><div class="link-title">Näytä Outdooractivessa</div><div class="link-sub">Reittikuvaus ja kartta</div></div>
-      <span class="link-arrow">↗</span>
-    </div>
-    ${e.e15AjoLlinars ? `
-    <div class="link-btn" onclick="openLink('${e.e15AjoLlinars}')" style="background:rgba(234,179,8,0.08);border-color:rgba(234,179,8,0.25);">
-      <span class="link-icon">\u{1F17F}\uFE0F</span>
-      <div class="link-text"><div class="link-title">1. Ajo maaliparkkiin Llinars</div><div class="link-sub">40 km \u00b7 36 min</div></div>
-      <span class="link-arrow">\u2197</span>
-    </div>
-    <div class="link-btn" onclick="openLink('${e.e15Siirto}')" style="background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.25);">
-      <span class="link-icon">\u{1F695}</span>
-      <div class="link-text"><div class="link-title">2. Siirto Vallgorguinaan</div><div class="link-sub">14 km \u00b7 15 min \u00b7 taksi tai bussi 565</div></div>
-      <span class="link-arrow">\u2197</span>
-    </div>` : ''}
-    ${e.aikatauluRivit ? `
-    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
-      <div style="font-weight:700;color:var(--cream);margin-bottom:2px;">\u23F0 Malliaikataulu</div>
-      <div style="color:var(--mist);font-size:11px;margin-bottom:8px;">Koko p\u00e4iv\u00e4 ${e.aikatauluKesto} \u00b7 l\u00e4ht\u00f6 8:30</div>
-      ${e.aikatauluRivit.split('&').map(function(r){
-        var x = r.split('|');
-        return '<div style="display:flex;gap:8px;"><strong style="color:var(--sage);min-width:44px;">' + x[0] + '</strong><span>' + x[1] + '</span></div>';
-      }).join('')}
-      <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.1);color:var(--mist);font-size:11px;">
-        Ajat ovat suuntaa-antavia. Junavuoro ja oma vauhti siirt\u00e4v\u00e4t niit\u00e4 helposti puoli tuntia suuntaansa \u2014 <strong style="color:var(--cream);">rakenne on t\u00e4rke\u00e4mpi kuin kellonajat</strong>.
-      </div>
-    </div>` : ''}
+
+    <div class="card-label" style="margin-bottom:8px;">🧭 Kuljetus tänään</div>
+
     ${e.paivaOtsikko ? `
     <div style="background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.35);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
       <div style="font-weight:700;color:#c4b5fd;margin-bottom:2px;">\u{1F5D3}\uFE0F ${e.paivaOtsikko}</div>
@@ -2173,16 +2149,35 @@ function openEtappi(num) {
       <span class="link-icon">\u{1F697}</span>
       <div class="link-text"><div class="link-title">Nouto: Hortsavinyà \u2192 Vallgorguina</div><div class="link-sub">26 km \u00b7 87 min</div></div>
       <span class="link-arrow">\u2197</span>
-    </div>` : ''}
-    ${e.parkki === 'maali' ? `
-    <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.35);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
-      <div style="font-weight:700;color:#fbbf24;margin-bottom:6px;">🅿️ Maaliparkki — päivän kulku</div>
-      <div><strong>1.</strong> Aamulla ajo majoituksesta <strong>etapin maaliin</strong> — ${e.parkkiAika}</div>
-      <div><strong>2.</strong> Auto parkkiin, julkisilla lähtöön — ${e.parkkiJulkAika}</div>
-      <div><strong>3.</strong> Kävele etappi takaisin autolle</div>
-      <div><strong>4.</strong> Aja suoraan kotiin — ei odottelua</div>
-      <div style="margin-top:6px;padding-top:6px;border-top:1px solid rgba(234,179,8,0.25);">Päivä yhteensä: <strong>${e.parkkiPaiva}</strong></div>
     </div>
+    ` : e.e15AjoLlinars ? `
+    <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.35);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#fbbf24;margin-bottom:4px;">🅿️ Maaliparkki Llinars — koko ryhmä yhdessä</div>
+      <div>Auto parkkiin Llinarsiin heti aamusta, siirto taksilla tai bussilla Vallgorguinaan, kävely takaisin autolle.</div>
+    </div>
+    <div class="link-btn" onclick="openLink('${e.e15AjoLlinars}')" style="background:rgba(234,179,8,0.08);border-color:rgba(234,179,8,0.25);">
+      <span class="link-icon">\u{1F17F}\uFE0F</span>
+      <div class="link-text"><div class="link-title">1. Ajo maaliparkkiin Llinars</div><div class="link-sub">40 km \u00b7 36 min</div></div>
+      <span class="link-arrow">\u2197</span>
+    </div>
+    <div class="link-btn" onclick="openLink('${e.e15Siirto}')" style="background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.25);">
+      <span class="link-icon">\u{1F695}</span>
+      <div class="link-text"><div class="link-title">2. Siirto Vallgorguinaan</div><div class="link-sub">14 km \u00b7 15 min \u00b7 taksi tai bussi 565</div></div>
+      <span class="link-arrow">\u2197</span>
+    </div>
+    ` : e.parkki === 'maali' ? `
+    ${e.aikatauluRivit ? `
+    <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.35);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
+      <div style="font-weight:700;color:#fbbf24;margin-bottom:2px;">🅿️ Maaliparkki — malliaikataulu</div>
+      <div style="color:var(--mist);font-size:11px;margin-bottom:8px;">Koko p\u00e4iv\u00e4 ${e.aikatauluKesto} \u00b7 l\u00e4ht\u00f6 8:30</div>
+      ${e.aikatauluRivit.split('&').map(function(r){
+        var x = r.split('|');
+        return '<div style="display:flex;gap:8px;"><strong style="color:#fbbf24;min-width:44px;">' + x[0] + '</strong><span>' + x[1] + '</span></div>';
+      }).join('')}
+      <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(234,179,8,0.2);color:var(--mist);font-size:11px;">
+        Ajat suuntaa-antavia \u2014 <strong style="color:var(--cream);">rakenne on t\u00e4rke\u00e4mpi kuin kellonajat</strong>.
+      </div>
+    </div>` : ''}
     <div class="link-btn" onclick="openLink('${e.parkkiAjo}')" style="background:rgba(234,179,8,0.08);border-color:rgba(234,179,8,0.25);">
       <span class="link-icon">🅿️</span>
       <div class="link-text"><div class="link-title">1. Ajo maaliparkkiin</div><div class="link-sub">${e.parkkiAika}</div></div>
@@ -2192,12 +2187,8 @@ function openEtappi(num) {
       <span class="link-icon">🚆</span>
       <div class="link-text"><div class="link-title">2. Julkisilla lähtöön</div><div class="link-sub">${e.parkkiJulkAika}</div></div>
       <span class="link-arrow">↗</span>
-    </div>` : ''}
-    <div style="background:rgba(74,124,63,0.08);border:1px solid rgba(74,124,63,0.3);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
-      <div style="font-weight:700;color:var(--sage);margin-bottom:4px;">⏱️ Aika-arvio omalla vauhdilla</div>
-      <div>Kävely: <strong>${e.kavelyAika}</strong></div>
-      <div>Koko päivä kuljetuksineen: <strong>${e.paivaAika}</strong></div>
     </div>
+    ` : `
     <div class="link-btn" onclick="openLink('${e.meno}')">
       <span class="link-icon">➡️</span>
       <div class="link-text"><div class="link-title">Menoreitti ${e.menoLabel}</div><div class="link-sub">Camping Roca Grossa → etapin alku</div></div>
@@ -2217,6 +2208,20 @@ function openEtappi(num) {
       <span class="link-icon">🚗</span>
       <div class="link-text"><div class="link-title">Paluureitti autolla</div><div class="link-sub">${e.autoPaluuAika} · lopusta majoitukseen</div></div>
       <span class="link-arrow">↗</span>
+    </div>
+    `}
+
+    <div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">
+    <div class="link-btn" onclick="downloadGpx('${e.gpx}', ${num})">
+      <span class="link-icon">⬇️</span>
+      <div class="link-text"><div class="link-title">Lataa GPX-tiedosto</div><div class="link-sub">Avaa Komoot / Outdooractive / Maps</div></div>
+      <span class="link-arrow">↓</span>
+    </div>
+    <div class="link-btn" onclick="openLink('${e.gpxOA}')">
+      <span class="link-icon">🧭</span>
+      <div class="link-text"><div class="link-title">Näytä Outdooractivessa</div><div class="link-sub">Reittikuvaus ja kartta</div></div>
+      <span class="link-arrow">↗</span>
+    </div>
     </div>
 
 ${renderElevationProfile(num)}
