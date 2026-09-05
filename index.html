@@ -647,12 +647,12 @@ body {
 
   <div class="card-label" style="margin-top:14px">Kuljetus</div>
   <div style="font-size:12px;color:var(--mist);margin:2px 0 8px;line-height:1.5;">Tavoite: koko ryhmä kävelee mahdollisimman monta etappia yhdessä. Julkiset ensisijaisesti (juna/bussi) — tila-auto vain kun julkinen mahdoton tai kohtuuton (4.9.–20.9.).</div>
-  <div class="link-btn" onclick="openLink('https://www.google.com/maps/dir/?api=1&origin=Barcelona+El+Prat+Airport&destination=41.6064135,2.6391268&travelmode=driving')">
+  <div class="link-btn" onclick="openLink('https://www.google.com/maps/dir/?api=1&origin=Barcelona+El+Prat+Airport&destination=41.60768,2.63522&travelmode=driving')">
     <span class="link-icon">🚗</span>
     <div class="link-text"><div class="link-title">Reitti kentältä majoitukseen</div><div class="link-sub">El Prat → Camping Roca Grossa (tila-auto)</div></div>
     <span class="link-arrow">↗</span>
   </div>
-  <div class="link-btn" onclick="openLink('https://www.google.com/maps/dir/?api=1&destination=41.6064135,2.6391268&travelmode=transit')">
+  <div class="link-btn" onclick="openLink('https://www.google.com/maps/dir/?api=1&destination=41.60768,2.63522&travelmode=transit')">
     <span class="link-icon">🚆</span>
     <div class="link-text"><div class="link-title">Reitti majoitukseen – Rodalies R1</div><div class="link-sub">Rannikon junaverkko, Camping Roca Grossa</div></div>
     <span class="link-arrow">↗</span>
@@ -777,6 +777,38 @@ body {
     </div>
   </div>
 
+  <!-- AIKA-ARVIOT -->
+  <div class="card" style="margin-bottom:16px;background:rgba(74,124,63,0.06);border-color:rgba(74,124,63,0.3);">
+    <div class="card-label" style="color:var(--sage);">⏱️ Kävelyaika-arviot</div>
+    <div style="font-size:12px;color:var(--mist);margin:4px 0 12px;line-height:1.6;">
+      Laskettu <strong style="color:var(--cream);">omalla vauhdillanne: 3 km/h tauot mukaan lukien</strong>, plus 10 min per 100 m nousua ja lisää pitkistä laskuista. Ei kuntoilutahtia &mdash; nauttimisvauhti.
+    </div>
+    <div style="overflow-x:auto;">
+    <table class="info-table" style="font-size:11px;min-width:100%;">
+      <tr style="color:var(--sage);font-weight:600;">
+        <td>Etappi</td><td>Matka</td><td>Kävely</td><td>Päivä yht.</td><td>Kotona*</td>
+      </tr>
+      <tr><td style="white-space:nowrap;">E12 · 6.9.</td><td>18 km</td><td>6h26</td><td>7h12</td><td>15:12</td></tr><tr><td style="white-space:nowrap;">E13 · 7.9.</td><td>15 km</td><td>6h08</td><td>7h55</td><td>15:55</td></tr><tr><td style="white-space:nowrap;">E14 · 8.9.</td><td>15 km</td><td>5h27</td><td>7h26</td><td>15:26</td></tr><tr><td style="white-space:nowrap;">E15 · 10.9.</td><td>16 km</td><td>6h08</td><td>7h14</td><td>15:14</td></tr><tr><td style="white-space:nowrap;">E16 · 11.9.</td><td>20 km</td><td>7h22</td><td style="color:#fbbf24;font-weight:600;">8h41</td><td>16:41</td></tr><tr><td style="white-space:nowrap;">E17 · 12.9.</td><td>20 km</td><td>7h30</td><td style="color:#fbbf24;font-weight:600;">9h01</td><td>17:01</td></tr><tr><td style="white-space:nowrap;">E18 · 14.9.</td><td>16 km</td><td>6h30</td><td style="color:#fbbf24;font-weight:600;">8h19</td><td>16:19</td></tr><tr><td style="white-space:nowrap;">E19 · 15.9.</td><td>14 km</td><td>5h08</td><td>7h09</td><td>15:09</td></tr><tr><td style="white-space:nowrap;">E20 · 17.9.</td><td>17 km</td><td>6h11</td><td style="color:#fbbf24;font-weight:600;">8h20</td><td>16:20</td></tr><tr><td style="white-space:nowrap;">E21 · 18.9.</td><td>18 km</td><td>7h10</td><td style="color:#fbbf24;font-weight:600;">9h29</td><td>17:29</td></tr>
+    </table>
+    </div>
+    <div style="font-size:11px;color:var(--mist);margin-top:8px;">
+      *Jos lähtö klo 8:00 ja kuljetus autolla. <strong style="color:#fbbf24;">Keltaisella</strong> yli 8 h päivät.
+    </div>
+
+    <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.3);border-radius:10px;padding:11px;margin-top:12px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#60a5fa;margin-bottom:4px;">📱 Miksi Garmin ja Google Maps eroavat</div>
+      <div>&bull; <strong>Google Maps</strong> laskee ~5 km/h tasaisella, ei huomioi maastoa, nousuja eikä taukoja &rarr; <strong>rajusti liian optimistinen</strong> GR92:lla</div>
+      <div>&bull; <strong>Garmin Fenix 7</strong> arvioi ETA:n <em>toteutuneesta vauhdistasi</em> matkan aikana. Korjautuu itsestään, mutta ei ennakoi edessä olevia nousuja &mdash; katso ClimbPro-näkymä</div>
+      <div style="margin-top:6px;color:var(--mist);font-style:italic;">&rarr; Käytä tämän taulukon lukua päivän suunnitteluun, Garminia matkan aikana.</div>
+    </div>
+
+    <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.25);border-radius:10px;padding:11px;margin-top:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#fbbf24;margin-bottom:4px;">☀️ Valoisa aika syyskuussa</div>
+      <div>Aurinko nousee n. <strong>7:20</strong> ja laskee <strong>20:20 (alkukuu) &rarr; 19:40 (loppukuu)</strong>. Pisimmätkin päivät mahtuvat hyvin valoisaan, kun lähdette 8:00 mennessä.</div>
+      <div style="margin-top:4px;">Pisimmät: <strong>E21 (7h10 kävelyä)</strong>, <strong>E17 (7h30)</strong> ja <strong>E16 (7h22)</strong> &mdash; näinä päivinä aikainen lähtö kannattaa.</div>
+    </div>
+  </div>
+
   <!-- AUTO vs JULKINEN -->
   <div class="card" style="margin-bottom:16px;background:rgba(234,179,8,0.06);border-color:rgba(234,179,8,0.3);">
     <div class="card-label" style="color:#fbbf24;">🚗 vs 🚆 Matka-ajat majoituksesta</div>
@@ -789,26 +821,26 @@ body {
       <tr style="color:var(--sage);font-weight:600;">
         <td>Etappi</td><td>🚗 meno</td><td>🚆 meno</td><td>🚗 paluu</td><td>🚆 paluu</td>
       </tr>
-      <tr><td style="white-space:nowrap;">E12 · 6.9.</td><td style="color:#fbbf24;">25 min</td><td>1h20</td><td style="color:#fbbf24;">16 min</td><td>50 min</td></tr><tr><td style="white-space:nowrap;">E13 · 7.9.</td><td style="color:#fbbf24;">20 min</td><td>50 min</td><td style="color:#fbbf24;">84 min</td><td><span style="color:#f87171;">ei julkista</span></td></tr><tr><td style="white-space:nowrap;">E14 · 8.9.</td><td style="color:#fbbf24;">87 min</td><td><span style="color:#f87171;">ei julkista</span></td><td style="color:#fbbf24;">28 min</td><td>2h30</td></tr><tr><td style="white-space:nowrap;">E15 · 10.9.</td><td style="color:#fbbf24;">25 min</td><td>2h20</td><td style="color:#fbbf24;">37 min</td><td>2h35</td></tr><tr><td style="white-space:nowrap;">E16 · 11.9.</td><td style="color:#fbbf24;">34 min</td><td>2h35</td><td style="color:#fbbf24;">40 min</td><td>1h50</td></tr><tr><td style="white-space:nowrap;">E17 · 12.9.</td><td style="color:#fbbf24;">38 min</td><td>1h50</td><td style="color:#fbbf24;">49 min</td><td>2h05</td></tr><tr><td style="white-space:nowrap;">E18 · 14.9.</td><td style="color:#fbbf24;">46 min</td><td>2h05</td><td style="color:#fbbf24;">59 min</td><td>2h00</td></tr><tr><td style="white-space:nowrap;">E19 · 15.9.</td><td style="color:#fbbf24;">56 min</td><td>2h00</td><td style="color:#fbbf24;">60 min</td><td>2h20</td></tr><tr><td style="white-space:nowrap;">E20 · 17.9.</td><td style="color:#fbbf24;">59 min</td><td>2h20</td><td style="color:#fbbf24;">66 min</td><td>2h10</td></tr><tr><td style="white-space:nowrap;">E21 · 18.9.</td><td style="color:#fbbf24;">63 min</td><td>2h10</td><td style="color:#fbbf24;">72 min</td><td>2h30</td></tr>
+      <tr><td style="white-space:nowrap;">E12 · 6.9.</td><td style="color:#fbbf24;">27 min</td><td>1h20</td><td style="color:#fbbf24;">18 min</td><td>50 min</td></tr><tr><td style="white-space:nowrap;">E13 · 7.9.</td><td style="color:#fbbf24;">22 min</td><td>50 min</td><td style="color:#fbbf24;">86 min</td><td><span style="color:#f87171;">ei julkista</span></td></tr><tr><td style="white-space:nowrap;">E14 · 8.9.</td><td style="color:#fbbf24;">89 min</td><td><span style="color:#f87171;">ei julkista</span></td><td style="color:#fbbf24;">30 min</td><td>2h30</td></tr><tr><td style="white-space:nowrap;">E15 · 10.9.</td><td style="color:#fbbf24;">27 min</td><td>2h20</td><td style="color:#fbbf24;">39 min</td><td>2h35</td></tr><tr><td style="white-space:nowrap;">E16 · 11.9.</td><td style="color:#fbbf24;">36 min</td><td>2h35</td><td style="color:#fbbf24;">42 min</td><td>1h50</td></tr><tr><td style="white-space:nowrap;">E17 · 12.9.</td><td style="color:#fbbf24;">40 min</td><td>1h50</td><td style="color:#fbbf24;">51 min</td><td>2h05</td></tr><tr><td style="white-space:nowrap;">E18 · 14.9.</td><td style="color:#fbbf24;">47 min</td><td>2h05</td><td style="color:#fbbf24;">61 min</td><td>2h00</td></tr><tr><td style="white-space:nowrap;">E19 · 15.9.</td><td style="color:#fbbf24;">58 min</td><td>2h00</td><td style="color:#fbbf24;">62 min</td><td>2h20</td></tr><tr><td style="white-space:nowrap;">E20 · 17.9.</td><td style="color:#fbbf24;">61 min</td><td>2h20</td><td style="color:#fbbf24;">68 min</td><td>2h10</td></tr><tr><td style="white-space:nowrap;">E21 · 18.9.</td><td style="color:#fbbf24;">65 min</td><td>2h10</td><td style="color:#fbbf24;">74 min</td><td>2h30</td></tr>
     </table>
     </div>
 
     <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:11px;margin-top:12px;font-size:12px;color:var(--cream);line-height:1.6;">
       <div style="font-weight:700;color:#f87171;margin-bottom:4px;">🚉 Käytä Sant Pol de Maria, älä Calellaa</div>
-      <div>Camping Roca Grossa on Calellan <strong>eteläpuolella</strong>. Lähin R1-asema ei ole Calella vaan <strong>Sant Pol de Mar</strong>.</div>
+      <div>Camping Roca Grossa (41.60768, 2.63522) on Calellan <strong>eteläpuolella</strong>. Lähin R1-asema ei ole Calella vaan <strong>Sant Pol de Mar</strong>.</div>
       <div style="margin-top:8px;background:rgba(0,0,0,0.15);border-radius:8px;padding:9px;">
         <table style="width:100%;font-size:11px;color:var(--cream);">
           <tr style="color:var(--mist);"><td></td><td><strong>Sant Pol</strong></td><td>Calella</td></tr>
-          <tr><td>Kävellen</td><td style="color:var(--sage);"><strong>1,8 km / 25 min</strong></td><td>4,9 km / 65 min</td></tr>
-          <tr><td>Autolla</td><td style="color:var(--sage);"><strong>3 min</strong></td><td>7 min</td></tr>
+          <tr><td>Kävellen</td><td style="color:var(--sage);"><strong>2,3 km / 31 min</strong></td><td>5,3 km / 71 min</td></tr>
+          <tr><td>Autolla</td><td style="color:var(--sage);"><strong>5 min</strong></td><td>9 min</td></tr>
           <tr><td>Barcelonaan</td><td style="color:var(--sage);"><strong>5 min lähempänä</strong></td><td>&mdash;</td></tr>
         </table>
       </div>
       <div style="margin-top:8px;">Sama R1-linja ja käytännössä sama vuorotiheys &mdash; kaikki Calellaan menevät junat pysähtyvät Sant Polissa. Yllä olevat julkisen ajat on laskettu Sant Polista.</div>
       <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(239,68,68,0.2);">
         <strong style="color:var(--cream);">Kävely vai auto asemalle?</strong><br>
-        &bull; <strong>Kävellen</strong> 25 min suuntaansa = 3,6 km lisää päivässä. Siedettävä, mutta lisää etappiin.<br>
-        &bull; <strong>Autolla</strong> 3 min, auto parkkiin päiväksi. Kaksi ryhmää -päivinä auto pudottaa julkisen ryhmän asemalle matkalla.<br>
+        &bull; <strong>Kävellen</strong> 31 min suuntaansa = 4,6 km lisää päivässä. Siedettävä, mutta lisää etappiin.<br>
+        &bull; <strong>Autolla</strong> 5 min, auto parkkiin päiväksi. Kaksi ryhmää -päivinä auto pudottaa julkisen ryhmän asemalle matkalla.<br>
         <span style="color:var(--mist);font-style:italic;">&rarr; Auto kannattaa lähes aina, mutta Sant Pol on hätätapauksessa kävelymatkan päässä &mdash; Calella ei.</span>
       </div>
       <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(239,68,68,0.2);color:var(--mist);">
@@ -1276,7 +1308,7 @@ body {
       <tr><td>Nimi</td><td>Camping Roca Grossa</td></tr>
       <tr><td>Majoitus</td><td>2 × <a href="https://www.rocagrossa.com/en/accommodation/mobil-homes/mobile-home-6pax/" target="_blank" rel="noopener" style="color:var(--sage)">asuntovaunu 6 hlö</a> · yht. 12 paikkaa</td></tr>
       <tr><td>Osoite</td><td>N-II, Km 665, 08370 Calella (Barcelona)</td></tr>
-      <tr><td>Sijainti</td><td>41.6064135, 2.6391268</td></tr>
+      <tr><td>Sijainti</td><td>41.60768, 2.63522</td></tr>
       <tr><td>Puhelin</td><td><a href="tel:+34937691297" style="color:var(--sage)">+34 937 691 297</a></td></tr>
       <tr><td>Mobiili</td><td><a href="tel:+34628598873" style="color:var(--sage)">+34 628 598 873</a></td></tr>
       <tr><td>Email</td><td><a href="mailto:rocagrossa@rocagrossa.com" style="color:var(--sage)">rocagrossa@rocagrossa.com</a></td></tr>
@@ -1480,13 +1512,15 @@ const etapit = {
     gpx: './etappi12.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/girona-katalonien-/gr92-etappi-12-lloret-de-marista-torderaan/334206588/',
     menoLabel: '🚆 Julkinen',
-    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.70077,2.84171&travelmode=transit',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.70077,2.84171&travelmode=transit',
     paluuLabel: '🚆 Julkinen',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.70731,2.71933&destination=41.6064135,2.6391268&travelmode=transit',
-    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.70077,2.84171&travelmode=driving',
-    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.70731,2.71933&destination=41.6064135,2.6391268&travelmode=driving',
-    autoMenoAika: '22 km · 25 min',
-    autoPaluuAika: '18 km · 16 min',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.70731,2.71933&destination=41.60768,2.63522&travelmode=transit',
+    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.70077,2.84171&travelmode=driving',
+    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.70731,2.71933&destination=41.60768,2.63522&travelmode=driving',
+    autoMenoAika: '23 km · 27 min',
+    autoPaluuAika: '19 km · 18 min',
+    kavelyAika: '6h26 (arvio 5h28–7h24)',
+    paivaAika: '7h12 autolla',
     badge: 'Helppo', hard: false
   },
   13: {
@@ -1498,12 +1532,14 @@ const etapit = {
     gpx: './etappi13.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-13-torderasta-hortsavinyaan/334206949/',
     menoLabel: '🚆 Julkinen A / 🚗 Auto B',
-    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.70730,2.71934&travelmode=transit',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.66405,2.61465&destination=41.6064135,2.6391268&travelmode=driving',
-    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.70730,2.71934&travelmode=driving',
-    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.66405,2.61465&destination=41.6064135,2.6391268&travelmode=driving',
-    autoMenoAika: '20 km · 20 min',
-    autoPaluuAika: '31 km · 84 min',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.70730,2.71934&travelmode=transit',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.66405,2.61465&destination=41.60768,2.63522&travelmode=driving',
+    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.70730,2.71934&travelmode=driving',
+    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.66405,2.61465&destination=41.60768,2.63522&travelmode=driving',
+    autoMenoAika: '20 km · 22 min',
+    autoPaluuAika: '31 km · 86 min',
+    kavelyAika: '6h08 (arvio 5h12–7h03)',
+    paivaAika: '7h55 autolla',
     badge: 'Keskivaativa', hard: false
   },
   14: {
@@ -1514,13 +1550,15 @@ const etapit = {
     transport: 'Kaksi ryhmää + auto (roolinvaihto edellisestä päivästä)',
     gpx: './etappi14.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-14-hortsavinya-to-vallgorguina/334207213/',
-    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.66405,2.61465&travelmode=driving',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.66405,2.61465&travelmode=driving',
     paluuLabel: '🚆 Julkinen B / 🚗 Auto A',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.64834,2.50986&destination=41.6064135,2.6391268&travelmode=transit',
-    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.66405,2.61465&travelmode=driving',
-    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.64834,2.50986&destination=41.6064135,2.6391268&travelmode=driving',
-    autoMenoAika: '32 km · 87 min',
-    autoPaluuAika: '25 km · 28 min',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.64834,2.50986&destination=41.60768,2.63522&travelmode=transit',
+    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.66405,2.61465&travelmode=driving',
+    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.64834,2.50986&destination=41.60768,2.63522&travelmode=driving',
+    autoMenoAika: '33 km · 89 min',
+    autoPaluuAika: '26 km · 30 min',
+    kavelyAika: '5h27 (arvio 4h38–6h16)',
+    paivaAika: '7h26 autolla',
     badge: 'Metsä/nousut', hard: false
   },
   15: {
@@ -1532,13 +1570,15 @@ const etapit = {
     gpx: './etappi15.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-15-vallgorguinasta-can-bordoi-passiin/334207381/',
     menoLabel: '🚆 Julkinen',
-    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.64833,2.50987&travelmode=transit',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.64833,2.50987&travelmode=transit',
     paluuLabel: '🚆 Julkinen',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.63818,2.40455&destination=41.6064135,2.6391268&travelmode=transit',
-    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.64833,2.50987&travelmode=driving',
-    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.63818,2.40455&destination=41.6064135,2.6391268&travelmode=driving',
-    autoMenoAika: '19 km · 25 min',
-    autoPaluuAika: '45 km · 37 min',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.63818,2.40455&destination=41.60768,2.63522&travelmode=transit',
+    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.64833,2.50987&travelmode=driving',
+    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.63818,2.40455&destination=41.60768,2.63522&travelmode=driving',
+    autoMenoAika: '20 km · 27 min',
+    autoPaluuAika: '46 km · 39 min',
+    kavelyAika: '6h08 (arvio 5h13–7h03)',
+    paivaAika: '7h14 autolla',
     badge: 'Harjanne', hard: false
   },
   16: {
@@ -1550,13 +1590,15 @@ const etapit = {
     gpx: './etappi16.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-16-can-bordoi-passista-font-de-cera-passiin/334209930/',
     menoLabel: '🚆 Julkinen A / 🚗 Auto B',
-    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.63819,2.40457&travelmode=transit',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.63819,2.40457&travelmode=transit',
     paluuLabel: '🚗 Auto A / 🚆 Julkinen B',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.51799,2.33672&destination=41.6064135,2.6391268&travelmode=transit',
-    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.63819,2.40457&travelmode=driving',
-    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.51799,2.33672&destination=41.6064135,2.6391268&travelmode=driving',
-    autoMenoAika: '40 km · 34 min',
-    autoPaluuAika: '39 km · 40 min',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.51799,2.33672&destination=41.60768,2.63522&travelmode=transit',
+    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.63819,2.40457&travelmode=driving',
+    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.51799,2.33672&destination=41.60768,2.63522&travelmode=driving',
+    autoMenoAika: '40 km · 36 min',
+    autoPaluuAika: '40 km · 42 min',
+    kavelyAika: '7h22 (arvio 6h16–8h28)',
+    paivaAika: '8h41 autolla',
     badge: 'Navigointi', hard: false
   },
   17: {
@@ -1568,13 +1610,15 @@ const etapit = {
     gpx: './etappi17.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-17-font-de-cera-passista-montcada-i-reixac-asemalle/334210344/',
     menoLabel: '🚗 Auto B / 🚆 Julkinen A',
-    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.51797,2.33659&travelmode=transit',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.51797,2.33659&travelmode=transit',
     paluuLabel: '🚆 Julkinen B / 🚗 Auto A',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.48445,2.18795&destination=41.6064135,2.6391268&travelmode=transit',
-    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.51797,2.33659&travelmode=driving',
-    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.48445,2.18795&destination=41.6064135,2.6391268&travelmode=driving',
-    autoMenoAika: '34 km · 38 min',
-    autoPaluuAika: '57 km · 49 min',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.48445,2.18795&destination=41.60768,2.63522&travelmode=transit',
+    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.51797,2.33659&travelmode=driving',
+    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.48445,2.18795&destination=41.60768,2.63522&travelmode=driving',
+    autoMenoAika: '35 km · 40 min',
+    autoPaluuAika: '58 km · 51 min',
+    kavelyAika: '7h30 (arvio 6h22–8h38)',
+    paivaAika: '9h01 autolla',
     badge: 'Helpottava', hard: false
   },
   18: {
@@ -1586,13 +1630,15 @@ const etapit = {
     gpx: './etappi18.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-18-montcada-i-reixac-asemalta-baixador-de-vallvidrera-asemalle/334210518/',
     menoLabel: '🚆 Julkinen',
-    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.48443,2.18795&travelmode=transit',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.48443,2.18795&travelmode=transit',
     paluuLabel: '🚆 Julkinen',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.42000,2.09680&destination=41.6064135,2.6391268&travelmode=transit',
-    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.48443,2.18795&travelmode=driving',
-    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.42000,2.09680&destination=41.6064135,2.6391268&travelmode=driving',
-    autoMenoAika: '52 km · 46 min',
-    autoPaluuAika: '66 km · 59 min',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.42000,2.09680&destination=41.60768,2.63522&travelmode=transit',
+    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.48443,2.18795&travelmode=driving',
+    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.42000,2.09680&destination=41.60768,2.63522&travelmode=driving',
+    autoMenoAika: '52 km · 47 min',
+    autoPaluuAika: '67 km · 61 min',
+    kavelyAika: '6h30 (arvio 5h31–7h29)',
+    paivaAika: '8h19 autolla',
     badge: 'Nousupäivä', hard: false
   },
   19: {
@@ -1604,13 +1650,15 @@ const etapit = {
     gpx: './etappi19.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-19-baixador-de-vallvidrera-asemalta-sant-vicenc-dels-hortsiin/334210802/',
     menoLabel: '🚆 Julkinen',
-    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.42002,2.09679&travelmode=transit',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.42002,2.09679&travelmode=transit',
     paluuLabel: '🚆 Julkinen',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.39342,2.00925&destination=41.6064135,2.6391268&travelmode=transit',
-    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.42002,2.09679&travelmode=driving',
-    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.39342,2.00925&destination=41.6064135,2.6391268&travelmode=driving',
-    autoMenoAika: '64 km · 56 min',
-    autoPaluuAika: '73 km · 60 min',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.39342,2.00925&destination=41.60768,2.63522&travelmode=transit',
+    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.42002,2.09679&travelmode=driving',
+    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.39342,2.00925&destination=41.60768,2.63522&travelmode=driving',
+    autoMenoAika: '65 km · 58 min',
+    autoPaluuAika: '73 km · 62 min',
+    kavelyAika: '5h08 (arvio 4h22–5h55)',
+    paivaAika: '7h09 autolla',
     badge: 'Lyhyt', hard: false
   },
   20: {
@@ -1622,13 +1670,15 @@ const etapit = {
     gpx: './etappi20.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-20-sant-vicenc-dels-hortsista-bruguers-puistoon/334211034/',
     menoLabel: '🚆 Julkinen',
-    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.39345,2.00923&travelmode=transit',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.39345,2.00923&travelmode=transit',
     paluuLabel: '🚆 Julkinen',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.30350,2.01049&destination=41.6064135,2.6391268&travelmode=transit',
-    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.39345,2.00923&travelmode=driving',
-    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.30350,2.01049&destination=41.6064135,2.6391268&travelmode=driving',
-    autoMenoAika: '68 km · 59 min',
-    autoPaluuAika: '77 km · 66 min',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.30350,2.01049&destination=41.60768,2.63522&travelmode=transit',
+    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.39345,2.00923&travelmode=driving',
+    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.30350,2.01049&destination=41.60768,2.63522&travelmode=driving',
+    autoMenoAika: '69 km · 61 min',
+    autoPaluuAika: '78 km · 68 min',
+    kavelyAika: '6h11 (arvio 5h15–7h07)',
+    paivaAika: '8h20 autolla',
     badge: 'Raskain!', hard: true
   },
   21: {
@@ -1640,13 +1690,15 @@ const etapit = {
     gpx: './etappi21.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-21-bruguersista-garrafiin/334211327/',
     menoLabel: '🚆 Julkinen',
-    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.30320,2.01000&travelmode=transit',
+    meno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.30320,2.01000&travelmode=transit',
     paluuLabel: '🚆 Julkinen',
-    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.25402,1.90246&destination=41.6064135,2.6391268&travelmode=transit',
-    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.6064135,2.6391268&destination=41.30320,2.01000&travelmode=driving',
-    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.25402,1.90246&destination=41.6064135,2.6391268&travelmode=driving',
-    autoMenoAika: '74 km · 63 min',
-    autoPaluuAika: '88 km · 72 min',
+    paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.25402,1.90246&destination=41.60768,2.63522&travelmode=transit',
+    autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.30320,2.01000&travelmode=driving',
+    autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.25402,1.90246&destination=41.60768,2.63522&travelmode=driving',
+    autoMenoAika: '74 km · 65 min',
+    autoPaluuAika: '88 km · 74 min',
+    kavelyAika: '7h10 (arvio 6h05–8h14)',
+    paivaAika: '9h29 autolla',
     badge: 'Palkinto', hard: false
   }
 };
@@ -1838,6 +1890,11 @@ function openEtappi(num) {
       <span class="link-icon">🧭</span>
       <div class="link-text"><div class="link-title">Näytä Outdooractivessa</div><div class="link-sub">Reittikuvaus ja kartta</div></div>
       <span class="link-arrow">↗</span>
+    </div>
+    <div style="background:rgba(74,124,63,0.08);border:1px solid rgba(74,124,63,0.3);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:var(--sage);margin-bottom:4px;">⏱️ Aika-arvio omalla vauhdilla</div>
+      <div>Kävely: <strong>${e.kavelyAika}</strong></div>
+      <div>Koko päivä kuljetuksineen: <strong>${e.paivaAika}</strong></div>
     </div>
     <div class="link-btn" onclick="openLink('${e.meno}')">
       <span class="link-icon">➡️</span>
