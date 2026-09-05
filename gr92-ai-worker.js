@@ -191,7 +191,7 @@ Jos et tiedä jotain varmasti, sano rehellisesti "en tiedä" — älä keksi. Jo
 
 **Camping Roca Grossa**, Calella (N-II Km 665, 08370, Barcelona)
 - 2 × asuntovaunua (6 hlöä/vaunu = 12 paikkaa yhteensä)
-- Koordinaatit: 41.6064, 2.6391
+- Koordinaatit: 41.60768, 2.63522 (GPS-tarkistettu paikan päällä)
 - Puh: +34 937 691 297, mobile +34 628 598 873
 - Email: rocagrossa@rocagrossa.com
 - Web: rocagrossa.com
@@ -268,6 +268,78 @@ Paluu:
 - Katalonia = kaksikielinen, katalaani + espanja
 - Useimmat puhuvat myös englantia rannikolla, sisämaassa vähemmän
 - Hätätilanteessa 112 vastaa englanniksi
+
+## Torstai 10.9. — E15 koko ryhmä yhdessä
+
+E15:n päät ovat vain 14 km / 15 min päässä toisistaan, joten ryhmäjakoa ei tarvita.
+
+- 8:30 lähtö majoituksesta
+- 9:06 Llinars — auto maaliparkkiin (R2 Nord -asema 218 m etapin päästä)
+- 9:21 siirto Vallgorguinaan: **taksi** 14 km / 15 min (n. 25–30 €) TAI R2 Nord Sant Celoniin + **bussi 565** (~35 min)
+- 9:46 kävely alkaa
+- 14:36 A perillä (arvio 4h50), 15:54 B perillä (arvio 6h08)
+- 16:30 kotona
+
+**Bussi 565 Sant Celoni–Vallgorguina on tilausliikennettä ja vaatii ennakkovarauksen**: Sagalés on demand -sovellus, sagalesondemand.com, tai 900 13 00 14 (arkisin 8–20). Taksi on takaportti jos varaus ei onnistu.
+
+## Malliaikataulut
+
+Jokaisella maaliparkki-etapilla on appissa malliaikataulu, joka olettaa lähdön klo 8:30. Ajat ovat suuntaa-antavia — junavuoro ja oma vauhti siirtävät niitä helposti puoli tuntia suuntaansa. Rakenne on tärkeämpi kuin kellonajat.
+
+Kävelyaika-arviot ryhmittäin (A ~4 km/h, B ~3 km/h):
+- E12 4h56 / 6h27 | E13 4h52 / 6h08 | E14 4h12 / 5h27 | E15 4h50 / 6h08 | E16 5h44 / 7h23
+- E17 5h52 / 7h30 | E18 5h08 / 6h30 | E19 3h58 / 5h09 | E20 4h47 / 6h11 | E21 5h39 / 7h10
+
+E16 ja E17 ovat vielä ratkaisematta — Camí de la Costa (420 m) on ilman julkista, joten ne vaativat oman järjestelynsä kuten E13/E14.
+
+## Sunnuntai 7.9. — E13 ja E14 samana päivänä
+
+Hortsavinyà (525 m) on metsätien päässä, ei julkista, ajo sinne 88 min. Ryhmät kävelevät eri etapit samana päivänä.
+
+Ryhmät: **A** = Ano, Hannele, Panu (~4 km/h). **B** = Jari, Soile, Kirsi (~3 km/h, ajaa auton).
+
+Aikataulu:
+- 8:30 lähtö majoituksesta
+- 8:35 Sant Pol — A jää junalle (R1 suora Torderaan, ~25 min)
+- 9:20 A aloittaa E13 Torderasta (arvio 4h52)
+- 10:03 Hortsavinyà — B jättää auton, aloittaa E14 klo 10:10 (arvio 5h27)
+- 14:12 A saapuu Hortsavinyàan, ottaa auton
+- 15:39 A ajaa Vallgorguinaan (87 min) — B saapuu 15:37, ei odottelua
+- 15:37 B saapuu Vallgorguinaan, kaikki kotiin
+- 16:09 kotona
+
+Periaate: kun etapin pää on aseman vieressä, sinne mennään junalla. Auto varataan vain sinne mihin juna ei mene.
+
+Maanantai 8.9. päätetään sunnuntai-iltana: lepopäivä, E15 aikaisemmin, tai roolien vaihto (jälkimmäinen venyttäisi päivän 8h30:een).
+
+## Maaliparkki — pysäköintiperiaate julkisilla päivillä
+
+Majoitukseen on jyrkkä nousu, joten auto on käytössä joka päivä. Auto jätetään **etapin maaliin**, ei majoituksen lähelle.
+
+Päivän kulku: aamulla ajo majoituksesta etapin maaliin → auto parkkiin → julkisilla etapin lähtöön → kävele etappi takaisin autolle → aja suoraan kotiin. **Julkinen osuus tehdään aamulla virkeänä, illalla ei odoteta junaa.**
+
+Maaliparkit (ajo majoituksesta / julkinen maalista lähtöön / päivä yhteensä):
+- **E12** Tordera R1 — 22 min / 45 min / 7h54
+- **E18** Baixador de Vallvidrera FGC — 58 min / 55 min / 9h21
+- **E19** Sant Vicenç dels Horts FGC — 61 min / 60 min / 8h10
+- **E20** Gavà R2 Sud — 65 min / 60 min / 9h22
+- **E21** Garraf R2 Sud — 72 min / 30 min / 10h04
+
+Koskee vain täysin julkisia päiviä. Kaksi ryhmää + auto -päivät (E13–E17) toimivat eri logiikalla.
+
+## Ryhmän vauhti ja aika-arviot
+
+Ryhmä ei kuntoile vaan nauttii kävelystä ja luonnosta. **Perusvauhti tauot mukaan lukien:** ryhmä A ~4 km/h, ryhmä B ~3 km/h tasaisella. Nousut hidastavat: laske +10 min per 100 m nousua, ja pitkistä laskuista (yli 400 m) lisää +5 min per 100 m.
+
+Kävelyaika-arviot tällä mallilla:
+- E12 6h26 | E13 6h08 | E14 5h27 | E15 6h08 | E16 7h22
+- E17 7h30 | E18 6h30 | E19 5h08 | E20 6h11 | E21 7h10
+
+Pisimmät päivät: E17, E16, E21. Näinä aikainen lähtö kannattaa.
+
+Aurinko nousee n. 7:20, laskee 20:20 (alkukuu) → 19:40 (loppukuu). Kaikki etapit mahtuvat valoisaan kun lähtö on 8:00 mennessä.
+
+Google Maps laskee kävelyn ~5 km/h ilman maastoa ja taukoja — liian optimistinen. Garmin Fenix 7 arvioi ETA:n toteutuneesta vauhdista matkan aikana.
 
 ## Navigointi metsäpoluilla
 
