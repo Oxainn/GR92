@@ -777,6 +777,39 @@ body {
     </div>
   </div>
 
+  <!-- E15 -->
+  <div class="card" style="margin-bottom:16px;background:rgba(74,124,63,0.06);border-color:rgba(74,124,63,0.3);">
+    <div class="card-label" style="color:var(--sage);">🗓️ Torstai 10.9. — E15 koko ryhmä yhdessä</div>
+    <div style="font-size:12px;color:var(--mist);margin:4px 0 12px;line-height:1.6;">
+      E15:n päät ovat vain <strong style="color:var(--cream);">14 km / 15 min</strong> päässä toisistaan, joten ryhmäjakoa ei tarvita. Maaliparkki Llinarsiin, aamulla siirto lähtöön.
+    </div>
+
+    <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.8;">
+      <div><strong style="color:var(--sage);">8:30</strong> Lähtö majoituksesta</div>
+      <div><strong style="color:var(--sage);">9:06</strong> Llinars — auto parkkiin</div>
+      <div><strong style="color:var(--sage);">9:21</strong> Siirto Vallgorguinaan (taksi tai bussi)</div>
+      <div><strong style="color:var(--sage);">9:46</strong> Kävely alkaa</div>
+      <div><strong style="color:var(--sage);">13:47</strong> A perillä Llinarsissa (arvio 4h01)</div>
+      <div><strong style="color:var(--sage);">15:54</strong> B perillä (arvio 6h08)</div>
+      <div><strong style="color:var(--sage);">16:30</strong> Kotona</div>
+    </div>
+
+    <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.3);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#60a5fa;margin-bottom:4px;">Siirto Llinars → Vallgorguina: kaksi tapaa</div>
+      <div style="margin-bottom:6px;"><strong>A) Taksi</strong> — 14 km, 15 min, n. 25–30 € koko porukalle. Yksinkertaisin, ei varausta tarvita etukäteen. Llinarsissa on taksipalvelu.</div>
+      <div><strong>B) Juna + bussi 565</strong> — R2 Nord Llinars → Sant Celoni (~10 min), sitten bussi 565 Vallgorguinaan (~15 min). Ilmainen bonotrenilla, mutta <strong style="color:#fbbf24;">bussi 565 vaatii ennakkovarauksen</strong>.</div>
+    </div>
+
+    <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.25);border-radius:10px;padding:11px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#fbbf24;margin-bottom:4px;">Bussi 565 on tilausliikennettä</div>
+      <div>Sagalés siirsi Baix Montsenyn linjat ennakkovaraukseen. Varaus:</div>
+      <div style="margin-top:4px;">• Sovellus <strong>Sagalés on demand</strong> (Android/iOS, ilmainen)</div>
+      <div>• <strong>sagalesondemand.com</strong></div>
+      <div>• Puhelin <strong>900 13 00 14</strong> (arkisin 8–20)</div>
+      <div style="margin-top:6px;color:var(--mist);">En tiedä varmaksi vuoroaikoja enkä kuinka aikaisin varaus pitää tehdä — tarkista soittamalla. Taksi on aina takaportti.</div>
+    </div>
+  </div>
+
   <!-- E13+E14 PAIVASUUNNITELMA -->
   <div class="card" style="margin-bottom:16px;background:rgba(168,85,247,0.06);border-color:rgba(168,85,247,0.3);">
     <div class="card-label" style="color:#c4b5fd;">🗓️ Sunnuntai 7.9. — E13 ja E14 samana päivänä</div>
@@ -1592,6 +1625,8 @@ const etapit = {
     service: 'Lloret de Mar + Tordera',
     backup: 'Bussi tai juna rannikkoa pitkin',
     transport: 'Täysin julkisilla (R1)',
+    aikatauluRivit: '08:30|Lähtö majoituksesta&08:52|Perillä maalissa — auto parkkiin&09:07|Matkaan lähtöpisteeseen (R1 Tordera → Blanes, LloretBus → Lloret)&10:02|Kävely alkaa&14:04|A perillä (arvio 4h02)&16:29|B perillä (arvio 6h27)&16:51|Kotona (kun kaikki koossa)',
+    aikatauluKesto: '5h56 – 8h21',
     gpx: './etappi12.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/girona-katalonien-/gr92-etappi-12-lloret-de-marista-torderaan/334206588/',
     menoLabel: '🚆 Julkinen',
@@ -1666,13 +1701,17 @@ const etapit = {
     date: '10.9.', route: 'Vallgorguina → Llinars del Vallès',
     km: 16, up: 484, down: 524, type: 'Harjanne — altistuminen auringolle',
     risk: 'Kuumuus — aurinkosuoja pakollinen', water: '2,5–3 L',
-    backup: 'Tuoreelta reittipiirustukselta — päättyy R2-asemalle',
-    transport: 'Täysin julkisilla (R2 Nord molemmissa päissä)',
+    backup: 'Maaliparkki Llinars del Vallès (R2 Nord -asema 218 m etapin päästä). Aamulla siirto Vallgorguinaan: taksi 14 km / 15 min (n. 25-30 EUR) TAI R2 Nord Sant Celoniin + bussi 565 (VAATII ENNAKKOVARAUKSEN: sagalesondemand.com tai 900 13 00 14, arkisin 8-20). Illalla auto odottaa Llinarsissa.',
+    transport: 'Koko ryhmä yhdessä — maaliparkki Llinars, taksi tai bussi lähtöön',
+    aikatauluRivit: '08:30|Lähtö majoituksesta&09:06|Perillä maalissa — auto parkkiin&09:21|Matkaan lähtöpisteeseen (Taksi Llinars → Vallgorguina (tai R2+bussi 565, ~35 min))&09:46|Kävely alkaa&13:49|A perillä (arvio 4h03)&15:54|B perillä (arvio 6h08)&16:30|Kotona (kun kaikki koossa)',
+    aikatauluKesto: '5h55 – 8h00',
+    e15AjoLlinars: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.63818,2.40455&travelmode=driving',
+    e15Siirto: 'https://www.google.com/maps/dir/?api=1&origin=41.63818,2.40455&destination=41.64833,2.50987&travelmode=driving',
     gpx: './etappi15.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-15-vallgorguinasta-can-bordoi-passiin/334207381/',
-    menoLabel: '🚆 Julkinen',
+    menoLabel: '🚗 Auto maaliin',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.64833,2.50987&travelmode=transit',
-    paluuLabel: '🚆 Julkinen',
+    paluuLabel: '🚗 Auto kotiin',
     paluu: 'https://www.google.com/maps/dir/?api=1&origin=41.63818,2.40455&destination=41.60768,2.63522&travelmode=transit',
     autoMeno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.64833,2.50987&travelmode=driving',
     autoPaluu: 'https://www.google.com/maps/dir/?api=1&origin=41.63818,2.40455&destination=41.60768,2.63522&travelmode=driving',
@@ -1728,6 +1767,8 @@ const etapit = {
     risk: 'Nousukuormitus', water: '2,5 L',
     backup: 'Molemmat päät suoraan asemilla — koko ryhmä junaan. Alku: Montcada i Reixac R2 Nord -asema (37 m alusta). Loppu: Baixador de Vallvidrera FGC-asema (14 m lopusta) — FGC S1/S2 Metro del Vallès Barcelona-Plaça de Catalunya.',
     transport: 'Täysin julkisilla (Montcada R2 Nord → Vallvidrera FGC)',
+    aikatauluRivit: '08:30|Lähtö majoituksesta&09:28|Perillä maalissa — auto parkkiin&09:43|Matkaan lähtöpisteeseen (FGC Vallvidrera → Pl. Catalunya, R2 → Montcada)&10:48|Kävely alkaa&15:07|A perillä (arvio 4h19)&17:18|B perillä (arvio 6h30)&18:16|Kotona (kun kaikki koossa)',
+    aikatauluKesto: '7h35 – 9h46',
     gpx: './etappi18.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-18-montcada-i-reixac-asemalta-baixador-de-vallvidrera-asemalle/334210518/',
     menoLabel: '🚆 Julkinen',
@@ -1754,6 +1795,8 @@ const etapit = {
     risk: 'Aliarviointi', water: '2 L',
     backup: 'Molemmat päät suoraan asemilla — koko ryhmä junaan. Alku: Baixador de Vallvidrera FGC-asema (14 m alusta). Loppu: Sant Vicenç dels Horts -pääasema (27 m lopusta) — FGC S3/S4/S8/S9/R5/R50/R6/R60 → Barcelona Plaza Espanya.',
     transport: 'Täysin julkisilla (Baixador de Vallvidrera FGC → Sant Vicenç FGC)',
+    aikatauluRivit: '08:30|Lähtö majoituksesta&09:31|Perillä maalissa — auto parkkiin&09:46|Matkaan lähtöpisteeseen (FGC Sant Vicenç → Pl. Espanya, vaihto → Vallvidrera)&10:56|Kävely alkaa&14:11|A perillä (arvio 3h15)&16:05|B perillä (arvio 5h09)&17:06|Kotona (kun kaikki koossa)',
+    aikatauluKesto: '6h42 – 8h36',
     gpx: './etappi19.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-19-baixador-de-vallvidrera-asemalta-sant-vicenc-dels-hortsiin/334210802/',
     menoLabel: '🚆 Julkinen',
@@ -1780,6 +1823,8 @@ const etapit = {
     risk: '⚠️ RASKAIN ETAPPI — lähtö 07:00 kriittinen!', water: '3–4 L + elektrolyytit',
     backup: 'Alku: Sant Vicenç dels Horts -pääasema aivan reitin alussa (27 m) — FGC-linjat S3/S4/S8/S9/R5/R50/R6/R60. Loppu: Gavà R2 Sud -aseman vieressä (Plaça de l\'Estació) — Rodalies-linjat R2 Sud/R2 Sud Nord.',
     transport: 'Täysin julkisilla (alku FGC-asemalla, loppu R2 Sud -asemalla)',
+    aikatauluRivit: '08:30|Lähtö majoituksesta&09:35|Perillä maalissa — auto parkkiin&09:50|Matkaan lähtöpisteeseen (R2 Sud Gavà → Sants, FGC → Sant Vicenç)&11:00|Kävely alkaa&14:56|A perillä (arvio 3h56)&17:11|B perillä (arvio 6h11)&18:16|Kotona (kun kaikki koossa)',
+    aikatauluKesto: '7h31 – 9h46',
     gpx: './etappi20.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-20-sant-vicenc-dels-hortsista-bruguers-puistoon/334211034/',
     menoLabel: '🚆 Julkinen',
@@ -1806,6 +1851,8 @@ const etapit = {
     risk: 'Loppuväsymys', water: '2 L',
     backup: 'Molemmat päät R2 Sud -asemilla',
     transport: 'Täysin julkisilla (R2 Sud molemmissa päissä)',
+    aikatauluRivit: '08:30|Lähtö majoituksesta&09:42|Perillä maalissa — auto parkkiin&09:57|Matkaan lähtöpisteeseen (R2 Sud Garraf → Gavà)&10:37|Kävely alkaa&15:21|A perillä (arvio 4h44)&17:47|B perillä (arvio 7h10)&18:59|Kotona (kun kaikki koossa)',
+    aikatauluKesto: '8h03 – 10h29',
     gpx: './etappi21.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-21-bruguersista-garrafiin/334211327/',
     menoLabel: '🚆 Julkinen',
@@ -2016,6 +2063,29 @@ function openEtappi(num) {
       <div class="link-text"><div class="link-title">Näytä Outdooractivessa</div><div class="link-sub">Reittikuvaus ja kartta</div></div>
       <span class="link-arrow">↗</span>
     </div>
+    ${e.e15AjoLlinars ? `
+    <div class="link-btn" onclick="openLink('${e.e15AjoLlinars}')" style="background:rgba(234,179,8,0.08);border-color:rgba(234,179,8,0.25);">
+      <span class="link-icon">\u{1F17F}\uFE0F</span>
+      <div class="link-text"><div class="link-title">1. Ajo maaliparkkiin Llinars</div><div class="link-sub">40 km \u00b7 36 min</div></div>
+      <span class="link-arrow">\u2197</span>
+    </div>
+    <div class="link-btn" onclick="openLink('${e.e15Siirto}')" style="background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.25);">
+      <span class="link-icon">\u{1F695}</span>
+      <div class="link-text"><div class="link-title">2. Siirto Vallgorguinaan</div><div class="link-sub">14 km \u00b7 15 min \u00b7 taksi tai bussi 565</div></div>
+      <span class="link-arrow">\u2197</span>
+    </div>` : ''}
+    ${e.aikatauluRivit ? `
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
+      <div style="font-weight:700;color:var(--cream);margin-bottom:2px;">\u23F0 Malliaikataulu</div>
+      <div style="color:var(--mist);font-size:11px;margin-bottom:8px;">Koko p\u00e4iv\u00e4 ${e.aikatauluKesto} \u00b7 l\u00e4ht\u00f6 8:30</div>
+      ${e.aikatauluRivit.split('&').map(function(r){
+        var x = r.split('|');
+        return '<div style="display:flex;gap:8px;"><strong style="color:var(--sage);min-width:44px;">' + x[0] + '</strong><span>' + x[1] + '</span></div>';
+      }).join('')}
+      <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.1);color:var(--mist);font-size:11px;">
+        Ajat ovat suuntaa-antavia. Junavuoro ja oma vauhti siirt\u00e4v\u00e4t niit\u00e4 helposti puoli tuntia suuntaansa \u2014 <strong style="color:var(--cream);">rakenne on t\u00e4rke\u00e4mpi kuin kellonajat</strong>.
+      </div>
+    </div>` : ''}
     ${e.paivaOtsikko ? `
     <div style="background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.35);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
       <div style="font-weight:700;color:#c4b5fd;margin-bottom:2px;">\u{1F5D3}\uFE0F ${e.paivaOtsikko}</div>
