@@ -777,6 +777,50 @@ body {
     </div>
   </div>
 
+  <!-- MAALIPARKKI -->
+  <div class="card" style="margin-bottom:16px;background:rgba(234,179,8,0.06);border-color:rgba(234,179,8,0.3);">
+    <div class="card-label" style="color:#fbbf24;">🅿️ Maaliparkki — auto etapin päähän</div>
+    <div style="font-size:12px;color:var(--mist);margin:4px 0 12px;line-height:1.6;">
+      Majoitukseen on jyrkkä nousu, joten auto on käytössä joka päivä. Silloin auton ei tarvitse olla lähellä majoitusta &mdash; <strong style="color:var(--cream);">se kannattaa jättää etapin maaliin</strong>.
+    </div>
+
+    <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:11px;margin-bottom:12px;font-size:12px;color:var(--cream);line-height:1.7;">
+      <div style="font-weight:700;color:#fbbf24;margin-bottom:6px;">Päivän kulku</div>
+      <div><strong>1.</strong> Aamulla koko porukka autolla <strong>etapin maaliin</strong></div>
+      <div><strong>2.</strong> Auto parkkiin, julkisilla etapin lähtöön</div>
+      <div><strong>3.</strong> Kävele etappi &mdash; päädyt autolle</div>
+      <div><strong>4.</strong> Istu autoon ja aja kotiin</div>
+      <div style="margin-top:6px;color:var(--sage);font-weight:600;">&rarr; Julkinen osuus tehdään aamulla virkeänä. Illalla ei odoteta junaa.</div>
+    </div>
+
+    <div style="overflow-x:auto;">
+    <table class="info-table" style="font-size:11px;min-width:100%;">
+      <tr style="color:var(--sage);font-weight:600;">
+        <td>Etappi</td><td>Maaliparkki</td><td>Ajo</td><td>Julkinen</td><td>Päivä</td>
+      </tr>
+      <tr><td style="white-space:nowrap;">E12 · 6.9.</td><td>Tordera (R1)</td><td>0h21</td><td>0h45</td><td>7h54</td></tr><tr><td style="white-space:nowrap;">E18 · 14.9.</td><td>Baixador de Vallvidrera (FGC)</td><td>0h57</td><td>0h55</td><td style="color:#fbbf24;font-weight:600;">9h21</td></tr><tr><td style="white-space:nowrap;">E19 · 15.9.</td><td>Sant Vicenç dels Horts (FGC)</td><td>1h00</td><td>1h00</td><td>8h10</td></tr><tr><td style="white-space:nowrap;">E20 · 17.9.</td><td>Gavà (R2 Sud)</td><td>1h05</td><td>1h00</td><td style="color:#fbbf24;font-weight:600;">9h22</td></tr><tr><td style="white-space:nowrap;">E21 · 18.9.</td><td>Garraf (R2 Sud)</td><td>1h12</td><td>0h30</td><td style="color:#fbbf24;font-weight:600;">10h04</td></tr>
+    </table>
+    </div>
+    <div style="font-size:11px;color:var(--mist);margin-top:8px;">
+      Ajo = majoituksesta maaliin (sama takaisin illalla). Päivä = ajo + julkinen + kävely + ajo. <strong style="color:#fbbf24;">Keltaisella</strong> yli 9 h.
+    </div>
+
+    <div style="background:rgba(74,124,63,0.06);border:1px solid rgba(74,124,63,0.3);border-radius:10px;padding:11px;margin-top:12px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:var(--sage);margin-bottom:4px;">Miksi maali eikä lähtö?</div>
+      <div>Aikaero on pieni (8&ndash;28 min), mutta se osuu eri kohtaan päivää. <strong>Illan kotimatka on aina suora ajo</strong> &mdash; ei junavuoron odottelua 6&ndash;7 tunnin kävelyn jälkeen, ei vaihtoa Barcelonassa uupuneena, ei riskiä myöhästyä viimeisestä bussista.</div>
+      <div style="margin-top:6px;color:var(--mist);">Poikkeus: E12:ssa maaliparkki on myös nopein vaihtoehto.</div>
+    </div>
+
+    <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:11px;margin-top:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#f87171;margin-bottom:4px;">⚠️ Tarkista pysäköinti</div>
+      <div>Isot asemat (Tordera, Sant Vicenç, Gavà) &mdash; paikkoja löytyy todennäköisesti. Pienemmät <strong>Baixador de Vallvidrera</strong> (Collserolan puistossa) ja <strong>Garraf</strong> ovat epävarmempia. Katso satelliittikuva etukäteen tai varaudu jättämään auto lähikadulle.</div>
+    </div>
+
+    <div style="font-size:11px;color:var(--mist);margin-top:10px;line-height:1.5;">
+      Kaksi ryhmää + auto -päivät (E13, E14, E15, E16, E17) toimivat eri logiikalla &mdash; auto siirtyy ryhmien mukana. Katso oma korttinsa.
+    </div>
+  </div>
+
   <!-- AIKA-ARVIOT -->
   <div class="card" style="margin-bottom:16px;background:rgba(74,124,63,0.06);border-color:rgba(74,124,63,0.3);">
     <div class="card-label" style="color:var(--sage);">⏱️ Kävelyaika-arviot</div>
@@ -1521,6 +1565,12 @@ const etapit = {
     autoPaluuAika: '19 km · 18 min',
     kavelyAika: '6h26 (arvio 5h28–7h24)',
     paivaAika: '7h12 autolla',
+    parkki: 'maali',
+    parkkiAjo: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.70731,2.71933&travelmode=driving',
+    parkkiAika: '20 km · 0h21',
+    parkkiJulk: 'https://www.google.com/maps/dir/?api=1&origin=41.70731,2.71933&destination=41.70077,2.84171&travelmode=transit',
+    parkkiJulkAika: '0h45 · R1 Tordera → Blanes, LloretBus → Lloret',
+    parkkiPaiva: '7h54 (lähtö 8:00 → 15:54)',
     badge: 'Helppo', hard: false
   },
   13: {
@@ -1639,6 +1689,12 @@ const etapit = {
     autoPaluuAika: '67 km · 61 min',
     kavelyAika: '6h30 (arvio 5h31–7h29)',
     paivaAika: '8h19 autolla',
+    parkki: 'maali',
+    parkkiAjo: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.42000,2.09680&travelmode=driving',
+    parkkiAika: '65 km · 0h57',
+    parkkiJulk: 'https://www.google.com/maps/dir/?api=1&origin=41.42000,2.09680&destination=41.48443,2.18795&travelmode=transit',
+    parkkiJulkAika: '0h55 · FGC Vallvidrera → Pl. Catalunya, R2 → Montcada',
+    parkkiPaiva: '9h21 (lähtö 8:00 → 17:21)',
     badge: 'Nousupäivä', hard: false
   },
   19: {
@@ -1659,6 +1715,12 @@ const etapit = {
     autoPaluuAika: '73 km · 62 min',
     kavelyAika: '5h08 (arvio 4h22–5h55)',
     paivaAika: '7h09 autolla',
+    parkki: 'maali',
+    parkkiAjo: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.39342,2.00925&travelmode=driving',
+    parkkiAika: '69 km · 1h00',
+    parkkiJulk: 'https://www.google.com/maps/dir/?api=1&origin=41.39342,2.00925&destination=41.42002,2.09679&travelmode=transit',
+    parkkiJulkAika: '1h00 · FGC Sant Vicenç → Pl. Espanya, vaihto → Vallvidrera',
+    parkkiPaiva: '8h10 (lähtö 8:00 → 16:10)',
     badge: 'Lyhyt', hard: false
   },
   20: {
@@ -1679,6 +1741,12 @@ const etapit = {
     autoPaluuAika: '78 km · 68 min',
     kavelyAika: '6h11 (arvio 5h15–7h07)',
     paivaAika: '8h20 autolla',
+    parkki: 'maali',
+    parkkiAjo: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.30350,2.01049&travelmode=driving',
+    parkkiAika: '74 km · 1h05',
+    parkkiJulk: 'https://www.google.com/maps/dir/?api=1&origin=41.30350,2.01049&destination=41.39345,2.00923&travelmode=transit',
+    parkkiJulkAika: '1h00 · R2 Sud Gavà → Sants, FGC → Sant Vicenç',
+    parkkiPaiva: '9h22 (lähtö 8:00 → 17:22)',
     badge: 'Raskain!', hard: true
   },
   21: {
@@ -1699,6 +1767,12 @@ const etapit = {
     autoPaluuAika: '88 km · 74 min',
     kavelyAika: '7h10 (arvio 6h05–8h14)',
     paivaAika: '9h29 autolla',
+    parkki: 'maali',
+    parkkiAjo: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.25402,1.90246&travelmode=driving',
+    parkkiAika: '84 km · 1h12',
+    parkkiJulk: 'https://www.google.com/maps/dir/?api=1&origin=41.25402,1.90246&destination=41.30320,2.01000&travelmode=transit',
+    parkkiJulkAika: '0h30 · R2 Sud Garraf → Gavà (suora)',
+    parkkiPaiva: '10h04 (lähtö 8:00 → 18:04)',
     badge: 'Palkinto', hard: false
   }
 };
@@ -1891,6 +1965,25 @@ function openEtappi(num) {
       <div class="link-text"><div class="link-title">Näytä Outdooractivessa</div><div class="link-sub">Reittikuvaus ja kartta</div></div>
       <span class="link-arrow">↗</span>
     </div>
+    ${e.parkki === 'maali' ? `
+    <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.35);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
+      <div style="font-weight:700;color:#fbbf24;margin-bottom:6px;">🅿️ Maaliparkki — päivän kulku</div>
+      <div><strong>1.</strong> Aamulla ajo majoituksesta <strong>etapin maaliin</strong> — ${e.parkkiAika}</div>
+      <div><strong>2.</strong> Auto parkkiin, julkisilla lähtöön — ${e.parkkiJulkAika}</div>
+      <div><strong>3.</strong> Kävele etappi takaisin autolle</div>
+      <div><strong>4.</strong> Aja suoraan kotiin — ei odottelua</div>
+      <div style="margin-top:6px;padding-top:6px;border-top:1px solid rgba(234,179,8,0.25);">Päivä yhteensä: <strong>${e.parkkiPaiva}</strong></div>
+    </div>
+    <div class="link-btn" onclick="openLink('${e.parkkiAjo}')" style="background:rgba(234,179,8,0.08);border-color:rgba(234,179,8,0.25);">
+      <span class="link-icon">🅿️</span>
+      <div class="link-text"><div class="link-title">1. Ajo maaliparkkiin</div><div class="link-sub">${e.parkkiAika}</div></div>
+      <span class="link-arrow">↗</span>
+    </div>
+    <div class="link-btn" onclick="openLink('${e.parkkiJulk}')" style="background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.25);">
+      <span class="link-icon">🚆</span>
+      <div class="link-text"><div class="link-title">2. Julkisilla lähtöön</div><div class="link-sub">${e.parkkiJulkAika}</div></div>
+      <span class="link-arrow">↗</span>
+    </div>` : ''}
     <div style="background:rgba(74,124,63,0.08);border:1px solid rgba(74,124,63,0.3);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
       <div style="font-weight:700;color:var(--sage);margin-bottom:4px;">⏱️ Aika-arvio omalla vauhdilla</div>
       <div>Kävely: <strong>${e.kavelyAika}</strong></div>
