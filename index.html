@@ -777,6 +777,45 @@ body {
     </div>
   </div>
 
+  <!-- E13+E14 PAIVASUUNNITELMA -->
+  <div class="card" style="margin-bottom:16px;background:rgba(168,85,247,0.06);border-color:rgba(168,85,247,0.3);">
+    <div class="card-label" style="color:#c4b5fd;">🗓️ Sunnuntai 7.9. — E13 ja E14 samana päivänä</div>
+    <div style="font-size:12px;color:var(--mist);margin:4px 0 12px;line-height:1.6;">
+      Hortsavinyà (525 m) on metsätien päässä — ei julkista, ja ajo sinne kestää 88 min. Siksi ryhmät kävelevät <strong style="color:var(--cream);">eri etapit samana päivänä</strong> ja auto tekee vain yhden tehtävän.
+    </div>
+
+    <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.8;">
+      <div><strong style="color:#c4b5fd;">8:30</strong> Lähtö majoituksesta</div>
+      <div><strong style="color:#c4b5fd;">8:35</strong> Sant Pol — <strong>A</strong> jää junalle (R1 suora Torderaan)</div>
+      <div><strong style="color:#c4b5fd;">9:20</strong> A aloittaa <strong>E13</strong> Torderasta</div>
+      <div><strong style="color:#c4b5fd;">10:03</strong> Hortsavinyà — <strong>B</strong> jättää auton</div>
+      <div><strong style="color:#c4b5fd;">10:10</strong> B aloittaa <strong>E14</strong></div>
+      <div><strong style="color:#c4b5fd;">13:25</strong> A saapuu Hortsavinyàan — auto odottaa</div>
+      <div><strong style="color:#c4b5fd;">14:50</strong> A ajaa Vallgorguinaan</div>
+      <div><strong style="color:#c4b5fd;">15:40</strong> B saapuu, kaikki autoon</div>
+      <div><strong style="color:#c4b5fd;">16:10</strong> Kotona</div>
+    </div>
+
+    <div style="background:rgba(74,124,63,0.06);border:1px solid rgba(74,124,63,0.3);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:var(--sage);margin-bottom:4px;">Ryhmät ja arviot</div>
+      <div>• <strong>A</strong> (Ano, Hannele, Panu) — E13, 15 km, +621 m, arvio <strong>4h05</strong></div>
+      <div>• <strong>B</strong> (Jari, Soile, Kirsi) — E14, 15 km, +202 m, −502 m, arvio <strong>5h27</strong>, ajaa auton</div>
+      <div style="margin-top:6px;color:var(--mist);">Arviot ovat karkeita. Odottelua tulee joko Hortsavinyàssa, autossa tai Vallgorguinan baarissa — se järjestyy paikan päällä.</div>
+    </div>
+
+    <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.3);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#60a5fa;margin-bottom:4px;">Periaate</div>
+      <div>Kun etapin pää on aseman vieressä, sinne mennään <strong>junalla</strong>. Auto varataan vain sinne mihin juna ei mene. Näin vain toinen ryhmä joutuu ajamaan metsätiet.</div>
+    </div>
+
+    <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.25);border-radius:10px;padding:11px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#fbbf24;margin-bottom:4px;">Tarkista lauantai-iltana</div>
+      <div>• <strong>R1:n lähtöaika Sant Polista</strong> — vuoroja ~2/tunti, juna määrää lähtöhetken</div>
+      <div>• <strong>Auton jättöpaikka Hortsavinyàssa</strong> — katso satelliittikuva</div>
+      <div style="margin-top:6px;color:var(--mist);">Maanantai 8.9. päätetään sunnuntai-iltana: lepopäivä, E15 aikaisemmin, vai roolien vaihto.</div>
+    </div>
+  </div>
+
   <!-- MAALIPARKKI -->
   <div class="card" style="margin-bottom:16px;background:rgba(234,179,8,0.06);border-color:rgba(234,179,8,0.3);">
     <div class="card-label" style="color:#fbbf24;">🅿️ Maaliparkki — auto etapin päähän</div>
@@ -1579,6 +1618,12 @@ const etapit = {
     risk: 'Ei poistumisreittejä — käännyttävä takaisin hätätilanteessa', water: '3 L minimum',
     backup: 'Hortsavinyà 525m korkeudessa metsätiellä — ei bussia. Kaksi ryhmää: A julkisilla Tordera-alkuun, B autolla Hortsavinyà-loppuun ja jatkaa E14 kävelyä. A ottaa auton lopusta. Julkinen vaihtoehto: kääntyminen takaisin Torderaan (ainoa turvallinen).',
     transport: 'Kaksi ryhmää + auto (metsätie 525m, ei julkista Hortsavinyà)',
+    paivaOtsikko: 'Sunnuntai 7.9. — E13 ja E14 samana päivänä',
+    paivaRooli: 'Ryhmä A kävelee tämän etapin (arvio 4h05)',
+    paivaVaiheet: '8:30 lähtö majoituksesta|8:35 Sant Pol — A jää junalle (R1 suora Torderaan, ~25 min)|9:20 A aloittaa E13 Torderasta|10:03 Hortsavinyà — B jättää auton ja aloittaa E14|13:25 A saapuu Hortsavinyàan — auto odottaa|14:50 A ajaa Vallgorguinaan (87 min metsätietä)|15:40 B saapuu Vallgorguinaan, kaikki kotiin|16:10 Kotona',
+    paivaAjoHortsa: 'https://www.google.com/maps/dir/?api=1&origin=41.60175,2.62463&destination=41.66405,2.61465&travelmode=driving',
+    paivaJunaTordera: 'https://www.google.com/maps/dir/?api=1&origin=41.60175,2.62463&destination=41.70730,2.71934&travelmode=transit',
+    paivaAjoVallg: 'https://www.google.com/maps/dir/?api=1&origin=41.66405,2.61465&destination=41.64834,2.50986&travelmode=driving',
     gpx: './etappi13.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-13-torderasta-hortsavinyaan/334206949/',
     menoLabel: '🚆 Julkinen A / 🚗 Auto B',
@@ -1598,6 +1643,12 @@ const etapit = {
     risk: 'Reitin katoaminen — GPX pakollinen', water: '2,5 L',
     backup: 'Vallgorguina 223m — Sagalés-bussi Sant Celoniin harva (~2/pv). Kaksi ryhmää + auto: B (edellisen päivän autoryhmä) tulee Hortsavinyà-alkuun, A tuo auton Vallgorguinaan. Turvallinen poistuminen Vallgorguinasta.',
     transport: 'Kaksi ryhmää + auto (roolinvaihto edellisestä päivästä)',
+    paivaOtsikko: 'Sunnuntai 7.9. — E13 ja E14 samana päivänä',
+    paivaRooli: 'Ryhmä B kävelee tämän etapin (arvio 5h27) ja ajaa auton Hortsavinyàan',
+    paivaVaiheet: '8:30 lähtö majoituksesta|8:35 Sant Pol — A jää junalle|10:03 Hortsavinyà — B jättää auton tänne|10:10 B aloittaa E14|13:25 A saapuu Hortsavinyàan, ottaa auton|15:40 B saapuu Vallgorguinaan|15:40 A poimii B:n autolla|16:10 Kotona',
+    paivaAjoHortsa: 'https://www.google.com/maps/dir/?api=1&origin=41.60175,2.62463&destination=41.66405,2.61465&travelmode=driving',
+    paivaJunaTordera: 'https://www.google.com/maps/dir/?api=1&origin=41.60175,2.62463&destination=41.70730,2.71934&travelmode=transit',
+    paivaAjoVallg: 'https://www.google.com/maps/dir/?api=1&origin=41.66405,2.61465&destination=41.64834,2.50986&travelmode=driving',
     gpx: './etappi14.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-14-hortsavinya-to-vallgorguina/334207213/',
     meno: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.66405,2.61465&travelmode=driving',
@@ -1965,6 +2016,30 @@ function openEtappi(num) {
       <div class="link-text"><div class="link-title">Näytä Outdooractivessa</div><div class="link-sub">Reittikuvaus ja kartta</div></div>
       <span class="link-arrow">↗</span>
     </div>
+    ${e.paivaOtsikko ? `
+    <div style="background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.35);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
+      <div style="font-weight:700;color:#c4b5fd;margin-bottom:2px;">\u{1F5D3}\uFE0F ${e.paivaOtsikko}</div>
+      <div style="color:var(--mist);margin-bottom:8px;">${e.paivaRooli}</div>
+      ${e.paivaVaiheet.split('|').map(function(v){
+        var p = v.indexOf(' ');
+        return '<div><strong style="color:#c4b5fd;">' + v.slice(0,p) + '</strong> ' + v.slice(p+1) + '</div>';
+      }).join('')}
+    </div>
+    <div class="link-btn" onclick="openLink('${e.paivaJunaTordera}')" style="background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.25);">
+      <span class="link-icon">\u{1F686}</span>
+      <div class="link-text"><div class="link-title">A: juna Sant Pol \u2192 Tordera</div><div class="link-sub">R1 suora, tarkista l\u00e4ht\u00f6aika</div></div>
+      <span class="link-arrow">\u2197</span>
+    </div>
+    <div class="link-btn" onclick="openLink('${e.paivaAjoHortsa}')" style="background:rgba(234,179,8,0.08);border-color:rgba(234,179,8,0.25);">
+      <span class="link-icon">\u{1F697}</span>
+      <div class="link-text"><div class="link-title">B: ajo Sant Pol \u2192 Hortsavinyà</div><div class="link-sub">32 km \u00b7 88 min mets\u00e4tiet\u00e4</div></div>
+      <span class="link-arrow">\u2197</span>
+    </div>
+    <div class="link-btn" onclick="openLink('${e.paivaAjoVallg}')" style="background:rgba(234,179,8,0.08);border-color:rgba(234,179,8,0.25);">
+      <span class="link-icon">\u{1F697}</span>
+      <div class="link-text"><div class="link-title">Nouto: Hortsavinyà \u2192 Vallgorguina</div><div class="link-sub">26 km \u00b7 87 min</div></div>
+      <span class="link-arrow">\u2197</span>
+    </div>` : ''}
     ${e.parkki === 'maali' ? `
     <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.35);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
       <div style="font-weight:700;color:#fbbf24;margin-bottom:6px;">🅿️ Maaliparkki — päivän kulku</div>
