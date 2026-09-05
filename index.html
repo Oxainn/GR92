@@ -2212,6 +2212,13 @@ function openEtappi(num) {
     `}
 
     <div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">
+${renderElevationProfile(num)}
+    ${renderPalvelut(num)}
+
+${renderKorkeus(num)}
+    ${renderNahtavyydet(num)}
+
+    <div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">
     <div class="link-btn" onclick="downloadGpx('${e.gpx}', ${num})">
       <span class="link-icon">⬇️</span>
       <div class="link-text"><div class="link-title">Lataa GPX-tiedosto</div><div class="link-sub">Avaa Komoot / Outdooractive / Maps</div></div>
@@ -2223,12 +2230,6 @@ function openEtappi(num) {
       <span class="link-arrow">↗</span>
     </div>
     </div>
-
-${renderElevationProfile(num)}
-    ${renderPalvelut(num)}
-
-${renderKorkeus(num)}
-    ${renderNahtavyydet(num)}
 
     <div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.1);padding-top:14px;">
       <div class="card-label" style="margin-bottom:10px;">📝 Kuittaus & muistiinpanot</div>
