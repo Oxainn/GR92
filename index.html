@@ -551,24 +551,42 @@ body {
   </div>
 
   <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">11.9. Perjantai</div><div class="day-sep-line"></div></div>
-  <div class="etappi-item" onclick="openEtappi(16)">
-    <div class="etappi-num">16</div>
+  <div class="etappi-item" onclick="openEtappi(16)" style="position:relative;">
+    <div class="etappi-num" style="background:rgba(74,124,63,0.35);color:var(--sage);">A</div>
     <div class="etappi-info">
-      <div class="etappi-route">Llinars del Vallès → Premià de Dalt</div>
-      <div class="etappi-meta">20 km · ⬆️ 527 m · ⬇️ 292 m</div>
+      <div class="etappi-route">Etappi 16 · Llinars del Vallès → Camí de la Costa</div>
+      <div class="etappi-meta">20 km · ⬆️ 483 m · ⬇️ 251 m</div>
+    </div>
+    <div class="etappi-badge warn">Pitkä päivä</div>
+  </div>
+  <div class="etappi-item" onclick="openEtappi(17)" style="position:relative;">
+    <div class="etappi-num" style="background:rgba(234,179,8,0.3);color:#fbbf24;">B</div>
+    <div class="etappi-info">
+      <div class="etappi-route">Etappi 17 · Camí de la Costa → Montcada</div>
+      <div class="etappi-meta">20 km · ⬆️ 372 m · ⬇️ 762 m</div>
+    </div>
+    <div class="etappi-badge">Helpottava</div>
+  </div>
+
+  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">12.9. Lauantai</div><div class="day-sep-line"></div></div>
+  <div class="etappi-item" onclick="openEtappi(17)" style="position:relative;">
+    <div class="etappi-num" style="background:rgba(74,124,63,0.35);color:var(--sage);">A</div>
+    <div class="etappi-info">
+      <div class="etappi-route">Etappi 17 · Camí de la Costa → Montcada</div>
+      <div class="etappi-meta">20 km · ⬆️ 372 m · ⬇️ 762 m</div>
+    </div>
+    <div class="etappi-badge">Helpottava</div>
+  </div>
+  <div class="etappi-item" onclick="openEtappi(16)" style="position:relative;">
+    <div class="etappi-num" style="background:rgba(234,179,8,0.3);color:#fbbf24;">B</div>
+    <div class="etappi-info">
+      <div class="etappi-route">Etappi 16 · Llinars del Vallès → Camí de la Costa</div>
+      <div class="etappi-meta">20 km · ⬆️ 483 m · ⬇️ 251 m</div>
     </div>
     <div class="etappi-badge warn">Pitkä päivä</div>
   </div>
 
-  <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">12.9. Lauantai</div><div class="day-sep-line"></div></div>
-  <div class="etappi-item" onclick="openEtappi(17)">
-    <div class="etappi-num">17</div>
-    <div class="etappi-info">
-      <div class="etappi-route">Premià de Dalt → Montcada i Reixac</div>
-      <div class="etappi-meta">20 km · ⬆️ 413 m · ⬇️ 799 m</div>
-    </div>
-    <div class="etappi-badge">Helpottava</div>
-  </div>
+  <div style="font-size:11px;color:var(--mist);text-align:center;margin:4px 0 8px;">Ryhmä A ja B kävelivät molemmat etapit — roolit vaihtuivat 12.9.</div>
 
   <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">13.9. Sunnuntai</div><div class="day-sep-line"></div></div>
   <div class="rest-day">◇ <span><strong>Vapaapäivä – Barcelona</strong> — varusteet, ravintola, mahdollinen hieronta 💆</span></div>
@@ -787,7 +805,7 @@ body {
       <div style="font-weight:700;color:#fbbf24;margin-bottom:6px;">⚠️ Mitkä etappiparit vaativat tämän?</div>
       <div style="margin-bottom:4px;">• <strong>E13↔E14</strong>: Carretera d'Hortsavinya 525m — metsätie Katalonian sisämaassa</div>
       <div style="margin-bottom:4px;">• <strong>E14↔E15</strong>: Vallgorguina 223m — Sagalés-bussi Sant Celoniin harva (2/pv)</div>
-      <div style="margin-bottom:4px;">• <strong>E16↔E17</strong>: Camí de la Costa 420m — metsäpolku Premià de Daltin yläpuolella</div>
+      <div style="margin-bottom:4px;">• <strong>E16↔E17</strong>: Camí de la Costa 420m — metsäpolku Premià de Daltin yläpuolella. <span style="color:var(--mist);">(molemmat päät asemilla, ei tarvitse noutoajoa — katso oma korttinsa)</span></div>
     </div>
 
     <div style="font-size:11px;color:var(--mist);line-height:1.5;">
@@ -825,6 +843,31 @@ body {
       <div>• <strong>sagalesondemand.com</strong></div>
       <div>• Puhelin <strong>900 13 00 14</strong> (arkisin 8–20)</div>
       <div style="margin-top:6px;color:var(--mist);">En tiedä varmaksi vuoroaikoja enkä kuinka aikaisin varaus pitää tehdä — tarkista soittamalla. Taksi on aina takaportti.</div>
+    </div>
+  </div>
+
+  <!-- E16+E17 PAIVASUUNNITELMA -->
+  <div class="card" style="margin-bottom:16px;background:rgba(168,85,247,0.06);border-color:rgba(168,85,247,0.3);">
+    <div class="card-label" style="color:#c4b5fd;">🗓️ Pe 11.9. / La 12.9. — E16 ja E17, roolit vaihtuvat</div>
+    <div style="font-size:12px;color:var(--mist);margin:4px 0 12px;line-height:1.6;">
+      Camí de la Costa (420 m) on metsäpolun päässä — ei julkista. Molemmat päät (Llinars ja Montcada) ovat kuitenkin R2 Nord -asemilla, joten <strong style="color:var(--cream);">kumpikaan ei tarvitse noutoajoa</strong> — yksinkertaisempi kuin E13/E14.
+    </div>
+
+    <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.8;">
+      <div style="font-weight:700;color:#c4b5fd;margin-bottom:4px;">Ryhmä joka kävelee E16:n (juna+kävely+auto)</div>
+      <div>7:30 lähtö → 7:45 Sant Pol, junaan → 10:15 Llinars, aloita kävely → perillä Camí de la Costalla, auto odottaa → aja kotiin</div>
+      <div style="margin-top:8px;font-weight:700;color:#fbbf24;margin-bottom:4px;">Ryhmä joka kävelee E17:n (auto+kävely+juna)</div>
+      <div>7:30 lähtö, auto mukana → 8:10 Camí de la Costa, jätä auto → aloita kävely → perillä Montcadassa → juna kotiin</div>
+    </div>
+
+    <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.25);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#fbbf24;margin-bottom:4px;">⚠️ Nämä ovat matkan pisimmät päivät</div>
+      <div>Juna Llinarsiin kiertää Barcelonan kautta (~2h35), joten E16-kävelijän päivä on pitkä — hitaammalla vauhdilla jopa n. 10h30. Lähtö heti puomin avautuessa (7:30) on suositeltavaa.</div>
+    </div>
+
+    <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.3);border-radius:10px;padding:11px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#60a5fa;margin-bottom:4px;">Miksi ei noutoajoa</div>
+      <div>Auto jää päiväksi Camí de la Costalle — E16-kävelijä löytää sen perillä ja ajaa suoraan kotiin. E17-kävelijä ei tarvitse autoa lainkaan, koska Montcadasta pääsee junalla suoraan.</div>
     </div>
   </div>
 
@@ -1718,6 +1761,7 @@ const etapit = {
     pinta: 'Asfaltti|2.4|16&Tie|1.6|11&Polku|0.4|2&Maastoura|10.4|71',
     backup: 'Hortsavinyà 525m korkeudessa metsätiellä — ei bussia. Kaksi ryhmää: A julkisilla Tordera-alkuun, B autolla Hortsavinyà-loppuun ja jatkaa E14 kävelyä. A ottaa auton lopusta. Julkinen vaihtoehto: kääntyminen takaisin Torderaan (ainoa turvallinen).',
     transport: 'Kaksi ryhmää + auto (metsätie 525m, ei julkista Hortsavinyà)',
+    paivaLinkit: 'https://www.google.com/maps/dir/?api=1&origin=41.60175,2.62463&destination=41.70730,2.71934&travelmode=transit|🚆|A: juna Sant Pol → Tordera|R1 suora, tarkista lähtöaika&https://www.google.com/maps/dir/?api=1&origin=41.60175,2.62463&destination=41.66405,2.61465&travelmode=driving|🚗|B: ajo Sant Pol → Hortsavinyà|32 km · 88 min metsätietä&https://www.google.com/maps/dir/?api=1&origin=41.66405,2.61465&destination=41.64834,2.50986&travelmode=driving|🚗|Nouto: Hortsavinyà → Vallgorguina|26 km · 87 min',
     paivaOtsikko: 'Maanantai 7.9. — E13 ja E14 samana päivänä',
     paivaRooli: 'Ryhmä A kävelee tämän etapin (arvio 4h52)',
     paivaVaiheet: '8:30 lähtö majoituksesta|8:35 Sant Pol — A jää junalle (R1 suora Torderaan, ~25 min)|09:20 A aloittaa E13 Torderasta|10:03 Hortsavinyà — B jättää auton ja aloittaa E14|14:12 A saapuu Hortsavinyàan — auto odottaa|15:39 A saapuu Vallgorguinaan (87 min metsätietä)|15:37 B saapuu Vallgorguinaan|16:09 Kotona',
@@ -1744,6 +1788,7 @@ const etapit = {
     pinta: 'Asfaltti|0.5|3&Tie|0.0|0&Polku|2.1|15&Maastoura|11.8|82',
     backup: 'Vallgorguina 223m — Sagalés-bussi Sant Celoniin harva (~2/pv). Kaksi ryhmää + auto: B (edellisen päivän autoryhmä) tulee Hortsavinyà-alkuun, A tuo auton Vallgorguinaan. Turvallinen poistuminen Vallgorguinasta.',
     transport: 'Kaksi ryhmää + auto (roolinvaihto edellisestä päivästä)',
+    paivaLinkit: 'https://www.google.com/maps/dir/?api=1&origin=41.60175,2.62463&destination=41.70730,2.71934&travelmode=transit|🚆|A: juna Sant Pol → Tordera|R1 suora, tarkista lähtöaika&https://www.google.com/maps/dir/?api=1&origin=41.60175,2.62463&destination=41.66405,2.61465&travelmode=driving|🚗|B: ajo Sant Pol → Hortsavinyà|32 km · 88 min metsätietä&https://www.google.com/maps/dir/?api=1&origin=41.66405,2.61465&destination=41.64834,2.50986&travelmode=driving|🚗|Nouto: Hortsavinyà → Vallgorguina|26 km · 87 min',
     paivaOtsikko: 'Maanantai 7.9. — E13 ja E14 samana päivänä',
     paivaRooli: 'Ryhmä B kävelee tämän etapin (arvio 5h27) ja ajaa auton Hortsavinyàan',
     paivaVaiheet: '8:30 lähtö majoituksesta|8:35 Sant Pol — A jää junalle|10:03 Hortsavinyà — B jättää auton tänne|10:10 B aloittaa E14|14:12 A saapuu Hortsavinyàan, ottaa auton|15:37 B saapuu Vallgorguinaan|15:39 A poimii B:n autolla|16:09 Kotona',
@@ -1795,6 +1840,10 @@ const etapit = {
     pinta: 'Asfaltti|1.0|5&Tie|1.2|7&Polku|4.8|25&Maastoura|11.9|63',
     backup: 'Julkinen: Calella R1 → Barcelona → R2 Nord Llinarsiin (alku); loppu 420m korkeudessa metsässä — kävele Premià de Daltin keskustaan (~1 km alas) → bussi C-14 → Premià de Mar R1 → Calella. Auto: pysäköinti Premià de Daltin ylälaidalla polun päässä.',
     transport: 'Kaksi ryhmää: A julkisilla alkuun, B autolla loppuun; auto vaihtaa',
+    paivaLinkit: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.63819,2.40457&travelmode=transit|🚆|Juna Sant Pol → Llinars|R2 Nord Barcelonan kautta, ~2h35&https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.51799,2.33672&travelmode=driving|🚗|Auto majoituksesta Camí de la Costalle|35 km · 40 min&https://www.google.com/maps/dir/?api=1&origin=41.48445,2.18795&destination=41.60768,2.63522&travelmode=transit|🚆|Juna Montcada → kotiin|R2 Nord Barcelonan kautta, ~2h05',
+    paivaVaiheet: '7:30 lähtö majoituksesta|7:45 Sant Pol — jäät junalle (R2 Nord Barcelonan kautta)|10:15 aloitat E16 Llinarsista|perillä Camí de la Costalla — auto odottaa|ajat autolla suoraan kotiin',
+    paivaRooli: 'Tämä päivä: kävelet E16:n junalla Llinarsiin. Toinen ryhmä ajaa auton Camí de la Costalle ja kävelee E17:n.',
+    paivaOtsikko: 'Perjantai 11.9. / Lauantai 12.9. — E16 ja E17 samana päiväparina, roolit vaihtuvat',
     gpx: './etappi16.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-16-can-bordoi-passista-font-de-cera-passiin/334209930/',
     menoLabel: '🚆 Julkinen A / 🚗 Auto B',
@@ -1816,6 +1865,10 @@ const etapit = {
     pinta: 'Asfaltti|1.1|6&Tie|0.8|4&Polku|6.5|35&Maastoura|10.1|54',
     backup: 'Julkinen: Loppu Montcada i Reixac R2 Nord -asemalla — R2 → R1 vaihto → Calella. Alkuun sama Premià de Dalt -logiikka kuin E16 lopussa. Iso lasku -799 m — polvituet ja hitaasti alaspäin.',
     transport: 'Ryhmät vaihtavat: B kävelee alkuun autolla, A auton palautus/nouto',
+    paivaLinkit: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.63819,2.40457&travelmode=transit|🚆|Juna Sant Pol → Llinars|R2 Nord Barcelonan kautta, ~2h35&https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.51799,2.33672&travelmode=driving|🚗|Auto majoituksesta Camí de la Costalle|35 km · 40 min&https://www.google.com/maps/dir/?api=1&origin=41.48445,2.18795&destination=41.60768,2.63522&travelmode=transit|🚆|Juna Montcada → kotiin|R2 Nord Barcelonan kautta, ~2h05',
+    paivaVaiheet: '7:30 lähtö majoituksesta, auto mukana|8:10 Camí de la Costa — jätä auto tähän|8:20 aloitat E17:n kohti Montcadaa|perillä Montcadassa, R2 Nord -asema|juna kotiin',
+    paivaRooli: 'Tämä päivä: ajat auton Camí de la Costalle ja kävelet E17:n. Toinen ryhmä kävelee E16:n junalla.',
+    paivaOtsikko: 'Perjantai 11.9. / Lauantai 12.9. — E16 ja E17 samana päiväparina, roolit vaihtuvat',
     gpx: './etappi17.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-17-font-de-cera-passista-montcada-i-reixac-asemalle/334210344/',
     menoLabel: '🚗 Auto B / 🚆 Julkinen A',
@@ -2153,21 +2206,10 @@ function openEtappi(num) {
         return '<div><strong style="color:#c4b5fd;">' + v.slice(0,p) + '</strong> ' + v.slice(p+1) + '</div>';
       }).join('')}
     </div>
-    <div class="link-btn" onclick="openLink('${e.paivaJunaTordera}')" style="background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.25);">
-      <span class="link-icon">\u{1F686}</span>
-      <div class="link-text"><div class="link-title">A: juna Sant Pol \u2192 Tordera</div><div class="link-sub">R1 suora, tarkista l\u00e4ht\u00f6aika</div></div>
-      <span class="link-arrow">\u2197</span>
-    </div>
-    <div class="link-btn" onclick="openLink('${e.paivaAjoHortsa}')" style="background:rgba(234,179,8,0.08);border-color:rgba(234,179,8,0.25);">
-      <span class="link-icon">\u{1F697}</span>
-      <div class="link-text"><div class="link-title">B: ajo Sant Pol \u2192 Hortsavinyà</div><div class="link-sub">32 km \u00b7 88 min mets\u00e4tiet\u00e4</div></div>
-      <span class="link-arrow">\u2197</span>
-    </div>
-    <div class="link-btn" onclick="openLink('${e.paivaAjoVallg}')" style="background:rgba(234,179,8,0.08);border-color:rgba(234,179,8,0.25);">
-      <span class="link-icon">\u{1F697}</span>
-      <div class="link-text"><div class="link-title">Nouto: Hortsavinyà \u2192 Vallgorguina</div><div class="link-sub">26 km \u00b7 87 min</div></div>
-      <span class="link-arrow">\u2197</span>
-    </div>
+    ${(e.paivaLinkit || '').split('&').filter(Boolean).map(function(row){
+      var p = row.split('|');
+      return '<div class="link-btn" onclick="openLink(\'' + p[0] + '\')" style="background:rgba(234,179,8,0.08);border-color:rgba(234,179,8,0.25);"><span class="link-icon">' + p[1] + '</span><div class="link-text"><div class="link-title">' + p[2] + '</div><div class="link-sub">' + p[3] + '</div></div><span class="link-arrow">↗</span></div>';
+    }).join('')}
     ` : e.e15AjoLlinars ? `
     <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.35);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
       <div style="font-weight:700;color:#fbbf24;margin-bottom:4px;">🅿️ Maaliparkki Llinars — koko ryhmä yhdessä</div>
