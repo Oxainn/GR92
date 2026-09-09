@@ -612,6 +612,10 @@ body {
   </div>
 
   <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">16.9. Keskiviikko</div><div class="day-sep-line"></div></div>
+  <div style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.3);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+    <div style="font-weight:700;color:#60a5fa;margin-bottom:4px;">✈️ Soile lentää tänään — AY1654 klo 10:05</div>
+    <div>Lähtö leiriltä <strong>n. 07:00</strong> (63 min ajoa + 2 h puskuria). Vapaapäivä, ei aikataulukonfliktia.</div>
+  </div>
   <div class="rest-day">◇ <span><strong>Vapaapäivä</strong> — lepo ennen raskainta etappia 20</span></div>
 
   <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">17.9. Torstai</div><div class="day-sep-line"></div></div>
@@ -625,6 +629,10 @@ body {
   </div>
 
   <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">18.9. Perjantai</div><div class="day-sep-line"></div></div>
+  <div style="background:rgba(74,124,63,0.08);border:1px solid rgba(74,124,63,0.3);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+    <div style="font-weight:700;color:var(--sage);margin-bottom:4px;">✈️ Kirsi lentää tänään aamulla — AY1654 klo 10:05</div>
+    <div>Koko ryhmä lähtee yhdessä <strong>07:02</strong> — kentälle (Kirsi jää), <strong>jatketaan suoraan Garrafiin</strong> ilman kierrosta leirin kautta (vain 24 min kentältä). Kävely alkaa 09:34, kotona <strong>17:56</strong>. Tarkka aikataulu etapin 21 kortista.</div>
+  </div>
   <div class="etappi-item" onclick="openEtappi(21)">
     <div class="etappi-num">21</div>
     <div class="etappi-info">
@@ -635,14 +643,30 @@ body {
   </div>
 
   <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">19.9. Lauantai</div><div class="day-sep-line"></div></div>
+  <div style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.3);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+    <div style="font-weight:700;color:#60a5fa;margin-bottom:4px;">✈️ Panu lentää tänään — BA483 klo 13:10</div>
+    <div>Lähtö leiriltä <strong>n. 10:10</strong> (63 min ajoa + 2 h puskuria). Vapaapäivä, ei aikataulukonfliktia.</div>
+  </div>
   <div class="rest-day">◇ <span><strong>Vapaapäivä</strong> — viimeinen ilta yhdessä, pakkaus</span></div>
 
   <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">20.9. Sunnuntai</div><div class="day-sep-line"></div></div>
-  <div class="link-btn" onclick="openLink('https://www.skyscanner.fi/reitit/bcn/hel/barcelona-mihin-helsinki-vantaa.html')">
+  <div style="background:rgba(234,179,8,0.08);border:1px solid rgba(234,179,8,0.3);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+    <div style="font-weight:700;color:#fbbf24;margin-bottom:4px;">✈️ Jari, Ano, Hannele lentävät — Norwegian D82901 klo 10:45</div>
+    <div>Lähtö leiriltä <strong>n. 07:30</strong> — sisältää ylimääräisen puskurin autonpalautukseen (63 min ajoa + n. 2h10 kokonaispuskuri). Viimeinen päivä, muista tyhjentää mökki ja tarkistuslista.</div>
+  </div>
+  <div class="link-btn" onclick="openLink('https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.29740,2.07833&travelmode=driving')">
+    <span class="link-icon">🚗</span>
+    <div class="link-text">
+      <div class="link-title">Ajoreitti leiriltä lentoasemalle</div>
+      <div class="link-sub">71 km · n. 63 min · autonpalautus samalla</div>
+    </div>
+    <span class="link-arrow">↗</span>
+  </div>
+  <div class="link-btn" onclick="openLink('https://www.norwegian.com/fi/')">
     <span class="link-icon">✈️</span>
     <div class="link-text">
-      <div class="link-title">Lento Barcelona → Helsinki</div>
-      <div class="link-sub">AY1654 (suositus) · 10:05 → 15:10 · Lähtö 06:30 · Herätys 05:30</div>
+      <div class="link-title">Norwegian D82901</div>
+      <div class="link-sub">BCN 10:45 → HEL 15:45</div>
     </div>
     <span class="link-arrow">↗</span>
   </div>
@@ -821,19 +845,20 @@ body {
     </div>
 
     <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.8;">
-      <div><strong style="color:var(--sage);">8:30</strong> Lähtö majoituksesta</div>
-      <div><strong style="color:var(--sage);">9:06</strong> Llinars — auto parkkiin</div>
-      <div><strong style="color:var(--sage);">9:21</strong> Siirto Vallgorguinaan (taksi tai bussi)</div>
-      <div><strong style="color:var(--sage);">9:46</strong> Kävely alkaa</div>
-      <div><strong style="color:var(--sage);">14:36</strong> A perillä Llinarsissa (arvio 4h50)</div>
-      <div><strong style="color:var(--sage);">15:54</strong> B perillä (arvio 6h08)</div>
-      <div><strong style="color:var(--sage);">16:30</strong> Kotona</div>
+      <div><strong style="color:var(--sage);">6:11</strong> Lähtö majoituksesta</div>
+      <div><strong style="color:var(--sage);">6:47</strong> Llinars — auto parkkiin</div>
+      <div><strong style="color:var(--sage);">7:02</strong> Siirto Vallgorguinaan (taksi)</div>
+      <div><strong style="color:var(--sage);">7:27</strong> Kävely alkaa — auringonnousun aikaan</div>
+      <div><strong style="color:var(--sage);">12:17</strong> A perillä Llinarsissa (arvio 4h50)</div>
+      <div><strong style="color:var(--sage);">13:35</strong> B perillä (arvio 6h08)</div>
+      <div><strong style="color:var(--sage);">14:11</strong> Kotona</div>
     </div>
 
     <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.3);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
       <div style="font-weight:700;color:#60a5fa;margin-bottom:4px;">Siirto Llinars → Vallgorguina: kaksi tapaa</div>
       <div style="margin-bottom:6px;"><strong>A) Taksi</strong> — 14 km, 15 min, n. 25–30 € koko porukalle. Yksinkertaisin, ei varausta tarvita etukäteen. Campingin taksinumero: <a href="tel:+34682553388" style="color:#fbbf24;font-weight:600;">+34 682 553 388</a></div>
       <div><strong>B) Juna + bussi 565</strong> — R2 Nord Llinars → Sant Celoni (~10 min), sitten bussi 565 Vallgorguinaan (~15 min). Ilmainen bonotrenilla, mutta <strong style="color:#fbbf24;">bussi 565 vaatii ennakkovarauksen</strong>.</div>
+      <div style="margin-top:6px;color:var(--mist);">💡 Klo 7:02 lähdössä <strong>taksi on varmempi</strong> — bussi 565 tuskin liikennöi vielä niin aikaisin.</div>
     </div>
 
     <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.25);border-radius:10px;padding:11px;font-size:12px;color:var(--cream);line-height:1.6;">
@@ -976,10 +1001,17 @@ body {
       <div style="margin-top:6px;color:var(--mist);font-style:italic;">&rarr; Käytä tämän taulukon lukua päivän suunnitteluun, Garminia matkan aikana.</div>
     </div>
 
+    <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.25);border-radius:10px;padding:11px;margin-top:10px;font-size:12px;color:var(--cream);line-height:1.6;">
+      <div style="font-weight:700;color:#f87171;margin-bottom:4px;">🌡️ Lähdöt aikaistettu — helteet 34–38°C</div>
+      <div>• <strong>E15</strong>: lähtö <strong>6:11</strong>, kävely alkaa <strong>auringonnousun aikaan (7:27)</strong> — taksiyhteys ei ole aikataulusidonnainen, joten täysi kohdistus onnistuu</div>
+      <div>• <strong>E18, E19, E20</strong>: lähtö <strong>6:30</strong> — lähellä auringonnousua, mutta ei täysin kiinni siinä, koska nämä käyttävät juna/FGC-vaihtoja joiden varhaisimpia yhteyksiä ei voi taata ilman elävää aikataulua</div>
+      <div>• <strong>E21</strong>: lähtö <strong>7:02</strong>, sitoo Kirsin lento (18.9.) — katso oma korttinsa</div>
+    </div>
+
     <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.25);border-radius:10px;padding:11px;margin-top:10px;font-size:12px;color:var(--cream);line-height:1.6;">
       <div style="font-weight:700;color:#fbbf24;margin-bottom:4px;">☀️ Valoisa aika syyskuussa</div>
-      <div>Aurinko nousee n. <strong>7:20</strong> ja laskee <strong>20:20 (alkukuu) &rarr; 19:40 (loppukuu)</strong>.</div>
-      <div style="margin-top:4px;">Pisimmät: <strong>E17</strong> (B 7h30), <strong>E16</strong> (7h23) ja <strong>E21</strong> (7h10) &mdash; näinä aikainen lähtö kannattaa. E21 päättyy arviolta 18:59, joten pelivaraa alle tunti.</div>
+      <div>Aurinko nousee n. <strong>7:23–7:35</strong> ja laskee <strong>20:15 (alkukuu) &rarr; 19:55 (loppukuu)</strong>.</div>
+      <div style="margin-top:4px;">Pisimmät kävelyt: <strong>E17</strong> (B 7h30), <strong>E16</strong> (7h23) ja <strong>E21</strong> (7h10) &mdash; nyt paljon pelivaraa aikaisempien lähtöjen ansiosta.</div>
     </div>
 
     <div style="font-size:11px;color:var(--mist);margin-top:10px;line-height:1.5;">
@@ -1501,8 +1533,8 @@ body {
     </div>
 
     <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:11px;margin-top:10px;font-size:12px;color:var(--cream);line-height:1.6;">
-      <div style="font-weight:700;color:#f87171;margin-bottom:4px;">⛔ Puomi kiinni 00:00–07:30</div>
-      <div>Autolla ei pääse ulos eikä sisään yöllä. Puomi lukee rekisterikilven automaattisesti. <strong>Aikaisin kuin autolla pääsee liikkeelle on 7:30</strong> — kävellen alikulun kautta milloin vain.</div>
+      <div style="font-weight:700;color:#f87171;margin-bottom:4px;">⛔ Sisäänajo rajoitettu 00:00–07:30</div>
+      <div>Rekisterikilven tunnistava puomi rajoittaa <strong>sisäänajoa</strong> yöllä. <strong>Ulos pääsee autolla aina</strong> — ei siis estä aikaista lähtöä.</div>
     </div>
 
     <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.25);border-radius:10px;padding:11px;margin-top:10px;font-size:12px;color:var(--cream);line-height:1.7;">
@@ -1815,7 +1847,7 @@ const etapit = {
     pinta: 'Asfaltti|0.7|4&Tie|2.8|19&Polku|5.9|39&Maastoura|5.6|38',
     backup: 'Maaliparkki Llinars del Vallès (R2 Nord -asema 218 m etapin päästä). Aamulla siirto Vallgorguinaan: taksi 14 km / 15 min (n. 25-30 EUR) TAI R2 Nord Sant Celoniin + bussi 565 (VAATII ENNAKKOVARAUKSEN: sagalesondemand.com tai 900 13 00 14, arkisin 8-20). Illalla auto odottaa Llinarsissa.',
     transport: 'Koko ryhmä yhdessä — maaliparkki Llinars, taksi tai bussi lähtöön',
-    aikatauluRivit: '08:30|Lähtö majoituksesta&09:06|Perillä maalissa — auto parkkiin&09:21|Matkaan lähtöpisteeseen (Taksi Llinars → Vallgorguina (tai R2+bussi 565, ~35 min))&09:46|Kävely alkaa&14:36|A perillä (arvio 4h50)&15:54|B perillä (arvio 6h08)&16:30|Kotona (kun kaikki koossa) — Camping Roca Grossa, N-II Km 665, 08370 Calella',
+    aikatauluRivit: '06:11|Lähtö majoituksesta&06:47|Perillä maalissa — auto parkkiin&07:02|Matkaan lähtöpisteeseen (Taksi Llinars → Vallgorguina (tai R2+bussi 565, ~35 min))&07:27|Kävely alkaa&12:17|A perillä (arvio 4h50)&13:35|B perillä (arvio 6h08)&14:11|Kotona (kun kaikki koossa) — Camping Roca Grossa, N-II Km 665, 08370 Calella',
     aikatauluKesto: '6h42 – 8h00',
     e15AjoLlinars: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.63818,2.40455&travelmode=driving',
     e15Siirto: 'https://www.google.com/maps/dir/?api=1&origin=41.63818,2.40455&destination=41.64833,2.50987&travelmode=driving',
@@ -1890,7 +1922,7 @@ const etapit = {
     pinta: 'Asfaltti|1.9|12&Tie|0.4|2&Polku|4.5|29&Maastoura|8.7|56',
     backup: 'Molemmat päät suoraan asemilla — koko ryhmä junaan. Alku: Montcada i Reixac R2 Nord -asema (37 m alusta). Loppu: Baixador de Vallvidrera FGC-asema (14 m lopusta) — FGC S1/S2 Metro del Vallès Barcelona-Plaça de Catalunya.',
     transport: 'Täysin julkisilla (Montcada R2 Nord → Vallvidrera FGC)',
-    aikatauluRivit: '08:30|Lähtö majoituksesta&09:28|Perillä maalissa — auto parkkiin&09:43|Matkaan lähtöpisteeseen (FGC Vallvidrera → Pl. Catalunya, R2 → Montcada)&10:48|Kävely alkaa&15:56|A perillä (arvio 5h08)&17:18|B perillä (arvio 6h30)&18:16|Kotona (kun kaikki koossa) — Camping Roca Grossa, N-II Km 665, 08370 Calella',
+    aikatauluRivit: '06:30|Lähtö majoituksesta&07:28|Perillä maalissa — auto parkkiin&07:43|Matkaan lähtöpisteeseen (FGC Vallvidrera → Pl. Catalunya, R2 → Montcada)&08:48|Kävely alkaa&13:56|A perillä (arvio 5h08)&15:18|B perillä (arvio 6h30)&16:16|Kotona (kun kaikki koossa) — Camping Roca Grossa, N-II Km 665, 08370 Calella',
     aikatauluKesto: '8h24 – 9h46',
     gpx: './etappi18.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-18-montcada-i-reixac-asemalta-baixador-de-vallvidrera-asemalle/334210518/',
@@ -1909,7 +1941,7 @@ const etapit = {
     parkkiAika: '65 km · 0h57',
     parkkiJulk: 'https://www.google.com/maps/dir/?api=1&origin=41.42000,2.09680&destination=41.48443,2.18795&travelmode=transit',
     parkkiJulkAika: '0h55 · FGC Vallvidrera → Pl. Catalunya, R2 → Montcada',
-    parkkiPaiva: '9h21 (lähtö 8:00 → 17:21)',
+    parkkiPaiva: '9h46 (lähtö 6:30 → 16:16)',
     badge: 'Nousupäivä', hard: false
   },
   19: {
@@ -1919,7 +1951,7 @@ const etapit = {
     pinta: 'Asfaltti|2.5|20&Tie|1.6|13&Polku|2.8|23&Maastoura|5.3|43',
     backup: 'Molemmat päät suoraan asemilla — koko ryhmä junaan. Alku: Baixador de Vallvidrera FGC-asema (14 m alusta). Loppu: Sant Vicenç dels Horts -pääasema (27 m lopusta) — FGC S3/S4/S8/S9/R5/R50/R6/R60 → Barcelona Plaza Espanya.',
     transport: 'Täysin julkisilla (Baixador de Vallvidrera FGC → Sant Vicenç FGC)',
-    aikatauluRivit: '08:30|Lähtö majoituksesta&09:31|Perillä maalissa — auto parkkiin&09:46|Matkaan lähtöpisteeseen (FGC Sant Vicenç → Pl. Espanya, vaihto → Vallvidrera)&10:56|Kävely alkaa&14:54|A perillä (arvio 3h58)&16:05|B perillä (arvio 5h09)&17:06|Kotona (kun kaikki koossa) — Camping Roca Grossa, N-II Km 665, 08370 Calella',
+    aikatauluRivit: '06:30|Lähtö majoituksesta&07:31|Perillä maalissa — auto parkkiin&07:46|Matkaan lähtöpisteeseen (FGC Sant Vicenç → Pl. Espanya, vaihto → Vallvidrera)&08:56|Kävely alkaa&12:54|A perillä (arvio 3h58)&14:05|B perillä (arvio 5h09)&15:06|Kotona (kun kaikki koossa) — Camping Roca Grossa, N-II Km 665, 08370 Calella',
     aikatauluKesto: '7h25 – 8h36',
     gpx: './etappi19.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-19-baixador-de-vallvidrera-asemalta-sant-vicenc-dels-hortsiin/334210802/',
@@ -1938,7 +1970,7 @@ const etapit = {
     parkkiAika: '69 km · 1h00',
     parkkiJulk: 'https://www.google.com/maps/dir/?api=1&origin=41.39342,2.00925&destination=41.42002,2.09679&travelmode=transit',
     parkkiJulkAika: '1h00 · FGC Sant Vicenç → Pl. Espanya, vaihto → Vallvidrera',
-    parkkiPaiva: '8h10 (lähtö 8:00 → 16:10)',
+    parkkiPaiva: '8h36 (lähtö 6:30 → 15:06)',
     badge: 'Lyhyt', hard: false
   },
   20: {
@@ -1948,7 +1980,7 @@ const etapit = {
     pinta: 'Asfaltti|2.0|13&Tie|2.6|17&Polku|3.0|19&Maastoura|7.9|51',
     backup: 'Alku: Sant Vicenç dels Horts -pääasema aivan reitin alussa (27 m) — FGC-linjat S3/S4/S8/S9/R5/R50/R6/R60. Loppu: Gavà R2 Sud -aseman vieressä (Plaça de l\'Estació) — Rodalies-linjat R2 Sud/R2 Sud Nord.',
     transport: 'Täysin julkisilla (alku FGC-asemalla, loppu R2 Sud -asemalla)',
-    aikatauluRivit: '08:30|Lähtö majoituksesta&09:35|Perillä maalissa — auto parkkiin&09:50|Matkaan lähtöpisteeseen (R2 Sud Gavà → Sants, FGC → Sant Vicenç)&11:00|Kävely alkaa&15:47|A perillä (arvio 4h47)&17:11|B perillä (arvio 6h11)&18:16|Kotona (kun kaikki koossa) — Camping Roca Grossa, N-II Km 665, 08370 Calella',
+    aikatauluRivit: '06:30|Lähtö majoituksesta&07:35|Perillä maalissa — auto parkkiin&07:50|Matkaan lähtöpisteeseen (R2 Sud Gavà → Sants, FGC → Sant Vicenç)&09:00|Kävely alkaa&13:47|A perillä (arvio 4h47)&15:11|B perillä (arvio 6h11)&16:16|Kotona (kun kaikki koossa) — Camping Roca Grossa, N-II Km 665, 08370 Calella',
     aikatauluKesto: '8h22 – 9h46',
     gpx: './etappi20.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-20-sant-vicenc-dels-hortsista-bruguers-puistoon/334211034/',
@@ -1967,7 +1999,7 @@ const etapit = {
     parkkiAika: '74 km · 1h05',
     parkkiJulk: 'https://www.google.com/maps/dir/?api=1&origin=41.30350,2.01049&destination=41.39345,2.00923&travelmode=transit',
     parkkiJulkAika: '1h00 · R2 Sud Gavà → Sants, FGC → Sant Vicenç',
-    parkkiPaiva: '9h22 (lähtö 8:00 → 17:22)',
+    parkkiPaiva: '9h46 (lähtö 6:30 → 16:16)',
     badge: 'Raskain!', hard: true
   },
   21: {
@@ -1977,7 +2009,7 @@ const etapit = {
     pinta: 'Asfaltti|3.1|19&Tie|0.7|4&Polku|11.0|67&Maastoura|1.3|8',
     backup: 'Molemmat päät R2 Sud -asemilla',
     transport: 'Täysin julkisilla (R2 Sud molemmissa päissä)',
-    aikatauluRivit: '08:30|Lähtö majoituksesta&09:42|Perillä maalissa — auto parkkiin&09:57|Matkaan lähtöpisteeseen (R2 Sud Garraf → Gavà)&10:37|Kävely alkaa&16:16|A perillä (arvio 5h39)&17:47|B perillä (arvio 7h10)&18:59|Kotona (kun kaikki koossa) — Camping Roca Grossa, N-II Km 665, 08370 Calella',
+    aikatauluRivit: '07:02|Lähtö majoituksesta — koko ryhmä, Kirsi mukana&08:05|Lentoasemalla — Kirsi jää (AY1654 klo 10:05, puskuria 2h)&08:15|Jatketaan suoraan Garrafiin (ei kierrosta leirin kautta)&08:39|Perillä Garrafissa — auto parkkiin&08:54|Matkaan lähtöpisteeseen (R2 Sud Garraf → Gavà)&09:34|Kävely alkaa&15:13|A perillä (arvio 5h39)&16:44|B perillä (arvio 7h10)&17:56|Kotona (kun kaikki koossa) — Camping Roca Grossa, N-II Km 665, 08370 Calella',
     aikatauluKesto: '8h58 – 10h29',
     gpx: './etappi21.gpx',
     gpxOA: 'https://www.outdooractive.fi/fi/route/usean-paeivaen-vaellus/provinz-barcelona/gr92-etappi-21-bruguersista-garrafiin/334211327/',
@@ -1996,7 +2028,7 @@ const etapit = {
     parkkiAika: '84 km · 1h12',
     parkkiJulk: 'https://www.google.com/maps/dir/?api=1&origin=41.25402,1.90246&destination=41.30320,2.01000&travelmode=transit',
     parkkiJulkAika: '0h30 · R2 Sud Garraf → Gavà (suora)',
-    parkkiPaiva: '10h04 (lähtö 8:00 → 18:04)',
+    parkkiPaiva: '10h54 (lähtö 7:02, Kirsin lento reitin varrella) → 17:56',
     badge: 'Palkinto', hard: false
   }
 };
@@ -2049,11 +2081,11 @@ const OHJELMA = [
   { pvm: '2026-09-13', tyyppi: 'lepo', teksti: 'Vapaapäivä — Barcelona · varusteet, ravintola, hieronta' },
   { pvm: '2026-09-14', tyyppi: 'etappi', num: 18 },
   { pvm: '2026-09-15', tyyppi: 'etappi', num: 19 },
-  { pvm: '2026-09-16', tyyppi: 'lepo', teksti: 'Vapaapäivä — lepo ennen raskainta etappia 20' },
+  { pvm: '2026-09-16', tyyppi: 'lepo', teksti: 'Vapaapäivä — lepo ennen raskainta etappia 20 · Soile lentää AY1654 10:05' },
   { pvm: '2026-09-17', tyyppi: 'etappi', num: 20 },
   { pvm: '2026-09-18', tyyppi: 'etappi', num: 21 },
-  { pvm: '2026-09-19', tyyppi: 'lepo', teksti: 'Vapaapäivä — juhlat & maalinvieton palautuminen 🎉' },
-  { pvm: '2026-09-20', tyyppi: 'lahto', teksti: 'Lähtöpäivä · lento AY1654 · herätys 05:30' },
+  { pvm: '2026-09-19', tyyppi: 'lepo', teksti: 'Vapaapäivä — juhlat & maalinvieton palautuminen 🎉 · Panu lentää BA483 13:10' },
+  { pvm: '2026-09-20', tyyppi: 'lahto', teksti: 'Lähtöpäivä · lento D82901 · herätys 06:30' },
 ];
 
 function renderTanaanKortti() {
@@ -2229,7 +2261,7 @@ function openEtappi(num) {
     ${e.aikatauluRivit ? `
     <div style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.35);border-radius:11px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.7;">
       <div style="font-weight:700;color:#fbbf24;margin-bottom:2px;">🅿️ Maaliparkki — malliaikataulu</div>
-      <div style="color:var(--mist);font-size:11px;margin-bottom:8px;">Koko p\u00e4iv\u00e4 ${e.aikatauluKesto} \u00b7 l\u00e4ht\u00f6 8:30</div>
+      <div style="color:var(--mist);font-size:11px;margin-bottom:8px;">Koko p\u00e4iv\u00e4 ${e.aikatauluKesto} \u00b7 l\u00e4ht\u00f6 ${e.aikatauluRivit.split('&')[0].split('|')[0]}</div>
       ${e.aikatauluRivit.split('&').map(function(r){
         var x = r.split('|');
         return '<div style="display:flex;gap:8px;"><strong style="color:#fbbf24;min-width:44px;">' + x[0] + '</strong><span>' + x[1] + '</span></div>';
