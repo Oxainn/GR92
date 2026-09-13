@@ -226,9 +226,10 @@ map.on('load', () => {
         paint:{ 'line-color':['get','color'],'line-width':4,'line-opacity':0.97 } });
 
       // Majoitus + maali
-      addMarker([2.63522, 41.60768], '\ud83c\udfe0', 'Camping Roca Grossa');
+      addMarker([2.63522, 41.60768], '\u{1F3E0}', 'Camping Roca Grossa');
       const last = GPX['21'][GPX['21'].length - 1];
-      addMarker(last, '\ud83c\udfc1', 'Garraf \u2014 maali');
+      addMarker(last, '\u{1F3C1}', 'Garraf \u2014 maali');
+      addMarker([2.01049, 41.30350], '\u{1F17F}\uFE0F', 'Bruguers \u2014 autoparkki 17.\u201318.9.');
 
       buildLegend(GPX);
       map.fitBounds(BOUNDS, { padding:60, pitch:62, bearing:-18, duration:0 });

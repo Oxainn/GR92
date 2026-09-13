@@ -205,6 +205,15 @@ fetch('./gpx_data.json')
     });
     L.marker([end[1],end[0]], { icon:flagIcon }).addTo(map);
 
+    // Bruguers - E20 loppu / E21 alku, autoparkki 17.9. ja 18.9.
+    const parkIcon = L.divIcon({
+      html: '<div style="font-size:24px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.7))">🅿️</div>',
+      className: '', iconSize:[28,28], iconAnchor:[14,28]
+    });
+    L.marker([41.30350, 2.01049], { icon: parkIcon })
+      .bindTooltip('🅿️ Bruguers — autoparkki<br><small>E20 loppu / E21 alku, 17.–18.9.</small>', {direction:'top', permanent:false})
+      .addTo(map);
+
     buildLegend();
     document.getElementById('loadingOverlay').style.display = 'none';
     mapReady = true;
