@@ -220,14 +220,14 @@ Jos et tiedä jotain varmasti, sano rehellisesti "en tiedä" — älä keksi. Jo
 - **E14** (8.9.): Hortsavinyà → Vallgorguina, 15 km, +202 m, -502 m — kaksi ryhmää + auto (roolinvaihto edellisestä, Vallgorguinasta Sagalés-bussi harva)
 - Lepopäivä 9.9.
 - **E15** (10.9.): Vallgorguina → Llinars del Vallès, 16 km, +484 m — täysin julkisilla (R2 Nord)
-- **E16** (11.9.): Llinars del Vallès → Premià de Dalt (Camí de la Costa 420m), 20 km, +483 m — kaksi ryhmää + auto (julkinen alkuun, metsäpolku loppuun)
-- **E17** (12.9.): Premià de Dalt → Montcada i Reixac, 20 km, +372 m, -762 m — E17 alkaa mistä E16 päättyy, kaksi ryhmää + auto. HUOM: iso lasku -762m polvet kovilla!
+- **E16** (11.9. tai 12.9.): Llinars del Vallès → Camí de la Costa (420m), 20 km, +483 m, -251 m — kaksi ryhmää, roolit vaihtuvat päivien välillä
+- **E17** (11.9. tai 12.9.): Camí de la Costa → Montcada i Reixac, 20 km, +372 m, -762 m — kaksi ryhmää, roolit vaihtuvat päivien välillä. HUOM: iso lasku -762m polvet kovilla!
 - Lepopäivä 13.9. Barcelonassa
 - **E18** (14.9.): Montcada → Vallvidrera, 16 km, +611 m — TÄYSIN JULKISILLA (molemmat päät suoraan asemilla: Montcada R2 Nord 37 m, Vallvidrera FGC S1/S2 14 m).
 - **E19** (15.9.): Baixador de Vallvidrera → Sant Vicenç dels Horts (FGC-asema), 14 km, +230 m, -444 m — TÄYSIN JULKISILLA (molemmat päät asemilla: Vallvidrera FGC 14 m, Sant Vicenç FGC 27 m).
 - Lepopäivä 16.9.
-- **E20** (17.9.): Sant Vicenç dels Horts (FGC-asema) → Gavà, 17 km, +331 m — TÄYSIN JULKISILLA (molemmat päät asemilla). Alku 27 m FGC-asemasta. Loppu Gavà R2 Sud -aseman vieressä.
-- **E21** (18.9.): Gavà → Garraf, 18 km, +559 m — täysin julkisilla (R2 Sud). MAALIVIIVA!
+- **E20** (17.9. tai 18.9.): Sant Vicenç dels Horts → Begues, 15 km, +665 m — kaksi ryhmää, roolit vaihtuvat päivien välillä (katso oma osionsa)
+- **E21** (17.9. tai 18.9.): Begues → Garraf, 15 km, +442 m — kaksi ryhmää, roolit vaihtuvat päivien välillä. MAALIVIIVA!
 
 ## Kuljetusperiaate
 
@@ -266,11 +266,23 @@ Meno:
 - 4.9. Finnair AY1653 HEL 17:05 → BCN 20:05 (Jari, Soile, Kirsi) — autonnouto
 - 5.9. AY1331 + BA478 via Heathrow (Panu)
 
-Paluu:
-- 16.9. AY1654 (Soile)
-- 18.9. AY1654 (Kirsi)
-- 19.9. BA483 + AY1336 via Heathrow (Panu)
-- 20.9. Norwegian D82901 (Jari, Ano, Hannele) — autonpalautus
+Paluu (leirin puomi ei aukea ennen 7:30 — sitoo vain autoa, ei jalankulkijaa):
+- 16.9. AY1654 BCN 10:05→HEL 15:10 (Soile) — vapaapäivä. Puomi sitoo autoa, joten Soile kävelee alikulusta ulos ja tapaa taksin N-II:lla n. 06:50, lentokentällä n. 07:53, puskuria 2h12
+- 18.9. AY1654 BCN 10:05→HEL 15:10 (Kirsi) — sama alikulku+taksi-malli: Kirsi kävelee ulos n. 06:50, taksi kentälle, puskuria 2h12. LOPUT RYHMÄSTÄ lähtee 7:30 (puomin avautuessa) suoraan Garrafiin (E21 maali) — auto ei poikkea kentän kautta. Kävely alkaa 09:37, kotona 17:59
+- 19.9. BA483 + AY1336 via Heathrow (Panu) — lähtö leiriltä n. 10:10, puomi ei rajoita (jo auki)
+- 20.9. Norwegian D82901 BCN 10:45→HEL 15:45 (Jari, Ano, Hannele) — autonpalautus, lähtö leiriltä 7:30 (puomin avautuessa), lentokentällä n. 08:33, puskuria 2h12
+
+Ajoaika leiriltä Barcelona-El Prat -lentoasemalle: 71 km / n. 63 min. Suora reitti lentoasemalta Garrafiin (E21 maali): 23 km / 24 min — paljon lyhyempi kuin kiertäminen leirin kautta.
+
+## Lähdöt aikaistettu — helteet 34–38°C, kävely lähelle auringonnousua
+
+- **E15**: lähtö 6:11, kävely alkaa **auringonnousun aikaan (7:27)** — taksi Llinars→Vallgorguina ei ole aikataulusidonnainen, joten täysi kohdistus onnistuu. Kotona jo 14:11.
+- **E18**: lähtö 6:30, kävely alkaa 8:48, kotona 16:16
+- **E19**: lähtö 6:30, kävely alkaa 8:56, kotona 15:06
+- **E18/E19 eivät kohdistu täysin auringonnousuun** (n. 7:30) koska käyttävät FGC/R2-junavaihtoja Barcelonan kautta — varhaisimpia yhteyksiä ei voi taata ilman elävää aikataulua, joten valittiin turvallisempi 6:30-lähtö
+- **E20/E21**: korvattu kaksi ryhmää + auto -mallilla eri päivinä (17.9./18.9.) — katso oma osionsa, ei enää yksittäinen auringonnousu-kohdistus
+- E16/E17 olivat jo ennestään 7:30 (auto) / 7:45 (juna) -tahdissa, ei muutosta
+- E12, E13, E14 on jo kävelty alkuperäisellä 8:30-aikataululla
 
 ## Hätä
 
@@ -298,6 +310,23 @@ E15:n päät ovat vain 14 km / 15 min päässä toisistaan, joten ryhmäjakoa ei
 
 **Bussi 565 Sant Celoni–Vallgorguina on tilausliikennettä ja vaatii ennakkovarauksen**: Sagalés on demand -sovellus, sagalesondemand.com, tai 900 13 00 14 (arkisin 8–20). Taksi on takaportti jos varaus ei onnistu.
 
+## Kävelypinta etapeittain (OSM-dataan perustuva arvio)
+
+Suuntaa-antava jako kolmeen luokkaan: asfaltti/tie (päällystetty tai taajamatie), polku (kapea luonnonpinta), maastoura (metsäautotie, sora/maa). Ei mitattu jokaisesta metristä, mutta antaa suunnan.
+
+- E12: asfaltti/tie 38% · polku 22% · maastoura 38%
+- E13: asfaltti/tie 27% · polku 2% · maastoura 71% (selvästi maastoisin)
+- E14: asfaltti/tie 3% · polku 15% · maastoura 82% (kivikkoisin/maastoisin koko matkalla)
+- E15: asfaltti/tie 23% · polku 39% · maastoura 38%
+- E16: asfaltti/tie 12% · polku 25% · maastoura 63%
+- E17: asfaltti/tie 10% · polku 35% · maastoura 54%
+- E18: asfaltti/tie 14% · polku 29% · maastoura 56%
+- E19: asfaltti/tie 33% · polku 23% · maastoura 43%
+- E20: asfaltti/tie 30% · polku 19% · maastoura 51%
+- E21: asfaltti/tie 23% · polku 67% · maastoura 8% (Garraf-kalkkikivikarstia, kapea kivinen polku pikemmin kuin leveä ura)
+
+Koko matka: n. 20% kovaa pintaa, ~80% polkua tai maastouraa. Kivikkoisimmat/vaativimmat: E14 (Montnegre), E21 (Garraf-karsti).
+
 ## Malliaikataulut
 
 Jokaisella maaliparkki-etapilla on appissa malliaikataulu, joka olettaa lähdön klo 8:30. Ajat ovat suuntaa-antavia — junavuoro ja oma vauhti siirtävät niitä helposti puoli tuntia suuntaansa. Rakenne on tärkeämpi kuin kellonajat.
@@ -306,9 +335,61 @@ Kävelyaika-arviot ryhmittäin (A ~4 km/h, B ~3 km/h):
 - E12 4h56 / 6h27 | E13 4h52 / 6h08 | E14 4h12 / 5h27 | E15 4h50 / 6h08 | E16 5h44 / 7h23
 - E17 5h52 / 7h30 | E18 5h08 / 6h30 | E19 3h58 / 5h09 | E20 4h47 / 6h11 | E21 5h39 / 7h10
 
-E16 ja E17 ovat vielä ratkaisematta — Camí de la Costa (420 m) on ilman julkista, joten ne vaativat oman järjestelynsä kuten E13/E14.
+## Torstai 17.9. / Perjantai 18.9. — E20 ja E21, roolit vaihtuvat
 
-## Sunnuntai 7.9. — E13 ja E14 samana päivänä
+**Reitti piirretty uudelleen 13.9.** — Begues (Aigües de Barcelona -alue) on nyt E20:n loppu JA E21:n alku samassa pisteessä — vahvistettu autoparkki. Sama malli kuin E16/E17:llä, mutta kahdella eri päivällä (ei samana päivänä). Ryhmät: **A** = Jari, Soile, Kirsi, Hannele (2,5 km/h). **B** = Ano, Panu (3,5 km/h). Auto EI jää yöksi Beguesiin — ajetaan kotiin joka ilta.
+
+Uudet etappitiedot: **E20** 15,3 km / +665 m / -450 m (oli +331 m — lähes tuplasti enemmän nousua). **E21** 14,9 km / +442 m / -673 m (oli 18,3 km/+559 m).
+
+**Torstai 17.9. — A kävelee E20:n, B kävelee E21:n:**
+- 06:30 lähtö leiriltä yhdessä
+- 07:31 E20 alku — A jää, aloittaa E20
+- 07:53 Begues — B jatkaa, jättää auton, aloittaa E21
+- 14:47 A perillä Beguesissa — auto odottaa
+- 15:06 A ajaa Garrafiin noutamaan B:n
+- 16:20 kaikki kotona
+
+**Perjantai 18.9. — B kävelee E20:n, A kävelee E21:n (Kirsin lento integroitu reittiin):**
+- 06:30 lähtö leiriltä yhdessä
+- 07:31 E20 alku — B jää, aloittaa E20
+- 07:53 Lentoasema — Kirsi jää (AY1654 10:05, puskuria 2h12)
+- 08:13 Begues — loput A:sta (Jari, Soile, Hannele — EI Kirsiä) jättää auton, aloittaa E21
+- 13:02 B perillä Beguesissa — auto odottaa
+- 16:22 kaikki kotona (Kirsi jo lentänyt)
+
+**Tärkeä turvallisuushuomio joka korjattiin suunnittelussa:** alun perin roolinvaihto olisi laittanut Kirsin (ryhmä A) kävelemään koko E21:n samana aamuna kun hänen lentonsa lähtee klo 10:05 — mahdotonta. Ratkaisu: Kirsi ei kävele 18.9., vaan jätetään lentokentälle matkalla, loput A:sta jatkaa E21:lle ilman häntä.
+
+**Uusi reitti tasapainottaa paremmin kuin vanha:** koska E21 on nyt kevyempi kuin E20 (vähemmän km, vähemmän nousua), perjantain odotusaika on enää n. 1h27 — vanhalla Gavà-reitillä se olisi ollut yli 3 tuntia. Ajat ovat vielä laskennallisia arvioita (uusi linjaus, ei kokemusperäistä dataa) — seuraa aina polun merkkejä.
+
+**Reitin tarkkuudesta:** kartta ja GPX ovat suuntaa-antavia tällä osuudella — löytyi sekä vanha maastoisempi virallinen linjaus (E20: +765 m) että uudempi kevyempi versio (nykyinen GPX: +331 m). Käytetään nykyistä kevyempää, mutta seurataan aina polun merkkejä jos ne poikkeavat GPX:stä.
+
+## Perjantai 11.9. / Lauantai 12.9. — E16 ja E17, roolit vaihtuvat
+
+Camí de la Costa (420 m) on metsäpolun päässä, ei julkista. **Molemmat ryhmät ajavat yhdessä samalla autolla aamulla, ja palaavat kotiin yhdessä.** Kaksi päivää eroavat vain E16:n aloituspisteessä — 12.9. käytetään uutta, turvallisempaa aloitusta.
+
+**Perjantai 11.9. — A kävelee E16:n (Llinarsista):**
+- 06:30 lähtö leiriltä yhdessä
+- 07:06 Llinars — A jää, aloittaa E16
+- 07:42 Camí de la Costa — B jättää auton, aloittaa E17
+- 12:50 A perillä Camilla — auto odottaa
+- 13:29–15:12 A odottaa Montcadassa (esim. ravintolassa)
+- 15:12 B perillä — molemmat autoon
+- 15:59 molemmat kotona
+
+**Lauantai 12.9. — B kävelee E16:n (UUSI aloitus, ei Llinarsin kautta):**
+- 06:30 lähtö leiriltä yhdessä
+- 07:11 Carretera del Corredor (41.6276, 2.4204) — B jää, aloittaa E16
+- 07:52 Camí de la Costa — A jättää auton, aloittaa E17
+- 13:44 A perillä Montcadassa — odottaa n. 1h29
+- 14:34 B perillä Camilla — ottaa auton, ajaa Montcadaan
+- 15:13 B noutaa A:n
+- 16:04 molemmat kotona
+
+**Miksi eri aloitus 12.9.:** Llinars-reitin viimeinen 1,5 km ennen asemaa on vaarallinen (ei piennarta, vilkas liikenneympyrä ylitettävänä). Carretera del Corredor -piste on tosi tiellä (vahvistettu paikan päällä 9.9.), samalla merkityllä GR92-polulla, mutta välttää vaarallisen tieosuuden. Matka on lähes sama — hyöty on turvallisuus, ei niinkään aika. B:n kävelyaika 12.9. on arvio (ei päivitettyä GPX:ää uudelta pisteeltä), joten kellonajat voivat elää.
+
+Tärkeä yleisohje: **seuraa aina polun merkkejä, älä karttaa tai GPX:ää**, jos ne ovat ristiriidassa — reitti on voitu virallisesti siirtää sen jälkeen kun kartat piirrettiin.
+
+## Maanantai 7.9. — E13 ja E14 samana päivänä (KÄVELTY, meni suunnitellusti)
 
 Hortsavinyà (525 m) on metsätien päässä, ei julkista, ajo sinne 88 min. Ryhmät kävelevät eri etapit samana päivänä.
 
@@ -338,10 +419,8 @@ Maaliparkit (ajo majoituksesta / julkinen maalista lähtöön / päivä yhteens�
 - **E12** Tordera R1 — 22 min / 45 min / 7h54
 - **E18** Baixador de Vallvidrera FGC — 58 min / 55 min / 9h21
 - **E19** Sant Vicenç dels Horts FGC — 61 min / 60 min / 8h10
-- **E20** Gavà R2 Sud — 65 min / 60 min / 9h22
-- **E21** Garraf R2 Sud — 72 min / 30 min / 10h04
 
-Koskee vain täysin julkisia päiviä. Kaksi ryhmää + auto -päivät (E13–E17) toimivat eri logiikalla.
+Koskee vain täysin julkisia päiviä. Kaksi ryhmää + auto -päivät (E13–E17, E20–E21) toimivat eri logiikalla — katso niiden omat osionsa.
 
 ## Ryhmän vauhti ja aika-arviot
 
