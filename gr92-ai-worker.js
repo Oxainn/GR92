@@ -337,7 +337,7 @@ Kävelyaika-arviot ryhmittäin (A ~4 km/h, B ~3 km/h):
 
 ## Torstai 17.9. / Perjantai 18.9. — E20 ja E21, roolit vaihtuvat
 
-**Reitti piirretty uudelleen 13.9.** — Begues (Aigües de Barcelona -alue) on nyt E20:n loppu JA E21:n alku samassa pisteessä — vahvistettu autoparkki. Sama malli kuin E16/E17:llä, mutta kahdella eri päivällä (ei samana päivänä). Ryhmät: **A** = Jari, Soile, Kirsi, Hannele (2,5 km/h). **B** = Ano, Panu (3,5 km/h). Auto EI jää yöksi Beguesiin — ajetaan kotiin joka ilta.
+**Reitti piirretty uudelleen 13.9.** — Begues (Aigües de Barcelona -alue) on nyt E20:n loppu JA E21:n alku samassa pisteessä — vahvistettu autoparkki. Sama malli kuin E16/E17:llä, mutta kahdella eri päivällä (ei samana päivänä). Ryhmät: **A** = Jari, Kirsi, Hannele (2,5 km/h — Soile lensi jo kotiin 16.9., ei osallistu E20/E21:een). **B** = Ano, Panu (3,5 km/h). Auto EI jää yöksi Beguesiin — ajetaan kotiin joka ilta.
 
 Uudet etappitiedot: **E20** 15,3 km / +665 m / -450 m (oli +331 m — lähes tuplasti enemmän nousua). **E21** 14,9 km / +442 m / -673 m (oli 18,3 km/+559 m).
 
@@ -353,7 +353,7 @@ Uudet etappitiedot: **E20** 15,3 km / +665 m / -450 m (oli +331 m — lähes tup
 - 06:30 lähtö leiriltä yhdessä
 - 07:31 E20 alku — B jää, aloittaa E20
 - 07:53 Lentoasema — Kirsi jää (AY1654 10:05, puskuria 2h12)
-- 08:13 Begues — loput A:sta (Jari, Soile, Hannele — EI Kirsiä) jättää auton, aloittaa E21
+- 08:13 Begues — loput A:sta (Jari, Hannele — EI Soile, EI Kirsi) jättää auton, aloittaa E21
 - 13:02 B perillä Beguesissa — auto odottaa
 - 16:22 kaikki kotona (Kirsi jo lentänyt)
 

@@ -621,7 +621,7 @@ body {
   <div class="day-sep"><div class="day-sep-line"></div><div class="day-sep-text">17.9. Torstai</div><div class="day-sep-line"></div></div>
   <div class="etappi-item" onclick="openEtappi(20,'17.9.')" style="position:relative;">
     <div class="etappi-num" style="background:rgba(74,124,63,0.35);color:var(--sage);">A</div>
-    <div class="etappi-info"><div style="font-size:11px;color:var(--mist);margin-bottom:2px;">Jari, Soile, Kirsi, Hannele</div>
+    <div class="etappi-info"><div style="font-size:11px;color:var(--mist);margin-bottom:2px;">Jari, Kirsi, Hannele (ei Soile)</div>
       <div class="etappi-route">Etappi 20 · Sant Vicenç dels Horts → Begues</div>
       <div class="etappi-meta">15 km · ⬆️ 665 m · ⬇️ 450 m</div>
     </div>
@@ -651,7 +651,7 @@ body {
   </div>
   <div class="etappi-item" onclick="openEtappi(21,'18.9.')" style="position:relative;">
     <div class="etappi-num" style="background:rgba(74,124,63,0.35);color:var(--sage);">A</div>
-    <div class="etappi-info"><div style="font-size:11px;color:var(--mist);margin-bottom:2px;">Jari, Soile, Hannele (ei Kirsi)</div>
+    <div class="etappi-info"><div style="font-size:11px;color:var(--mist);margin-bottom:2px;">Jari, Hannele (ei Soile, ei Kirsi)</div>
       <div class="etappi-route">Etappi 21 · Begues → Garraf 🌊</div>
       <div class="etappi-meta">15 km · ⬆️ 442 m · ⬇️ 673 m</div>
     </div>
@@ -893,7 +893,7 @@ body {
   <div class="card" style="margin-bottom:16px;background:rgba(168,85,247,0.06);border-color:rgba(168,85,247,0.3);">
     <div class="card-label" style="color:#c4b5fd;">🗓️ To 17.9. / Pe 18.9. — E20 ja E21, roolit vaihtuvat</div>
     <div style="font-size:12px;color:var(--mist);margin:4px 0 12px;line-height:1.6;">
-      <strong style="color:#f87171;">Reitti piirretty uudelleen 13.9.</strong> — Begues (Aigües de Barcelona -alue) on nyt E20:n loppu ja E21:n alku, todellinen autoparkki. Sama malli kuin E16/E17:llä, kahdella eri päivällä. Ryhmät: <strong style="color:var(--sage);">A</strong> (Jari, Soile, Kirsi, Hannele, 2,5 km/h) ja <strong style="color:#fbbf24;">B</strong> (Ano, Panu, 3,5 km/h). Auto ei jää yöksi — ajetaan kotiin joka ilta.
+      <strong style="color:#f87171;">Reitti piirretty uudelleen 13.9.</strong> — Begues (Aigües de Barcelona -alue) on nyt E20:n loppu ja E21:n alku, todellinen autoparkki. Sama malli kuin E16/E17:llä, kahdella eri päivällä. Ryhmät: <strong style="color:var(--sage);">A</strong> (Jari, Kirsi, Hannele, 2,5 km/h — Soile lensi jo 16.9.) ja <strong style="color:#fbbf24;">B</strong> (Ano, Panu, 3,5 km/h). Auto ei jää yöksi — ajetaan kotiin joka ilta.
     </div>
 
     <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.25);border-radius:10px;padding:11px;margin-bottom:10px;font-size:12px;color:var(--cream);line-height:1.6;">
@@ -916,7 +916,7 @@ body {
       <div><strong style="color:#fbbf24;">06:30</strong> Lähtö leiriltä yhdessä</div>
       <div><strong style="color:#fbbf24;">07:31</strong> E20 alku — B jää, aloittaa E20</div>
       <div><strong style="color:#fbbf24;">07:53</strong> Lentoasema — Kirsi jää (AY1654 10:05, puskuria 2h12)</div>
-      <div><strong style="color:#fbbf24;">08:13</strong> Begues — loput A:sta (Jari, Soile, Hannele) jättää auton, aloittaa E21</div>
+      <div><strong style="color:#fbbf24;">08:13</strong> Begues — loput A:sta (Jari, Hannele) jättää auton, aloittaa E21</div>
       <div><strong style="color:#fbbf24;">13:02</strong> B perillä Beguesissa — auto odottaa</div>
       <div><strong style="color:#fbbf24;">16:22</strong> Kaikki kotona (Kirsi jo lentänyt)</div>
     </div>
@@ -2052,7 +2052,7 @@ const etapit = {
     backup: 'Alku: Sant Vicenç dels Horts, FGC-asema reitin alussa. Loppu: Begues-alue (Aigües de Barcelona), autoparkki.',
     transport: 'Kaksi ryhmää + auto — katso Kuljetus tänään',
     paivaLinkit: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.39350,2.00924&travelmode=driving|🚗|To 17.9: Ajo leiriltä E20 alkuun (A:n pudotus)|61 min~https://www.google.com/maps/dir/?api=1&origin=41.39350,2.00924&destination=41.31468,1.96166&travelmode=driving|🚗|To 17.9: Jatka Beguesiin (B jatkaa)|22 min~https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.39350,2.00924&travelmode=driving|🚗|Pe 18.9: Ajo leiriltä E20 alkuun (B:n pudotus)|61 min~https://www.google.com/maps/dir/?api=1&origin=41.39350,2.00924&destination=41.29740,2.07833&travelmode=driving|🚗|Pe 18.9: Jatka lentoasemalle (Kirsi jää)|22 min~https://www.google.com/maps/dir/?api=1&origin=41.29740,2.07833&destination=41.31468,1.96166&travelmode=driving|🚗|Pe 18.9: Jatka Beguesiin (A jatkaa ilman Kirsiä)|20 min~https://www.google.com/maps/dir/?api=1&origin=41.31468,1.96166&destination=41.25281,1.90220&travelmode=driving|🚗|Molempina: Begues → Garraf|19 min · E20-kävelijä hakee toisen~https://www.google.com/maps/dir/?api=1&origin=41.25281,1.90220&destination=41.60768,2.63522&travelmode=driving|🚗|Molempina: Garraf → leiri|74 min · yhdessä kotiin',
-    paivaVaiheet: '17.9. — A kävelee E20:n (Jari, Soile, Kirsi, Hannele)|06:30 lähtö leiriltä yhdessä|07:31 E20 alku — A jää, aloittaa E20|07:53 Begues — B jatkaa, jättää auton, aloittaa E21|14:47 A perillä Beguesissa — auto odottaa|15:06 A ajaa Garrafiin noutamaan B:n|16:20 kaikki kotona|18.9. — B kävelee E20:n (Ano, Panu)|06:30 lähtö leiriltä yhdessä|07:31 E20 alku — B jää, aloittaa E20|07:53 Lentoasema — Kirsi jää (AY1654 10:05, puskuria 2h12)|08:13 Begues — loput A:sta (Jari, Soile, Hannele) jättää auton, aloittaa E21|13:02 B perillä Beguesissa — auto odottaa|16:22 kaikki kotona (Kirsi jo lentänyt)',
+    paivaVaiheet: '17.9. — A kävelee E20:n (Jari, Kirsi, Hannele — Soile lensi jo 16.9.)|06:30 lähtö leiriltä yhdessä|07:31 E20 alku — A jää, aloittaa E20|07:53 Begues — B jatkaa, jättää auton, aloittaa E21|14:47 A perillä Beguesissa — auto odottaa|15:06 A ajaa Garrafiin noutamaan B:n|16:20 kaikki kotona|18.9. — B kävelee E20:n (Ano, Panu)|06:30 lähtö leiriltä yhdessä|07:31 E20 alku — B jää, aloittaa E20|07:53 Lentoasema — Kirsi jää (AY1654 10:05, puskuria 2h12)|08:13 Begues — loput A:sta (Jari, Hannele) jättää auton, aloittaa E21|13:02 B perillä Beguesissa — auto odottaa|16:22 kaikki kotona (Kirsi jo lentänyt)',
     paivaRooli: 'Katso alta molempien päivien ohjeet — perjantaina Kirsin lento integroitu reittiin.',
     paivaOtsikko: 'To 17.9. / Pe 18.9. — E20 ja E21, roolit vaihtuvat',
     gpx: './Etappi20.gpx',
@@ -2069,7 +2069,7 @@ const etapit = {
     backup: 'Alku: Begues-alue (autoparkki). Loppu: Garraf, R2 Sud -asema.',
     transport: 'Kaksi ryhmää + auto — katso Kuljetus tänään',
     paivaLinkit: 'https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.39350,2.00924&travelmode=driving|🚗|To 17.9: Ajo leiriltä E20 alkuun (A:n pudotus)|61 min~https://www.google.com/maps/dir/?api=1&origin=41.39350,2.00924&destination=41.31468,1.96166&travelmode=driving|🚗|To 17.9: Jatka Beguesiin (B jatkaa)|22 min~https://www.google.com/maps/dir/?api=1&origin=41.60768,2.63522&destination=41.39350,2.00924&travelmode=driving|🚗|Pe 18.9: Ajo leiriltä E20 alkuun (B:n pudotus)|61 min~https://www.google.com/maps/dir/?api=1&origin=41.39350,2.00924&destination=41.29740,2.07833&travelmode=driving|🚗|Pe 18.9: Jatka lentoasemalle (Kirsi jää)|22 min~https://www.google.com/maps/dir/?api=1&origin=41.29740,2.07833&destination=41.31468,1.96166&travelmode=driving|🚗|Pe 18.9: Jatka Beguesiin (A jatkaa ilman Kirsiä)|20 min~https://www.google.com/maps/dir/?api=1&origin=41.31468,1.96166&destination=41.25281,1.90220&travelmode=driving|🚗|Molempina: Begues → Garraf|19 min · E20-kävelijä hakee toisen~https://www.google.com/maps/dir/?api=1&origin=41.25281,1.90220&destination=41.60768,2.63522&travelmode=driving|🚗|Molempina: Garraf → leiri|74 min · yhdessä kotiin',
-    paivaVaiheet: '17.9. — B kävelee E21:n (Ano, Panu)|06:30 lähtö leiriltä yhdessä|07:31 E20 alku — A jää kävelemään E20:ta|07:53 Begues — jäät tähän, jätät auton, aloitat E21|13:06 perillä Garrafissa — odotat n. 2h|15:06 A noutaa sinut|16:20 kaikki kotona|18.9. — A kävelee E21:n (Jari, Soile, Hannele — ei Kirsiä)|06:30 lähtö leiriltä yhdessä|07:53 Lentoasema — Kirsi jää|08:13 Begues — Jari, Soile ja Hannele jäävät tähän (EI Kirsi), jättävät auton, aloittavat E21|15:08 perillä Garrafissa|16:22 kaikki kotona',
+    paivaVaiheet: '17.9. — B kävelee E21:n (Ano, Panu)|06:30 lähtö leiriltä yhdessä|07:31 E20 alku — A jää kävelemään E20:ta|07:53 Begues — jäät tähän, jätät auton, aloitat E21|13:06 perillä Garrafissa — odotat n. 2h|15:06 A noutaa sinut|16:20 kaikki kotona|18.9. — A kävelee E21:n (Jari, Hannele — ei Soile, ei Kirsi)|06:30 lähtö leiriltä yhdessä|07:53 Lentoasema — Kirsi jää|08:13 Begues — Jari ja Hannele jäävät tähän (EI Soile, EI Kirsi), jättävät auton, aloittavat E21|15:08 perillä Garrafissa|16:22 kaikki kotona',
     paivaRooli: 'Katso alta molempien päivien ohjeet — perjantaina Kirsin lento integroitu reittiin.',
     paivaOtsikko: 'To 17.9. / Pe 18.9. — E20 ja E21, roolit vaihtuvat',
     gpx: './Etappi21.gpx',
